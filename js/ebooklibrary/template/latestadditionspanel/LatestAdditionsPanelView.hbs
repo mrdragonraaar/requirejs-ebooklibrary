@@ -1,0 +1,14 @@
+{{!
+{
+	"name": "LatestAdditionsPanelView",
+	"description": "Latest Additions Panel View Template"
+}
+}}
+<h3 class="heading-latestadditions heading-header">Latest Additions</h3>
+<div class="latestadditionspanel-books">
+{{#each latestAdditions}}
+	<div class="book-thumb">
+		<a class="thumbnail" href="{{downloadUrl}}" title="{{fileInfo.name}}"><img src="{{bookInfo.cover}}"/></a>
+	</div>
+{{/each}}
+</div>

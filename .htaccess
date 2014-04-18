@@ -1,0 +1,43 @@
+Options -Indexes
+
+AddType application/json .hbs
+
+RewriteEngine On
+
+# Download
+RewriteRule ^library/download/(.+?)/(.+?)/(.+?)$ /library/php/download.php?author=$1&series=$2&book=$3 [B]
+RewriteRule ^library/download/(.+?)/(.+?)$ /library/php/download.php?author=$1&book=$2 [B]
+
+# JSON : Authors
+RewriteRule ^library/json/authors$ /library/php/json_authors.php
+
+# JSON : Series
+RewriteRule ^library/json/series/(.+?)/(.+?)/$ /library/php/json_series.php?author=$1&series=$2 [B]
+RewriteRule ^library/json/series/(.+?)/(.+?)$ /library/php/json_series.php?author=$1&series=$2 [B]
+RewriteRule ^library/json/series/(.+?)/$ /library/php/json_series.php?author=$1 [B]
+RewriteRule ^library/json/series/(.+?)$ /library/php/json_series.php?author=$1 [B]
+
+# JSON : Books
+RewriteRule ^library/json/books/(.+?)/(.+?)/$ /library/php/json_books.php?author=$1&series=$2 [B]
+RewriteRule ^library/json/books/(.+?)/(.+?)$ /library/php/json_books.php?author=$1&series=$2 [B]
+RewriteRule ^library/json/books/(.+?)/$ /library/php/json_books.php?author=$1 [B]
+RewriteRule ^library/json/books/(.+?)$ /library/php/json_books.php?author=$1 [B]
+
+# JSON : Search
+RewriteRule ^library/json/search/(.+?)/$ /library/php/json_search.php?search=$1 [B]
+RewriteRule ^library/json/search/(.+?)$ /library/php/json_search.php?search=$1 [B]
+RewriteRule ^library/json/search/$ /library/php/json_search.php [B]
+RewriteRule ^library/json/search$ /library/php/json_search.php [B]
+
+# JSON : Book Text
+RewriteRule ^library/json/book/(.+?)/(.+?)/(.+?)$ /library/php/json_book_text.php?author=$1&series=$2&book=$3 [B]
+RewriteRule ^library/json/book/(.+?)/(.+?)$ /library/php/json_book_text.php?author=$1&book=$2 [B]
+
+# JSON : Latest Additions
+RewriteRule ^library/json/latestAdditions/(.+?)/$ /library/php/json_latest.php?max=$1 [B]
+RewriteRule ^library/json/latestAdditions/(.+?)$ /library/php/json_latest.php?max=$1 [B]
+RewriteRule ^library/json/latestAdditions/$ /library/php/json_latest.php [B]
+RewriteRule ^library/json/latestAdditions$ /library/php/json_latest.php [B]
+
+# JSON : Links
+RewriteRule ^library/json/links$ /library/php/json_links.php

@@ -1,0 +1,16 @@
+{{!
+{
+	"name": "AuthorsPanelView",
+	"description": "Authors Panel View Template"
+}
+}}
+<div class="authorspanel-sidebar">
+	<i class="icon-breadcrumb author active"/>
+</div>
+<div class="authorspanel-body well well-authors">
+	<ul class="list-panel list-authors">
+	{{#each authors}}
+		<li><a href="{{href}}">{{fileInfo.name}}</a></li>
+	{{/each}}
+	</ul>
+</div>
