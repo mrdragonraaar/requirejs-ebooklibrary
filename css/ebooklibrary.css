@@ -808,7 +808,8 @@ booktextpanel
 }
 
 .bookspanel-toolbar .btn-default,
-.bookspanel-toolbar .dropdown-toggle.btn-default
+.bookspanel-toolbar .dropdown-toggle.btn-default,
+.book-detail .btn-default
 {
 	color: #382110;
 	border: 1px solid #b6b4a1;
@@ -939,6 +940,11 @@ booktextpanel
 	margin: 15px 0px 0px;
 }
 
+.bookspanel-details .book-detail > .book-detail-cover
+{
+	text-align: center;
+}
+
 .bookspanel-details .book-detail > .book-detail-cover > a.thumbnail
 {
 	margin-bottom: 10px;
@@ -951,18 +957,20 @@ booktextpanel
 	height: 200px;
 }
 
-/*
-.bookspanel-details .book-detail > .media-body > .btn-book-read
+.bookspanel-details .book-detail > .book-detail-cover > .btn-book-read
 {
-	color: #382110;
+	font-weight: 700;
+	margin-left: 4px;
+	margin-right: 4px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: left;
 }
 
-.bookspanel-details .book-detail > .media-body > .btn-book-read:hover,
-.bookspanel-details .book-detail > .media-body > .btn-book-read:focus
+.bookspanel-details .book-detail > .book-detail-cover > .btn-book-read > .icon-book-open
 {
-	background-color: #e1ddc7;
+	margin-right: 5px;
 }
-*/
 
 .bookspanel-details .book-detail > .media-body > .book-detail-details
 {
