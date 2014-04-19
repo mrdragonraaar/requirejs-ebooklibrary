@@ -86,10 +86,21 @@ function(
 		 * @param collection books collection.
 		 */
 		fadeInBooks: function(collection) {
+				this.setBooksBadge(collection.length);
 				this.$('.panel-body > .bookspanel-books').fadeOut('slow');
-				this.renderBooks(this.collection);
+				this.renderBooks(collection);
 				this.$('.panel-body > .bookspanel-books').hide();
 				this.$('.panel-body > .bookspanel-books').fadeIn('slow');
+		},
+
+		/**
+		 * Set the value for book count badge.
+		 * @param count book count.
+		 */
+		setBooksBadge: function(count) {
+			count = count || 0;
+			this.$('.panel-heading > .badge-books').text(count);
+			this.$('.panel-heading > .badge-books').attr('title', count + ' books');
 		},
 
 		/**

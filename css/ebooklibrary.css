@@ -215,6 +215,15 @@ ul.list-panel > li ul
 {
 	color: #b6b4a1;
 	text-transform: uppercase;
+	padding-left: 15px;
+	margin-left: 5px;
+}
+
+.badge
+{
+	background-color: #e1ddc7;
+	color: #382110;
+	border: 1px solid #b6b4a1;
 }
 
 .logo-ebooklibrary
@@ -552,13 +561,6 @@ footer
 	border-radius: 0px;
 }
 
-.well-header ul,
-.well-sidebar ul,
-.well-authors ul
-{
-	padding-left: 15px;
-}
-
 latestadditionspanel,
 loginpanel
 {
@@ -728,7 +730,7 @@ linkspanel.well-links > ul > li
 
 linkspanel.well-links > ul > li > ul
 {
-	padding-left: 53px;
+	margin-left: 39px;
 }
 
 .panel-books,
@@ -760,6 +762,11 @@ linkspanel.well-links > ul > li > ul
 {
 	padding-top: 0px;
 	padding-bottom: 0px;
+}
+
+.panel-books > .panel-heading > .badge-books
+{
+	margin-top: 5px;
 }
 
 bookspanel,
