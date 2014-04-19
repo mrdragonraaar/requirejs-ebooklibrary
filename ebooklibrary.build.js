@@ -11,5 +11,5 @@
 	keepBuildDir: false,
 	optimizeCss: "standard",
 	removeCombined: true,
-	fileExclusionRegExp: /^.git$|^.+\.build\.js$|xcf|originals/
+	fileExclusionRegExp: /^README.md$|^.git$|^.+\.build\.js$|xcf|originals/
 })
