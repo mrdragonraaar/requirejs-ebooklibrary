@@ -25,6 +25,15 @@ abstract class FileCollection implements JsonSerializable
 	abstract public function fullPath();
 
 	/**
+	 * Get array of files in collection.
+	 * @return array of files
+	 */
+	public function files()
+	{
+		return $this->files;
+	}
+
+	/**
 	 * Add files to collection.
 	 * @return boolean
 	 */
