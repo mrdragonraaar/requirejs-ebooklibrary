@@ -48,6 +48,7 @@ js/ebooklibrary/collection/LatestAdditionsCollection.js
 js/ebooklibrary/view/latestadditionspanel/LatestAdditionsPanelView.js
 hbs!ebooklibrary/template/authorspanel/AuthorsPanelView
 js/ebooklibrary/view/authorspanel/AuthorsPanelView.js
+hbs!ebooklibrary/template/welcomepanel/WelcomePanelView
 hbs!ebooklibrary/template/linkspanel/LinksPanelView
 js/ebooklibrary/model/LinkModel.js
 js/ebooklibrary/collection/LinkCollection.js

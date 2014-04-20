@@ -9,6 +9,7 @@ define([
     'ebooklibrary/view/loadingpanel/LoadingPanelView',
     'ebooklibrary/view/latestadditionspanel/LatestAdditionsPanelView',
     'ebooklibrary/view/authorspanel/AuthorsPanelView',
+    'hbs!ebooklibrary/template/welcomepanel/WelcomePanelView',
     'ebooklibrary/view/linkspanel/LinksPanelView',
     'backbone'
 ],
@@ -16,6 +17,7 @@ function(
     LoadingPanelView,
     LatestAdditionsPanelView,
     AuthorsPanelView,
+    WelcomePanelViewTemplate,
     LinksPanelView,
     Backbone
 ) {
@@ -55,6 +57,9 @@ function(
 			this.$el.append(this.authorsPanelView.render().el);
 
 			this.$el.append('<div class="content-sidebar"/>');
+
+			var welcomePanelTmpl = WelcomePanelViewTemplate();
+			this.$('.content-sidebar').append(welcomePanelTmpl);
 
 			var linksPanelView = new LinksPanelView();
 			this.$('.content-sidebar').append(linksPanelView.render().el);
