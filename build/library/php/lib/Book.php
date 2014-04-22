@@ -46,8 +46,12 @@ class BookInfo implements JsonSerializable
 	 */
 	/* Title */
 	public function title() { return $this->_mobi->title(); }
+	/* Title Sort */
+	public function titleSort() { return $this->_mobi->title_sort(); }
 	/* Author */
 	public function author() { return $this->_mobi->authors(); }
+	/* Author Sort */
+	public function authorSort() { return $this->_mobi->authors_sort(); }
 	/* Cover */
 	public function cover() { return 'data:image/png;base64,' . base64_encode($this->_mobi->cover()); }
 	/* Description */
@@ -84,7 +88,9 @@ class BookInfo implements JsonSerializable
 	{
 		return [
 			'title' => $this->title(),
+			'titleSort' => $this->titleSort(),
 			'author' => $this->author(),
+			'authorSort' => $this->authorSort(),
 			'cover' => $this->cover(),
 			'description' => $this->description(),
 			'publisher' => $this->publisher(),

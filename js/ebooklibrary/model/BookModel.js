@@ -21,6 +21,7 @@ function(
 				text: '',
 				bookInfo: {
 					author: '',
+					authorSort: '',
 					contributor: '',
 					cover: '',
 					creatorSoftware: '',
@@ -30,7 +31,8 @@ function(
 					publisher: '',
 					publishingDate: '',
 					subject: '',
-					title: ''
+					title: '',
+					titleSort: ''
 				}
 			});
 		},

@@ -35,6 +35,7 @@ define([
 		 */
 		_sortBy: function(key, asc) {
 			if (key.toLowerCase() === 'title') return this._sortByTitle(asc);
+			if (key.toLowerCase() === 'author') return this._sortByAuthor(asc);
 			if (key.toLowerCase() === 'publishing date') return this._sortByPublishingDate(asc);
 			if (key.toLowerCase() === 'publication date') return this._sortByPublishingDate(asc);
 
@@ -53,8 +54,8 @@ define([
 		 * Comparator to sort ascending by title.
 		 */
 		_sortByTitleAsc: function(a, b) {
-			a = a.get('bookInfo').title;
-			b = b.get('bookInfo').title;
+			a = a.get('bookInfo').titleSort;
+			b = b.get('bookInfo').titleSort;
 			return a < b ? -1
 				: a > b ? 1
 				: 0;
@@ -64,8 +65,38 @@ define([
 		 * Comparator to sort descending by title.
 		 */
 		_sortByTitleDesc: function(a, b) {
-			a = a.get('bookInfo').title;
-			b = b.get('bookInfo').title;
+			a = a.get('bookInfo').titleSort;
+			b = b.get('bookInfo').titleSort;
+			return a < b ? 1
+				: a > b ? -1
+				: 0;
+		},
+
+		/**
+		 * Get comparator to sort by author.
+		 * @param asc true if comparator is ascending.
+		 */
+		_sortByAuthor: function(asc) {
+			return asc ? this._sortByAuthorAsc : this._sortByAuthorDesc;
+		},
+
+		/**
+		 * Comparator to sort ascending by author.
+		 */
+		_sortByAuthorAsc: function(a, b) {
+			a = a.get('bookInfo').authorSort;
+			b = b.get('bookInfo').authorSort;
+			return a < b ? -1
+				: a > b ? 1
+				: 0;
+		},
+
+		/**
+		 * Comparator to sort descending by author.
+		 */
+		_sortByAuthorDesc: function(a, b) {
+			a = a.get('bookInfo').authorSort;
+			b = b.get('bookInfo').authorSort;
 			return a < b ? 1
 				: a > b ? -1
 				: 0;
