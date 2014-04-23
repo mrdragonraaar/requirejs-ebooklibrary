@@ -57,6 +57,7 @@ function(
 			this.$el.append(this.authorsPanelView.render().el);
 
 			this.$el.append('<div class="content-sidebar"/>');
+			this.$('.content-sidebar').hide();
 
 			var welcomePanelTmpl = WelcomePanelViewTemplate();
 			this.$('.content-sidebar').append(welcomePanelTmpl);
@@ -75,6 +76,7 @@ function(
 			if (collection.length > 0) {
 				this.authorsPanelView.$el.fadeIn('slow');
 			}
+			this.$('.content-sidebar').fadeIn('slow');
 		},
 
 		/**
