@@ -60,7 +60,7 @@ function(
 		showBooksPanel: function(collection, resp) {
 			this.loadingPanelView.$el.hide();
 
-			if (resp instanceof Object && resp.status !== 200)
+			if (!(resp instanceof Array) && resp.status !== 200)
 				collection.error = true;
 
 			var searchPanelTmpl = SearchPanelViewTemplate(collection);
