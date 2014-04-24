@@ -37,6 +37,7 @@ function(
 			var searchCollection = new SearchCollection([], {keyword: options.keyword});
 			this.booksPanelView = new BooksPanelView({collection: searchCollection});
 			this.listenTo(this.booksPanelView.collection, 'sync', this.showBooksPanel);
+			this.listenTo(this.booksPanelView.collection, 'error', this.showBooksPanel);
 		},
 		
 		/**
@@ -56,8 +57,11 @@ function(
 		 * Show books panel.
 		 * @param collection books collection.
 		 */
-		showBooksPanel: function(collection) {
+		showBooksPanel: function(collection, resp) {
 			this.loadingPanelView.$el.hide();
+
+			if (resp instanceof Object && resp.status !== 200)
+				collection.error = true;
 
 			var searchPanelTmpl = SearchPanelViewTemplate(collection);
 			this.$el.prepend(searchPanelTmpl);

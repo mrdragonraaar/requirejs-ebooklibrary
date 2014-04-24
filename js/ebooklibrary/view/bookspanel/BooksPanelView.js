@@ -35,7 +35,7 @@ function(
 			options = options || {};
 
 			if (this.collection)
-				this.collection.fetch();
+				this.collection.fetch({timeout: 20000});
 
 			this.listenTo(this.collection, 'sync', this.fadeInBooks);
 			this.listenTo(this.collection, 'sort', this.renderBooks);

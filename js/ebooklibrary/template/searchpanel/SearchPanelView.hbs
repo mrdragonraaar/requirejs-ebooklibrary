@@ -6,4 +6,7 @@
 }}
 <searchpanel class="well well-header well-search">
 <h3 class="heading-title">Results for &#8220;{{keyword}}&#8221;</h3>
+{{#if error}}
+<h3 class="heading-error">Error: Please refine search.</h3>
+{{/if}}
 </searchpanel>

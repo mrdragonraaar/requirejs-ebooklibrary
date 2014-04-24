@@ -52,6 +52,7 @@ body
 }
 
 .heading-title,
+.heading-error,
 .heading-welcome
 {
 	font-size: 18px;
@@ -61,6 +62,11 @@ body
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	margin: 0px 0px 10px;
+}
+
+.heading-error
+{
+	color: #f00;
 }
 
 .heading-welcome
