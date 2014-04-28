@@ -38,7 +38,6 @@ function(
 			this.loadingPanelView = new LoadingPanelView();
 
 			this.latestAdditionsPanelView = new LatestAdditionsPanelView({max: options.max});
-			this.listenTo(this.latestAdditionsPanelView.collection, 'sync', this.showLatestAdditionsPanel);
 
 			this.authorsPanelView = new AuthorsPanelView();
 			this.listenTo(this.authorsPanelView.collection, 'sync', this.showAuthorsPanel);
@@ -73,18 +72,9 @@ function(
 		 * @param collection author collection.
 		 */
 		showAuthorsPanel: function(collection) {
-			if (collection.length > 0) {
-				this.authorsPanelView.$el.fadeIn('slow');
-			}
+			this.loadingPanelView.$el.fadeOut('slow');
+			this.authorsPanelView.$el.fadeIn('slow');
 			this.$('.content-sidebar').fadeIn('slow');
-		},
-
-		/**
-		 * Show latest additions panel.
-		 * @param collection latest additions collection.
-		 */
-		showLatestAdditionsPanel: function(collection) {
-			this.loadingPanelView.$el.hide();
 		}
 	});
 	

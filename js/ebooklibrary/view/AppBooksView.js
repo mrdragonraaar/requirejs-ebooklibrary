@@ -73,7 +73,7 @@ function(
 		 * @param collection books collection.
 		 */
 		showBooksPanel: function(collection) {
-			this.loadingPanelView.$el.hide();
+			this.loadingPanelView.$el.fadeOut('slow');
 			this.booksPanelView.$el.fadeIn('slow');
 		}
 	});

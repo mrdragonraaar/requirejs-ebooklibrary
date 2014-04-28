@@ -52,7 +52,7 @@ function(
 		 * @param model book text model.
 		 */
 		showBookTextPanel: function(model) {
-			this.loadingPanelView.$el.hide();
+			this.loadingPanelView.$el.fadeOut('slow');
 			this.bookTextPanelView.$el.fadeIn('slow');
 		}
 	});

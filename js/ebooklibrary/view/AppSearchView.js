@@ -58,7 +58,7 @@ function(
 		 * @param collection books collection.
 		 */
 		showBooksPanel: function(collection, resp) {
-			this.loadingPanelView.$el.hide();
+			this.loadingPanelView.$el.fadeOut('slow');
 
 			if (!(resp instanceof Array) && resp.status !== 200)
 				collection.error = true;

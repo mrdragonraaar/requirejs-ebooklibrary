@@ -1106,14 +1106,13 @@ loadingpanel
 {
 	position: fixed;
 	display: block;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	bottom: 15px;
+	left: 15px;
+	right: 15px;
 	z-index: 5000;
 	margin: auto;
-	height: 2em;
 	width: 2em;
+	height: 65px;
 	overflow: show;
 }
 
@@ -1123,13 +1122,13 @@ loadingpanel:before
 	content: '';
 	display: block;
 	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
+	height: 65px;
+	border-radius: 4px;
 	background-color: rgba(0, 0, 0, 0.3);
 }
-
 
 /* :not(:required) hides these rules from IE9 and below */
 loadingpanel:not(:required)
@@ -1149,7 +1148,7 @@ loadingpanel:not(:required):after
 	font-size: 10px;
 	width: 1em;
 	height: 1em;
-	margin-top: -0.5em;
+	margin-top: 2.7em;
 	-webkit-animation: spinner 1500ms infinite linear;
 	-moz-animation: spinner 1500ms infinite linear;
 	-ms-animation: spinner 1500ms infinite linear;
