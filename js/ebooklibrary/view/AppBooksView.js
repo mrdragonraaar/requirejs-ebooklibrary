@@ -52,7 +52,6 @@ function(
 
 			this.seriesPanelView.$el.hide();
 			this.$el.append(this.seriesPanelView.render().el);
-			this.booksPanelView.$el.hide();
 			this.$el.append(this.booksPanelView.render().el);
 
 			return this;
@@ -74,7 +73,6 @@ function(
 		 */
 		showBooksPanel: function(collection) {
 			this.loadingPanelView.$el.fadeOut('slow');
-			this.booksPanelView.$el.fadeIn('slow');
 		}
 	});
 	

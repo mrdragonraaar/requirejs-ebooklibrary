@@ -47,7 +47,7 @@ function(
 
 		/**
 		 * Event handler for toolbar viewAs event.
-		 * @param viewAsMenuName name of viewAs menu.
+		 * @param viewAsButtonName name of viewAs button.
 		 */
 		onBooksPanelToolBarViewAs: function(viewAsButtonName) {
 			if (this.collection)
@@ -76,7 +76,9 @@ function(
 
 			this.$('.panel-heading').append(this.toolBarView.render().el);
 			this.toolBarView.setActiveViewAsThumbnailsButton();
+			this.toolBarView.disableAllViewAsButtons(true);
 			this.toolBarView.setActiveSortByMenu('Name', true);
+			this.toolBarView.disableSortByButton(true);
 
 			return this;
 		},
@@ -86,11 +88,15 @@ function(
 		 * @param collection books collection.
 		 */
 		fadeInBooks: function(collection) {
-				this.setBooksBadge(collection.length);
-				this.$('.panel-body > .bookspanel-books').fadeOut('slow');
-				this.renderBooks(collection);
-				this.$('.panel-body > .bookspanel-books').hide();
-				this.$('.panel-body > .bookspanel-books').fadeIn('slow');
+			this.setBooksBadge(collection.length);
+			this.$('.panel-body > .bookspanel-books').fadeOut('slow');
+			this.renderBooks(collection);
+			this.$('.panel-body > .bookspanel-books').hide();
+			this.$('.panel-body > .bookspanel-books').fadeIn('slow');
+			if (collection.length > 0) {
+				this.toolBarView.disableAllViewAsButtons(false);
+				this.toolBarView.disableSortByButton(false);
+			}
 		},
 
 		/**

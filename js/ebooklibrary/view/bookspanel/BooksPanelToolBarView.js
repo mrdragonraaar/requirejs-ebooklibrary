@@ -119,6 +119,28 @@ function(
 		},
 
 		/**
+		 * Disable button.
+		 * @param button button to disable.
+		 * @param disable if true will disable else will enable.
+		 */
+		disableButton: function(button, disable) {
+			button.prop('disabled', disable);
+			if (disable)
+				button.addClass('disabled');
+			else
+				button.removeClass('disabled');
+		},
+
+		/**
+		 * Disable all viewAs buttons.
+		 * @param disable if true will disable else will enable.
+		 */
+		disableAllViewAsButtons: function(disable) {
+			var viewAsButtons = this.getAllViewAsButtons();
+			this.disableButton(viewAsButtons, disable);
+		},
+
+		/**
 		 * Event handler for sortBy menu click event.
 		 * @param e click event.
 		 */
@@ -136,6 +158,23 @@ function(
 				this.setActiveSortByMenu(selectedSortByMenuName, true);
 				this.trigger('booksPanelToolBarSortBy', selectedSortByMenuName, true);
 			}
+		},
+
+		/**
+		 * Get sortBy button.
+		 * @return sortBy button
+		 */
+		getSortByButton: function() {
+			return this.$('.toolbar-sortby > button.btn-sortby-dropdown');
+		},
+
+		/**
+		 * Disable sortBy button.
+		 * @param disable if true will disable else will enable.
+		 */
+		disableSortByButton: function(disable) {
+			var sortByButton = this.getSortByButton();
+			this.disableButton(sortByButton, disable);
 		},
 
 		/**

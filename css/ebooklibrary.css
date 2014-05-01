@@ -870,6 +870,18 @@ button.disabled .icon-bookspanel-toolbar.sort,
 	background-color: #e1ddc7;
 }
 
+.bookspanel-toolbar .btn-default.disabled,
+.bookspanel-toolbar .btn-default[disabled],
+.bookspanel-toolbar .btn-default.disabled:hover,
+.bookspanel-toolbar .btn-default[disabled]:hover,
+.bookspanel-toolbar .btn-default.disabled:focus,
+.bookspanel-toolbar .btn-default[disabled]:focus
+{
+	color: #382110;
+	border: 1px solid #b6b4a1;
+	background-color: #e1ddc7;
+}
+
 .bookspanel-toolbar .dropdown-menu
 {
 	font-size: 12px;
@@ -1134,7 +1146,7 @@ loadingpanel
 {
 	position: fixed;
 	display: block;
-	bottom: 15px;
+	bottom: 65px;
 	left: 15px;
 	right: 15px;
 	z-index: 5000;
@@ -1152,7 +1164,7 @@ loadingpanel:before
 	position: fixed;
 	left: 15px;
 	right: 15px;
-	bottom: 15px;
+	bottom: 65px;
 	height: 65px;
 	border-radius: 4px;
 	background-color: rgba(0, 0, 0, 0.3);

@@ -47,7 +47,6 @@ function(
 		render: function() {
 			this.$el.append(this.loadingPanelView.render().el);
 
-			this.booksPanelView.$el.hide();
 			this.$el.append(this.booksPanelView.render().el);
 
 			return this;
@@ -65,8 +64,6 @@ function(
 
 			var searchPanelTmpl = SearchPanelViewTemplate(collection);
 			this.$el.prepend(searchPanelTmpl);
-
-			this.booksPanelView.$el.fadeIn('slow');
 		}
 	});
 	
