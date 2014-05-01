@@ -391,7 +391,7 @@ searchbox
 	float: right;
 }
 
-.navbar-searchbox > form > .icon-search
+.navbar-searchbox > form > .icon-magnifier-left
 {
 	position: relative;
 	top: -1px;
@@ -400,7 +400,7 @@ searchbox
 	opacity: 0.5;
 }
 
-.navbar-searchbox.active > form > .icon-search
+.navbar-searchbox.active > form > .icon-magnifier-left
 {
 	opacity: 1;
 }
@@ -1072,9 +1072,8 @@ button.disabled .icon-bookspanel-toolbar.sort,
 	margin: 15px 0px 15px;
 }
 
-.icon-document-mobi,
-.icon-book-open,
-.icon-search
+.icons-fugue,
+.icon-book-open
 {
 	display: inline-block;
 	width: 16px;
@@ -1084,19 +1083,24 @@ button.disabled .icon-bookspanel-toolbar.sort,
 	vertical-align: middle;
 }
 
-.icon-document-mobi
+.icons-fugue.icon-document-mobi
 {
-	background-image: url('/images/bookspanel/icon-document-mobi.png');
+	background-image: url('/images/icons/fugue-icons/icons/document-mobi.png');
+}
+
+.icons-fugue.icon-information-frame
+{
+	background-image: url('/images/icons/fugue-icons/icons/information-frame.png');
+}
+
+.icons-fugue.icon-magnifier-left
+{
+	background-image: url('/images/icons/fugue-icons/icons/magnifier-left.png');
 }
 
 .icon-book-open
 {
 	background-image: url('/images/bookspanel/icon-book-open.png');
-}
-
-.icon-search
-{
-	background-image: url('/images/navbar/icon-search.png');
 }
 
 .bookspanel-list .book-list > td
