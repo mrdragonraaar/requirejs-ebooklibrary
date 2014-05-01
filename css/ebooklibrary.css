@@ -818,9 +818,23 @@ booktextpanel
 	background-position: 0px -1px;
 }
 
+button[disabled] .icon-bookspanel-toolbar.thumbnails,
+button.disabled .icon-bookspanel-toolbar.thumbnails,
+.icon-bookspanel-toolbar.thumbnails.disabled
+{
+	background-position: 0px -15px;
+}
+
 .icon-bookspanel-toolbar.details
 {
 	background-position: -19px -1px;
+}
+
+button[disabled] .icon-bookspanel-toolbar.details,
+button.disabled .icon-bookspanel-toolbar.details,
+.icon-bookspanel-toolbar.details.disabled
+{
+	background-position: -19px -15px;
 }
 
 .icon-bookspanel-toolbar.list
@@ -828,9 +842,23 @@ booktextpanel
 	background-position: -37px -1px;
 }
 
+button[disabled] .icon-bookspanel-toolbar.list,
+button.disabled .icon-bookspanel-toolbar.list,
+.icon-bookspanel-toolbar.list.disabled
+{
+	background-position: -37px -15px;
+}
+
 .icon-bookspanel-toolbar.sort
 {
 	background-position: -55px 0px;
+}
+
+button[disabled] .icon-bookspanel-toolbar.sort,
+button.disabled .icon-bookspanel-toolbar.sort,
+.icon-bookspanel-toolbar.sort.disabled
+{
+	background-position: -55px -15px;
 }
 
 .bookspanel-toolbar .btn-default,
