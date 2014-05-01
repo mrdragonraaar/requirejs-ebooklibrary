@@ -248,6 +248,7 @@ ul.list-panel > li ul
 	background-image: url('/images/logo-ebooklibrary.png');
 	padding: 0;
 	margin: 0;
+	vertical-align: middle;
 }
 
 .icons-breadcrumb
@@ -258,6 +259,7 @@ ul.list-panel > li ul
 	background-image: url('/images/icons/breadcrumb/icons-breadcrumb.png');
 	padding: 0;
 	margin: 0;
+	vertical-align: middle;
 }
 
 .icons-breadcrumb.icon-author
@@ -368,15 +370,9 @@ a.active .icons-breadcrumb.icon-search
 	color: #382110;
 }
 
-.navbar-default .navbar-nav > li > a > .logo-ebooklibrary
-{
-	vertical-align: middle;
-}
-
 .navbar-default .navbar-nav > li > a > .icons-breadcrumb,
 .panel-book-text .book-text-title > .icons-breadcrumb
 {
-	vertical-align: middle;
 	margin-right: 5px;
 }
 
@@ -803,60 +799,61 @@ booktextpanel
 	z-index: 1500;
 }
 
-.icon-bookspanel-toolbar
+.icons-toolbar-bookspanel
 {
 	display: inline-block;
 	width: 14px;
 	height: 14px;
-	background-image: url('/images/bookspanel/icons-bookspanel-toolbar.png');
+	background-image: url('/images/icons/toolbar/icons-toolbar-bookspanel.png');
 	padding: 0;
 	margin: 0;
+	vertical-align: middle;
 }
 
-.icon-bookspanel-toolbar.thumbnails
+.icons-toolbar-bookspanel.icon-thumbnails
 {
 	background-position: 0px -1px;
 }
 
-button[disabled] .icon-bookspanel-toolbar.thumbnails,
-button.disabled .icon-bookspanel-toolbar.thumbnails,
-.icon-bookspanel-toolbar.thumbnails.disabled
+button[disabled] .icons-toolbar-bookspanel.icon-thumbnails,
+button.disabled .icons-toolbar-bookspanel.icon-thumbnails,
+.icons-toolbar-bookspanel.icon-thumbnails.disabled
 {
 	background-position: 0px -15px;
 }
 
-.icon-bookspanel-toolbar.details
+.icons-toolbar-bookspanel.icon-details
 {
 	background-position: -19px -1px;
 }
 
-button[disabled] .icon-bookspanel-toolbar.details,
-button.disabled .icon-bookspanel-toolbar.details,
-.icon-bookspanel-toolbar.details.disabled
+button[disabled] .icons-toolbar-bookspanel.icon-details,
+button.disabled .icons-toolbar-bookspanel.icon-details,
+.icons-toolbar-bookspanel.icon-details.disabled
 {
 	background-position: -19px -15px;
 }
 
-.icon-bookspanel-toolbar.list
+.icons-toolbar-bookspanel.icon-list
 {
 	background-position: -37px -1px;
 }
 
-button[disabled] .icon-bookspanel-toolbar.list,
-button.disabled .icon-bookspanel-toolbar.list,
-.icon-bookspanel-toolbar.list.disabled
+button[disabled] .icons-toolbar-bookspanel.icon-list,
+button.disabled .icons-toolbar-bookspanel.icon-list,
+.icons-toolbar-bookspanel.icon-list.disabled
 {
 	background-position: -37px -15px;
 }
 
-.icon-bookspanel-toolbar.sort
+.icons-toolbar-bookspanel.icon-sort
 {
 	background-position: -55px 0px;
 }
 
-button[disabled] .icon-bookspanel-toolbar.sort,
-button.disabled .icon-bookspanel-toolbar.sort,
-.icon-bookspanel-toolbar.sort.disabled
+button[disabled] .icons-toolbar-bookspanel.icon-sort,
+button.disabled .icons-toolbar-bookspanel.icon-sort,
+.icons-toolbar-bookspanel.icon-sort.disabled
 {
 	background-position: -55px -15px;
 }
@@ -916,11 +913,6 @@ button.disabled .icon-bookspanel-toolbar.sort,
 {
 	margin-top: -2px;
 	margin-left: 10px;
-}
-
-.bookspanel-toolbar .btn-default > .icon-bookspanel-toolbar
-{
-	vertical-align: middle;
 }
 
 .bookspanel-thumbs
