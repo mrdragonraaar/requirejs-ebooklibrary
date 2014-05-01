@@ -5,6 +5,7 @@
  */
 @import url('bootstrap.min.css');
 @import url('bootstrap.col-ms.css');
+@import url('ebooklibrary-theme.css');
 
 html, body
 {
@@ -233,13 +234,6 @@ ul.list-panel > li ul
 	margin-left: 5px;
 }
 
-.badge
-{
-	background-color: #e1ddc7;
-	color: #382110;
-	border: 1px solid #b6b4a1;
-}
-
 .logo-ebooklibrary
 {
 	display: inline-block;
@@ -249,69 +243,6 @@ ul.list-panel > li ul
 	padding: 0;
 	margin: 0;
 	vertical-align: middle;
-}
-
-.icons-breadcrumb
-{
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	background-image: url('/images/icons/breadcrumb/icons-breadcrumb.png');
-	padding: 0;
-	margin: 0;
-	vertical-align: middle;
-}
-
-.icons-breadcrumb.icon-author
-{
-	background-position: -26px -6px;
-}
-
-.icons-breadcrumb.icon-author.active,
-a:hover .icons-breadcrumb.icon-author,
-a:focus .icons-breadcrumb.icon-author,
-a.active .icons-breadcrumb.icon-author
-{
-	background-position: -2px -6px;
-}
-
-.icons-breadcrumb.icon-series
-{
-	background-position: -26px -28px;
-}
-
-.icons-breadcrumb.icon-series.active,
-a:hover .icons-breadcrumb.icon-series,
-a:focus .icons-breadcrumb.icon-series,
-a.active .icons-breadcrumb.icon-series
-{
-	background-position: -2px -28px;
-}
-
-.icons-breadcrumb.icon-book
-{
-	background-position: -26px -50px;
-}
-
-.icons-breadcrumb.icon-book.active,
-a:hover .icons-breadcrumb.icon-book,
-a:focus .icons-breadcrumb.icon-book,
-a.active .icons-breadcrumb.icon-book
-{
-	background-position: -2px -50px;
-}
-
-.icons-breadcrumb.icon-search
-{
-	background-position: -26px -72px;
-}
-
-.icons-breadcrumb.icon-search.active,
-a:hover .icons-breadcrumb.icon-search,
-a:focus .icons-breadcrumb.icon-search,
-a.active .icons-breadcrumb.icon-search
-{
-	background-position: -2px -72px;
 }
 
 .navbar-default
@@ -799,86 +730,6 @@ booktextpanel
 	z-index: 1500;
 }
 
-.icons-toolbar-bookspanel
-{
-	display: inline-block;
-	width: 14px;
-	height: 14px;
-	background-image: url('/images/icons/toolbar/icons-toolbar-bookspanel.png');
-	padding: 0;
-	margin: 0;
-	vertical-align: middle;
-}
-
-.icons-toolbar-bookspanel.icon-thumbnails
-{
-	background-position: 0px -1px;
-}
-
-button[disabled] .icons-toolbar-bookspanel.icon-thumbnails,
-button.disabled .icons-toolbar-bookspanel.icon-thumbnails,
-.icons-toolbar-bookspanel.icon-thumbnails.disabled
-{
-	background-position: 0px -15px;
-}
-
-.icons-toolbar-bookspanel.icon-details
-{
-	background-position: -19px -1px;
-}
-
-button[disabled] .icons-toolbar-bookspanel.icon-details,
-button.disabled .icons-toolbar-bookspanel.icon-details,
-.icons-toolbar-bookspanel.icon-details.disabled
-{
-	background-position: -19px -15px;
-}
-
-.icons-toolbar-bookspanel.icon-list
-{
-	background-position: -37px -1px;
-}
-
-button[disabled] .icons-toolbar-bookspanel.icon-list,
-button.disabled .icons-toolbar-bookspanel.icon-list,
-.icons-toolbar-bookspanel.icon-list.disabled
-{
-	background-position: -37px -15px;
-}
-
-.icons-toolbar-bookspanel.icon-sort
-{
-	background-position: -55px 0px;
-}
-
-button[disabled] .icons-toolbar-bookspanel.icon-sort,
-button.disabled .icons-toolbar-bookspanel.icon-sort,
-.icons-toolbar-bookspanel.icon-sort.disabled
-{
-	background-position: -55px -15px;
-}
-
-.bookspanel-toolbar .btn-default,
-.bookspanel-toolbar .dropdown-toggle.btn-default,
-.book-detail .btn-default
-{
-	color: #382110;
-	border: 1px solid #b6b4a1;
-	background-color: #e1ddc7;
-}
-
-.bookspanel-toolbar .btn-default.disabled,
-.bookspanel-toolbar .btn-default[disabled],
-.bookspanel-toolbar .btn-default.disabled:hover,
-.bookspanel-toolbar .btn-default[disabled]:hover,
-.bookspanel-toolbar .btn-default.disabled:focus,
-.bookspanel-toolbar .btn-default[disabled]:focus
-{
-	color: #382110;
-	border: 1px solid #b6b4a1;
-	background-color: #e1ddc7;
-}
-
 .bookspanel-toolbar .dropdown-menu
 {
 	font-size: 12px;
@@ -1062,42 +913,6 @@ button.disabled .icons-toolbar-bookspanel.icon-sort,
 .bookspanel-list
 {
 	margin: 15px 0px 15px;
-}
-
-.icons-fugue,
-.icon-book-open
-{
-	display: inline-block;
-	width: 16px;
-	height: 16px;
-	padding: 0px;
-	margin: 0px;
-	vertical-align: middle;
-}
-
-.icons-fugue.icon-document-mobi
-{
-	background-image: url('/images/icons/fugue-icons/icons/document-mobi.png');
-}
-
-.icons-fugue.icon-e-book-reader-black
-{
-	background-image: url('/images/icons/fugue-icons/icons/e-book-reader-black.png');
-}
-
-.icons-fugue.icon-information-frame
-{
-	background-image: url('/images/icons/fugue-icons/icons/information-frame.png');
-}
-
-.icons-fugue.icon-magnifier-left
-{
-	background-image: url('/images/icons/fugue-icons/icons/magnifier-left.png');
-}
-
-.icon-book-open
-{
-	background-image: url('/images/bookspanel/icon-book-open.png');
 }
 
 .bookspanel-list .book-list > td

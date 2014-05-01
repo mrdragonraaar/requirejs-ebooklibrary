@@ -1,0 +1,267 @@
+.btn-default {
+  color: #382110;
+  background-color: #e1ddc7;
+  border-color: #b6b4a1;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  color: #382110;
+  background-color: #cfc9a6;
+  border-color: #9b997f;
+}
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  background-image: none;
+}
+.btn-default.disabled,
+.btn-default[disabled],
+fieldset[disabled] .btn-default,
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled:active,
+.btn-default[disabled]:active,
+fieldset[disabled] .btn-default:active,
+.btn-default.disabled.active,
+.btn-default[disabled].active,
+fieldset[disabled] .btn-default.active {
+  background-color: #e1ddc7;
+  border-color: #b6b4a1;
+}
+.btn-default .badge {
+  color: #e1ddc7;
+  background-color: #382110;
+}
+.badge {
+  color: #382110;
+  background-color: #e1ddc7;
+  border: 1px solid transparent;
+  border-color: #b6b4a1;
+}
+.icons-breadcrumb {
+  position: relative;
+  display: inline-block;
+  background-image: url('/images/icons/breadcrumb/icons-breadcrumb.png');
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  margin: 0px;
+  vertical-align: middle;
+}
+.icons-breadcrumb.icon-author {
+  background-position: -26px -6px;
+}
+.icons-breadcrumb.icon-author.active,
+a:hover .icons-breadcrumb.icon-author,
+a:focus .icons-breadcrumb.icon-author,
+a.active .icons-breadcrumb.icon-author {
+  background-position: -2px -6px;
+}
+button[disabled] .icons-breadcrumb.icon-author,
+button.disabled .icons-breadcrumb.icon-author,
+.icons-breadcrumb.icon-author.disabled {
+  background-position: -26px -6px;
+}
+.icons-breadcrumb.icon-series {
+  background-position: -26px -28px;
+}
+.icons-breadcrumb.icon-series.active,
+a:hover .icons-breadcrumb.icon-series,
+a:focus .icons-breadcrumb.icon-series,
+a.active .icons-breadcrumb.icon-series {
+  background-position: -2px -28px;
+}
+button[disabled] .icons-breadcrumb.icon-series,
+button.disabled .icons-breadcrumb.icon-series,
+.icons-breadcrumb.icon-series.disabled {
+  background-position: -26px -28px;
+}
+.icons-breadcrumb.icon-book {
+  background-position: -26px -50px;
+}
+.icons-breadcrumb.icon-book.active,
+a:hover .icons-breadcrumb.icon-book,
+a:focus .icons-breadcrumb.icon-book,
+a.active .icons-breadcrumb.icon-book {
+  background-position: -2px -50px;
+}
+button[disabled] .icons-breadcrumb.icon-book,
+button.disabled .icons-breadcrumb.icon-book,
+.icons-breadcrumb.icon-book.disabled {
+  background-position: -26px -50px;
+}
+.icons-breadcrumb.icon-search {
+  background-position: -26px -72px;
+}
+.icons-breadcrumb.icon-search.active,
+a:hover .icons-breadcrumb.icon-search,
+a:focus .icons-breadcrumb.icon-search,
+a.active .icons-breadcrumb.icon-search {
+  background-position: -2px -72px;
+}
+button[disabled] .icons-breadcrumb.icon-search,
+button.disabled .icons-breadcrumb.icon-search,
+.icons-breadcrumb.icon-search.disabled {
+  background-position: -26px -72px;
+}
+.icons-toolbar-bookspanel {
+  position: relative;
+  display: inline-block;
+  background-image: url('/images/icons/toolbar/icons-toolbar-bookspanel.png');
+  width: 14px;
+  height: 14px;
+  padding: 0px;
+  margin: 0px;
+  vertical-align: middle;
+}
+.icons-toolbar-bookspanel.icon-thumbnails {
+  background-position: 0px -1px;
+}
+.icons-toolbar-bookspanel.icon-thumbnails.active,
+a:hover .icons-toolbar-bookspanel.icon-thumbnails,
+a:focus .icons-toolbar-bookspanel.icon-thumbnails,
+a.active .icons-toolbar-bookspanel.icon-thumbnails {
+  background-position: 0px -1px;
+}
+button[disabled] .icons-toolbar-bookspanel.icon-thumbnails,
+button.disabled .icons-toolbar-bookspanel.icon-thumbnails,
+.icons-toolbar-bookspanel.icon-thumbnails.disabled {
+  background-position: 0px -15px;
+}
+.icons-toolbar-bookspanel.icon-details {
+  background-position: -19px -1px;
+}
+.icons-toolbar-bookspanel.icon-details.active,
+a:hover .icons-toolbar-bookspanel.icon-details,
+a:focus .icons-toolbar-bookspanel.icon-details,
+a.active .icons-toolbar-bookspanel.icon-details {
+  background-position: -19px -1px;
+}
+button[disabled] .icons-toolbar-bookspanel.icon-details,
+button.disabled .icons-toolbar-bookspanel.icon-details,
+.icons-toolbar-bookspanel.icon-details.disabled {
+  background-position: -19px -15px;
+}
+.icons-toolbar-bookspanel.icon-list {
+  background-position: -37px -1px;
+}
+.icons-toolbar-bookspanel.icon-list.active,
+a:hover .icons-toolbar-bookspanel.icon-list,
+a:focus .icons-toolbar-bookspanel.icon-list,
+a.active .icons-toolbar-bookspanel.icon-list {
+  background-position: -37px -1px;
+}
+button[disabled] .icons-toolbar-bookspanel.icon-list,
+button.disabled .icons-toolbar-bookspanel.icon-list,
+.icons-toolbar-bookspanel.icon-list.disabled {
+  background-position: -37px -15px;
+}
+.icons-toolbar-bookspanel.icon-sort {
+  background-position: -55px -1px;
+}
+.icons-toolbar-bookspanel.icon-sort.active,
+a:hover .icons-toolbar-bookspanel.icon-sort,
+a:focus .icons-toolbar-bookspanel.icon-sort,
+a.active .icons-toolbar-bookspanel.icon-sort {
+  background-position: -55px -1px;
+}
+button[disabled] .icons-toolbar-bookspanel.icon-sort,
+button.disabled .icons-toolbar-bookspanel.icon-sort,
+.icons-toolbar-bookspanel.icon-sort.disabled {
+  background-position: -55px -15px;
+}
+.icons-toolbar-bookviewer {
+  position: relative;
+  display: inline-block;
+  background-image: url('/images/icons/toolbar/icons-toolbar-bookviewer.png');
+  width: 14px;
+  height: 14px;
+  padding: 0px;
+  margin: 0px;
+  vertical-align: middle;
+}
+.icons-toolbar-bookviewer.icon-first {
+  background-position: 0px -1px;
+}
+.icons-toolbar-bookviewer.icon-first.active,
+a:hover .icons-toolbar-bookviewer.icon-first,
+a:focus .icons-toolbar-bookviewer.icon-first,
+a.active .icons-toolbar-bookviewer.icon-first {
+  background-position: 0px -1px;
+}
+button[disabled] .icons-toolbar-bookviewer.icon-first,
+button.disabled .icons-toolbar-bookviewer.icon-first,
+.icons-toolbar-bookviewer.icon-first.disabled {
+  background-position: 0px -15px;
+}
+.icons-toolbar-bookviewer.icon-prev {
+  background-position: -19px -1px;
+}
+.icons-toolbar-bookviewer.icon-prev.active,
+a:hover .icons-toolbar-bookviewer.icon-prev,
+a:focus .icons-toolbar-bookviewer.icon-prev,
+a.active .icons-toolbar-bookviewer.icon-prev {
+  background-position: -19px -1px;
+}
+button[disabled] .icons-toolbar-bookviewer.icon-prev,
+button.disabled .icons-toolbar-bookviewer.icon-prev,
+.icons-toolbar-bookviewer.icon-prev.disabled {
+  background-position: -19px -15px;
+}
+.icons-toolbar-bookviewer.icon-next {
+  background-position: -37px -1px;
+}
+.icons-toolbar-bookviewer.icon-next.active,
+a:hover .icons-toolbar-bookviewer.icon-next,
+a:focus .icons-toolbar-bookviewer.icon-next,
+a.active .icons-toolbar-bookviewer.icon-next {
+  background-position: -37px -1px;
+}
+button[disabled] .icons-toolbar-bookviewer.icon-next,
+button.disabled .icons-toolbar-bookviewer.icon-next,
+.icons-toolbar-bookviewer.icon-next.disabled {
+  background-position: -37px -15px;
+}
+.icons-toolbar-bookviewer.icon-last {
+  background-position: -55px -1px;
+}
+.icons-toolbar-bookviewer.icon-last.active,
+a:hover .icons-toolbar-bookviewer.icon-last,
+a:focus .icons-toolbar-bookviewer.icon-last,
+a.active .icons-toolbar-bookviewer.icon-last {
+  background-position: -55px -1px;
+}
+button[disabled] .icons-toolbar-bookviewer.icon-last,
+button.disabled .icons-toolbar-bookviewer.icon-last,
+.icons-toolbar-bookviewer.icon-last.disabled {
+  background-position: -55px -15px;
+}
+.icons-fugue {
+  position: relative;
+  display: inline-block;
+  background-image: url('');
+  width: 16px;
+  height: 16px;
+  padding: 0px;
+  margin: 0px;
+  vertical-align: middle;
+}
+.icons-fugue.icon-document-mobi {
+  background-image: url('/images/icons/fugue-icons/icons/document-mobi.png');
+}
+.icons-fugue.icon-e-book-reader-black {
+  background-image: url('/images/icons/fugue-icons/icons/e-book-reader-black.png');
+}
+.icons-fugue.icon-information-frame {
+  background-image: url('/images/icons/fugue-icons/icons/information-frame.png');
+}
+.icons-fugue.icon-magnifier-left {
+  background-image: url('/images/icons/fugue-icons/icons/magnifier-left.png');
+}
