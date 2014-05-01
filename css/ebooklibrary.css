@@ -250,64 +250,64 @@ ul.list-panel > li ul
 	margin: 0;
 }
 
-.icon-breadcrumb
+.icons-breadcrumb
 {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
-	background-image: url('/images/navbar/icons-breadcrumb.png');
+	background-image: url('/images/icons/breadcrumb/icons-breadcrumb.png');
 	padding: 0;
 	margin: 0;
 }
 
-.icon-breadcrumb.author
+.icons-breadcrumb.icon-author
 {
 	background-position: -26px -6px;
 }
 
-.icon-breadcrumb.author.active,
-a:hover .icon-breadcrumb.author,
-a:focus .icon-breadcrumb.author,
-a.active .icon-breadcrumb.author
+.icons-breadcrumb.icon-author.active,
+a:hover .icons-breadcrumb.icon-author,
+a:focus .icons-breadcrumb.icon-author,
+a.active .icons-breadcrumb.icon-author
 {
 	background-position: -2px -6px;
 }
 
-.icon-breadcrumb.series
+.icons-breadcrumb.icon-series
 {
 	background-position: -26px -28px;
 }
 
-.icon-breadcrumb.series.active,
-a:hover .icon-breadcrumb.series,
-a:focus .icon-breadcrumb.series,
-a.active .icon-breadcrumb.series
+.icons-breadcrumb.icon-series.active,
+a:hover .icons-breadcrumb.icon-series,
+a:focus .icons-breadcrumb.icon-series,
+a.active .icons-breadcrumb.icon-series
 {
 	background-position: -2px -28px;
 }
 
-.icon-breadcrumb.book
+.icons-breadcrumb.icon-book
 {
 	background-position: -26px -50px;
 }
 
-.icon-breadcrumb.book.active,
-a:hover .icon-breadcrumb.book,
-a:focus .icon-breadcrumb.book,
-a.active .icon-breadcrumb.book
+.icons-breadcrumb.icon-book.active,
+a:hover .icons-breadcrumb.icon-book,
+a:focus .icons-breadcrumb.icon-book,
+a.active .icons-breadcrumb.icon-book
 {
 	background-position: -2px -50px;
 }
 
-.icon-breadcrumb.search
+.icons-breadcrumb.icon-search
 {
 	background-position: -26px -72px;
 }
 
-.icon-breadcrumb.search.active,
-a:hover .icon-breadcrumb.search,
-a:focus .icon-breadcrumb.search,
-a.active .icon-breadcrumb.search
+.icons-breadcrumb.icon-search.active,
+a:hover .icons-breadcrumb.icon-search,
+a:focus .icons-breadcrumb.icon-search,
+a.active .icons-breadcrumb.icon-search
 {
 	background-position: -2px -72px;
 }
@@ -373,8 +373,8 @@ a.active .icon-breadcrumb.search
 	vertical-align: middle;
 }
 
-.navbar-default .navbar-nav > li > a > .icon-breadcrumb,
-.panel-book-text .book-text-title > .icon-breadcrumb
+.navbar-default .navbar-nav > li > a > .icons-breadcrumb,
+.panel-book-text .book-text-title > .icons-breadcrumb
 {
 	vertical-align: middle;
 	margin-right: 5px;
