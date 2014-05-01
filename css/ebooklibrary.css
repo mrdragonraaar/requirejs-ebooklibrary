@@ -1080,6 +1080,11 @@ button.disabled .icons-toolbar-bookspanel.icon-sort,
 	background-image: url('/images/icons/fugue-icons/icons/document-mobi.png');
 }
 
+.icons-fugue.icon-e-book-reader-black
+{
+	background-image: url('/images/icons/fugue-icons/icons/e-book-reader-black.png');
+}
+
 .icons-fugue.icon-information-frame
 {
 	background-image: url('/images/icons/fugue-icons/icons/information-frame.png');
