@@ -1,0 +1,33 @@
+// Toolbar Icon variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all icons
+
+// Icons variants
+.icons-toolbar-variant(@icons-toolbar-name) {
+	.icons-variant(@icons-toolbar-width, @icons-toolbar-height,
+	   "@{icons-toolbar-base-bg}/icons-toolbar-@{icons-toolbar-name}.png"
+	);
+}
+
+// Icon variants
+.icon-toolbar-variant(@icon-num) when (@icon-num = 0) {
+	.icon-variant(0, -1px,
+	   @icons-toolbar-bg-active-offset-x, 
+	   @icons-toolbar-bg-active-offset-y, 
+	   @icons-toolbar-bg-disabled-offset-x, 
+	   @icons-toolbar-bg-disabled-offset-y);
+}
+
+.icon-toolbar-variant(@icon-num) when (@icon-num > 0) {
+	.icon-variant(
+	   @icon-num,
+	   @icons-toolbar-bg-base-x,
+	   @icons-toolbar-bg-base-y,
+	   @icons-toolbar-bg-icon-offset-x,
+	   @icons-toolbar-bg-icon-offset-y,
+	   @icons-toolbar-bg-active-offset-x, 
+	   @icons-toolbar-bg-active-offset-y, 
+	   @icons-toolbar-bg-disabled-offset-x, 
+	   @icons-toolbar-bg-disabled-offset-y);
+}

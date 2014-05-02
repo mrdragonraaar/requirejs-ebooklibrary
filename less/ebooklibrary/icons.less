@@ -6,149 +6,87 @@
 // Alternate icons
 // --------------------------------------------------
 
-/*
-.icon-breadcrumb-bg-pos(@iconnum) {
-	@iconoffx: 0;
-	@iconoffy: -22px;
-	@offx: 24px;
-	@offy: 24px;
-	@x: (-26px + @iconoffx*@iconnum);
-	@y: (-26px + @iconoffy*@iconnum);
-
-	.icon-bg-pos(@x, @y, @offx, @offy);
-}
-*/
-
-.icon-breadcrumb-variant(@icon-pos) {
-	.icon-variant(-26px, ((@icon-pos * -22) + -6),
-	   @icons-breadcrumb-bg-active-offset-x, 
-	   @icons-breadcrumb-bg-active-offset-y, 
-	   @icons-breadcrumb-bg-disabled-offset-x, 
-	   @icons-breadcrumb-bg-disabled-offset-y);
-}
-
 .icons-breadcrumb {
-	.icons-variant(@icons-breadcrumb-width, @icons-breadcrumb-height, @icons-breadcrumb-bg);
+	.icons-breadcrumb-variant();
 
 	&.icon-author {
 		.icon-breadcrumb-variant(0);
-		//.icon-variant(-26px, -6px,
-		   //@icons-breadcrumb-bg-active-offset-x, 
-		   //@icons-breadcrumb-bg-active-offset-y, 
-		   //@icons-breadcrumb-bg-disabled-offset-x, 
-		   //@icons-breadcrumb-bg-disabled-offset-y);
 	}
 
 	&.icon-series {
 		.icon-breadcrumb-variant(1);
-		//.icon-variant(-26px, -28px,
-		   //@icons-breadcrumb-bg-active-offset-x, 
-		   //@icons-breadcrumb-bg-active-offset-y, 
-		   //@icons-breadcrumb-bg-disabled-offset-x, 
-		   //@icons-breadcrumb-bg-disabled-offset-y);
 	}
 
 	&.icon-book {
 		.icon-breadcrumb-variant(2);
-		//.icon-variant(-26px, -50px,
-		   //@icons-breadcrumb-bg-active-offset-x, 
-		   //@icons-breadcrumb-bg-active-offset-y, 
-		   //@icons-breadcrumb-bg-disabled-offset-x, 
-		   //@icons-breadcrumb-bg-disabled-offset-y);
 	}
 
 	&.icon-search {
 		.icon-breadcrumb-variant(3);
-		//.icon-variant(-26px, -72px,
-		   //@icons-breadcrumb-bg-active-offset-x, 
-		   //@icons-breadcrumb-bg-active-offset-y, 
-		   //@icons-breadcrumb-bg-disabled-offset-x, 
-		   //@icons-breadcrumb-bg-disabled-offset-y);
 	}
-}
-
-.icon-toolbar-bookspanel-variant(@icon-pos) when (@icon-pos = 0) {
-	.icon-variant(0, -1px,
-	   @icons-toolbar-bookspanel-bg-active-offset-x, 
-	   @icons-toolbar-bookspanel-bg-active-offset-y, 
-	   @icons-toolbar-bookspanel-bg-disabled-offset-x, 
-	   @icons-toolbar-bookspanel-bg-disabled-offset-y);
-}
-
-.icon-toolbar-bookspanel-variant(@icon-pos) when (@icon-pos > 0) {
-	.icon-variant(((@icon-pos * -18px) + -1px), -1px,
-	   @icons-toolbar-bookspanel-bg-active-offset-x, 
-	   @icons-toolbar-bookspanel-bg-active-offset-y, 
-	   @icons-toolbar-bookspanel-bg-disabled-offset-x, 
-	   @icons-toolbar-bookspanel-bg-disabled-offset-y);
 }
 
 .icons-toolbar-bookspanel {
-	.icons-variant(@icons-toolbar-bookspanel-width, @icons-toolbar-bookspanel-height, @icons-toolbar-bookspanel-bg);
-	//.icons-variant(14px, 14px, url('/images/icons/toolbar/icons-toolbar-bookspanel.png'));
+	.icons-toolbar-variant(@icons-toolbar-bookspanel-name);
 
 	&.icon-thumbnails {
-		.icon-toolbar-bookspanel-variant(0);
-		//.icon-variant(0px, -1px, 0, 0, 0, -14px);
+		.icon-toolbar-variant(0);
 	}
 
 	&.icon-details {
-		.icon-toolbar-bookspanel-variant(1);
-		//.icon-variant(-19px, -1px, 0, 0, 0, -14px);
+		.icon-toolbar-variant(1);
 	}
 
 	&.icon-list {
-		.icon-toolbar-bookspanel-variant(2);
-		//.icon-variant(-37px, -1px, 0, 0, 0, -14px);
+		.icon-toolbar-variant(2);
 	}
 
 	&.icon-sort {
-		.icon-toolbar-bookspanel-variant(3);
-		//.icon-variant(-55px, -1px, 0, 0, 0, -14px);
+		.icon-toolbar-variant(3);
 	}
 }
 
 .icons-toolbar-bookviewer {
-	.icons-variant(14px, 14px, url('/images/icons/toolbar/icons-toolbar-bookviewer.png'));
+	.icons-toolbar-variant(@icons-toolbar-bookviewer-name);
 
 	&.icon-first {
-		.icon-variant(0px, -1px, 0, 0, 0, -14px);
+		.icon-toolbar-variant(0);
 	}
 
 	&.icon-prev {
-		.icon-variant(-19px, -1px, 0, 0, 0, -14px);
+		.icon-toolbar-variant(1);
 	}
 
 	&.icon-next {
-		.icon-variant(-37px, -1px, 0, 0, 0, -14px);
+		.icon-toolbar-variant(2);
 	}
 
 	&.icon-last {
-		.icon-variant(-55px, -1px, 0, 0, 0, -14px);
+		.icon-toolbar-variant(3);
 	}
 }
 
 .icons-fugue {
-	.icons-variant(16px, 16px);
+	.icons-fugue-variant();
 
 	&.icon-document-mobi
 	{
-		.icon-variant(url('/images/icons/fugue-icons/icons/document-mobi.png'));
+		.icon-fugue-variant('document-mobi');
 	}
 
 	&.icon-e-book-reader-black
 	{
-		.icon-variant(url('/images/icons/fugue-icons/icons/e-book-reader-black.png'));
+		.icon-fugue-variant('e-book-reader-black');
 	}
 
 	&.icon-information-frame
 	{
-		.icon-variant(url('/images/icons/fugue-icons/icons/information-frame.png'));
+		.icon-fugue-variant('information-frame');
 	}
 
 	&.icon-magnifier-left
 	{
-		.icon-variant(url('/images/icons/fugue-icons/icons/magnifier-left.png'));
+		.icon-fugue-variant('magnifier-left');
 	}
 }
 

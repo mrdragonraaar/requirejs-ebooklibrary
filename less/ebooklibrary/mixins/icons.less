@@ -14,38 +14,50 @@
 	vertical-align: middle;
 }
 
-.icons-variant(@width; @height; @url) {
+.icons-variant(@width; @height; @bg-img) {
 	.icons-variant(@width, @height);
-	background-image: @url;
+	.icon-variant(@bg-img);
 }
 
 // Icon variants
-.icon-variant(@url) {
-	background-image: @url;
+.icon-variant(@bg-img) {
+	background-image: data-uri(@bg-img);
 }
 
-.icon-variant(@bg-x, @bg-y) {
+.icon-variant(@bg-x; @bg-y) {
 	background-position: unit(@bg-x, px) unit(@bg-y, px);
 }
 
-.icon-variant(@bg-x, @bg-y, @url) {
-	.icon-variant(@url);
+.icon-variant(@bg-x; @bg-y; @bg-img) {
+	.icon-variant(@bg-img);
 	.icon-variant(@bg-x, @bg-y);
 }
 
-.icon-variant(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y, @bg-disabled-offset-x, @bg-disabled-offset-y) {
+.icon-variant(@bg-x; @bg-y; @bg-active-offset-x; @bg-active-offset-y; @bg-disabled-offset-x; @bg-disabled-offset-y) {
 	.icon-variant(@bg-x, @bg-y);
 
 	.icon-bg-active(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y);
 	.icon-bg-disabled(@bg-x, @bg-y, @bg-disabled-offset-x, @bg-disabled-offset-y);
 }
 
-.icon-variant(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y, @bg-disabled-offset-x, @bg-disabled-offset-y, @url) {
-	.icon-variant(@url);
+.icon-variant(@bg-x; @bg-y; @bg-active-offset-x; @bg-active-offset-y; @bg-disabled-offset-x; @bg-disabled-offset-y; @bg-img) {
+	.icon-variant(@bg-img);
 	.icon-variant(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y, @bg-disabled-offset-x, @bg-disabled-offset-y);
 }
 
-.icon-bg-active(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y) {
+.icon-variant(@icon-num; @bg-base-x; @bg-base-y; @bg-icon-offset-x; @bg-icon-offset-y; @bg-active-offset-x; @bg-active-offset-y; @bg-disabled-offset-x; @bg-disabled-offset-y) {
+	.icon-variant(
+	   ((@icon-num * @bg-icon-offset-x) + @bg-base-x),
+	   ((@icon-num * @bg-icon-offset-y) + @bg-base-y),
+	   @bg-active-offset-x, 
+	   @bg-active-offset-y, 
+	   @bg-disabled-offset-x, 
+	   @bg-disabled-offset-y
+	);
+}
+
+// Background Position
+.icon-bg-active(@bg-x; @bg-y; @bg-active-offset-x; @bg-active-offset-y) {
 	&.active,
 	a:hover &,
 	a:focus &,
@@ -54,7 +66,7 @@
 	}
 }
 
-.icon-bg-disabled(@bg-x, @bg-y, @bg-disabled-offset-x, @bg-disabled-offset-y) {
+.icon-bg-disabled(@bg-x; @bg-y; @bg-disabled-offset-x; @bg-disabled-offset-y) {
 	button[disabled] &,
 	button.disabled &,
 	&.disabled {
@@ -62,11 +74,10 @@
 	}
 }
 
-// Background Position
-.icon-bg-pos(@bg-x, @bg-y) {
+.icon-bg-pos(@bg-x; @bg-y) {
 	background-position: unit(@bg-x, px) unit(@bg-y, px);
 }
 
-.icon-bg-pos(@bg-x, @bg-y, @bg-offset-x, @bg-offset-y) {
+.icon-bg-pos(@bg-x; @bg-y; @bg-offset-x; @bg-offset-y) {
 	.icon-bg-pos(@bg-x + @bg-offset-x, @bg-y + @bg-offset-y);
 }

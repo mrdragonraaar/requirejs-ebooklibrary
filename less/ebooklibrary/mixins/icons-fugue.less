@@ -1,0 +1,14 @@
+// Fugue Icon variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all icons
+
+// Icons variants
+.icons-fugue-variant() {
+	.icons-variant(@icons-fugue-width, @icons-fugue-height);
+}
+
+// Icon variants
+.icon-fugue-variant(@icons-fugue-name) {
+	.icon-variant("@{icons-fugue-base-bg}/@{icons-fugue-name}.png");
+}
