@@ -6,40 +6,7 @@
 // Alternate icons
 // --------------------------------------------------
 
-.icon-variant(@url; @width; @height) {
-	position: relative;
-	display: inline-block;
-	background-image: url(@url);
-	width: @width;
-	height: @height;
-	padding: 0px;
-	margin: 0px;
-	vertical-align: middle;
-}
-
-.icon-bg-pos(@x; @y; @actoffx; @actoffy; @disoffx; @disoffy) {
-	background-position: @x @y;
-	.icon-bg-pos-active(@x, @y, @actoffx, @actoffy);
-	.icon-bg-pos-disabled(@x, @y, @disoffx, @disoffy);
-}
-
-.icon-bg-pos-active(@x; @y; @offx; @offy) {
-	&.active,
-	a:hover &,
-	a:focus &,
-	a.active & {
-		background-position: (@x + @offx) (@y + @offy);
-	}
-}
-
-.icon-bg-pos-disabled(@x; @y; @offx; @offy) {
-	button[disabled] &,
-	button.disabled &,
-	&.disabled {
-		background-position: (@x + @offx) (@y + @offy);
-	}
-}
-
+/*
 .icon-breadcrumb-bg-pos(@iconnum) {
 	@iconoffx: 0;
 	@iconoffy: -22px;
@@ -50,92 +17,138 @@
 
 	.icon-bg-pos(@x, @y, @offx, @offy);
 }
+*/
+
+.icon-breadcrumb-variant(@icon-pos) {
+	.icon-variant(-26px, ((@icon-pos * -22) + -6),
+	   @icons-breadcrumb-bg-active-offset-x, 
+	   @icons-breadcrumb-bg-active-offset-y, 
+	   @icons-breadcrumb-bg-disabled-offset-x, 
+	   @icons-breadcrumb-bg-disabled-offset-y);
+}
 
 .icons-breadcrumb {
-	.icon-variant('/images/icons/breadcrumb/icons-breadcrumb.png', 20px, 20px);
+	.icons-variant(@icons-breadcrumb-width, @icons-breadcrumb-height, @icons-breadcrumb-bg);
 
 	&.icon-author {
-		.icon-bg-pos(-26px, -6px, 24px, 0, 0, 0);
-		//.icon-breadcrumb-bg-pos(0);
+		.icon-breadcrumb-variant(0);
+		//.icon-variant(-26px, -6px,
+		   //@icons-breadcrumb-bg-active-offset-x, 
+		   //@icons-breadcrumb-bg-active-offset-y, 
+		   //@icons-breadcrumb-bg-disabled-offset-x, 
+		   //@icons-breadcrumb-bg-disabled-offset-y);
 	}
 
 	&.icon-series {
-		.icon-bg-pos(-26px, -28px, 24px, 0, 0, 0);
-		//.icon-breadcrumb-bg-pos(1);
+		.icon-breadcrumb-variant(1);
+		//.icon-variant(-26px, -28px,
+		   //@icons-breadcrumb-bg-active-offset-x, 
+		   //@icons-breadcrumb-bg-active-offset-y, 
+		   //@icons-breadcrumb-bg-disabled-offset-x, 
+		   //@icons-breadcrumb-bg-disabled-offset-y);
 	}
 
 	&.icon-book {
-		.icon-bg-pos(-26px, -50px, 24px, 0, 0, 0);
-		//.icon-breadcrumb-bg-pos(2);
+		.icon-breadcrumb-variant(2);
+		//.icon-variant(-26px, -50px,
+		   //@icons-breadcrumb-bg-active-offset-x, 
+		   //@icons-breadcrumb-bg-active-offset-y, 
+		   //@icons-breadcrumb-bg-disabled-offset-x, 
+		   //@icons-breadcrumb-bg-disabled-offset-y);
 	}
 
 	&.icon-search {
-		.icon-bg-pos(-26px, -72px, 24px, 0, 0, 0);
-		//.icon-breadcrumb-bg-pos(3);
+		.icon-breadcrumb-variant(3);
+		//.icon-variant(-26px, -72px,
+		   //@icons-breadcrumb-bg-active-offset-x, 
+		   //@icons-breadcrumb-bg-active-offset-y, 
+		   //@icons-breadcrumb-bg-disabled-offset-x, 
+		   //@icons-breadcrumb-bg-disabled-offset-y);
 	}
 }
 
+.icon-toolbar-bookspanel-variant(@icon-pos) when (@icon-pos = 0) {
+	.icon-variant(0, -1px,
+	   @icons-toolbar-bookspanel-bg-active-offset-x, 
+	   @icons-toolbar-bookspanel-bg-active-offset-y, 
+	   @icons-toolbar-bookspanel-bg-disabled-offset-x, 
+	   @icons-toolbar-bookspanel-bg-disabled-offset-y);
+}
+
+.icon-toolbar-bookspanel-variant(@icon-pos) when (@icon-pos > 0) {
+	.icon-variant(((@icon-pos * -18px) + -1px), -1px,
+	   @icons-toolbar-bookspanel-bg-active-offset-x, 
+	   @icons-toolbar-bookspanel-bg-active-offset-y, 
+	   @icons-toolbar-bookspanel-bg-disabled-offset-x, 
+	   @icons-toolbar-bookspanel-bg-disabled-offset-y);
+}
+
 .icons-toolbar-bookspanel {
-	.icon-variant('/images/icons/toolbar/icons-toolbar-bookspanel.png', 14px, 14px);
+	.icons-variant(@icons-toolbar-bookspanel-width, @icons-toolbar-bookspanel-height, @icons-toolbar-bookspanel-bg);
+	//.icons-variant(14px, 14px, url('/images/icons/toolbar/icons-toolbar-bookspanel.png'));
 
 	&.icon-thumbnails {
-		.icon-bg-pos(0px, -1px, 0, 0, 0, -14px);
+		.icon-toolbar-bookspanel-variant(0);
+		//.icon-variant(0px, -1px, 0, 0, 0, -14px);
 	}
 
 	&.icon-details {
-		.icon-bg-pos(-19px, -1px, 0, 0, 0, -14px);
+		.icon-toolbar-bookspanel-variant(1);
+		//.icon-variant(-19px, -1px, 0, 0, 0, -14px);
 	}
 
 	&.icon-list {
-		.icon-bg-pos(-37px, -1px, 0, 0, 0, -14px);
+		.icon-toolbar-bookspanel-variant(2);
+		//.icon-variant(-37px, -1px, 0, 0, 0, -14px);
 	}
 
 	&.icon-sort {
-		.icon-bg-pos(-55px, -1px, 0, 0, 0, -14px);
+		.icon-toolbar-bookspanel-variant(3);
+		//.icon-variant(-55px, -1px, 0, 0, 0, -14px);
 	}
 }
 
 .icons-toolbar-bookviewer {
-	.icon-variant('/images/icons/toolbar/icons-toolbar-bookviewer.png', 14px, 14px);
+	.icons-variant(14px, 14px, url('/images/icons/toolbar/icons-toolbar-bookviewer.png'));
 
 	&.icon-first {
-		.icon-bg-pos(0px, -1px, 0, 0, 0, -14px);
+		.icon-variant(0px, -1px, 0, 0, 0, -14px);
 	}
 
 	&.icon-prev {
-		.icon-bg-pos(-19px, -1px, 0, 0, 0, -14px);
+		.icon-variant(-19px, -1px, 0, 0, 0, -14px);
 	}
 
 	&.icon-next {
-		.icon-bg-pos(-37px, -1px, 0, 0, 0, -14px);
+		.icon-variant(-37px, -1px, 0, 0, 0, -14px);
 	}
 
 	&.icon-last {
-		.icon-bg-pos(-55px, -1px, 0, 0, 0, -14px);
+		.icon-variant(-55px, -1px, 0, 0, 0, -14px);
 	}
 }
 
 .icons-fugue {
-	.icon-variant('', 16px, 16px);
+	.icons-variant(16px, 16px);
 
 	&.icon-document-mobi
 	{
-		background-image: url('/images/icons/fugue-icons/icons/document-mobi.png');
+		.icon-variant(url('/images/icons/fugue-icons/icons/document-mobi.png'));
 	}
 
 	&.icon-e-book-reader-black
 	{
-		background-image: url('/images/icons/fugue-icons/icons/e-book-reader-black.png');
+		.icon-variant(url('/images/icons/fugue-icons/icons/e-book-reader-black.png'));
 	}
 
 	&.icon-information-frame
 	{
-		background-image: url('/images/icons/fugue-icons/icons/information-frame.png');
+		.icon-variant(url('/images/icons/fugue-icons/icons/information-frame.png'));
 	}
 
 	&.icon-magnifier-left
 	{
-		background-image: url('/images/icons/fugue-icons/icons/magnifier-left.png');
+		.icon-variant(url('/images/icons/fugue-icons/icons/magnifier-left.png'));
 	}
 }
 

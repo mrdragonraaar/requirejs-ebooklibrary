@@ -1,0 +1,72 @@
+// Icon variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all icons
+
+// Icons variants
+.icons-variant(@width; @height) {
+	position: relative;
+	display: inline-block;
+	width: unit(@width, px);
+	height: unit(@height, px);
+	padding: 0px;
+	margin: 0px;
+	vertical-align: middle;
+}
+
+.icons-variant(@width; @height; @url) {
+	.icons-variant(@width, @height);
+	background-image: @url;
+}
+
+// Icon variants
+.icon-variant(@url) {
+	background-image: @url;
+}
+
+.icon-variant(@bg-x, @bg-y) {
+	background-position: unit(@bg-x, px) unit(@bg-y, px);
+}
+
+.icon-variant(@bg-x, @bg-y, @url) {
+	.icon-variant(@url);
+	.icon-variant(@bg-x, @bg-y);
+}
+
+.icon-variant(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y, @bg-disabled-offset-x, @bg-disabled-offset-y) {
+	.icon-variant(@bg-x, @bg-y);
+
+	.icon-bg-active(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y);
+	.icon-bg-disabled(@bg-x, @bg-y, @bg-disabled-offset-x, @bg-disabled-offset-y);
+}
+
+.icon-variant(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y, @bg-disabled-offset-x, @bg-disabled-offset-y, @url) {
+	.icon-variant(@url);
+	.icon-variant(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y, @bg-disabled-offset-x, @bg-disabled-offset-y);
+}
+
+.icon-bg-active(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y) {
+	&.active,
+	a:hover &,
+	a:focus &,
+	a.active & {
+		.icon-bg-pos(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y);
+	}
+}
+
+.icon-bg-disabled(@bg-x, @bg-y, @bg-disabled-offset-x, @bg-disabled-offset-y) {
+	button[disabled] &,
+	button.disabled &,
+	&.disabled {
+		.icon-bg-pos(@bg-x, @bg-y, @bg-disabled-offset-x, @bg-disabled-offset-y);
+	}
+}
+
+// Background Position
+.icon-bg-pos(@bg-x, @bg-y) {
+	background-position: unit(@bg-x, px) unit(@bg-y, px);
+}
+
+.icon-bg-pos(@bg-x, @bg-y, @bg-offset-x, @bg-offset-y) {
+	.icon-bg-pos(@bg-x + @bg-offset-x, @bg-y + @bg-offset-y);
+}

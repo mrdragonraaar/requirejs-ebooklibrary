@@ -45,15 +45,27 @@ fieldset[disabled] .btn-default.active {
   border: 1px solid transparent;
   border-color: #b6b4a1;
 }
+/*
+.icon-breadcrumb-bg-pos(@iconnum) {
+	@iconoffx: 0;
+	@iconoffy: -22px;
+	@offx: 24px;
+	@offy: 24px;
+	@x: (-26px + @iconoffx*@iconnum);
+	@y: (-26px + @iconoffy*@iconnum);
+
+	.icon-bg-pos(@x, @y, @offx, @offy);
+}
+*/
 .icons-breadcrumb {
   position: relative;
   display: inline-block;
-  background-image: url('/images/icons/breadcrumb/icons-breadcrumb.png');
   width: 20px;
   height: 20px;
   padding: 0px;
   margin: 0px;
   vertical-align: middle;
+  background-image: url('/images/icons/breadcrumb/icons-breadcrumb.png');
 }
 .icons-breadcrumb.icon-author {
   background-position: -26px -6px;
@@ -114,12 +126,12 @@ button.disabled .icons-breadcrumb.icon-search,
 .icons-toolbar-bookspanel {
   position: relative;
   display: inline-block;
-  background-image: url('/images/icons/toolbar/icons-toolbar-bookspanel.png');
   width: 14px;
   height: 14px;
   padding: 0px;
   margin: 0px;
   vertical-align: middle;
+  background-image: url('/images/icons/toolbar/icons-toolbar-bookspanel.png');
 }
 .icons-toolbar-bookspanel.icon-thumbnails {
   background-position: 0px -1px;
@@ -180,12 +192,12 @@ button.disabled .icons-toolbar-bookspanel.icon-sort,
 .icons-toolbar-bookviewer {
   position: relative;
   display: inline-block;
-  background-image: url('/images/icons/toolbar/icons-toolbar-bookviewer.png');
   width: 14px;
   height: 14px;
   padding: 0px;
   margin: 0px;
   vertical-align: middle;
+  background-image: url('/images/icons/toolbar/icons-toolbar-bookviewer.png');
 }
 .icons-toolbar-bookviewer.icon-first {
   background-position: 0px -1px;
@@ -246,7 +258,6 @@ button.disabled .icons-toolbar-bookviewer.icon-last,
 .icons-fugue {
   position: relative;
   display: inline-block;
-  background-image: url('');
   width: 16px;
   height: 16px;
   padding: 0px;
