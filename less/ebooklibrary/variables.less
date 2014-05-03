@@ -3,6 +3,31 @@
 // --------------------------------------------------
 
 
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Kindle
+//** Deprecated `@screen-ms` as of v3.0.1
+@screen-ms:                  582px;
+@screen-ms-min:              @screen-ms;
+//** Deprecated `@screen-kindle` as of v3.0.1
+@screen-kindle:              @screen-ms-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-ms-max:              (@screen-ms-min - 1);
+
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Kindle
+@container-kindle:             ((536px + @grid-gutter-width));
+//** For `@screen-ms-min` and up.
+@container-ms:                 @container-kindle;
+
+
 //== Buttons
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
@@ -19,6 +44,15 @@
 @badge-color:			#382110;
 @badge-bg:			#e1ddc7;
 @badge-border:			#b6b4a1;
+
+
+//== Logo
+//
+//##
+
+@logo-ebooklibrary-width:			156px;
+@logo-ebooklibrary-height:			34px;
+@logo-ebooklibrary-bg:				'../images/logo/logo-ebooklibrary.png';
 
 
 //== Icons
@@ -51,16 +85,26 @@
 @icons-toolbar-bg-disabled-offset-y:		-14px;
 
 
-@icons-toolbar-bookspanel-name:			'bookspanel';
-@icons-toolbar-bookspanel-bg:			'../images/icons/toolbar/icons-toolbar-bookspanel.png';
-
-
-@icons-toolbar-bookviewer-name:			'bookviewer';
-@icons-toolbar-bookviewer-bg:			'../images/icons/toolbar/icons-toolbar-bookviewer.png';
-
-
 @icons-fugue-width:				16px;
 @icons-fugue-height:				16px;
 @icons-fugue-base-bg:				'../images/icons/fugue-icons/icons';
 
+
+//== Navbar
+//
+//##
+
+@navbar-default-margin-bottom:			0px;
+
+@navbar-default-color:				#382110;
+@navbar-default-bg:				#c8c6b0;
+@navbar-default-gradient-start-color:		#c8c6b0;
+@navbar-default-gradient-stop-color:		#e1ddc7;
+@navbar-default-gradient-start-percent:		0%;
+@navbar-default-gradient-stop-percent:		100%;
+@navbar-default-border:				#b6b4a1;
+@navbar-default-box-hshadow:			0px;
+@navbar-default-box-vshadow:			5px;
+@navbar-default-box-blur:			18px;
+@navbar-default-box-color:			rgba(56, 33, 16, 0.3);
 
