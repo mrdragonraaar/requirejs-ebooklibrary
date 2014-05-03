@@ -27,10 +27,10 @@
 }
 
 .icons-toolbar {
-	.icon-base(@icons-toolbar-width, @icons-toolbar-height);
+	.icons-toolbar-base();
 
 	&.icons-bookspanel {
-		.icon-background-image("@{icons-toolbar-base-image}/icons-toolbar-bookspanel.png");
+		.icons-toolbar-image('bookspanel');
 
 		&.icon-thumbnails {
 			.icons-toolbar-icon(0);
@@ -48,45 +48,25 @@
 			.icons-toolbar-icon(3);
 		}
 	}
-}
 
-.icons-toolbar-bookspanel {
-	.icons-toolbar-base('bookspanel');
+	&.icons-bookviewer {
+		.icons-toolbar-image('bookviewer');
 
-	&.icon-thumbnails {
-		.icons-toolbar-icon(0);
-	}
+		&.icon-first {
+			.icons-toolbar-icon(0);
+		}
 
-	&.icon-details {
-		.icons-toolbar-icon(1);
-	}
+		&.icon-prev {
+			.icons-toolbar-icon(1);
+		}
 
-	&.icon-list {
-		.icons-toolbar-icon(2);
-	}
+		&.icon-next {
+			.icons-toolbar-icon(2);
+		}
 
-	&.icon-sort {
-		.icons-toolbar-icon(3);
-	}
-}
-
-.icons-toolbar-bookviewer {
-	.icons-toolbar-base('bookviewer');
-
-	&.icon-first {
-		.icons-toolbar-icon(0);
-	}
-
-	&.icon-prev {
-		.icons-toolbar-icon(1);
-	}
-
-	&.icon-next {
-		.icons-toolbar-icon(2);
-	}
-
-	&.icon-last {
-		.icons-toolbar-icon(3);
+		&.icon-last {
+			.icons-toolbar-icon(3);
+		}
 	}
 }
 

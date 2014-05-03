@@ -940,142 +940,85 @@ a:focus > .icons-breadcrumb.icon-search,
 .icons-toolbar.icons-bookspanel.icon-thumbnails {
   background-position: 0px -1px;
 }
-.active > a > .icons-toolbar.icons-bookspanel.icon-thumbnails,
-a:hover > .icons-toolbar.icons-bookspanel.icon-thumbnails,
-a:focus > .icons-toolbar.icons-bookspanel.icon-thumbnails,
-.active > .icons-toolbar.icons-bookspanel.icon-thumbnails,
-.icons-toolbar.icons-bookspanel.icon-thumbnails.active {
-  background-position: 0px -1px;
+[disabled] > a > .icons-toolbar.icons-bookspanel.icon-thumbnails,
+.disabled > a > .icons-toolbar.icons-bookspanel.icon-thumbnails,
+[disabled] > .icons-toolbar.icons-bookspanel.icon-thumbnails,
+.disabled > .icons-toolbar.icons-bookspanel.icon-thumbnails,
+.icons-toolbar.icons-bookspanel.icon-thumbnails.disabled {
+  background-position: 0px -15px;
 }
 .icons-toolbar.icons-bookspanel.icon-details {
   background-position: -19px -1px;
 }
-.active > a > .icons-toolbar.icons-bookspanel.icon-details,
-a:hover > .icons-toolbar.icons-bookspanel.icon-details,
-a:focus > .icons-toolbar.icons-bookspanel.icon-details,
-.active > .icons-toolbar.icons-bookspanel.icon-details,
-.icons-toolbar.icons-bookspanel.icon-details.active {
-  background-position: -19px -1px;
+[disabled] > a > .icons-toolbar.icons-bookspanel.icon-details,
+.disabled > a > .icons-toolbar.icons-bookspanel.icon-details,
+[disabled] > .icons-toolbar.icons-bookspanel.icon-details,
+.disabled > .icons-toolbar.icons-bookspanel.icon-details,
+.icons-toolbar.icons-bookspanel.icon-details.disabled {
+  background-position: -19px -15px;
 }
 .icons-toolbar.icons-bookspanel.icon-list {
   background-position: -37px -1px;
 }
-.active > a > .icons-toolbar.icons-bookspanel.icon-list,
-a:hover > .icons-toolbar.icons-bookspanel.icon-list,
-a:focus > .icons-toolbar.icons-bookspanel.icon-list,
-.active > .icons-toolbar.icons-bookspanel.icon-list,
-.icons-toolbar.icons-bookspanel.icon-list.active {
-  background-position: -37px -1px;
+[disabled] > a > .icons-toolbar.icons-bookspanel.icon-list,
+.disabled > a > .icons-toolbar.icons-bookspanel.icon-list,
+[disabled] > .icons-toolbar.icons-bookspanel.icon-list,
+.disabled > .icons-toolbar.icons-bookspanel.icon-list,
+.icons-toolbar.icons-bookspanel.icon-list.disabled {
+  background-position: -37px -15px;
 }
 .icons-toolbar.icons-bookspanel.icon-sort {
   background-position: -55px -1px;
 }
-.active > a > .icons-toolbar.icons-bookspanel.icon-sort,
-a:hover > .icons-toolbar.icons-bookspanel.icon-sort,
-a:focus > .icons-toolbar.icons-bookspanel.icon-sort,
-.active > .icons-toolbar.icons-bookspanel.icon-sort,
-.icons-toolbar.icons-bookspanel.icon-sort.active {
-  background-position: -55px -1px;
+[disabled] > a > .icons-toolbar.icons-bookspanel.icon-sort,
+.disabled > a > .icons-toolbar.icons-bookspanel.icon-sort,
+[disabled] > .icons-toolbar.icons-bookspanel.icon-sort,
+.disabled > .icons-toolbar.icons-bookspanel.icon-sort,
+.icons-toolbar.icons-bookspanel.icon-sort.disabled {
+  background-position: -55px -15px;
 }
-.icons-toolbar-bookspanel {
-  position: relative;
-  display: inline-block;
-  padding: 0px;
-  margin: 0px;
-  vertical-align: middle;
-  width: 14px;
-  height: 14px;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAAcCAYAAADC8vmmAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gQeBi8bPVLcoAAAAr1JREFUWMPtl89rE1EQxz+TxGzBk40Xe+7NgyJ4tmXbRtsSiv4HEcEaDNqCf0NRRCiUXmr1oOAlB1Paktj0x3/hQTxWS7W5eOimreMhjYS4b3cjiTw1A8vuLG++M2925rvzoCc9UWXqfj/VASY/opppeu+U71BmsvgS1T4/29jpwomHF6he7Kd6nsz7eIiO6rghEKOd32XC0hC7qDghSXM2c5QeFbg6uJW5zq21535Jip3ezxx79Yck35PxEB1IGPwa7fwkBKubFeVs5ijNvuHSEeA4OIOlCdcvSY3gjhIO4EGNWO0kRAeODb6Ndn5iwhJhFTgXfctFEIm8WgQPGFJlKp/iReFgsrqrKw8QKdICk/g1oCIIPAvUxeQ4ACf6xlSZmBngVdmLtuG9g8zeF307g8hap6vNSg6ySRI2clC3W+x3EmQVB9nUYlZykI2D1D/JQao4lXtsX27yOXiWz9xcfY1qn2mAtJ6DOtViIniqpJ9Sn3m+eXgf0qsVCuO3ETlE/1IO6qQ0kvT4iJWxT8VdCuN3ETnsHcA6lWBV7WUhbFD8D+rAHRaZExmeE3Cb3jtLIzIrI0uzAk4AB8m1EYcblRqQdMGrrLuB+sa6wo5PIGYcX5Y2YTXhRJHAmIxJc5bT5HMVUpCDdCwvpey8tjBmo4ISJ41gaieRdBPpG+18WToQq5sV5SynyU+XSdVOfxeUp1Okl/OtldQI7jierK8jGY+kGzyb7Xy/vAlLdza8dqqh7QnJy5Z4kkXcYWF0myHQrXcKFUOL+QQUpvs7DseJ9oX/QIu1dRazjYPsO81bxkHdbrH2E2QZB1nXYrZxkHUtZhsHdarFWn/n2yDOqIwtXqE+8/ytHNSpFlMvW5J5fiYpCWOLX/EZCMOOGnWuoIU7AvRADvKza4uDOj7zzC+47OMu7LeTnN5hNYL8AIkuxyAlH/7DAAAAAElFTkSuQmCC");
-}
-.icons-toolbar-bookspanel.icon-thumbnails {
-  background-position: 0px -1px;
-}
-.active > a > .icons-toolbar-bookspanel.icon-thumbnails,
-a:hover > .icons-toolbar-bookspanel.icon-thumbnails,
-a:focus > .icons-toolbar-bookspanel.icon-thumbnails,
-.active > .icons-toolbar-bookspanel.icon-thumbnails,
-.icons-toolbar-bookspanel.icon-thumbnails.active {
-  background-position: 0px -1px;
-}
-.icons-toolbar-bookspanel.icon-details {
-  background-position: -19px -1px;
-}
-.active > a > .icons-toolbar-bookspanel.icon-details,
-a:hover > .icons-toolbar-bookspanel.icon-details,
-a:focus > .icons-toolbar-bookspanel.icon-details,
-.active > .icons-toolbar-bookspanel.icon-details,
-.icons-toolbar-bookspanel.icon-details.active {
-  background-position: -19px -1px;
-}
-.icons-toolbar-bookspanel.icon-list {
-  background-position: -37px -1px;
-}
-.active > a > .icons-toolbar-bookspanel.icon-list,
-a:hover > .icons-toolbar-bookspanel.icon-list,
-a:focus > .icons-toolbar-bookspanel.icon-list,
-.active > .icons-toolbar-bookspanel.icon-list,
-.icons-toolbar-bookspanel.icon-list.active {
-  background-position: -37px -1px;
-}
-.icons-toolbar-bookspanel.icon-sort {
-  background-position: -55px -1px;
-}
-.active > a > .icons-toolbar-bookspanel.icon-sort,
-a:hover > .icons-toolbar-bookspanel.icon-sort,
-a:focus > .icons-toolbar-bookspanel.icon-sort,
-.active > .icons-toolbar-bookspanel.icon-sort,
-.icons-toolbar-bookspanel.icon-sort.active {
-  background-position: -55px -1px;
-}
-.icons-toolbar-bookviewer {
-  position: relative;
-  display: inline-block;
-  padding: 0px;
-  margin: 0px;
-  vertical-align: middle;
-  width: 14px;
-  height: 14px;
+.icons-toolbar.icons-bookviewer {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAAcCAYAAADC8vmmAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gQeAAEBz7pQRAAABOlJREFUWMPtl39MlGUcwD9vyp0KhwkUxTStnZQRQ25xN7RSO10/JKeT3TB1bjlEyh/cpgWoCUPx3NUyf4RobqkzmWluiWVN/FEJHeZx6Uiji/VPJDXAX63dMXv6o5CT3b3vcweDXH63++ezPe+938/7PM/3+4W78d8IIUh0Ps5HrGtZFtH604wi5ZxxoF5+uv1BOhKYcQkhXgzg0Q6iV2gxGTn7ZuNNiaMjgZGXwpUkmhi/aRJePU+fY3frrHDyGsXbKxAiRosFyz/wQTOXxtGRRFYzQszoEvFZLqfGaLBw5HT9DEw9j0tkhSOna204koRg5uJoLpN1eF+XkFCsZ/5dcU+opD6ey9GiQ6T5VZiMnA+zOVN+kvgu1tI+puV6+YFtWJTqSHa7Me6rR/QLslfLSorSozeenGVl8p5KhEgKxUJFEEFHqbJRXXaMtE5VFpmcjnL3ZorjKmWFKMl4lu8kOzeVtkgl6fXojd8usJJZueWQCpMQ9BvzbVlrNtZg7FRl2nL22jjl7KWcPpd0YfHE7MyU+VdUmKqgEXH1I9w9RARjMjHoL6I6+7CQKMl4lm/Hbo2+/bhRUPI6QoyXlZTS1PisW4OFFNTRbu4wWfFGaTDNZBRaXz7IxOIp3V88Ke7npBHFpmWUt+dFVGk9JO+w807NH93M225sZklZJYrikXmGz4evMTnlhEmDqRyx+9l7oLrsjduEBGP9K0l4SN5RyKeb67uPrLfd2Oxb880WyhI+kJXjTd1+5mBd4957VZjEJT2dnANkrXme76JUWeSSDMW216TLfF/JeXJ3DXV5S2ersGAxOFRiQjB92CKO5u/koVBMVpIQTOTfitbaPrL1+ro970uX+WEMu3KVmG456c0+5xdOViZUySzv9OHzTjlcw5GZeSjKDURwNqCddG9HDdHE+I2ZXNaTfg7n7zn93knfEbOch2QSv3/i7lT7f57mX7mPpdh/tEU8zY92PTxQLz/JqsOBzupAiEkBPMbOUJsWk5GzKoNSwIHO6AhXkrhIaq6RUgyTHWz9ZVo4eQ3Fbutx3wRlwfIPLPODb/oB/81blU0IYiqmkb8Ni0mNychZbebV9WfRA+D3wvY8E1+LKbJyFr1E9k4veq6fgqK51jAkDbawzcS0ivwAIUFZz/w1p3nHBPILjhPvV2FhywHQPwpL9p/lKeVkRNs9bEl+OF4QzwRHPkIkhmbSjWIVJRYWrq0LFBGMRShn2ZdncSYeku6jxnFhxxEO5hrx9UpS3dp4LCULq1SZpqCrmCxzLBvqifWrMm05hWbynL2U0+eS6jfEzrGYLFdVmWon3YC7nlhtJnH4YZC/DwuJMo4LwkPCT5k8d+LPAElvrbIiRAuK0ignyR3boMlC7qB0TGau6TSZ9nixrp73VmUEfHHfD7D5mQxWts6OqNI2MLZgLpNvyQEwpEGWo1ZODoAOzKZr6ZospKDhuF37XUW3CQnG+leSaGBswTzmvdsYcGQNabDg81q2PvCJvJyia/tdbtdwVaZ5SedQ4mJXaSZtOlXWC0lb52RIl/m+kpNZ2oarZFeOKpMS9E9ihbVUbJraLSQYi0iSzgiLK93SZX4IQ9puBNyVBjPYj50OS87UTW3UFlagKK2h2QB20r0dNcRFUueNZj0Gs4M3f32hPzvpO2eWa2As8ecf6+///RsWamj3pDaLwQAAAABJRU5ErkJggg==");
 }
-.icons-toolbar-bookviewer.icon-first {
+.icons-toolbar.icons-bookviewer.icon-first {
   background-position: 0px -1px;
 }
-.active > a > .icons-toolbar-bookviewer.icon-first,
-a:hover > .icons-toolbar-bookviewer.icon-first,
-a:focus > .icons-toolbar-bookviewer.icon-first,
-.active > .icons-toolbar-bookviewer.icon-first,
-.icons-toolbar-bookviewer.icon-first.active {
-  background-position: 0px -1px;
+[disabled] > a > .icons-toolbar.icons-bookviewer.icon-first,
+.disabled > a > .icons-toolbar.icons-bookviewer.icon-first,
+[disabled] > .icons-toolbar.icons-bookviewer.icon-first,
+.disabled > .icons-toolbar.icons-bookviewer.icon-first,
+.icons-toolbar.icons-bookviewer.icon-first.disabled {
+  background-position: 0px -15px;
 }
-.icons-toolbar-bookviewer.icon-prev {
+.icons-toolbar.icons-bookviewer.icon-prev {
   background-position: -19px -1px;
 }
-.active > a > .icons-toolbar-bookviewer.icon-prev,
-a:hover > .icons-toolbar-bookviewer.icon-prev,
-a:focus > .icons-toolbar-bookviewer.icon-prev,
-.active > .icons-toolbar-bookviewer.icon-prev,
-.icons-toolbar-bookviewer.icon-prev.active {
-  background-position: -19px -1px;
+[disabled] > a > .icons-toolbar.icons-bookviewer.icon-prev,
+.disabled > a > .icons-toolbar.icons-bookviewer.icon-prev,
+[disabled] > .icons-toolbar.icons-bookviewer.icon-prev,
+.disabled > .icons-toolbar.icons-bookviewer.icon-prev,
+.icons-toolbar.icons-bookviewer.icon-prev.disabled {
+  background-position: -19px -15px;
 }
-.icons-toolbar-bookviewer.icon-next {
+.icons-toolbar.icons-bookviewer.icon-next {
   background-position: -37px -1px;
 }
-.active > a > .icons-toolbar-bookviewer.icon-next,
-a:hover > .icons-toolbar-bookviewer.icon-next,
-a:focus > .icons-toolbar-bookviewer.icon-next,
-.active > .icons-toolbar-bookviewer.icon-next,
-.icons-toolbar-bookviewer.icon-next.active {
-  background-position: -37px -1px;
+[disabled] > a > .icons-toolbar.icons-bookviewer.icon-next,
+.disabled > a > .icons-toolbar.icons-bookviewer.icon-next,
+[disabled] > .icons-toolbar.icons-bookviewer.icon-next,
+.disabled > .icons-toolbar.icons-bookviewer.icon-next,
+.icons-toolbar.icons-bookviewer.icon-next.disabled {
+  background-position: -37px -15px;
 }
-.icons-toolbar-bookviewer.icon-last {
+.icons-toolbar.icons-bookviewer.icon-last {
   background-position: -55px -1px;
 }
-.active > a > .icons-toolbar-bookviewer.icon-last,
-a:hover > .icons-toolbar-bookviewer.icon-last,
-a:focus > .icons-toolbar-bookviewer.icon-last,
-.active > .icons-toolbar-bookviewer.icon-last,
-.icons-toolbar-bookviewer.icon-last.active {
-  background-position: -55px -1px;
+[disabled] > a > .icons-toolbar.icons-bookviewer.icon-last,
+.disabled > a > .icons-toolbar.icons-bookviewer.icon-last,
+[disabled] > .icons-toolbar.icons-bookviewer.icon-last,
+.disabled > .icons-toolbar.icons-bookviewer.icon-last,
+.icons-toolbar.icons-bookviewer.icon-last.disabled {
+  background-position: -55px -15px;
 }
 .icons-fugue {
   position: relative;
