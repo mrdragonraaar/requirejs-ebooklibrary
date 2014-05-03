@@ -1043,6 +1043,11 @@ a:focus > .icons-breadcrumb.icon-search,
 }
 .navbar-default {
   background-color: #c8c6b0;
+  background-image: -webkit-linear-gradient(top, #c8c6b0 0%, #e1ddc7 100%);
+  background-image: -o-linear-gradient(top, #c8c6b0 0%, #e1ddc7 100%);
+  background-image: linear-gradient(to bottom, #c8c6b0 0%, #e1ddc7 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc8c6b0', endColorstr='#ffe1ddc7', GradientType=0);
   border-color: #b6b4a1;
   margin-bottom: 0px;
   -webkit-box-shadow: 0px 5px 18px rgba(56, 33, 16, 0.3);
@@ -1071,11 +1076,23 @@ a:focus > .icons-breadcrumb.icon-search,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   color: #382110;
-  background-color: #bab89c;
+  background-color: transparent;
 }
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
 .navbar-default .navbar-nav > .disabled > a:focus {
   color: #cccccc;
+  background-color: transparent;
+}
+.navbar-default .navbar-nav > li > .nav-divider {
+  float: left;
+  position: relative;
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+  vertical-align: middle;
+  width: 26px;
+  height: 50px;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAyCAYAAABCtcuVAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gIZFB4Sj+bZsQAAAipJREFUWMOtmO1T4jAQh5+mtVJ5Ue7E///Puzm9QQURkVK/bGZ6nezSJtkZPkBKHnbz25dQ8L89AQ+EbQ/8AS5EWDl4fwLugCrwbC3rXzlAF6AQWBF4fgbsYrwqA58dgUY8GJqT10cOEBKeleHVJ/CdA9T2QhiyW+A9B8h7NVeEUckPOeQAdRKelbJ+IyE8p4KQTUo5l5AwSlFhMsjDFrJxKLfOY3JrDKiVMM6V9VrOqk0FeWE0ci6hPbprwignKLQVr0IhbAR0zgH6ljDNjNzaiXdJIF+elsr3KvH6mAPUyWZLZb3Riu5UkG8llRLCQgSzywHqF12nVIx2mFuxoItstjC8+uiHMBbUV2GtCIN+bqWAup5XhSL3o+9bKSDvVSlqC4XQiVddKmj0QJMD5A98roSwAfY5QF7uM2OgqR35rLB6Wi7QL6NfnYCXHKDamCsAXoA2B2itnA3Amx82U0Fz4N6YNd58f0oB3QAbY/2135tcgsLujZB9AtuhxmPsVpSmJfB22NJdpDdPxvpeXqSC1saAcgaeUcrD1JxZG+vP2iA5FfRotJZgyGJAK6PMXKQCdKmgSm7rhVFmTtYGY0EPhgAOY64uY0Az47+HTnKmTQU5SUztufexN/RroIUyu/k+82+sktyVK83GCNnr2PvrNdDGyJmjgEgF3Rk3hg74O7VuOaVoboyc2cb88RQC/ZY2oAlgG9NXXCBnljFFcypordy8/aBxINJ+AOuZfa0nQo9WAAAAAElFTkSuQmCC");
   background-color: transparent;
 }

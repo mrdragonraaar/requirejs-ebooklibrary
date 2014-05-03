@@ -9,7 +9,7 @@
 // Default navbar
 .navbar-default {
 	background-color: @navbar-default-bg;
-	//#gradient.vertical(@navbar-default-gradient-start-color, @navbar-default-gradient-stop-color, @navbar-default-gradient-start-percent, @navbar-default-gradient-stop-percent);
+	#gradient.vertical(@navbar-default-gradient-start-color, @navbar-default-gradient-stop-color, @navbar-default-gradient-start-percent, @navbar-default-gradient-stop-percent);
 	border-color: @navbar-default-border;
 	margin-bottom: @navbar-default-margin-bottom;
 	.box-shadow(@navbar-default-box-hshadow @navbar-default-box-vshadow @navbar-default-box-blur @navbar-default-box-color);
@@ -54,6 +54,12 @@
 				color: @navbar-default-link-disabled-color;
 				background-color: @navbar-default-link-disabled-bg;
 			}
+		}
+
+		> li > .nav-divider {
+			float: left;
+			.icon-base(26px, 50px, '../images/navbar/divider.png');
+			background-color: transparent;
 		}
 	}
 }

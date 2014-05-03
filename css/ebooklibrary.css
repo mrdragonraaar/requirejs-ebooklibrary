@@ -262,6 +262,7 @@ ul.list-panel > li ul
 	white-space: nowrap;
 }
 
+/*
 .navbar-default .navbar-nav > li > .nav-divider
 {
 	float: left;
@@ -274,6 +275,7 @@ ul.list-panel > li ul
 	margin: 0px;
 	margin-right: 5px;
 }
+*/
 
 .navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-nav > form,
@@ -282,6 +284,8 @@ ul.list-panel > li ul
 	float: left;
 	padding: 0px;
 	line-height: 50px;
+
+	padding: 0 7px;
 }
 
 /*
