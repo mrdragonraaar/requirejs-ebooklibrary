@@ -1,83 +1,137 @@
-// Icon variants
-//
-// Easily pump out default styles, as well as :hover, :focus, :active,
-// and disabled options for all icons
+// Icons
 
-// Icons variants
-.icons-variant(@width; @height) {
-	position: relative;
-	display: inline-block;
-	width: unit(@width, px);
-	height: unit(@height, px);
-	padding: 0px;
-	margin: 0px;
-	vertical-align: middle;
-}
+#icon {
+	// Base style
+	.base() {
+		position: relative;
+		display: inline-block;
+		padding: 0px;
+		margin: 0px;
+		vertical-align: middle;
+	}
 
-.icons-variant(@width; @height; @bg-img) {
-	.icons-variant(@width, @height);
-	.icon-variant(@bg-img);
-}
+	// Size
+	.size(@width; @height) {
+		width: unit(@width, px);
+		height: unit(@height, px);
+	}
 
-// Icon variants
-.icon-variant(@bg-img) {
-	background-image: data-uri(@bg-img);
-}
+	// Background image
+	.background-image(@image) {
+		background-image: data-uri(@image);
+	}
 
-.icon-variant(@bg-x; @bg-y) {
-	background-position: unit(@bg-x, px) unit(@bg-y, px);
-}
+	// Background position
+	.background-position(@x; @y) {
+		background-position: unit(@x, px) unit(@y, px);
+	}
 
-.icon-variant(@bg-x; @bg-y; @bg-img) {
-	.icon-variant(@bg-img);
-	.icon-variant(@bg-x, @bg-y);
-}
+	.background-position(@x; @y; @x-offset; @y-offset) {
+		.background-position((@x + @x-offset), (@y + @y-offset));
+	}
 
-.icon-variant(@bg-x; @bg-y; @bg-active-offset-x; @bg-active-offset-y; @bg-disabled-offset-x; @bg-disabled-offset-y) {
-	.icon-variant(@bg-x, @bg-y);
+	.background-position-active(@x; @y; @active-x-offset; @active-y-offset) {
+		.active > a > &,
+		a:hover > &,
+		a:focus > &,
+		.active > &,
+		&.active {
+			.background-position(@x, @y, @active-x-offset, @active-y-offset);
+		}
+	}
 
-	.icon-bg-active(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y);
-	.icon-bg-disabled(@bg-x, @bg-y, @bg-disabled-offset-x, @bg-disabled-offset-y);
-}
-
-.icon-variant(@bg-x; @bg-y; @bg-active-offset-x; @bg-active-offset-y; @bg-disabled-offset-x; @bg-disabled-offset-y; @bg-img) {
-	.icon-variant(@bg-img);
-	.icon-variant(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y, @bg-disabled-offset-x, @bg-disabled-offset-y);
-}
-
-.icon-variant(@icon-num; @bg-base-x; @bg-base-y; @bg-icon-offset-x; @bg-icon-offset-y; @bg-active-offset-x; @bg-active-offset-y; @bg-disabled-offset-x; @bg-disabled-offset-y) {
-	.icon-variant(
-	   ((@icon-num * @bg-icon-offset-x) + @bg-base-x),
-	   ((@icon-num * @bg-icon-offset-y) + @bg-base-y),
-	   @bg-active-offset-x, 
-	   @bg-active-offset-y, 
-	   @bg-disabled-offset-x, 
-	   @bg-disabled-offset-y
-	);
-}
-
-// Background Position
-.icon-bg-active(@bg-x; @bg-y; @bg-active-offset-x; @bg-active-offset-y) {
-	&.active,
-	a:hover &,
-	a:focus &,
-	a.active & {
-		.icon-bg-pos(@bg-x, @bg-y, @bg-active-offset-x, @bg-active-offset-y);
+	.background-position-disabled(@x; @y; @disabled-x-offset; @disabled-y-offset) {
+		[disabled] > a > &,
+		.disabled > a > &,
+		[disabled] > &,
+		.disabled > &,
+		&.disabled {
+			.background-position(@x, @y, @disabled-x-offset, @disabled-y-offset);
+		}
 	}
 }
 
-.icon-bg-disabled(@bg-x; @bg-y; @bg-disabled-offset-x; @bg-disabled-offset-y) {
-	button[disabled] &,
-	button.disabled &,
-	&.disabled {
-		.icon-bg-pos(@bg-x, @bg-y, @bg-disabled-offset-x, @bg-disabled-offset-y);
-	}
+
+// Icon base style
+
+.icon-base() {
+	#icon.base();
 }
 
-.icon-bg-pos(@bg-x; @bg-y) {
-	background-position: unit(@bg-x, px) unit(@bg-y, px);
+.icon-base(@width; @height) {
+	.icon-base();
+	#icon.size(@width, @height);
 }
 
-.icon-bg-pos(@bg-x; @bg-y; @bg-offset-x; @bg-offset-y) {
-	.icon-bg-pos(@bg-x + @bg-offset-x, @bg-y + @bg-offset-y);
+.icon-base(@width; @height; @image) {
+	.icon-base(@width, @height);
+	.icon-background-image(@image);
+}
+
+
+// Icon background image
+
+.icon-background-image(@image) {
+	#icon.background-image(@image);
+}
+
+
+// Icon background position
+
+.icon-background-position(@x; @y) {
+	#icon.background-position(@x, @y);
+}
+
+.icon-background-position(@x; @y;
+    @active-x-offset; @active-y-offset;
+    @disabled-x-offset; disabled-y-offset)
+{
+	#icon.background-position(@x, @y);
+	#icon.background-position-active(@x, @y; @active-x-offset; @active-y-offset);
+	#icon.background-position-disabled(@x, @y; @disabled-x-offset; @disabled-y-offset);
+}
+
+.icon-background-position(@index;
+    @base-x; @base-y;
+    @icon-x-offset; @icon-y-offset;
+    @active-x-offset; @active-y-offset;
+    @disabled-x-offset; disabled-y-offset)
+{
+	.icon-background-position(
+	    ((@icon-x-offset * @index) + @base-x),
+	    ((@icon-y-offset * @index) + @base-y),
+	    @active-x-offset, @active-y-offset,
+	    @disabled-x-offset, @disabled-y-offset);
+}
+
+.icon-background-position-active(@x; @y; @active-x-offset; @active-y-offset) {
+	#icon.background-position(@x, @y);
+	#icon.background-position-active(@x, @y, @active-x-offset, @active-y-offset);
+}
+
+.icon-background-position-active(@index;
+    @base-x; @base-y;
+    @icon-x-offset; @icon-y-offset;
+    @active-x-offset; @active-y-offset)
+{
+	.icon-background-position-active(
+	    ((@icon-x-offset * @index) + @base-x),
+	    ((@icon-y-offset * @index) + @base-y),
+	    @active-x-offset, @active-y-offset);
+}
+
+.icon-background-position-disabled(@x; @y; @disabled-x-offset; @disabled-y-offset) {
+	#icon.background-position(@x, @y);
+	#icon.background-position-disabled(@x, @y, @disabled-x-offset, @disabled-y-offset);
+}
+
+.icon-background-position-disabled(@index;
+    @base-x; @base-y;
+    @icon-x-offset; @icon-y-offset;
+    @disabled-x-offset; @disabled-y-offset)
+{
+	.icon-background-position-disabled(
+	    ((@icon-x-offset * @index) + @base-x),
+	    ((@icon-y-offset * @index) + @base-y),
+	    @disabled-x-offset, @disabled-y-offset);
 }

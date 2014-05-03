@@ -7,86 +7,110 @@
 // --------------------------------------------------
 
 .icons-breadcrumb {
-	.icons-breadcrumb-variant();
+	.icons-breadcrumb-base();
 
 	&.icon-author {
-		.icon-breadcrumb-variant(0);
+		.icons-breadcrumb-icon(0);
 	}
 
 	&.icon-series {
-		.icon-breadcrumb-variant(1);
+		.icons-breadcrumb-icon(1);
 	}
 
 	&.icon-book {
-		.icon-breadcrumb-variant(2);
+		.icons-breadcrumb-icon(2);
 	}
 
 	&.icon-search {
-		.icon-breadcrumb-variant(3);
+		.icons-breadcrumb-icon(3);
+	}
+}
+
+.icons-toolbar {
+	.icon-base(@icons-toolbar-width, @icons-toolbar-height);
+
+	&.icons-bookspanel {
+		.icon-background-image("@{icons-toolbar-base-image}/icons-toolbar-bookspanel.png");
+
+		&.icon-thumbnails {
+			.icons-toolbar-icon(0);
+		}
+
+		&.icon-details {
+			.icons-toolbar-icon(1);
+		}
+
+		&.icon-list {
+			.icons-toolbar-icon(2);
+		}
+
+		&.icon-sort {
+			.icons-toolbar-icon(3);
+		}
 	}
 }
 
 .icons-toolbar-bookspanel {
-	.icons-toolbar-variant('bookspanel');
+	.icons-toolbar-base('bookspanel');
 
 	&.icon-thumbnails {
-		.icon-toolbar-variant(0);
+		.icons-toolbar-icon(0);
 	}
 
 	&.icon-details {
-		.icon-toolbar-variant(1);
+		.icons-toolbar-icon(1);
 	}
 
 	&.icon-list {
-		.icon-toolbar-variant(2);
+		.icons-toolbar-icon(2);
 	}
 
 	&.icon-sort {
-		.icon-toolbar-variant(3);
+		.icons-toolbar-icon(3);
 	}
 }
 
 .icons-toolbar-bookviewer {
-	.icons-toolbar-variant('bookviewer');
+	.icons-toolbar-base('bookviewer');
 
 	&.icon-first {
-		.icon-toolbar-variant(0);
+		.icons-toolbar-icon(0);
 	}
 
 	&.icon-prev {
-		.icon-toolbar-variant(1);
+		.icons-toolbar-icon(1);
 	}
 
 	&.icon-next {
-		.icon-toolbar-variant(2);
+		.icons-toolbar-icon(2);
 	}
 
 	&.icon-last {
-		.icon-toolbar-variant(3);
+		.icons-toolbar-icon(3);
 	}
 }
 
 .icons-fugue {
-	.icons-fugue-variant();
+	.icons-fugue-base();
 
 	&.icon-document-mobi
 	{
-		.icon-fugue-variant('document-mobi');
+		.icons-fugue-icon('document-mobi');
 	}
 
 	&.icon-e-book-reader-black
 	{
-		.icon-fugue-variant('e-book-reader-black');
+		.icons-fugue-icon('e-book-reader-black');
 	}
 
 	&.icon-information-frame
 	{
-		.icon-fugue-variant('information-frame');
+		.icons-fugue-icon('information-frame');
 	}
 
 	&.icon-magnifier-left
 	{
-		.icon-fugue-variant('magnifier-left');
+		.icons-fugue-icon('magnifier-left');
 	}
 }
 

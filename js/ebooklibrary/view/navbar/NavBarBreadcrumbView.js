@@ -32,9 +32,11 @@ function(
 		 */
 		setSearchActive: function(active) {
 			if (active)
-				this.$('.nav-search > a').addClass('active');
+				this.$('.nav-search').addClass('active');
+				//this.$('.nav-search > a').addClass('active');
 			else
-				this.$('.nav-search > a').removeClass('active');
+				this.$('.nav-search').removeClass('active');
+				//this.$('.nav-search > a').removeClass('active');
 		},
 
 		/**
@@ -43,9 +45,11 @@ function(
 		 */
 		setAuthorActive: function(active) {
 			if (active)
-				this.$('.nav-author > a').addClass('active');
+				this.$('.nav-author').addClass('active');
+				//this.$('.nav-author > a').addClass('active');
 			else
-				this.$('.nav-author > a').removeClass('active');
+				this.$('.nav-author').removeClass('active');
+				//this.$('.nav-author > a').removeClass('active');
 		},
 
 		/**
@@ -54,9 +58,11 @@ function(
 		 */
 		setSeriesActive: function(active) {
 			if (active)
-				this.$('.nav-series > a').addClass('active');
+				this.$('.nav-series').addClass('active');
+				//this.$('.nav-series > a').addClass('active');
 			else
-				this.$('.nav-series > a').removeClass('active');
+				this.$('.nav-series').removeClass('active');
+				//this.$('.nav-series > a').removeClass('active');
 		}
 	});
 

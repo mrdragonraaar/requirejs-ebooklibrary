@@ -3,31 +3,22 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all icons
 
-// Icons variants
-.icons-toolbar-variant(@icons-toolbar-name) {
-	.icons-variant(@icons-toolbar-width, @icons-toolbar-height,
-	   "@{icons-toolbar-base-bg}/icons-toolbar-@{icons-toolbar-name}.png"
-	);
+.icons-toolbar-base(@name) {
+	.icon-base(@icons-toolbar-width, @icons-toolbar-width,
+	    "@{icons-toolbar-base-image}/icons-toolbar-@{name}.png");
 }
 
-// Icon variants
-.icon-toolbar-variant(@icon-num) when (@icon-num = 0) {
-	.icon-variant(0, -1px,
-	   @icons-toolbar-bg-active-offset-x, 
-	   @icons-toolbar-bg-active-offset-y, 
-	   @icons-toolbar-bg-disabled-offset-x, 
-	   @icons-toolbar-bg-disabled-offset-y);
+.icons-toolbar-icon(@index) when (@index = 0) {
+	// tweak first icon
+	.icon-background-position-active(@index, 
+	   (@icons-toolbar-base-x + 1), @icons-toolbar-base-y, 
+	   @icons-toolbar-icon-x-offset, @icons-toolbar-icon-y-offset,
+	   @icons-toolbar-active-x-offset, @icons-toolbar-active-y-offset);
 }
 
-.icon-toolbar-variant(@icon-num) when (@icon-num > 0) {
-	.icon-variant(
-	   @icon-num,
-	   @icons-toolbar-bg-base-x,
-	   @icons-toolbar-bg-base-y,
-	   @icons-toolbar-bg-icon-offset-x,
-	   @icons-toolbar-bg-icon-offset-y,
-	   @icons-toolbar-bg-active-offset-x, 
-	   @icons-toolbar-bg-active-offset-y, 
-	   @icons-toolbar-bg-disabled-offset-x, 
-	   @icons-toolbar-bg-disabled-offset-y);
+.icons-toolbar-icon(@index) when (@index > 0) {
+	.icon-background-position-active(@index, 
+	   @icons-toolbar-base-x, @icons-toolbar-base-y, 
+	   @icons-toolbar-icon-x-offset, @icons-toolbar-icon-y-offset,
+	   @icons-toolbar-active-x-offset, @icons-toolbar-active-y-offset);
 }
