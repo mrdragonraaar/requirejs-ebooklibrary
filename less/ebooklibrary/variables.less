@@ -3,6 +3,53 @@
 // --------------------------------------------------
 
 
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+//** Gray reference
+//@gray-darker:		lighten(#000, 13.5%); // #222
+//@gray-dark:		lighten(#000, 20%);   // #333
+//@gray:		lighten(#000, 33.5%); // #555
+@gray-medium:		lighten(#000, 46.5%); // #777
+//@gray-light:		lighten(#000, 60%);   // #999
+//@gray-lighter:	lighten(#000, 93.5%); // #eee
+
+//** Dark brown
+@brand-primary:		#382110;
+//** Olive green
+@brand-secondary:	#660;
+//** Dark green
+@brand-tertiary:	#215625;
+
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+@body-bg:		#fff;
+//** Global text color on `<body>`.
+@text-color:		@brand-primary;
+
+//** Global textual link color.
+@link-color:		@brand-tertiary;
+//** Link hover color set via `darken()` function.
+@link-hover-color:	darken(@link-color, 15%);
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+@font-family-sans-serif:	"Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-base:		@font-family-sans-serif;
+
+@font-size-base:		14px;
+@font-size-large:		ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small:		ceil((@font-size-base * 0.85)); // ~12px
+
+
 //== Media queries breakpoints
 //
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
@@ -50,31 +97,31 @@
 //
 //##
 
-@images-base:					'../images';
+@images-path:			'../images';
 
 
 //== Logo
 //
 //##
 
-@logo-base:					"@{images-base}/logo";
+@logo-path:			"@{images-path}/logo";
 
-@logo-ebooklibrary-width:			156px;
-@logo-ebooklibrary-height:			34px;
+@logo-ebooklibrary-width:	156px;
+@logo-ebooklibrary-height:	34px;
 
 
 //== Icons
 //
 //##
 
-@icons-base:					"@{images-base}/icons";
+@icons-path:			"@{images-path}/icons";
 
 
 // Breadcrumb icons
 
 @icons-breadcrumb-width:			20px;
 @icons-breadcrumb-height:			20px;
-@icons-breadcrumb-image:			"@{icons-base}/breadcrumb/icons-breadcrumb.png";
+@icons-breadcrumb-image:			"@{icons-path}/breadcrumb/icons-breadcrumb.png";
 @icons-breadcrumb-base-x:			-26px;
 @icons-breadcrumb-base-y:			-6px;
 @icons-breadcrumb-icon-x-offset:		0;
@@ -89,7 +136,7 @@
 
 @icons-toolbar-width:				14px;
 @icons-toolbar-height:				14px;
-@icons-toolbar-base-image:			"@{icons-base}/toolbar";
+@icons-toolbar-path:				"@{icons-path}/toolbar";
 @icons-toolbar-base-x:				-1px;
 @icons-toolbar-base-y:				-1px;
 @icons-toolbar-icon-x-offset:			-18px;
@@ -102,7 +149,7 @@
 
 // Fugue icons
 
-@icons-fugue-base-image:			"@{icons-base}/fugue-icons/icons";
+@icons-fugue-path:				"@{icons-path}/fugue-icons/icons";
 @icons-fugue-width:				16px;
 @icons-fugue-height:				16px;
 
@@ -126,7 +173,10 @@
 @navbar-default-box-color:		rgba(56, 33, 16, 0.3);
 
 // Navbar links
-@navbar-default-link-color:		#333;
+@navbar-default-link-font-size:		@font-size-large;
+@navbar-default-link-color:		@gray-medium;
+//@navbar-default-link-color:		#777;
+//@navbar-default-link-color:		#660;
 @navbar-default-link-hover-color:	@navbar-default-color;
 @navbar-default-link-hover-bg:		transparent;
 @navbar-default-link-active-color:	@navbar-default-color;
@@ -139,4 +189,12 @@
 @navbar-default-brand-color:		@navbar-default-link-color;
 @navbar-default-brand-hover-color:	darken(@navbar-default-brand-color, 10%);
 @navbar-default-brand-hover-bg:		transparent;
+
+// Navbar toggle
+@navbar-default-toggle-bg:			@btn-default-bg;
+@navbar-default-toggle-border-color:		@btn-default-border;
+@navbar-default-toggle-hover-bg:		darken(@navbar-default-toggle-bg, 10%);
+@navbar-default-toggle-hover-border-color:	darken(@navbar-default-toggle-border-color, 12%);
+@navbar-default-toggle-icon-bar-bg:		@navbar-default-link-color;
+@navbar-default-toggle-icon-bar-hover-bg:	@navbar-default-link-hover-color;
 
