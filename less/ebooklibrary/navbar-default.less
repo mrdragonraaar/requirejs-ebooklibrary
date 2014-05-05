@@ -106,9 +106,18 @@
 		}
 	}
 
-	.navbar-collapse,
+	.navbar-collapse {
+		border-color: @navbar-default-border;
+	}
+
+	// Form controls
 	.navbar-form {
 		border-color: @navbar-default-border;
+
+		.form-control {
+			//border-color: @navbar-default-input-border;
+			border-radius: @navbar-default-input-border-radius;
+		}
 	}
 
 	// Dropdown menu items
