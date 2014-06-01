@@ -19,6 +19,13 @@ a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
+.list-well {
+  list-style: square inside;
+  padding-left: 0;
+  color: #b6b4a1;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
 .container {
   margin-right: auto;
   margin-left: auto;
