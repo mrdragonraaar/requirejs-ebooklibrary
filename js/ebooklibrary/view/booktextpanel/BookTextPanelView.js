@@ -17,7 +17,7 @@ function(
 ) {
 	var BookTextPanelView = Backbone.View.extend({
 		tagName: 'booktextpanel',
-		className: 'panel panel-book-text',
+		className: 'panel panel-default panel-book-text',
 
 		/**
 		 * Initialise the book text panel view.

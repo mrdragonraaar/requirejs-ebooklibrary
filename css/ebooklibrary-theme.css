@@ -880,6 +880,42 @@ fieldset[disabled] .btn-default.active {
   color: #e1ddc7;
   background-color: #382110;
 }
+.caret {
+  margin-left: 5px;
+}
+.dropdown-menu {
+  background-color: #ffffff;
+  border: 1px solid #b6b4a1;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.dropdown-menu .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e1ddc7;
+}
+.dropdown-menu > li > a {
+  color: #382110;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  text-decoration: none;
+  color: #24150a;
+  background-color: #e1ddc7;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #382110;
+}
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  color: #999999;
+}
 .badge {
   color: #382110;
   background-color: #e1ddc7;
@@ -1230,7 +1266,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .panel-default {
   border-radius: 0;
-  border-bottom: none;
+  border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1281,6 +1317,39 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   margin-top: -8px;
   margin-bottom: -8px;
 }
-.panel-default > .panel-heading > .btn-toolbar .caret {
-  margin-left: 5px;
+.well {
+  background-color: #f3f1e9;
+  border: 1px solid #e6e2d2;
+}
+.well > .well-title {
+  margin-top: 0;
+  margin-bottom: 19px;
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: 300;
+  color: inherit;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e6e2d2;
+}
+.well > .well-title > a {
+  color: inherit;
+}
+.well-lg > .well-title {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+.well-sm > .well-title {
+  font-size: 16px;
+  margin-bottom: 9px;
+}
+.well-header {
+  margin-bottom: 0;
+  border-bottom-color: #b6b4a1;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.well-header > .well-title {
+  font-size: 20px;
+  border-bottom: 1px solid #b6b4a1;
 }

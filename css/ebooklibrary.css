@@ -253,8 +253,7 @@ ul.list-panel > li ul
 	margin: 0px;
 }
 
-.navbar-default .navbar-nav > li,
-.panel-book-text .book-text-title
+.navbar-default .navbar-nav > li
 {
 	font-size: 18px;
 	font-weight: 400;
@@ -278,8 +277,7 @@ ul.list-panel > li ul
 */
 
 .navbar-default .navbar-nav > li > a,
-.navbar-default .navbar-nav > form,
-.panel-book-text .book-text-title
+.navbar-default .navbar-nav > form
 {
 	float: left;
 	padding: 0px;
@@ -297,8 +295,7 @@ ul.list-panel > li ul
 }
 */
 
-.navbar-default .navbar-nav > li > a > .icons-breadcrumb,
-.panel-book-text .book-text-title > .icons-breadcrumb
+.navbar-default .navbar-nav > li > a > .icons-breadcrumb
 {
 	margin-right: 5px;
 }
@@ -477,7 +474,6 @@ footer
 	box-shadow: 0px -5px 18px rgba(56, 33, 16, 0.3);
 }
 
-.well-header,
 .well-sidebar,
 .well-authors
 {
@@ -487,11 +483,13 @@ footer
 	padding: 15px;
 }
 
+/*
 .well-header
 {
 	border-bottom: 1px solid rgba(182, 180, 161, 0.7);
 	border-radius: 0px;
 }
+*/
 
 .well-authors
 {
@@ -682,84 +680,12 @@ linkspanel.well-links > ul > li > ul
 	margin-left: 39px;
 }
 
-.panel-books,
-.panel-book-text
-{
-	border-radius: 0px;
-	margin: 0px;
-	border: none;
-	box-shadow: none;
-}
-
-.panel-books > .panel-heading,
-.panel-book-text > .panel-heading
-{
-	height: 50px;
-	border-radius: 0px;
-	background-color: transparent;
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c8c6b0), color-stop(1, #e1ddc7));
-	background-image: -o-linear-gradient(bottom, #c8c6b0 0%, #e1ddc7 100%);
-	background-image: -moz-linear-gradient(bottom, #c8c6b0 0%, #e1ddc7 100%);
-	background-image: -webkit-linear-gradient(bottom, #c8c6b0 0%, #e1ddc7 100%);
-	background-image: -ms-linear-gradient(bottom, #c8c6b0 0%, #e1ddc7 100%);
-	background-image: linear-gradient(to bottom, #c8c6b0 0%, #e1ddc7 100%);
-	border-bottom: 1px solid #b6b4a1;
-	box-shadow: 0px 5px 18px rgba(56, 33, 16, 0.3);
-}
-
-.panel-book-text > .panel-heading
-{
-	padding-top: 0px;
-	padding-bottom: 0px;
-}
-
-.panel-books > .panel-heading > .badge-books
-{
-	margin-top: 5px;
-}
-
 bookspanel,
 booktextpanel
 {
 	position: relative;
 	display: block;
 	z-index: 1500;
-}
-
-.bookspanel-toolbar .dropdown-menu
-{
-	font-size: 12px;
-}
-
-.bookspanel-toolbar .dropdown-menu > li.divider
-{
-	margin: 7px 0px;
-}
-
-.bookspanel-toolbar .dropdown-menu > li > a
-{
-	color: #382110;
-}
-
-.bookspanel-toolbar .dropdown-menu > li > a:hover,
-.bookspanel-toolbar .dropdown-menu > li > a:focus
-{
-	background-color: #e1ddc7;
-}
-
-.bookspanel-toolbar .dropdown-menu > .active > a,
-.bookspanel-toolbar .dropdown-menu > .active > a:hover,
-.bookspanel-toolbar .dropdown-menu > .active > a:focus
-{
-	color: #fff;
-	background-color: #382110;
-}
-
-.bookspanel-toolbar .dropdown-toggle.btn-default > .caret,
-.bookspanel-toolbar .dropdown-menu > li > a > .caret
-{
-	margin-top: -2px;
-	margin-left: 10px;
 }
 
 .bookspanel-thumbs

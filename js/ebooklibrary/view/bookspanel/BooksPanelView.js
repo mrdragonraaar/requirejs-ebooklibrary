@@ -23,7 +23,7 @@ function(
 ) {
 	var BooksPanelView = Backbone.View.extend({
 		tagName: 'bookspanel',
-		className: 'panel panel-books',
+		className: 'panel panel-default panel-books',
 
 		toolBarView: null,	// toolbar view
 

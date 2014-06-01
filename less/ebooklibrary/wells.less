@@ -1,0 +1,55 @@
+//
+// Wells
+// --------------------------------------------------
+
+
+// Base class
+.well {
+	background-color: @well-bg;
+	border: 1px solid @well-border;
+
+	> .well-title {
+		margin-top: 0;
+		margin-bottom: 19px;
+		padding-bottom: 10px;
+		font-size: ceil((@font-size-base * 1.25));
+		font-weight: 300;
+		color: inherit;
+		text-transform: uppercase;
+		border-bottom: 1px solid @well-border;
+
+		> a {
+			color: inherit;
+		}
+	}
+}
+
+// Sizes
+.well-lg {
+	> .well-title {
+		font-size: ceil((@font-size-base * 1.4));
+		margin-bottom: 24px;
+	}
+}
+.well-sm {
+	> .well-title {
+		font-size: ceil((@font-size-base * 1.125));
+		margin-bottom: 9px;
+	}
+}
+
+// Alternate wells
+// --------------------------------------------------
+
+.well-header {
+	margin-bottom: 0;
+	border-bottom-color: @well-header-border;
+	border-radius: 0;
+	.box-shadow(none);
+
+	> .well-title {
+		font-size: ceil((@font-size-base * 1.4));
+		border-bottom: 1px solid @well-header-border;
+	}
+}
+

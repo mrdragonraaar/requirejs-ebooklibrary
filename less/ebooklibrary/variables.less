@@ -116,6 +116,44 @@
 @input-group-addon-border-color:	@input-border;
 
 
+//== Dropdowns
+//
+//## Dropdown menu container and contents.
+
+//** Background for the dropdown menu.
+@dropdown-bg:				#fff;
+//** Dropdown menu `border-color`.
+//@dropdown-border:			rgba(0,0,0,.15);
+@dropdown--border:		#b6b4a1;
+//** Dropdown menu `border-color` **for IE8**.
+//@dropdown-fallback-border:		#ccc;
+@dropdown-fallback-border:		#b6b4a1;
+//** Divider color for between dropdown items.
+//@dropdown-divider-bg:			#e5e5e5;
+@dropdown-divider-bg:			#e1ddc7;
+
+//** Dropdown link text color.
+//@dropdown-link-color:			@gray-dark;
+@dropdown-link-color:			@brand-primary;
+//** Hover color for dropdown links.
+//@dropdown-link-hover-color:		darken(@gray-dark, 5%);
+@dropdown-link-hover-color:		darken(@brand-primary, 5%);
+//** Hover background for dropdown links.
+//@dropdown-link-hover-bg:		#f5f5f5;
+@dropdown-link-hover-bg:		#e1ddc7;
+
+//** Active dropdown menu item text color.
+@dropdown-link-active-color:		@component-active-color;
+//** Active dropdown menu item background color.
+@dropdown-link-active-bg:		@component-active-bg;
+
+//** Disabled dropdown menu item background color.
+@dropdown-link-disabled-color:		@gray-light;
+
+//** Text color for headers within dropdown menus.
+@dropdown-header-color:			@gray-light;
+
+
 //== Badges
 //
 //##
@@ -233,4 +271,15 @@
 // Navbar forms
 @navbar-default-input-border:		@navbar-default-border;
 @navbar-default-input-border-radius:	15px;
+
+
+//== Wells
+//
+//##
+
+@well-bg:	#f3f1e9;
+@well-border:	darken(@well-bg, 7%);
+
+// Well header
+@well-header-border:		#b6b4a1;
 
