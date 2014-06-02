@@ -30,3 +30,23 @@ a {
 		.tab-focus();
 	}
 }
+
+
+// Authors
+
+authorspanel {
+	display: block;
+	z-index: @zindex-authors;
+	height: 100%;
+
+	@media (min-width: @grid-float-breakpoint) {
+		float: left;
+		width: 350px;
+
+		&.panel-default {
+			margin-bottom: -10000px;
+			padding-bottom: 10000px;
+		}
+	}
+}
+

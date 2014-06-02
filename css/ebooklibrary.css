@@ -87,20 +87,6 @@ body
 	margin: 0px 0px 3px;
 }
 
-.well-header > .heading-header
-{
-	font-size: 20px;
-	font-weight: 300;
-	line-height: 32px;
-	text-transform: uppercase;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	margin: 0px 0px 15px;
-	padding-bottom: 5px;
-	border-bottom: 1px solid #b6b4a1;
-}
-
 .well-sidebar > .heading-sidebar
 {
 	font-size: 18px;
@@ -483,14 +469,6 @@ footer
 	padding: 15px;
 }
 
-/*
-.well-header
-{
-	border-bottom: 1px solid rgba(182, 180, 161, 0.7);
-	border-radius: 0px;
-}
-*/
-
 .well-authors
 {
 	border-radius: 0px;
@@ -549,41 +527,6 @@ seriespanel
 	position: relative;
 }
 
-authorspanel
-{
-	display: block;
-	position: relative;
-	background-color: #f3f1e9;
-	height: 100%;
-	z-index: 1000;
-}
-
-authorspanel > .authorspanel-sidebar
-{
-	position: absolute;
-	height: 100%;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	width: 50px;
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c8c6b0), color-stop(1, #e1ddc7));
-	background-image: -o-linear-gradient(bottom, #c8c6b0 0%, #e1ddc7 100%);
-	background-image: -moz-linear-gradient(bottom, #c8c6b0 0%, #e1ddc7 100%);
-	background-image: -webkit-linear-gradient(bottom, #c8c6b0 0%, #e1ddc7 100%);
-	background-image: -ms-linear-gradient(bottom, #c8c6b0 0%, #e1ddc7 100%);
-	background-image: linear-gradient(to bottom, #c8c6b0 0%, #e1ddc7 100%);
-	border-left: 1px solid #b6b4a1;
-	border-right: 1px solid #b6b4a1;
-	padding: 15px 0px;
-	text-align: center;
-}
-
-authorspanel > .authorspanel-body
-{
-	border-bottom: none;
-	background: transparent;
-}
-
 .content-sidebar
 {
 	position: relative;
@@ -608,6 +551,7 @@ welcomepanel
 
 @media (min-width: 768px)
 {
+/*
 	authorspanel
 	{
 		float: left;
@@ -620,6 +564,7 @@ welcomepanel
 	{
 		box-shadow: 5px 0px 18px rgba(56, 33, 16, 0.3);
 	}
+*/
 
 	.content-sidebar
 	{

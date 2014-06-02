@@ -8,31 +8,26 @@
 
 // Default panel
 .panel-default {
+	.panel-variant(@panel-default-border, @panel-default-text, @panel-default-heading-bg, @panel-default-heading-border);
 	border-radius: 0;
-	//border-bottom: none;
 	border: none;
 	.box-shadow(none);
+	margin-bottom: 0;
 
 	> .panel-heading {
-		border-radius: 0;
-		color: @navbar-default-color;
-		background-color: @navbar-default-bg;
-		#gradient.vertical(@navbar-default-gradient-start-color, @navbar-default-gradient-stop-color, @navbar-default-gradient-start-percent, @navbar-default-gradient-stop-percent);
 		height: 50px;
-		//line-height: 50px;
-		//vertical-align: middle;
 		padding-top: 15px;
 		padding-bottom: 15px;
-		border-color: @navbar-default-border;
-		//margin-bottom: @navbar-default-margin-bottom;
-		.box-shadow(@navbar-default-box-hshadow @navbar-default-box-vshadow @navbar-default-box-blur @navbar-default-box-color);
+		border-radius: 0;
+		#gradient.vertical(@panel-default-heading-gradient-start-color, @panel-default-heading-gradient-stop-color, @panel-default-heading-gradient-start-percent, @panel-default-heading-gradient-stop-percent);
+		.box-shadow(@panel-default-heading-box-hshadow @panel-default-heading-box-vshadow @panel-default-heading-box-blur @panel-default-heading-box-color);
 
 		> .panel-title {
 			display: inline-block;
 			line-height: 48px;
 			margin-top: -15px;
 			margin-bottom: -15px;
-			font-size: @navbar-default-link-font-size;
+			font-size: @panel-default-title-font-size;
 			font-weight: 400;
 			text-transform: uppercase;
 			white-space: nowrap;
@@ -49,12 +44,12 @@
 			> a {
 				display: inline-block;
 				line-height: 48px;
-				color: @navbar-default-link-color;
+				color: @panel-default-title-link-color;
 				text-decoration: none;
 
 				&:hover,
 				&:focus {
-					color: @navbar-default-link-hover-color;
+					color: @panel-default-title-link-hover-color;
 				}
 			}
 		}
@@ -62,10 +57,59 @@
 		> .btn-toolbar {
 			margin-top: -8px;
 			margin-bottom: -8px;
+		}
+	}
 
-			.caret {
-				//margin-left: 5px;
-			}
+	// Position heading to left
+	&.panel-left {
+		position: relative;
+		background-color: @panel-default-bg;
+
+		> .panel-heading {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 50px;
+			height: auto;
+			text-align: center;
+			padding-left: 0;
+			padding-right: 0;
+			border-bottom: none;
+			border-left: 1px solid @panel-default-heading-border;
+			border-right: 1px solid @panel-default-heading-border;
+			.box-shadow(@panel-default-side-heading-box-hshadow @panel-default-side-heading-box-vshadow @panel-default-heading-box-blur @panel-default-heading-box-color);
+		}
+
+		> .panel-body {
+			margin-left: 50px;
+		}
+	}
+
+	// Position heading to right
+	&.panel-right {
+		position: relative;
+		background-color: @panel-default-bg;
+
+		> .panel-heading {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			width: 50px;
+			height: auto;
+			text-align: center;
+			padding-left: 0;
+			padding-right: 0;
+			border-bottom: none;
+			border-left: 1px solid @panel-default-heading-border;
+			border-right: 1px solid @panel-default-heading-border;
+			.box-shadow(@panel-default-side-heading-box-hshadow @panel-default-side-heading-box-vshadow @panel-default-heading-box-blur @panel-default-heading-box-color);
+		}
+
+		> .panel-body {
+			margin-right: 50px;
 		}
 	}
 }
+

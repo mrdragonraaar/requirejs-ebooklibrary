@@ -46,8 +46,28 @@
 @font-family-base:		@font-family-sans-serif;
 
 @font-size-base:		14px;
+@font-size-larger:		ceil((@font-size-base * 1.4)); // ~20px
 @font-size-large:		ceil((@font-size-base * 1.25)); // ~18px
+@font-size-medium:		ceil((@font-size-base * 1.125)); // ~16px
 @font-size-small:		ceil((@font-size-base * 0.85)); // ~12px
+
+@list-default-color:		#b6b4a1;
+
+
+//-- Z-index master list
+//
+
+//@zindex-navbar:		1000;
+//@zindex-dropdown:		1000;
+//@zindex-popover:		1060;
+//@zindex-tooltip:		1070;
+//@zindex-navbar-fixed:		1030;
+//@zindex-modal-background:	1040;
+//@zindex-modal:		1050;
+@zindex-authors:		1000;
+@zindex-latestadditions:	2000;
+@zindex-footer:			2000;
+@zindex-books:			1500;
 
 
 //== Media queries breakpoints
@@ -250,7 +270,7 @@
 @navbar-default-link-hover-color:	@navbar-default-color;
 @navbar-default-link-hover-bg:		transparent;
 @navbar-default-link-active-color:	@navbar-default-color;
-//@navbar-default-link-active-bg:		darken(@navbar-default-bg, 6.5%);
+//@navbar-default-link-active-bg:	darken(@navbar-default-bg, 6.5%);
 @navbar-default-link-active-bg:		transparent;
 @navbar-default-link-disabled-color:	#ccc;
 @navbar-default-link-disabled-bg:	transparent;
@@ -271,6 +291,34 @@
 // Navbar forms
 @navbar-default-input-border:		@navbar-default-border;
 @navbar-default-input-border-radius:	15px;
+
+
+//== Panels
+//
+//##
+
+@panel-default-border:		transparent;
+@panel-default-bg:		#f3f1e9;
+@panel-default-text:		#382110;
+
+// Panel heading
+@panel-default-heading-border:			#b6b4a1;
+@panel-default-heading-bg:			#c8c6b0;
+@panel-default-heading-gradient-start-color:	#c8c6b0;
+@panel-default-heading-gradient-stop-color:	#e1ddc7;
+@panel-default-heading-gradient-start-percent:	0%;
+@panel-default-heading-gradient-stop-percent:	100%;
+@panel-default-heading-box-hshadow:		0px;
+@panel-default-heading-box-vshadow:		5px;
+@panel-default-side-heading-box-hshadow:	5px;
+@panel-default-side-heading-box-vshadow:	0px;
+@panel-default-heading-box-blur:		18px;
+@panel-default-heading-box-color:		rgba(56, 33, 16, 0.3);
+
+// Panel title
+@panel-default-title-font-size:		@font-size-large;
+@panel-default-title-link-color:	@gray-medium;
+@panel-default-title-link-hover-color:	@panel-default-text;
 
 
 //== Wells

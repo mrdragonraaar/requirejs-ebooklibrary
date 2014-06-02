@@ -17,6 +17,7 @@ function(
 ) {
 	var AuthorsPanelView = Backbone.View.extend({
 		tagName: 'authorspanel',
+		className: 'panel-default panel-right',
 
 		/**
 		 * Initialise the authors panel view.

@@ -4,6 +4,17 @@
 	"description": "Authors Panel View Template"
 }
 }}
+<div class="panel-heading">
+	<i class="icons-breadcrumb icon-author active"/>
+</div>
+<div class="panel-body">
+	<ul class="list-default list-authors">
+	{{#each authors}}
+		<li><a href="{{href}}">{{fileInfo.name}}</a></li>
+	{{/each}}
+	</ul>
+</div>
+<!--
 <div class="authorspanel-sidebar">
 	<i class="icons-breadcrumb icon-author active"/>
 </div>
@@ -14,3 +25,4 @@
 	{{/each}}
 	</ul>
 </div>
+-->
