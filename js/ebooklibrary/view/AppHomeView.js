@@ -7,7 +7,7 @@
  */
 define([
     'ebooklibrary/view/loadingpanel/LoadingPanelView',
-    'ebooklibrary/view/latestadditionspanel/LatestAdditionsPanelView',
+    'ebooklibrary/view/latestadditions/LatestAdditionsView',
     'ebooklibrary/view/authorspanel/AuthorsPanelView',
     'hbs!ebooklibrary/template/welcomepanel/WelcomePanelView',
     'ebooklibrary/view/linkspanel/LinksPanelView',
@@ -15,7 +15,7 @@ define([
 ],
 function(
     LoadingPanelView,
-    LatestAdditionsPanelView,
+    LatestAdditionsView,
     AuthorsPanelView,
     WelcomePanelViewTemplate,
     LinksPanelView,
@@ -25,7 +25,7 @@ function(
 		el: '.content-container',
 		
 		loadingPanelView: null,			// loading panel view
-		latestAdditionsPanelView: null,		// latest additions panel view
+		latestAdditionsView: null,		// latest additions view
 		authorsPanelView: null,			// authors panel view
 
 		/**
@@ -37,7 +37,7 @@ function(
 
 			this.loadingPanelView = new LoadingPanelView();
 
-			this.latestAdditionsPanelView = new LatestAdditionsPanelView({max: options.max});
+			this.latestAdditionsView = new LatestAdditionsView({max: options.max});
 
 			this.authorsPanelView = new AuthorsPanelView();
 			this.listenTo(this.authorsPanelView.collection, 'sync', this.showAuthorsPanel);
@@ -50,7 +50,7 @@ function(
 		render: function() {
 			this.$el.append(this.loadingPanelView.render().el);
 
-			this.$el.append(this.latestAdditionsPanelView.render().el);
+			this.$el.append(this.latestAdditionsView.render().el);
 
 			this.authorsPanelView.$el.hide();
 			this.$el.append(this.authorsPanelView.render().el);

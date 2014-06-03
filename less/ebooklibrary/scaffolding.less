@@ -29,6 +29,15 @@ a {
 	&:focus {
 		.tab-focus();
 	}
+
+	// Add hover state for thumbnail links
+	&.thumbnail {
+		&:hover,
+		&:focus,
+		&.active {
+			border-color: @link-color;
+		}
+	}
 }
 
 
@@ -52,26 +61,9 @@ authorspanel {
 }
 
 
-// Series
-
-seriespanel {
+seriespanel,
+latestadditions {
 	display: block;
 	position: relative;
-}
-
-
-// Latest Additions
-
-latestadditionspanel {
-	display: block;
-	position: relative;
-	z-index: @zindex-latestadditions;
-	height: @latestadditions-height;
-	.icon-background-image(@images-latestadditions-image);
-	.icon-background-position(@images-latestadditions-x, @images-latestadditions-y);
-
-	&.well-header {
-		.box-shadow(@box-bottom-hshadow @box-bottom-vshadow @box-blur @box-color);
-	}
 }
 

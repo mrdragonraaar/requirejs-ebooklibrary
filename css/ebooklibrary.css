@@ -45,12 +45,6 @@ html, body
 	margin-right: 10px;
 }
 
-body
-{
-	font-family: "Calibri", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-	color: #382110;
-}
-
 .heading-title,
 .heading-error,
 .heading-welcome
@@ -180,35 +174,14 @@ div.description
 	font-weight: 500;
 }
 
-a
-{
-	color: #215625;
-}
-
-a:hover,
-a:focus
-{
-	color: #215625;
-}
-
-a:focus
-{
-	outline: 0px none;
-}
-
-a.thumbnail:hover,
-a.thumbnail:focus,
-a.thumbnail.active
-{
-	border-color: #215625;
-}
-
+/*
 ul,
 ul > li ul
 {
 	list-style-type: square;
 	margin-bottom: 0px;
 }
+*/
 
 ul.list-panel,
 ul.list-panel > li ul
@@ -460,18 +433,12 @@ footer
 	box-shadow: 0px -5px 18px rgba(56, 33, 16, 0.3);
 }
 
-.well-sidebar,
-.well-authors
+.well-sidebar
 {
 	background-color: #f3f1e9;
 	box-shadow: none;
 	margin: 0px;
 	padding: 15px;
-}
-
-.well-authors
-{
-	border-radius: 0px;
 }
 
 loginpanel
@@ -482,37 +449,6 @@ loginpanel
 	background-position: 0px -75px;
 	height: 295px;
 	z-index: 2000;
-}
-
-.latestadditionspanel-books
-{
-	height: 180px;
-	overflow: hidden;
-	text-align: justify;
-}
-
-.latestadditionspanel-books > .book-thumb
-{
-	display: inline-block;
-}
-
-.latestadditionspanel-books > .book-thumb > a
-{
-	width: 135px;
-	height: 180px;
-	opacity: 0.6;
-}
-
-.latestadditionspanel-books > .book-thumb > a:hover,
-.latestadditionspanel-books > .book-thumb > a:focus
-{
-	opacity: 1;
-}
-
-.latestadditionspanel-books > .book-thumb > a.thumbnail > img
-{
-	width: 100%;
-	height: 100%;
 }
 
 .content-sidebar
