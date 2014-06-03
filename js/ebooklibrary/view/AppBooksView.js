@@ -7,14 +7,14 @@
  */
 define([
     'ebooklibrary/view/loadingpanel/LoadingPanelView',
-    'ebooklibrary/view/seriespanel/SeriesPanelView',
+    'ebooklibrary/view/series/SeriesView',
     'ebooklibrary/view/bookspanel/BooksPanelView',
     'ebooklibrary/collection/BookCollection',
     'backbone'
 ],
 function(
     LoadingPanelView,
-    SeriesPanelView,
+    SeriesView,
     BooksPanelView,
     BookCollection,
     Backbone
@@ -23,7 +23,7 @@ function(
 		el: '.content-container',
 		
 		loadingPanelView: null,		// loading panel view
-		seriesPanelView: null,		// series panel view
+		seriesView: null,		// series view
 		booksPanelView: null,		// books panel view
 
 		/**
@@ -35,8 +35,8 @@ function(
 
 			this.loadingPanelView = new LoadingPanelView();
 
-			this.seriesPanelView = new SeriesPanelView({author: options.author, series: options.series});
-			this.listenTo(this.seriesPanelView.collection, 'sync', this.showSeriesPanel);
+			this.seriesView = new SeriesView({author: options.author, series: options.series});
+			this.listenTo(this.seriesView.collection, 'sync', this.showSeries);
 
 			var bookCollection = new BookCollection([], {author: options.author, series: options.series});
 			this.booksPanelView = new BooksPanelView({collection: bookCollection});
@@ -50,20 +50,20 @@ function(
 		render: function() {
 			this.$el.append(this.loadingPanelView.render().el);
 
-			this.seriesPanelView.$el.hide();
-			this.$el.append(this.seriesPanelView.render().el);
+			this.seriesView.$el.hide();
+			this.$el.append(this.seriesView.render().el);
 			this.$el.append(this.booksPanelView.render().el);
 
 			return this;
 		},
 
 		/**
-		 * Show series panel.
+		 * Show series.
 		 * @param collection series collection.
 		 */
-		showSeriesPanel: function(collection) {
+		showSeries: function(collection) {
 			if (collection.length > 0) {
-				this.seriesPanelView.$el.fadeIn('slow');
+				this.seriesView.$el.fadeIn('slow');
 			}
 		},
 

@@ -1,27 +1,27 @@
 /**
- * SeriesPanelView.js
+ * SeriesView.js
  *
- * Backbone view representing ebooklibrary series panel.
+ * Backbone view representing ebooklibrary series.
  *
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'hbs!ebooklibrary/template/seriespanel/SeriesPanelView',
+    'hbs!ebooklibrary/template/series/SeriesView',
     'ebooklibrary/collection/SeriesCollection',
     'backbone'
 ],
 function(
-    SeriesPanelViewTemplate,
+    SeriesViewTemplate,
     SeriesCollection,
     Backbone
 ) {
-	var SeriesPanelView = Backbone.View.extend({
-		tagName: 'seriespanel',
+	var SeriesView = Backbone.View.extend({
+		tagName: 'series',
 		className: 'well well-header well-series',
 
 		/**
-		 * Initialise the series panel view.
-		 * @param options series panel options (author, series).
+		 * Initialise the series view.
+		 * @param options series options (author, series).
 		 */
 		initialize: function(options) {
 			options = options || {};
@@ -34,14 +34,14 @@ function(
 		},
 
 		/**
-		 * Render the series panel collection.
+		 * Render the series collection.
 		 * @param collection series collection.
 		 */
 		renderSeries: function(collection) {
-			var seriesPanelTmpl = SeriesPanelViewTemplate({series: collection.toJSON()});
-			this.$el.append(seriesPanelTmpl);
+			var seriesTmpl = SeriesViewTemplate({series: collection.toJSON()});
+			this.$el.append(seriesTmpl);
 		}
 	});
 
-	return SeriesPanelView;
+	return SeriesView;
 });

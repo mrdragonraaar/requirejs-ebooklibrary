@@ -8,7 +8,7 @@
 define([
     'ebooklibrary/view/loadingpanel/LoadingPanelView',
     'ebooklibrary/view/latestadditions/LatestAdditionsView',
-    'ebooklibrary/view/authorspanel/AuthorsPanelView',
+    'ebooklibrary/view/authors/AuthorsView',
     'hbs!ebooklibrary/template/welcomepanel/WelcomePanelView',
     'ebooklibrary/view/linkspanel/LinksPanelView',
     'backbone'
@@ -16,7 +16,7 @@ define([
 function(
     LoadingPanelView,
     LatestAdditionsView,
-    AuthorsPanelView,
+    AuthorsView,
     WelcomePanelViewTemplate,
     LinksPanelView,
     Backbone
@@ -26,7 +26,7 @@ function(
 		
 		loadingPanelView: null,			// loading panel view
 		latestAdditionsView: null,		// latest additions view
-		authorsPanelView: null,			// authors panel view
+		authorsView: null,			// authors view
 
 		/**
 		 * Initialise the application home page view.
@@ -39,8 +39,8 @@ function(
 
 			this.latestAdditionsView = new LatestAdditionsView({max: options.max});
 
-			this.authorsPanelView = new AuthorsPanelView();
-			this.listenTo(this.authorsPanelView.collection, 'sync', this.showAuthorsPanel);
+			this.authorsView = new AuthorsView();
+			this.listenTo(this.authorsView.collection, 'sync', this.showAuthors);
 		},
 		
 		/**
@@ -52,8 +52,8 @@ function(
 
 			this.$el.append(this.latestAdditionsView.render().el);
 
-			this.authorsPanelView.$el.hide();
-			this.$el.append(this.authorsPanelView.render().el);
+			this.authorsView.$el.hide();
+			this.$el.append(this.authorsView.render().el);
 
 			this.$el.append('<div class="content-sidebar"/>');
 			this.$('.content-sidebar').hide();
@@ -68,12 +68,12 @@ function(
 		},
 
 		/**
-		 * Show authors panel.
+		 * Show authors.
 		 * @param collection author collection.
 		 */
-		showAuthorsPanel: function(collection) {
+		showAuthors: function(collection) {
 			this.loadingPanelView.$el.fadeOut('slow');
-			this.authorsPanelView.$el.fadeIn('slow');
+			this.authorsView.$el.fadeIn('slow');
 			this.$('.content-sidebar').fadeIn('slow');
 		}
 	});

@@ -110,6 +110,18 @@
 		> .panel-body {
 			margin-right: 50px;
 		}
+
+		&.panel-authors {
+			z-index: @zindex-authors;
+			height: 100%;
+
+			@media (min-width: @grid-float-breakpoint) {
+				float: left;
+				width: @panel-authors-width;
+				margin-bottom: @fullheight-margin;
+				padding-bottom: @fullheight-padding;
+			}
+		}
 	}
 }
 

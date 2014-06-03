@@ -24,23 +24,8 @@ a.thumbnail:focus,
 a.thumbnail.active {
   border-color: #215625;
 }
-authorspanel {
-  display: block;
-  position: relative;
-  z-index: 1000;
-  height: 100%;
-}
-@media (min-width: 768px) {
-  authorspanel {
-    float: left;
-    width: 350px;
-  }
-  authorspanel.panel-default {
-    margin-bottom: -10000px;
-    padding-bottom: 10000px;
-  }
-}
-seriespanel,
+authors,
+series,
 latestadditions {
   display: block;
   position: relative;
@@ -1405,6 +1390,18 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .panel-default.panel-right > .panel-body {
   margin-right: 50px;
+}
+.panel-default.panel-right.panel-authors {
+  z-index: 1000;
+  height: 100%;
+}
+@media (min-width: 768px) {
+  .panel-default.panel-right.panel-authors {
+    float: left;
+    width: 350px;
+    margin-bottom: -10000px;
+    padding-bottom: 10000px;
+  }
 }
 .well {
   background-color: #f3f1e9;

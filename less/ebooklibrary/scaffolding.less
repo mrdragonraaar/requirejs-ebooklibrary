@@ -41,27 +41,11 @@ a {
 }
 
 
-// Authors
+// HTML5 display definitions
+// ==========================================================================
 
-authorspanel {
-	display: block;
-	position: relative;
-	z-index: @zindex-authors;
-	height: 100%;
-
-	@media (min-width: @grid-float-breakpoint) {
-		float: left;
-		width: @authors-width;
-
-		&.panel-default {
-			margin-bottom: @fullheight-margin;
-			padding-bottom: @fullheight-padding;
-		}
-	}
-}
-
-
-seriespanel,
+authors,
+series,
 latestadditions {
 	display: block;
 	position: relative;
