@@ -37,6 +37,43 @@
 //** Link hover color set via `darken()` function.
 @link-hover-color:	darken(@link-color, 15%);
 
+//** Global box shadow.
+@box-color:		rgba(56, 33, 16, 0.3);
+@box-blur:		18px;
+@box-left-hshadow:	-5px;
+@box-left-vshadow:	0px;
+@box-right-hshadow:	5px;
+@box-right-vshadow:	0px;
+@box-top-hshadow:	0px;
+@box-top-vshadow:	-5px;
+@box-bottom-hshadow:	0px;
+@box-bottom-vshadow:	5px;
+
+//** Global gradient.
+@gradient-start-color:		#c8c6b0;
+@gradient-stop-color:		#e1ddc7;
+@gradient-start-percent:	0%;
+@gradient-stop-percent:		100%;
+
+
+//== Full height
+//
+//## Settings for margin and padding to allow full height display.
+
+@fullheight-margin:	-10000px;
+@fullheight-padding:	10000px;
+
+
+//== Site components
+//
+//## Settings for components specific to this site.
+
+//** Authors
+@authors-width:			350px;
+
+//** Latest additions
+@latestadditions-height:	295px;
+
 
 //== Typography
 //
@@ -189,6 +226,10 @@
 
 @images-path:			'../images';
 
+@images-latestadditions-image:	"@{images-path}/latestadditionspanel/books-background.jpg";
+@images-latestadditions-x:	0;
+@images-latestadditions-y:	-75px;
+
 
 //== Logo
 //
@@ -252,15 +293,7 @@
 
 @navbar-default-color:			#382110;
 @navbar-default-bg:			#c8c6b0;
-@navbar-default-gradient-start-color:	#c8c6b0;
-@navbar-default-gradient-stop-color:	#e1ddc7;
-@navbar-default-gradient-start-percent:	0%;
-@navbar-default-gradient-stop-percent:	100%;
 @navbar-default-border:			#b6b4a1;
-@navbar-default-box-hshadow:		0px;
-@navbar-default-box-vshadow:		5px;
-@navbar-default-box-blur:		18px;
-@navbar-default-box-color:		rgba(56, 33, 16, 0.3);
 
 // Navbar links
 @navbar-default-link-font-size:		@font-size-large;
@@ -304,16 +337,6 @@
 // Panel heading
 @panel-default-heading-border:			#b6b4a1;
 @panel-default-heading-bg:			#c8c6b0;
-@panel-default-heading-gradient-start-color:	#c8c6b0;
-@panel-default-heading-gradient-stop-color:	#e1ddc7;
-@panel-default-heading-gradient-start-percent:	0%;
-@panel-default-heading-gradient-stop-percent:	100%;
-@panel-default-heading-box-hshadow:		0px;
-@panel-default-heading-box-vshadow:		5px;
-@panel-default-side-heading-box-hshadow:	5px;
-@panel-default-side-heading-box-vshadow:	0px;
-@panel-default-heading-box-blur:		18px;
-@panel-default-heading-box-color:		rgba(56, 33, 16, 0.3);
 
 // Panel title
 @panel-default-title-font-size:		@font-size-large;

@@ -36,17 +36,42 @@ a {
 
 authorspanel {
 	display: block;
+	position: relative;
 	z-index: @zindex-authors;
 	height: 100%;
 
 	@media (min-width: @grid-float-breakpoint) {
 		float: left;
-		width: 350px;
+		width: @authors-width;
 
 		&.panel-default {
-			margin-bottom: -10000px;
-			padding-bottom: 10000px;
+			margin-bottom: @fullheight-margin;
+			padding-bottom: @fullheight-padding;
 		}
+	}
+}
+
+
+// Series
+
+seriespanel {
+	display: block;
+	position: relative;
+}
+
+
+// Latest Additions
+
+latestadditionspanel {
+	display: block;
+	position: relative;
+	z-index: @zindex-latestadditions;
+	height: @latestadditions-height;
+	.icon-background-image(@images-latestadditions-image);
+	.icon-background-position(@images-latestadditions-x, @images-latestadditions-y);
+
+	&.well-header {
+		.box-shadow(@box-bottom-hshadow @box-bottom-vshadow @box-blur @box-color);
 	}
 }
 

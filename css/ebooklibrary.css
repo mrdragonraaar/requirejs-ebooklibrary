@@ -474,7 +474,6 @@ footer
 	border-radius: 0px;
 }
 
-latestadditionspanel,
 loginpanel
 {
 	display: block;
@@ -483,11 +482,6 @@ loginpanel
 	background-position: 0px -75px;
 	height: 295px;
 	z-index: 2000;
-}
-
-latestadditionspanel.well-latestadditions
-{
-	box-shadow: 0px 5px 18px rgba(56, 33, 16, 0.3);
 }
 
 .latestadditionspanel-books
@@ -521,12 +515,6 @@ latestadditionspanel.well-latestadditions
 	height: 100%;
 }
 
-seriespanel
-{
-	display: block;
-	position: relative;
-}
-
 .content-sidebar
 {
 	position: relative;
@@ -551,21 +539,6 @@ welcomepanel
 
 @media (min-width: 768px)
 {
-/*
-	authorspanel
-	{
-		float: left;
-		width: 350px;
-		margin-bottom: -10000px;
-		padding-bottom: 10000px;
-	}
-
-	authorspanel > .authorspanel-sidebar
-	{
-		box-shadow: 5px 0px 18px rgba(56, 33, 16, 0.3);
-	}
-*/
-
 	.content-sidebar
 	{
 		float: left;
