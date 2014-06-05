@@ -17,7 +17,7 @@ function(
 ) {
 	var SeriesView = Backbone.View.extend({
 		tagName: 'series',
-		className: 'well well-header well-series',
+		className: 'well well-wide well-series',
 
 		/**
 		 * Initialise the series view.

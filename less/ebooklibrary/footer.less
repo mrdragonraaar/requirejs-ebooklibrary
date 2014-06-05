@@ -1,0 +1,32 @@
+//
+// Footers
+// --------------------------------------------------
+
+
+// Wrapper and base class
+//
+// Provide a static footer.
+// Bottom bottom margin must be set to @footer-height.
+
+.footer {
+	z-index: @zindex-footer;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	min-height: @footer-height;
+	height: @footer-height;
+	line-height: (@footer-height - 2px);
+	border-top: 1px solid transparent;
+}
+
+
+// Alternate footers
+// --------------------------------------------------
+
+.footer-default {
+	color: @footer-default-color;
+	background-color: @footer-default-bg;
+	#gradient.vertical(@gradient-start-color, @gradient-stop-color, @gradient-start-percent, @gradient-stop-percent);
+	border-color: @footer-default-border;
+	.box-shadow(@box-top-hshadow @box-top-vshadow @box-blur @box-color);
+}

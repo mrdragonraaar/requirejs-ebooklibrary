@@ -17,7 +17,7 @@ function(
 ) {
 	var LatestAdditionsView = Backbone.View.extend({
 		tagName: 'latestadditions',
-		className: 'well well-header well-latestadditions',
+		className: 'well well-wide well-latestadditions',
 
 		/**
 		 * Initialise the latest additions view.

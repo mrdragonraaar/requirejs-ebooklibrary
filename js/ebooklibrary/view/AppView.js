@@ -26,7 +26,8 @@ function(
     Backbone
 ) {
 	var AppView = Backbone.View.extend({
-		el: '#ebooklibrary',
+		el: 'body',
+		//el: '#ebooklibrary',
 		
 		navBarView: null,	// navigation bar view
 

@@ -59,69 +59,61 @@
 			margin-bottom: -8px;
 		}
 	}
+}
 
-	// Position heading to left
-	&.panel-left {
-		position: relative;
-		background-color: @panel-default-bg;
+// Authors panel
+.panel-authors {
+	z-index: @zindex-authors;
+	.panel-variant(@well-border, @panel-default-text, darken(@well-bg, 5%), @well-border);
+	background-color: @well-bg;
+	border-radius: 0;
+	.box-shadow(none);
+	margin-bottom: 0;
 
-		> .panel-heading {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			width: 50px;
-			height: auto;
+	> .panel-heading {
+		> .list-group {
+			float: none;
 			text-align: center;
-			padding-left: 0;
-			padding-right: 0;
-			border-bottom: none;
-			border-left: 1px solid @panel-default-heading-border;
-			border-right: 1px solid @panel-default-heading-border;
-			.box-shadow(@box-left-hshadow @box-left-vshadow @box-blur @box-color);
-		}
+			display: table;
+			width: 100%;
+			margin-bottom: 0;
 
-		> .panel-body {
-			margin-left: 50px;
-		}
-	}
+			> li {
+				float: none;
+				display: table-cell;
+				min-width: 20px;
 
-	// Position heading to right
-	&.panel-right {
-		position: relative;
-		background-color: @panel-default-bg;
-
-		> .panel-heading {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			width: 50px;
-			height: auto;
-			text-align: center;
-			padding-left: 0;
-			padding-right: 0;
-			border-bottom: none;
-			border-left: 1px solid @panel-default-heading-border;
-			border-right: 1px solid @panel-default-heading-border;
-			.box-shadow(@box-right-hshadow @box-right-vshadow @box-blur @box-color);
-		}
-
-		> .panel-body {
-			margin-right: 50px;
-		}
-
-		&.panel-authors {
-			z-index: @zindex-authors;
-			height: 100%;
-
-			@media (min-width: @grid-float-breakpoint) {
-				float: left;
-				width: @panel-authors-width;
-				margin-bottom: @fullheight-margin;
-				padding-bottom: @fullheight-padding;
+				> a {
+					display: block;
+				}
 			}
 		}
 	}
-}
 
+	@media (max-width: @grid-float-breakpoint-max) {
+		display: table;
+		width: 100%;
+
+		> .panel-heading {
+			display: table-cell;
+			vertical-align: top;
+			width: 58px;
+			border-bottom: none;
+			border-right: 1px solid @well-border;
+
+			> .list-group {
+				display: block;
+
+				> li {
+					display: block;
+				}
+			}
+		}
+
+		> .panel-body {
+			display: table-cell;
+			vertical-align: top;
+			width: auto;
+		}
+	}
+}

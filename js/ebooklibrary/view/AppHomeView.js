@@ -55,14 +55,15 @@ function(
 			this.authorsView.$el.hide();
 			this.$el.append(this.authorsView.render().el);
 
-			this.$el.append('<div class="content-sidebar"/>');
-			this.$('.content-sidebar').hide();
+			//this.$el.append('<div class="content-sidebar"/>');
+			//this.$('.content-sidebar').hide();
 
-			var welcomePanelTmpl = WelcomePanelViewTemplate();
-			this.$('.content-sidebar').append(welcomePanelTmpl);
+			//var welcomePanelTmpl = WelcomePanelViewTemplate();
+			//this.$('.content-sidebar').append(welcomePanelTmpl);
 
 			var linksPanelView = new LinksPanelView();
-			this.$('.content-sidebar').append(linksPanelView.render().el);
+			//this.$('.content-sidebar').append(linksPanelView.render().el);
+			this.$el.append(linksPanelView.render().el);
 
 			return this;
 		},
@@ -74,7 +75,7 @@ function(
 		showAuthors: function(collection) {
 			this.loadingPanelView.$el.fadeOut('slow');
 			this.authorsView.$el.fadeIn('slow');
-			this.$('.content-sidebar').fadeIn('slow');
+			//this.$('.content-sidebar').fadeIn('slow');
 		}
 	});
 	

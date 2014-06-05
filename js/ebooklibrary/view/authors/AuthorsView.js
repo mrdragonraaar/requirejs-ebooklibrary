@@ -17,7 +17,7 @@ function(
 ) {
 	var AuthorsView = Backbone.View.extend({
 		tagName: 'authors',
-		className: 'panel-default panel-right panel-authors',
+		className: 'panel panel-authors',
 
 		/**
 		 * Initialise the authors view.

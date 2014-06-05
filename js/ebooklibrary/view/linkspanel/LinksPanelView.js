@@ -17,7 +17,7 @@ function(
 ) {
 	var LinksPanelView = Backbone.View.extend({
 		tagName: 'linkspanel',
-		className: 'well well-sidebar well-links',
+		className: 'well well-wide well-links',
 
 		/**
 		 * Initialise the links panel view.

@@ -15,6 +15,9 @@ function(
 ) {
 	var FooterView = Backbone.View.extend({
 		tagName: 'footer',
+		className: 'footer footer-default',
+		//tagName: 'nav',
+		//className: 'navbar navbar-default navbar-static-bottom',
 
 		/**
 		 * Render the footer view.
