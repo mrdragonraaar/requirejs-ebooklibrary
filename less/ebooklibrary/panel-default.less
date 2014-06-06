@@ -77,6 +77,8 @@
 			display: table;
 			width: 100%;
 			margin-bottom: 0;
+			margin-top: -10px;
+			margin-bottom: -10px;
 
 			> li {
 				float: none;
@@ -85,9 +87,23 @@
 
 				> a {
 					display: block;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					outline: none;
+
+					&:hover,
+					&:focus,
+					&.active {
+						background-color: darken(@well-bg, 10%);
+						text-decoration: none;
+					}
 				}
 			}
 		}
+	}
+
+	> .panel-body {
+		min-height: 130px;
 	}
 
 	@media (max-width: @grid-float-breakpoint-max) {

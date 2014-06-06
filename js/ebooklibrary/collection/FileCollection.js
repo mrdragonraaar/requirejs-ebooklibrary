@@ -27,6 +27,17 @@ function(
 		},
 
 		/**
+		 * Filter collection by first letter of name.
+		 * @param letter filter name with letter.
+		 * @return filtered models
+		 */
+		filterName: function(letter) {
+			return this.filter(function(file) {
+				return file.get("fileInfo").name.charAt(0) === letter;
+			});
+		},
+
+		/**
 		 * Set sort comparator.
 		 * @param key sort comparator key.
 		 * @param asc true if comparator is ascending.

@@ -1398,6 +1398,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   display: table;
   width: 100%;
   margin-bottom: 0;
+  margin-top: -10px;
+  margin-bottom: -10px;
 }
 .panel-authors > .panel-heading > .list-group > li {
   float: none;
@@ -1406,6 +1408,18 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .panel-authors > .panel-heading > .list-group > li > a {
   display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  outline: none;
+}
+.panel-authors > .panel-heading > .list-group > li > a:hover,
+.panel-authors > .panel-heading > .list-group > li > a:focus,
+.panel-authors > .panel-heading > .list-group > li > a.active {
+  background-color: #e1dcc8;
+  text-decoration: none;
+}
+.panel-authors > .panel-body {
+  min-height: 130px;
 }
 @media (max-width: 767px) {
   .panel-authors {
