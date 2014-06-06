@@ -21,27 +21,65 @@ function(
 		tagName: 'authors',
 		className: 'panel panel-authors',
 
+		/**
+		 * Define authors filter event.
+		 */
 		events: {
-			'click .panel-heading > .list-group > li > a': 'onClickLetter',
+			'click .panel-heading > .list-group > .list-group-item > a': 'onFilterAuthorName',
 		},
 
-		onClickLetter: function(e) {
+		/**
+		 * Event handler for authors filter event.
+		 * @param e event.
+		 */
+		onFilterAuthorName: function(e) {
 			e.preventDefault();
 
-			var letter = e.currentTarget.text;
+			var letter = e.currentTarget.title;
 
 			var collection = this.collection;
 			if (letter !== "All") {
 				var authors = this.collection.filterName(letter);
 				collection = new AuthorCollection(authors);
 			}
+			this.setActiveFilterLink(letter);
 			this.renderAuthors(collection);
 		},
 
-		renderAuthors2: function(authors) {
-			authors.each(function(author) {
-				console.log(author.toJSON());
-			});
+		/**
+		 * Get filter link.
+		 * @param letter letter of filter link.
+		 * @return filter link
+		 */
+		getFilterLink: function(letter) {
+			return this.$('.panel-heading > .list-group > .list-group-item > a[title="' + letter + '"]');
+		},
+
+		/**
+		 * Get all filter links.
+		 * @return filter links
+		 */
+		getAllFilterLinks: function() {
+			return this.$('.panel-heading > .list-group > .list-group-item > a');
+		},
+
+		/**
+		 * Deactivate all filter links.
+		 */
+		deactivateAllFilterLinks: function() {
+			var filterLinks = this.getAllFilterLinks();
+			filterLinks.removeClass('active');
+		},
+
+		/**
+		 * Set active filter link.
+		 * @param letter letter of filter link to activate.
+		 */
+		setActiveFilterLink: function(letter) {
+			this.deactivateAllFilterLinks();
+
+			var filterLink = this.getFilterLink(letter);
+			filterLink.addClass('active');
 		},
 
 		/**
@@ -57,9 +95,13 @@ function(
 			this.listenTo(this.collection, 'sync', this.renderAuthors);
 		},
 
-		render: function(data) {
+		/**
+		 * Render the authors view.
+		 */
+		render: function() {
 			var authorsTmpl = AuthorsViewTemplate();
 			this.$el.html(authorsTmpl);
+			this.setActiveFilterLink('All');
 			return this;
 		},
 

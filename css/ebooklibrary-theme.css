@@ -1373,18 +1373,18 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   margin-bottom: -8px;
 }
 .panel-authors {
-  z-index: 1000;
   border-color: #e6e2d2;
   background-color: #f3f1e9;
   border-radius: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
   margin-bottom: 0;
+  border: none;
 }
 .panel-authors > .panel-heading {
   color: #382110;
   background-color: #eae7d9;
-  border-color: #e6e2d2;
+  border-color: #e1dcc8;
 }
 .panel-authors > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #e6e2d2;
@@ -1392,34 +1392,49 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .panel-authors > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #e6e2d2;
 }
+.panel-authors > .panel-heading {
+  padding: 0;
+  border-radius: 0;
+}
 .panel-authors > .panel-heading > .list-group {
-  float: none;
-  text-align: center;
   display: table;
   width: 100%;
   margin-bottom: 0;
-  margin-top: -10px;
-  margin-bottom: -10px;
 }
-.panel-authors > .panel-heading > .list-group > li {
-  float: none;
+.panel-authors > .panel-heading > .list-group > .list-group-item {
   display: table-cell;
+  text-align: center;
+  padding: 0;
   min-width: 20px;
+  border: none;
+  border-radius: 0;
 }
-.panel-authors > .panel-heading > .list-group > li > a {
+.panel-authors > .panel-heading > .list-group > .list-group-item > a {
   display: block;
   padding-top: 10px;
   padding-bottom: 10px;
   outline: none;
+  background-color: #eae7d9;
 }
-.panel-authors > .panel-heading > .list-group > li > a:hover,
-.panel-authors > .panel-heading > .list-group > li > a:focus,
-.panel-authors > .panel-heading > .list-group > li > a.active {
+.panel-authors > .panel-heading > .list-group > .list-group-item > a:hover,
+.panel-authors > .panel-heading > .list-group > .list-group-item > a:focus,
+.panel-authors > .panel-heading > .list-group > .list-group-item > a.active {
   background-color: #e1dcc8;
   text-decoration: none;
 }
 .panel-authors > .panel-body {
   min-height: 130px;
+}
+.panel-authors > .panel-body > .list-default {
+  padding-left: 0;
+  margin: 0;
+}
+.panel-authors > .panel-body > .list-default > li {
+  padding-left: 5px;
+  padding-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media (max-width: 767px) {
   .panel-authors {
@@ -1431,18 +1446,22 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     vertical-align: top;
     width: 58px;
     border-bottom: none;
-    border-right: 1px solid #e6e2d2;
+    border-right: 1px solid #e1dcc8;
   }
   .panel-authors > .panel-heading > .list-group {
     display: block;
   }
-  .panel-authors > .panel-heading > .list-group > li {
+  .panel-authors > .panel-heading > .list-group > .list-group-item {
     display: block;
   }
   .panel-authors > .panel-body {
     display: table-cell;
     vertical-align: top;
     width: auto;
+  }
+  .panel-authors > .panel-body > .list-default > li {
+    float: none;
+    width: 100%;
   }
 }
 .well {
