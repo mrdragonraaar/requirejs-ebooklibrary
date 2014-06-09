@@ -1,27 +1,27 @@
 /**
- * LinksPanelView.js
+ * LinksView.js
  *
- * Backbone view representing ebooklibrary links panel.
+ * Backbone view representing ebooklibrary links.
  *
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'hbs!ebooklibrary/template/linkspanel/LinksPanelView',
+    'hbs!ebooklibrary/template/links/LinksView',
     'ebooklibrary/collection/LinkCollection',
     'backbone'
 ],
 function(
-    LinksPanelViewTemplate,
+    LinksViewTemplate,
     LinkCollection,
     Backbone
 ) {
-	var LinksPanelView = Backbone.View.extend({
-		tagName: 'linkspanel',
+	var LinksView = Backbone.View.extend({
+		tagName: 'links',
 		className: 'well well-wide well-links',
 
 		/**
-		 * Initialise the links panel view.
-		 * @param options links panel options.
+		 * Initialise the links view.
+		 * @param options links options.
 		 */
 		initialize: function(options) {
 			options = options || {};
@@ -33,14 +33,14 @@ function(
 		},
 
 		/**
-		 * Render the links panel collection.
+		 * Render the links collection.
 		 * @param collection links collection.
 		 */
 		renderLinks: function(collection) {
-			var linksPanelTmpl = LinksPanelViewTemplate({links: collection.toJSON()});
-			this.$el.append(linksPanelTmpl);
+			var linksTmpl = LinksViewTemplate({links: collection.toJSON()});
+			this.$el.append(linksTmpl);
 		}
 	});
 
-	return LinksPanelView;
+	return LinksView;
 });

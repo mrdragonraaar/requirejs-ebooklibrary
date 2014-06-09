@@ -10,7 +10,7 @@ define([
     'ebooklibrary/view/latestadditions/LatestAdditionsView',
     'ebooklibrary/view/authors/AuthorsView',
     'hbs!ebooklibrary/template/welcomepanel/WelcomePanelView',
-    'ebooklibrary/view/linkspanel/LinksPanelView',
+    'ebooklibrary/view/links/LinksView',
     'backbone'
 ],
 function(
@@ -18,7 +18,7 @@ function(
     LatestAdditionsView,
     AuthorsView,
     WelcomePanelViewTemplate,
-    LinksPanelView,
+    LinksView,
     Backbone
 ) {
 	var AppHomeView = Backbone.View.extend({
@@ -52,7 +52,7 @@ function(
 
 			this.$el.append(this.latestAdditionsView.render().el);
 
-			this.authorsView.$el.hide();
+			//this.authorsView.$el.hide();
 			this.$el.append(this.authorsView.render().el);
 
 			//this.$el.append('<div class="content-sidebar"/>');
@@ -61,9 +61,9 @@ function(
 			//var welcomePanelTmpl = WelcomePanelViewTemplate();
 			//this.$('.content-sidebar').append(welcomePanelTmpl);
 
-			var linksPanelView = new LinksPanelView();
+			//var linksView = new LinksView();
 			//this.$('.content-sidebar').append(linksPanelView.render().el);
-			this.$el.append(linksPanelView.render().el);
+			//this.$el.append(linksView.render().el);
 
 			return this;
 		},
@@ -74,7 +74,7 @@ function(
 		 */
 		showAuthors: function(collection) {
 			this.loadingPanelView.$el.fadeOut('slow');
-			this.authorsView.$el.fadeIn('slow');
+			//this.authorsView.$el.fadeIn('slow');
 			//this.$('.content-sidebar').fadeIn('slow');
 		}
 	});

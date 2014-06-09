@@ -23,6 +23,7 @@
 		&:focus {
 			color: @navbar-default-brand-hover-color;
 			background-color: @navbar-default-brand-hover-bg;
+			outline: none;
 		}
 	}
 
@@ -52,6 +53,7 @@
 			&:focus {
 				color: @navbar-default-link-hover-color;
 				background-color: @navbar-default-link-hover-bg;
+				outline: none;
 			}
 			> .icons-breadcrumb {
 				margin-right: 5px;
@@ -108,6 +110,8 @@
 
 	.navbar-collapse {
 		border-color: @navbar-default-border;
+		border: none;
+		.box-shadow(none);
 	}
 
 	// Form controls

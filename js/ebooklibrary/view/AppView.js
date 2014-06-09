@@ -9,6 +9,7 @@ define([
     'ebooklibrary/model/AppModel',
     'ebooklibrary/view/navbar/NavBarView',
     'ebooklibrary/view/footer/FooterView',
+    'ebooklibrary/view/links/LinksView',
     'ebooklibrary/view/AppHomeView',
     'ebooklibrary/view/AppBooksView',
     'ebooklibrary/view/AppSearchView',
@@ -19,6 +20,7 @@ function(
     AppModel,
     NavBarView,
     FooterView,
+    LinksView,
     AppHomeView,
     AppBooksView,
     AppSearchView,
@@ -60,9 +62,15 @@ function(
 		renderHome: function() {
 			this.$('.content-container').empty();
 
+			this.setApplicationPageClass('home');
+
 			this.navBarView.setBreadcrumb();
 			this.navBarView.searchBoxView.showSearchBox(true);
 
+			this.$('.footer-default > .footer-content').empty();
+			var linksView = new LinksView();
+			this.$('.footer-default > .footer-content').append(linksView.render().el);
+			
 			var appHomeView = new AppHomeView();
 			appHomeView.render();
 		},
@@ -75,8 +83,12 @@ function(
 		renderBooks: function(author, series) {
 			this.$('.content-container').empty();
 
+			this.setApplicationPageClass('books');
+
 			this.navBarView.setBreadcrumb({author: author, series: series});
 			this.navBarView.searchBoxView.showSearchBox(false);
+
+			this.$('.footer-default > .footer-content').empty();
 
 			var appBooksView = new AppBooksView({author: author, series: series});
 			appBooksView.render();
@@ -88,6 +100,8 @@ function(
 		 */
 		renderSearch: function(keyword) {
 			this.$('.content-container').empty();
+
+			this.setApplicationPageClass('search');
 
 			this.navBarView.setBreadcrumb({search: keyword});
 			this.navBarView.searchBoxView.showSearchBox(true);
@@ -105,6 +119,8 @@ function(
 		renderBookText: function(author, series, book) {
 			this.$('.content-container').empty();
 
+			this.setApplicationPageClass('book');
+
 			this.navBarView.setBreadcrumb({author: author, series: series});
 			this.navBarView.breadcrumbView.setAuthorActive(false);
 			this.navBarView.breadcrumbView.setSeriesActive(false);
@@ -112,6 +128,24 @@ function(
 
 			var appBookTextView = new AppBookTextView({author: author, series: series, book: book});
 			appBookTextView.render();
+		},
+
+		/**
+		 * Set the application class for specified page.
+		 * @param page page class.
+		 */
+		setApplicationPageClass: function(page) {
+			this.removeApplicationPageClasses();
+			this.$el.addClass('application-' + page);
+		},
+
+		/**
+		 * Remove all the application page classes.
+		 */
+		removeApplicationPageClasses: function() {
+			this.$el.removeClass(function(index, css) {
+				return (css.match(/application-\w*/g) || []).join(' ');
+			});
 		}
 	});
 	

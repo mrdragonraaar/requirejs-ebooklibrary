@@ -4,19 +4,6 @@
 	"description": "NavBar Breadcrumb View Template"
 }
 }}
-{{#if author}}
-<li class="navbar-divider"></li>
-<li class="nav-author{{#unless series}} active{{/unless}}">
-	<a title="{{author}}" href="/library/#!/books/{{author}}/"><i class="icons-breadcrumb icon-author"/>{{author}}</a>
-</li>
-{{/if}}
-{{#if series}}
-<li class="navbar-divider"></li>
-<li class="nav-series active">
-	<a title="{{series}}" href="/library/#!/books/{{author}}/{{series}}/"><i class="icons-breadcrumb icon-series"/>{{{basename series}}}</a>
-</li>
-{{/if}}
-<!--
 <li class="nav-logo">
 	<a href="/library/#!/home"><i class="logo-ebooklibrary"></i></a>
 </li>
@@ -38,4 +25,3 @@
 	<a title="{{series}}" href="/library/#!/books/{{author}}/{{series}}/"><i class="icons-breadcrumb icon-series"/>{{{basename series}}}</a>
 </li>
 {{/if}}
--->

@@ -6,17 +6,16 @@
 @import url('bootstrap.min.css');
 @import url('ebooklibrary-theme.css');
 
+/*
 .content-container
 {
 	height: 100%;
 	min-height: 100%;
 	overflow: hidden;
 	margin: 0px;
-/*
-	padding: 0px 0px 50px;
-*/
 	padding: 0;
 }
+*/
 
 #ebooklibrary.login > .content-container > loginpanel
 {
@@ -197,6 +196,7 @@ ul.list-panel > li ul
 }
 */
 
+/*
 .navbar-default .navbar-nav
 {
 	margin: 0px;
@@ -209,6 +209,7 @@ ul.list-panel > li ul
 	text-transform: uppercase;
 	white-space: nowrap;
 }
+*/
 
 /*
 .navbar-default .navbar-nav > li > .nav-divider
@@ -225,6 +226,7 @@ ul.list-panel > li ul
 }
 */
 
+/*
 .navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-nav > form
 {
@@ -234,6 +236,7 @@ ul.list-panel > li ul
 
 	padding: 0 7px;
 }
+*/
 
 /*
 .navbar-default .navbar-nav > li > a:hover,
@@ -244,6 +247,7 @@ ul.list-panel > li ul
 }
 */
 
+/*
 .navbar-default .navbar-nav > li > a > .icons-breadcrumb
 {
 	margin-right: 5px;
@@ -404,6 +408,7 @@ searchbox
 		display: none;
 	}
 }
+*/
 
 .well-sidebar
 {

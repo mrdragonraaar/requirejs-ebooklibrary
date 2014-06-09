@@ -15,7 +15,7 @@ function(
 ) {
 	var NavBarBreadcrumbView = Backbone.View.extend({
 		tagName: 'ul',
-		className: 'navbar-breadcrumb navbar-nav nav',
+		className: '!navbar-breadcrumb navbar-nav nav navbar-nav-breadcrumb',
 
 		/**
 		 * Render the breadcrumb.

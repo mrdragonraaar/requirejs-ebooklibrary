@@ -59,6 +59,7 @@
 	background-position: left bottom;
 	border-bottom-color: @well-latestadditions-border;
 	//.box-shadow(@box-bottom-hshadow @box-bottom-vshadow @box-blur @box-color);
+	border-top: none;
 
 	> .well-title {
 		font-size: ceil((@font-size-base * 1.4));
@@ -86,6 +87,74 @@
 			> img {
 				width: 100%;
 				height: 100%;
+			}
+		}
+	}
+}
+
+
+// Links
+.well-links {
+	//background-color: @panel-authors-heading-bg;
+	background-color: transparent;
+	border: none;
+	//position: absolute;
+	//bottom: 0;
+	//width: 100%;
+	min-height: 158px;
+	//height: 158px;
+	//padding-left: 100px;
+	//padding-right: 100px;
+
+	> .list-links {
+		width: 100%;
+		list-style: none outside none;
+		margin: 0;
+			padding: 0;
+		//margin-left: -19px;
+		//margin-right: -19px;
+		padding-left: 0;
+		//text-align: center;
+
+		> li {
+				margin: 0;
+			padding: 0;
+			text-align: center;
+			//line-height: 22px;
+			height: 40px;
+
+			> .heading-title {
+				display: inline-block;
+				margin: 0;
+				padding: 0;
+				line-height: 40px;
+				//line-height: 32px;
+				width: 180px;
+				text-align: left;
+
+				> a {
+					display: block;
+					color: @brand-primary;
+					text-decoration: none;
+					outline: 0;
+				}
+
+				> a > img {
+					width: 32px;
+					height: 32px;
+					border-radius: 4px;
+				margin: 0;
+				padding: 0;
+					margin-right: 7px;
+				}
+			}
+		}
+	}
+
+	@media (max-width: @grid-float-breakpoint-max) {
+		> .list-links {
+			> li {
+				text-align: left;
 			}
 		}
 	}

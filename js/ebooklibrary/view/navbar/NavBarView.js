@@ -19,7 +19,7 @@ function(
 ) {
 	var NavBarView = Backbone.View.extend({
 		tagName: 'nav',
-		className: 'navbar navbar-default navbar-static-top',
+		className: 'navbar navbar-default !navbar-fixed-top navbar-static-top',
 
 		breadcrumbView: null,	// breadcrumb view
 		searchBoxView: null,	// search box view
@@ -43,9 +43,10 @@ function(
 			var navBarTmpl = NavBarViewTemplate();
 			this.$el.html(navBarTmpl);
 
-			this.$('.container-fluid').prepend(this.breadcrumbView.render().el);
+			//this.$('.container-fluid').prepend(this.breadcrumbView.render().el);
+			this.$('.navbar-collapse').prepend(this.breadcrumbView.render().el);
 
-			this.$('.container-fluid').append(this.searchBoxView.render().el);
+			//this.$('.container-fluid').append(this.searchBoxView.render().el);
 
 			return this;
 		},
