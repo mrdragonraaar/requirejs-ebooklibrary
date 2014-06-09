@@ -3,7 +3,6 @@ html {
   min-height: 100%;
 }
 body {
-  margin-bottom: 50px;
   /*
 	position: relative;
 	min-height: 100%;
@@ -11,11 +10,11 @@ body {
 */
 }
 body.application-home {
-  margin-bottom: 208px;
+  margin-bottom: 158px;
 }
 @media (max-width: 767px) {
   body.application-home {
-    margin-bottom: 328px;
+    margin-bottom: 278px;
   }
 }
 .content-container {
@@ -28,8 +27,6 @@ body {
   line-height: 1.42857143;
   color: #382110;
   background-color: #ffffff;
-}
-body.application-home {
   background-color: #f3f1e9;
 }
 a {
@@ -1357,11 +1354,12 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
   margin-bottom: 0;
+  background-color: #f3f1e9;
 }
 .panel-default > .panel-heading {
   color: #382110;
   background-color: #c8c6b0;
-  border-color: #b6b4a1;
+  border-color: #bebba1;
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: transparent;
@@ -1379,8 +1377,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-image: linear-gradient(to bottom, #c8c6b0 0%, #e1ddc7 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc8c6b0', endColorstr='#ffe1ddc7', GradientType=0);
-  -webkit-box-shadow: 0px 5px 18px rgba(56, 33, 16, 0.3);
-  box-shadow: 0px 5px 18px rgba(56, 33, 16, 0.3);
+  border-top: none;
 }
 .panel-default > .panel-heading > .panel-title {
   display: inline-block;
@@ -1537,6 +1534,11 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   border-right: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+.well-series {
+  border-top: none;
+  border-bottom-color: #bebba1;
+  background-color: #eae7d9;
 }
 .well-latestadditions {
   height: 272px;
