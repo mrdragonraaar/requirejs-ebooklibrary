@@ -4,9 +4,14 @@
 	"description": "Latest Additions View Template"
 }
 }}
-<h3 class="well-title">Latest Additions</h3>
+<h3 class="well-title">Latest Additions<ul class="nav nav-pills pull-right"><li><a class="previous-btn" href="#"><i class="glyphicon glyphicon-chevron-left"></i></a></li><li><a class="next-btn" href="#"><i class="glyphicon glyphicon-chevron-right"></i></a></li></ul></h3>
+<div class="latestadditions-books">
+	<ul class="list-latestadditions"></ul>
+</div>
+<!--
 <div class="latestadditions-books">
 {{#each latestAdditions}}
 		<a class="thumbnail" href="{{downloadUrl}}" title="{{fileInfo.name}}"><img src="{{bookInfo.cover}}"/></a>
 {{/each}}
 </div>
+-->

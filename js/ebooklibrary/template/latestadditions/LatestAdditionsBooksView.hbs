@@ -1,0 +1,9 @@
+{{!
+{
+	"name": "LatestAdditionsBooksView",
+	"description": "Latest Additions Books View Template"
+}
+}}
+{{#each latestAdditions}}
+	<li><a class="thumbnail" href="{{downloadUrl}}" title="{{fileInfo.name}}"><img src="{{bookInfo.cover}}"/></a></li>
+{{/each}}

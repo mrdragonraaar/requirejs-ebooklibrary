@@ -1,0 +1,12 @@
+{{!
+{
+	"name": "LatestAdditionsView",
+	"description": "Latest Additions View Template"
+}
+}}
+<h3 class="well-title">Latest Additions</h3>
+<div class="latestadditions-books">
+{{#each latestAdditions}}
+		<a class="thumbnail" href="{{downloadUrl}}" title="{{fileInfo.name}}"><img src="{{bookInfo.cover}}"/></a>
+{{/each}}
+</div>

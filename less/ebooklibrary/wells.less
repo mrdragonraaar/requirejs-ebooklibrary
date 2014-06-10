@@ -61,6 +61,74 @@
 
 // Latest additions
 .well-latestadditions {
+	height: @well-latestadditions-height;
+	background-image: data-uri(@images-latestadditions-image);
+	background-position: left bottom;
+	border-bottom-color: @well-latestadditions-border;
+	border-top: none;
+
+	> .well-title {
+		font-size: ceil((@font-size-base * 1.4));
+		border-bottom: 1px solid @well-latestadditions-border;
+
+		> .nav {
+			font-size: 14px;
+		}
+	}
+
+	> .latestadditions-books {
+		height: @well-latestadditions-thumbnail-height;
+		//overflow-x: visible;
+		overflow-x: hidden;
+		position: relative;
+		//transform: translate(0px, 0px);
+		//transition: all 0.2s ease 0s;
+		//padding: 0;
+
+		> .list-latestadditions {
+			list-style: none;
+			padding: 0;
+			width: 1518px;
+			height: @well-latestadditions-thumbnail-height;
+			overflow-y: hidden;
+			//margin-right: -24px;
+			margin: 0;
+			margin-right: -19px;
+		transition: all 0.2s ease 0s;
+
+			> li {
+				float: left;
+				width: @well-latestadditions-thumbnail-width;
+				//margin-right: 24px;
+				margin-right: 19px;
+
+				> a.thumbnail {
+					width: @well-latestadditions-thumbnail-width;
+					height: @well-latestadditions-thumbnail-height;
+					opacity: 0.6;
+					margin-bottom: 0;
+
+					&:hover,
+					&:focus,
+					&.active {
+						opacity: 1;
+					}
+
+					> img {
+						//width: @well-latestadditions-thumbnail-width;
+						//height: @well-latestadditions-thumbnail-height;
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// Latest additions
+.well-latestadditions-old {
 	//z-index: @zindex-latestadditions;
 	height: @well-latestadditions-height;
 	background-image: data-uri(@images-latestadditions-image);
