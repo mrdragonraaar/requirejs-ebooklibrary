@@ -1347,6 +1347,160 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   float: right;
   text-align: center;
 }
+.panel-heading {
+  line-height: 20px;
+}
+.panel-heading > .panel-title {
+  display: inline-block;
+  line-height: inherit;
+}
+.panel-heading > .btn {
+  margin-top: -7px;
+  margin-bottom: -7px;
+}
+.panel-heading > .btn.btn-lg {
+  margin-top: -13px;
+  margin-bottom: -13px;
+}
+.panel-heading > .btn.btn-sm {
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+.panel-heading > .btn.btn-xs {
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+.panel-heading > .panel-nav {
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+.panel-heading > .panel-nav > li {
+  float: left;
+}
+.panel-heading > .panel-nav > li > a {
+  color: inherit;
+}
+.panel-heading > .panel-nav > li > .dropdown-menu {
+  margin-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+.panel-heading > .panel-nav.pull-left:first-child {
+  margin-left: -15px;
+}
+.panel-heading > .panel-nav.pull-right:last-child {
+  margin-right: -15px;
+}
+.panel-heading:after {
+  clear: both;
+}
+.panel-heading:before,
+.panel-heading:after {
+  content: " ";
+  display: table;
+}
+.panel-books {
+  border-color: #bebba1;
+  border-radius: 0;
+}
+.panel-books > .panel-heading {
+  color: #382110;
+  background-color: #c8c6b0;
+  border-color: #bebba1;
+}
+.panel-books > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #bebba1;
+}
+.panel-books > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #bebba1;
+}
+.panel-books > .panel-heading {
+  background-image: -webkit-linear-gradient(top, #c8c6b0 0%, #e1ddc7 100%);
+  background-image: -o-linear-gradient(top, #c8c6b0 0%, #e1ddc7 100%);
+  background-image: linear-gradient(to bottom, #c8c6b0 0%, #e1ddc7 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc8c6b0', endColorstr='#ffe1ddc7', GradientType=0);
+  border-radius: 0;
+  line-height: 30px;
+}
+.panel-books > .panel-heading > .panel-title {
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.panel-books > .panel-heading > .panel-title > a {
+  text-decoration: none;
+}
+.panel-books > .panel-heading > .btn {
+  margin-top: -2px;
+  margin-bottom: -2px;
+}
+.panel-books > .panel-heading > .btn.btn-lg {
+  margin-top: -8px;
+  margin-bottom: -8px;
+}
+.panel-books > .panel-heading > .btn.btn-sm {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.panel-books > .panel-heading > .btn.btn-xs {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+/*
+.panel-heading {
+	min-height: 50px;
+
+	&:after {
+		clear: both;
+	}
+
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+}
+*/
+/*
+.panel-heading {
+	.panel-nav {
+		margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
+		//margin-top: 0;
+		//margin-bottom: 0;
+
+		> li > a {
+			padding-top: 10px;
+			padding-bottom: 10px;
+			line-height: @line-height-computed;
+
+			line-height: 50px;
+
+			font-size: @navbar-default-link-font-size;
+			font-weight: 400;
+			text-transform: uppercase;
+			white-space: nowrap;
+		}
+
+		// Uncollapse the nav
+		@media (min-width: @grid-float-breakpoint) {
+			float: left;
+			margin: 0;
+
+			> li {
+				float: left;
+				> a {
+					padding-top: @navbar-padding-vertical;
+					padding-bottom: @navbar-padding-vertical;
+			padding-top: 0;
+			padding-bottom: 0;
+				}
+			}
+		}
+	}
+}
+*/
 .panel-default {
   border-color: transparent;
   border-radius: 0;
@@ -1368,9 +1522,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   border-bottom-color: transparent;
 }
 .panel-default > .panel-heading {
-  height: 50px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  min-height: 50px;
+  padding: 0;
   border-radius: 0;
   background-image: -webkit-linear-gradient(top, #c8c6b0 0%, #e1ddc7 100%);
   background-image: -o-linear-gradient(top, #c8c6b0 0%, #e1ddc7 100%);
@@ -1378,6 +1531,14 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc8c6b0', endColorstr='#ffe1ddc7', GradientType=0);
   border-top: none;
+}
+.panel-default > .panel-heading:after {
+  clear: both;
+}
+.panel-default > .panel-heading:before,
+.panel-default > .panel-heading:after {
+  content: " ";
+  display: table;
 }
 .panel-default > .panel-heading > .panel-title {
   display: inline-block;

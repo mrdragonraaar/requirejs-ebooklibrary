@@ -23,7 +23,7 @@ function(
 ) {
 	var BooksPanelView = Backbone.View.extend({
 		tagName: 'bookspanel',
-		className: 'panel panel-default panel-books',
+		className: 'panel !panel-default panel-books',
 
 		toolBarView: null,	// toolbar view
 
@@ -74,7 +74,7 @@ function(
 			var booksPanelTmpl = BooksPanelViewTemplate();
 			this.$el.append(booksPanelTmpl);
 
-			this.$('.panel-heading').append(this.toolBarView.render().el);
+			//this.$('.panel-heading').append(this.toolBarView.render().el);
 			this.toolBarView.setActiveViewAsThumbnailsButton();
 			this.toolBarView.disableAllViewAsButtons(true);
 			this.toolBarView.setActiveSortByMenu('Name', true);
