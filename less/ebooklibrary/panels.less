@@ -2,6 +2,58 @@
 // Panels
 // --------------------------------------------------
 
+.panel-heading-margin-top() {
+	margin-top: -(extract(@panel-heading-padding, 1));
+}
+
+.panel-heading-margin-bottom() {
+	margin-bottom: -(extract(@panel-heading-padding, 1));
+}
+
+.panel-heading-margin-vertical() {
+	.panel-heading-margin-top();
+	.panel-heading-margin-bottom();
+}
+
+.panel-heading-margin-left() {
+	margin-left: -(extract(@panel-heading-padding, 2));
+}
+
+.panel-heading-margin-right() {
+	margin-right: -(extract(@panel-heading-padding, 2));
+}
+
+.panel-heading-margin-horizontal() {
+	.panel-heading-margin-left();
+	.panel-heading-margin-right();
+}
+
+.panel-heading-padding-top() {
+	padding-top: extract(@panel-heading-padding, 1);
+}
+
+.panel-heading-padding-bottom() {
+	padding-bottom: extract(@panel-heading-padding, 1);
+}
+
+.panel-heading-padding-vertical() {
+	.panel-heading-padding-top();
+	.panel-heading-padding-bottom();
+}
+
+.panel-heading-padding-left() {
+	padding-left: extract(@panel-heading-padding, 2);
+}
+
+.panel-heading-padding-right() {
+	padding-right: extract(@panel-heading-padding, 2);
+}
+
+.panel-heading-padding-horizontal() {
+	.panel-heading-padding-left();
+	.panel-heading-padding-right();
+}
+
 .panel-heading-vertical-align(@panel-heading-line-height; @element-line-height; @element-padding-vertical; @element-border-vertical) {
 	margin-top: (((@panel-heading-line-height - @element-line-height) / 2) - @element-padding-vertical - @element-border-vertical);
 	margin-bottom: (((@panel-heading-line-height - @element-line-height) / 2) - @element-padding-vertical - @element-border-vertical);
@@ -49,8 +101,7 @@
 	}
 
 	.btn-toolbar {
-		margin-top: -10px;
-		margin-bottom: -10px;
+		.panel-heading-margin-vertical();
 
 		> .btn-group {
 			margin-top: 0;
@@ -59,24 +110,20 @@
 	}
 
 	.btn-group {
-		margin-top: -10px;
-		margin-bottom: -10px;
-		padding-top: 10px;
-		padding-bottom: 10px;
+		.panel-heading-margin-vertical();
+		.panel-heading-padding-vertical();
 	}
 
 	.panel-heading-buttons-vertical-align(@line-height-computed);
 
 	> .panel-nav {
-		margin-top: -10px;
-		margin-bottom: -10px;
+		.panel-heading-margin-vertical();
 
 		> li {
 			float: left;
 
 			> a {
-				padding-top: 10px;
-				padding-bottom: 10px;
+				.panel-heading-padding-vertical();
 				color: inherit;
 				background-color: transparent;
 			}
@@ -88,11 +135,11 @@
 		}
 
 		&.pull-left:first-child {
-			margin-left: -15px;
+			.panel-heading-margin-left();
 		}
 
 		&.pull-right:last-child {
-			margin-right: -15px;
+			.panel-heading-margin-right();
 		}
 	}
 
