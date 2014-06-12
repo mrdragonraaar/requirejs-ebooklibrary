@@ -78,12 +78,7 @@
 				padding-top: 10px;
 				padding-bottom: 10px;
 				color: inherit;
-
-				&:active,
-				&.active {
-					outline: none;
-					.box-shadow(0 3px 5px rgba(0, 0, 0, 0.125) inset);
-				}
+				background-color: transparent;
 			}
 
 			> .dropdown-menu {
@@ -101,15 +96,8 @@
 		}
 	}
 
-	&:after {
-		clear: both;
-	}
-
-	&:before,
-	&:after {
-		content: " ";
-		display: table;
-	}
+	// Prevent floats from breaking the panel-heading
+	.clearfix();
 }
 
 .panel-books {
@@ -129,6 +117,24 @@
 
 			> a {
 				text-decoration: none;
+			}
+		}
+
+		> .panel-nav {
+			> li > a {
+				&:active,
+				&.active,
+				&:hover,
+				&:focus {
+					//background-color: #cfc9a6;
+				}
+
+				&:active,
+				&.active {
+					background-color: #cfc9a6;
+					outline: none;
+					.box-shadow(0 3px 5px rgba(0, 0, 0, 0.125) inset);
+				}
 			}
 		}
 

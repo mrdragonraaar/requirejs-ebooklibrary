@@ -1411,12 +1411,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   padding-top: 10px;
   padding-bottom: 10px;
   color: inherit;
-}
-.panel-heading > .panel-nav > li > a:active,
-.panel-heading > .panel-nav > li > a.active {
-  outline: none;
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+  background-color: transparent;
 }
 .panel-heading > .panel-nav > li > .dropdown-menu {
   margin-top: 0;
@@ -1429,13 +1424,13 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .panel-heading > .panel-nav.pull-right:last-child {
   margin-right: -15px;
 }
-.panel-heading:after {
-  clear: both;
-}
 .panel-heading:before,
 .panel-heading:after {
   content: " ";
   display: table;
+}
+.panel-heading:after {
+  clear: both;
 }
 .panel-books {
   border-color: #bebba1;
@@ -1469,6 +1464,13 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .panel-books > .panel-heading > .panel-title > a {
   text-decoration: none;
+}
+.panel-books > .panel-heading > .panel-nav > li > a:active,
+.panel-books > .panel-heading > .panel-nav > li > a.active {
+  background-color: #cfc9a6;
+  outline: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
 }
 .panel-books > .panel-heading .btn {
   margin-top: -2px;
