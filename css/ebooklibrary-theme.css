@@ -1349,24 +1349,70 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .panel-heading {
   line-height: 20px;
+  /*
+*/
 }
 .panel-heading > .panel-title {
   display: inline-block;
   line-height: inherit;
 }
-.panel-heading > .btn {
+.panel-heading .btn-group > .btn {
   margin-top: -7px;
   margin-bottom: -7px;
 }
-.panel-heading > .btn.btn-lg {
+.panel-heading .btn-group.btn-group-lg > .btn {
   margin-top: -13px;
   margin-bottom: -13px;
 }
-.panel-heading > .btn.btn-sm {
+.panel-heading .btn-group.btn-group-sm > .btn {
   margin-top: -5px;
   margin-bottom: -5px;
 }
-.panel-heading > .btn.btn-xs {
+.panel-heading .btn-group.btn-group-xs > .btn {
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+.panel-heading .btn-toolbar {
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+.panel-heading .btn-toolbar > .btn-group {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.panel-heading .btn-group {
+  margin-top: -10px;
+  margin-bottom: -10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /*
+			&.btn-group-lg {
+				padding-top: 4px;
+				padding-bottom: 4px;
+			}
+			&.btn-group-sm {
+				padding-top: 12px;
+				padding-bottom: 12px;
+			}
+			&.btn-group-xs {
+				padding-top: 16px;
+				padding-bottom: 16px;
+			}
+*/
+}
+.panel-heading .btn {
+  margin-top: -7px;
+  margin-bottom: -7px;
+}
+.panel-heading .btn.btn-lg {
+  margin-top: -13px;
+  margin-bottom: -13px;
+}
+.panel-heading .btn.btn-sm {
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+.panel-heading .btn.btn-xs {
   margin-top: -1px;
   margin-bottom: -1px;
 }
@@ -1422,6 +1468,29 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc8c6b0', endColorstr='#ffe1ddc7', GradientType=0);
   border-radius: 0;
   line-height: 30px;
+  /*
+*/
+  /*
+		.btn-group {
+			margin-top: -10px;
+			margin-bottom: -10px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+
+			&.btn-group-lg {
+				padding-top: 4px;
+				padding-bottom: 4px;
+			}
+			&.btn-group-sm {
+				padding-top: 12px;
+				padding-bottom: 12px;
+			}
+			&.btn-group-xs {
+				padding-top: 16px;
+				padding-bottom: 16px;
+			}
+		}
+*/
 }
 .panel-books > .panel-heading > .panel-title {
   font-size: 18px;
@@ -1432,19 +1501,35 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .panel-books > .panel-heading > .panel-title > a {
   text-decoration: none;
 }
-.panel-books > .panel-heading > .btn {
+.panel-books > .panel-heading .btn-group > .btn {
   margin-top: -2px;
   margin-bottom: -2px;
 }
-.panel-books > .panel-heading > .btn.btn-lg {
+.panel-books > .panel-heading .btn-group.btn-group-lg > .btn {
   margin-top: -8px;
   margin-bottom: -8px;
 }
-.panel-books > .panel-heading > .btn.btn-sm {
+.panel-books > .panel-heading .btn-group.btn-group-sm > .btn {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.panel-books > .panel-heading > .btn.btn-xs {
+.panel-books > .panel-heading .btn-group.btn-group-xs > .btn {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.panel-books > .panel-heading .btn {
+  margin-top: -2px;
+  margin-bottom: -2px;
+}
+.panel-books > .panel-heading .btn.btn-lg {
+  margin-top: -8px;
+  margin-bottom: -8px;
+}
+.panel-books > .panel-heading .btn.btn-sm {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.panel-books > .panel-heading .btn.btn-xs {
   margin-top: 4px;
   margin-bottom: 4px;
 }

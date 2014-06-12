@@ -33,7 +33,63 @@
 			line-height: inherit;
 		}
 
-		> .btn {
+		.btn-group {
+			> .btn {
+			.panel-button-vertical-align(@line-height-computed; @line-height-computed; @padding-large-vertical; @padding-base-vertical);
+}
+
+			&.btn-group-lg {
+			> .btn {
+				.panel-button-vertical-align(@line-height-computed; (@line-height-large * @font-size-large); @padding-large-vertical; @padding-large-vertical);
+}
+			}
+			&.btn-group-sm {
+			> .btn {
+				.panel-button-vertical-align(@line-height-computed; (@line-height-small * @font-size-small); @padding-large-vertical; @padding-small-vertical);
+}
+			}
+			&.btn-group-xs {
+			> .btn {
+				.panel-button-vertical-align(@line-height-computed; (@line-height-small * @font-size-small); @padding-large-vertical; @padding-xs-vertical);
+}
+			}
+		}
+/*
+*/
+
+		.btn-toolbar {
+			margin-top: -10px;
+			margin-bottom: -10px;
+
+			> .btn-group {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+		}
+
+		.btn-group {
+			margin-top: -10px;
+			margin-bottom: -10px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+
+/*
+			&.btn-group-lg {
+				padding-top: 4px;
+				padding-bottom: 4px;
+			}
+			&.btn-group-sm {
+				padding-top: 12px;
+				padding-bottom: 12px;
+			}
+			&.btn-group-xs {
+				padding-top: 16px;
+				padding-bottom: 16px;
+			}
+*/
+		}
+
+		.btn {
 			.panel-button-vertical-align(@line-height-computed);
 		}
 
@@ -95,7 +151,53 @@
 			}
 		}
 
-		> .btn {
+		.btn-group {
+			> .btn {
+			.panel-button-vertical-align(@panel-books-heading-line-height; @line-height-computed; @padding-large-vertical; @padding-base-vertical);
+}
+
+			&.btn-group-lg {
+				> .btn {
+				.panel-button-vertical-align(@panel-books-heading-line-height; (@line-height-large * @font-size-large); @padding-large-vertical; @padding-large-vertical);
+}
+			}
+			&.btn-group-sm {
+				> .btn {
+				.panel-button-vertical-align(@panel-books-heading-line-height; (@line-height-small * @font-size-small); @padding-large-vertical; @padding-small-vertical);
+}
+			}
+			&.btn-group-xs {
+				> .btn {
+				.panel-button-vertical-align(@panel-books-heading-line-height; (@line-height-small * @font-size-small); @padding-large-vertical; @padding-xs-vertical);
+}
+			}
+		}
+/*
+*/
+
+/*
+		.btn-group {
+			margin-top: -10px;
+			margin-bottom: -10px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+
+			&.btn-group-lg {
+				padding-top: 4px;
+				padding-bottom: 4px;
+			}
+			&.btn-group-sm {
+				padding-top: 12px;
+				padding-bottom: 12px;
+			}
+			&.btn-group-xs {
+				padding-top: 16px;
+				padding-bottom: 16px;
+			}
+		}
+*/
+
+		.btn {
 			.panel-button-vertical-align(@panel-books-heading-line-height);
 		}
 	}
