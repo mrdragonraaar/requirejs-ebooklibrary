@@ -1,0 +1,77 @@
+// Nav variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all navs
+
+.nav-variant(@color; @background; @border; @hover-color; @hover-background; @hover-border) {
+	border-color: @hover-border;
+
+	> li {
+		> a {
+			color: @color;
+			background-color: @background;
+			border-color: @border;
+
+			&:hover,
+			&:focus {
+				color: @hover-color;
+				background-color: @hover-background;
+				border-color: @hover-border;
+			}
+		}
+
+		&.disabled > a {
+			&,
+			&:hover,
+			&:focus {
+				color: @color;
+				border-color: @border;
+				background-color: @background;
+				opacity: 0.65;
+			}
+		}
+	}
+
+	.open > a {
+		&,
+		&:hover,
+		&:focus {
+			color: @hover-color;
+			background-color: @hover-background;
+			border-color: @hover-border;
+		}
+	}
+
+	&.nav-tabs {
+		> li {
+			border-color: @border;
+
+			> a {
+				border-bottom-color: @hover-border;
+			}
+
+			&.active > a {
+				&,
+				&:hover,
+				&:focus {
+					color: @color;
+					border-color: @hover-border;
+					border-bottom-color: transparent;
+				}
+			}
+		}
+	}
+
+	&.nav-pills {
+		> li {
+			&.active > a {
+				&,
+				&:hover,
+				&:focus {
+					color: @hover-color;
+					background-color: @hover-background;
+				}
+			}
+		}
+	}
+}

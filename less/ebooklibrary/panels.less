@@ -2,150 +2,108 @@
 // Panels
 // --------------------------------------------------
 
-.panel-heading-margin-top() {
-	margin-top: -(extract(@panel-heading-padding, 1));
-}
 
-.panel-heading-margin-bottom() {
-	margin-bottom: -(extract(@panel-heading-padding, 1));
-}
-
-.panel-heading-margin-vertical() {
-	.panel-heading-margin-top();
-	.panel-heading-margin-bottom();
-}
-
-.panel-heading-margin-left() {
-	margin-left: -(extract(@panel-heading-padding, 2));
-}
-
-.panel-heading-margin-right() {
-	margin-right: -(extract(@panel-heading-padding, 2));
-}
-
-.panel-heading-margin-horizontal() {
-	.panel-heading-margin-left();
-	.panel-heading-margin-right();
-}
-
-.panel-heading-padding-top() {
-	padding-top: extract(@panel-heading-padding, 1);
-}
-
-.panel-heading-padding-bottom() {
-	padding-bottom: extract(@panel-heading-padding, 1);
-}
-
-.panel-heading-padding-vertical() {
-	.panel-heading-padding-top();
-	.panel-heading-padding-bottom();
-}
-
-.panel-heading-padding-left() {
-	padding-left: extract(@panel-heading-padding, 2);
-}
-
-.panel-heading-padding-right() {
-	padding-right: extract(@panel-heading-padding, 2);
-}
-
-.panel-heading-padding-horizontal() {
-	.panel-heading-padding-left();
-	.panel-heading-padding-right();
-}
-
-.panel-heading-vertical-align(@panel-heading-line-height; @element-line-height; @element-padding-vertical; @element-border-vertical) {
-	margin-top: (((@panel-heading-line-height - @element-line-height) / 2) - @element-padding-vertical - @element-border-vertical);
-	margin-bottom: (((@panel-heading-line-height - @element-line-height) / 2) - @element-padding-vertical - @element-border-vertical);
-}
-
-.panel-heading-buttons-vertical-align(@panel-heading-line-height) {
-	.btn {
-		.panel-heading-vertical-align(@panel-heading-line-height, @line-height-computed, @padding-base-vertical, 1px);
-
-		&.btn-lg {
-			.panel-heading-vertical-align(@panel-heading-line-height, (@line-height-large * @font-size-large), @padding-large-vertical, 1px);
-		}
-		&.btn-sm {
-			.panel-heading-vertical-align(@panel-heading-line-height, (@line-height-small * @font-size-small), @padding-small-vertical, 1px);
-		}
-		&.btn-xs {
-			.panel-heading-vertical-align(@panel-heading-line-height, (@line-height-small * @font-size-small), @padding-xs-vertical, 1px);
-		}
-	}
-
-	.btn-group {
-		> .btn {
-			.panel-heading-vertical-align(@panel-heading-line-height, @line-height-computed, @padding-base-vertical, 1px);
-		}
-
-		&.btn-group-lg > .btn {
-			.panel-heading-vertical-align(@panel-heading-line-height, (@line-height-large * @font-size-large), @padding-large-vertical, 1px);
-		}
-		&.btn-group-sm > .btn {
-			.panel-heading-vertical-align(@panel-heading-line-height, (@line-height-small * @font-size-small), @padding-small-vertical, 1px);
-		}
-		&.btn-group-xs > .btn {
-			.panel-heading-vertical-align(@panel-heading-line-height, (@line-height-small * @font-size-small), @padding-xs-vertical, 1px);
-		}
-	}
-}
-
+// Panel heading
+//
+// Allow panel heading to include floated elements.
 
 .panel-heading {
 	line-height: @line-height-computed;
 
-	> .panel-title {
-		display: inline-block;
-		line-height: inherit;
-	}
-
-	.btn-toolbar {
-		.panel-heading-margin-vertical();
-
-		> .btn-group {
-			margin-top: 0;
-			margin-bottom: 0;
-		}
-	}
-
-	.btn-group {
-		.panel-heading-margin-vertical();
-		.panel-heading-padding-vertical();
-	}
-
-	.panel-heading-buttons-vertical-align(@line-height-computed);
-
-	> .panel-nav {
-		.panel-heading-margin-vertical();
-
-		> li {
-			float: left;
-
-			> a {
-				.panel-heading-padding-vertical();
-				color: inherit;
-				background-color: transparent;
-			}
-
-			> .dropdown-menu {
-				margin-top: 0;
-				.border-top-radius(0);
-			}
-		}
-
-		&.pull-left:first-child {
-			.panel-heading-margin-left();
-		}
-
-		&.pull-right:last-child {
-			.panel-heading-margin-right();
-		}
-	}
-
 	// Prevent floats from breaking the panel-heading
-	.clearfix();
+	&:extend(.clearfix all);
 }
+
+
+// Panel title
+//
+// For any 'h*' tags, inherit the line height of panel heading.
+
+.panel-title {
+	line-height: inherit;
+}
+
+
+// Nav links
+//
+// Set nav to full height of panel heading.
+
+.panel-nav {
+	.panel-heading-margin-vertical();
+
+	> li {
+		float: left;
+
+		> a {
+			.panel-heading-padding-vertical();
+		}
+	}
+
+	&.panel-left:first-child {
+		.panel-heading-margin-left();
+	}
+
+	&.panel-right:last-child {
+		.panel-heading-margin-right();
+	}
+}
+
+
+// Dropdown menu items
+
+// Remove background color from open dropdown
+.panel-nav > .open > a {
+	&,
+	&:hover,
+	&:focus {
+		//background-color: transparent;
+	}
+}
+
+
+// Dropdown menus
+
+// Menu position
+.panel-nav > li > .dropdown-menu {
+	margin-top: 0;
+	.border-top-radius(0);
+}
+
+
+// Buttons in panel heading
+//
+// Vertically center a button within a panel heading.
+
+.panel-heading-buttons-vertical-align(@line-height-computed);
+
+// Set button group to height of panel heading.
+.panel-heading .btn-group {
+	.panel-heading-margin-vertical();
+	.panel-heading-padding-vertical();
+}
+
+// Set button toolbar to height of panel heading.
+.panel-heading .btn-toolbar {
+	.panel-heading-margin-vertical();
+
+	// Reset button groups margin.
+	> .btn-group {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+
+// Component alignment
+//
+// Repurpose the pull utilities as their own panel heading utilities.
+
+.panel-left { .pull-left(); }
+.panel-right { .pull-right(); }
+
+
+// Alternate panels
+// --------------------------------------------------
 
 .panel-books {
 	.panel-variant(@panel-books-border, @panel-books-text, @panel-books-bg, @panel-books-border);
@@ -168,30 +126,48 @@
 		}
 
 		> .panel-nav {
-			> li > a {
-				&:active,
-				&.active,
-				&:hover,
-				&:focus {
-					//background-color: #cfc9a6;
+/*
+			> li {
+				> a {
+					color: @panel-books-text;
+
+					&:hover,
+					&:focus {
+						//background-color: #cfc9a6;
+						background-color: darken(@panel-books-bg, 3%);
+					}
 				}
 
-				&:active,
-				&.active {
-					background-color: #cfc9a6;
+				&:active > a,
+				&.active > a {
+					background-color: darken(@panel-books-bg, 3%);
+					//background-color: #cfc9a6;
 					outline: none;
 					.box-shadow(0 3px 5px rgba(0, 0, 0, 0.125) inset);
 				}
+
+				&.disabled > a {
+					&,
+					&:hover,
+					&:focus {
+						//color: @color;
+						background-color: @panel-books-bg;
+						opacity: 0.65;
+					}
+				}
 			}
+
+			.open > a {
+				background-color: darken(@panel-books-bg, 3%);
+				.box-shadow(0 3px 5px rgba(0, 0, 0, 0.125) inset);
+			}
+*/
 		}
 
 		.panel-heading-buttons-vertical-align(@panel-books-heading-line-height);
 	}
 }
 
-
-// Alternate panels
-// --------------------------------------------------
 
 // Default panel
 .panel-default {
