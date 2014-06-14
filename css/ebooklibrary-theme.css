@@ -18,6 +18,7 @@ body.application-home {
   }
 }
 .content-container {
+  position: relative;
   margin: 0;
   padding: 0;
 }
@@ -1523,8 +1524,13 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   float: right !important;
 }
 .panel-books {
+  z-index: 990;
   border-color: #bebba1;
+  background-color: #f3f1e9;
+  border: none;
   border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .panel-books > .panel-heading {
   color: #382110;
@@ -1545,6 +1551,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc8c6b0', endColorstr='#ffe1ddc7', GradientType=0);
   border-radius: 0;
   line-height: 30px;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 .panel-books > .panel-heading > .panel-title {
   font-size: 18px;
@@ -1555,43 +1563,30 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .panel-books > .panel-heading > .panel-title > a {
   text-decoration: none;
 }
-.panel-books > .panel-heading > .panel-nav {
-  /*
-			> li {
-				> a {
-					color: @panel-books-text;
-
-					&:hover,
-					&:focus {
-						//background-color: #cfc9a6;
-						background-color: darken(@panel-books-bg, 3%);
-					}
-				}
-
-				&:active > a,
-				&.active > a {
-					background-color: darken(@panel-books-bg, 3%);
-					//background-color: #cfc9a6;
-					outline: none;
-					.box-shadow(0 3px 5px rgba(0, 0, 0, 0.125) inset);
-				}
-
-				&.disabled > a {
-					&,
-					&:hover,
-					&:focus {
-						//color: @color;
-						background-color: @panel-books-bg;
-						opacity: 0.65;
-					}
-				}
-			}
-
-			.open > a {
-				background-color: darken(@panel-books-bg, 3%);
-				.box-shadow(0 3px 5px rgba(0, 0, 0, 0.125) inset);
-			}
-*/
+.panel-books > .panel-heading > .panel-nav > li > a {
+  color: #382110;
+}
+.panel-books > .panel-heading > .panel-nav > li > a,
+.panel-books > .panel-heading > .panel-nav > li > a:hover,
+.panel-books > .panel-heading > .panel-nav > li > a:focus {
+  background-color: transparent;
+}
+.panel-books > .panel-heading > .panel-nav > li:active > a,
+.panel-books > .panel-heading > .panel-nav > li.active > a {
+  outline: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+}
+.panel-books > .panel-heading > .panel-nav > li.disabled > a,
+.panel-books > .panel-heading > .panel-nav > li.disabled > a:hover,
+.panel-books > .panel-heading > .panel-nav > li.disabled > a:focus {
+  color: #543118;
+  background-color: transparent;
+  opacity: 0.65;
+}
+.panel-books > .panel-heading > .panel-nav .open > a {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
 }
 .panel-books > .panel-heading .panel-btn {
   margin-top: -2px;
@@ -1808,6 +1803,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   box-shadow: none;
 }
 .well-series {
+  z-index: 995;
   border-top: none;
   border-bottom-color: #bebba1;
   background-color: #eae7d9;

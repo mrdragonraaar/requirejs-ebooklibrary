@@ -105,14 +105,21 @@
 // Alternate panels
 // --------------------------------------------------
 
+// Books panel
 .panel-books {
-	.panel-variant(@panel-books-border, @panel-books-text, @panel-books-bg, @panel-books-border);
+	z-index: 990;
+	.panel-variant(@panel-books-border, @panel-books-text, @panel-books-heading-bg, @panel-books-border);
+	background-color: @panel-books-bg;
+	border: none;
 	border-radius: 0;
+	.box-shadow(none);
 
 	> .panel-heading {
 		#gradient.vertical(@gradient-start-color, @gradient-stop-color, @gradient-start-percent, @gradient-stop-percent);
 		border-radius: 0;
 		line-height: @panel-books-heading-line-height;
+		//.box-shadow(@box-bottom-hshadow @box-bottom-vshadow @box-blur @box-color);
+		.box-shadow(0px 0px 10px rgba(0, 0, 0, 0.3));
 
 		> .panel-title {
 			font-size: @panel-books-title-font-size;
@@ -126,22 +133,21 @@
 		}
 
 		> .panel-nav {
-/*
 			> li {
 				> a {
 					color: @panel-books-text;
 
+					&,
 					&:hover,
 					&:focus {
-						//background-color: #cfc9a6;
-						background-color: darken(@panel-books-bg, 3%);
+						//background-color: darken(@panel-books-heading-bg, 3%);
+						background-color: transparent;
 					}
 				}
 
 				&:active > a,
 				&.active > a {
-					background-color: darken(@panel-books-bg, 3%);
-					//background-color: #cfc9a6;
+					//background-color: darken(@panel-books-heading-bg, 3%);
 					outline: none;
 					.box-shadow(0 3px 5px rgba(0, 0, 0, 0.125) inset);
 				}
@@ -150,18 +156,17 @@
 					&,
 					&:hover,
 					&:focus {
-						//color: @color;
-						background-color: @panel-books-bg;
+						color: lighten(@panel-books-text, 7%);
+						background-color: transparent;
 						opacity: 0.65;
 					}
 				}
 			}
 
 			.open > a {
-				background-color: darken(@panel-books-bg, 3%);
+				//background-color: darken(@panel-books-heading-bg, 3%);
 				.box-shadow(0 3px 5px rgba(0, 0, 0, 0.125) inset);
 			}
-*/
 		}
 
 		.panel-heading-buttons-vertical-align(@panel-books-heading-line-height);
