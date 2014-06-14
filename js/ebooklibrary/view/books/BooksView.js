@@ -1,7 +1,7 @@
 /**
- * BooksPanelView.js
+ * BooksView.js
  *
- * Backbone view representing ebooklibrary books panel.
+ * Backbone view representing ebooklibrary books.
  *
  * (c)2014 mrdragonraaar.com
  */
@@ -10,7 +10,7 @@ define([
     'hbs!ebooklibrary/template/bookspanel/ThumbsView',
     'hbs!ebooklibrary/template/bookspanel/DetailsView',
     'hbs!ebooklibrary/template/bookspanel/ListView',
-    'ebooklibrary/view/bookspanel/BooksPanelToolBarView',
+    'ebooklibrary/view/books/BooksToolBarView',
     'backbone'
 ],
 function(
@@ -18,18 +18,18 @@ function(
     ThumbsViewTemplate,
     DetailsViewTemplate,
     ListViewTemplate,
-    BooksPanelToolBarView,
+    BooksToolBarView,
     Backbone
 ) {
-	var BooksPanelView = Backbone.View.extend({
-		tagName: 'bookspanel',
-		className: 'panel !panel-default panel-books',
+	var BooksView = Backbone.View.extend({
+		tagName: 'books',
+		className: 'panel panel-books',
 
 		toolBarView: null,	// toolbar view
 
 		/**
-		 * Initialise the books panel view.
-		 * @param options books panel options (collection).
+		 * Initialise the books view.
+		 * @param options books options (collection).
 		 */
 		initialize: function(options) {
 			options = options || {};
@@ -40,16 +40,16 @@ function(
 			this.listenTo(this.collection, 'sync', this.fadeInBooks);
 			this.listenTo(this.collection, 'sort', this.renderBooks);
 
-			this.toolBarView = new BooksPanelToolBarView();
-			this.listenTo(this.toolBarView, 'booksPanelToolBarSortBy', this.onBooksPanelToolBarSortBy);
-			this.listenTo(this.toolBarView, 'booksPanelToolBarViewAs', this.onBooksPanelToolBarViewAs);
+			this.toolBarView = new BooksToolBarView();
+			this.listenTo(this.toolBarView, 'booksPanelToolBarSortBy', this.onToolBarSortBy);
+			this.listenTo(this.toolBarView, 'booksPanelToolBarViewAs', this.onToolBarViewAs);
 		},
 
 		/**
 		 * Event handler for toolbar viewAs event.
 		 * @param viewAsButtonName name of viewAs button.
 		 */
-		onBooksPanelToolBarViewAs: function(viewAsButtonName) {
+		onToolBarViewAs: function(viewAsButtonName) {
 			if (this.collection)
 				this.fadeInBooks(this.collection);
 		},
@@ -59,7 +59,7 @@ function(
 		 * @param sortByMenuName name of sortBy menu.
 		 * @param asc true if sortBy menu is ascending.
 		 */
-		onBooksPanelToolBarSortBy: function(sortByMenuName, asc) {
+		onToolBarSortBy: function(sortByMenuName, asc) {
 			if (this.collection) {
 				this.collection.setSortBy(sortByMenuName, asc);
 				this.collection.sort();
@@ -67,14 +67,14 @@ function(
 		},
 
 		/**
-		 * Render the books panel.
-		 * @return books panel view
+		 * Render the books view.
+		 * @return books view
 		 */
 		render: function() {
 			var booksPanelTmpl = BooksPanelViewTemplate();
 			this.$el.append(booksPanelTmpl);
 
-			//this.$('.panel-heading').append(this.toolBarView.render().el);
+			this.$('.panel-heading').append(this.toolBarView.render().el);
 			this.toolBarView.setActiveViewAsThumbnailsButton();
 			this.toolBarView.disableAllViewAsButtons(true);
 			this.toolBarView.setActiveSortByMenu('Name', true);
@@ -84,7 +84,7 @@ function(
 		},
 
 		/**
-		 * Render and fade in the books panel collection.
+		 * Render and fade in the books collection.
 		 * @param collection books collection.
 		 */
 		fadeInBooks: function(collection) {
@@ -110,7 +110,7 @@ function(
 		},
 
 		/**
-		 * Render the books panel collection.
+		 * Render the books collection.
 		 * @param collection books collection.
 		 */
 		renderBooks: function(collection) {
@@ -126,7 +126,7 @@ function(
 		},
 
 		/**
-		 * Render the books panel collection as thumbnails.
+		 * Render the books collection as thumbnails.
 		 * @param collection books collection.
 		 */
 		renderBooksThumbnails: function(collection) {
@@ -135,7 +135,7 @@ function(
 		},
 
 		/**
-		 * Render the books panel collection as details.
+		 * Render the books collection as details.
 		 * @param collection books collection.
 		 */
 		renderBooksDetails: function(collection) {
@@ -144,7 +144,7 @@ function(
 		},
 
 		/**
-		 * Render the books panel collection as list.
+		 * Render the books collection as list.
 		 * @param collection books collection.
 		 */
 		renderBooksList: function(collection) {
@@ -153,5 +153,5 @@ function(
 		}
 	});
 
-	return BooksPanelView;
+	return BooksView;
 });

@@ -1,7 +1,7 @@
 /**
- * BooksPanelToolBarView.js
+ * BooksToolBarView.js
  *
- * Backbone view representing toolbar for ebooklibrary books panel.
+ * Backbone view representing toolbar for ebooklibrary books.
  *
  * (c)2014 mrdragonraaar.com
  */
@@ -14,14 +14,17 @@ function(
     BooksPanelToolBarViewTemplate,
     Backbone
 ) {
-	var BooksPanelToolBarView = Backbone.View.extend({
-		className: 'bookspanel-toolbar btn-toolbar pull-right',
+	var BooksToolBarView = Backbone.View.extend({
+		//className: 'bookspanel-toolbar btn-toolbar pull-right',
+		tagName: 'ul',
+		className: 'books-nav panel-nav nav panel-right',
 
 		/**
 		 * Define book panel click events.
 		 */
 		events: {
-			'click .toolbar-viewas button': 'onClickViewAsButton',
+			//'click .toolbar-viewas button': 'onClickViewAs',
+			'click .nav-viewas > a': 'onClickViewAs',
 			'click .toolbar-sortby a': 'onClickSortByMenu'
 		},
 
@@ -29,10 +32,13 @@ function(
 		 * Event handler for viewAs button click event.
 		 * @param e click event.
 		 */
-		onClickViewAsButton: function(e) {
+		onClickViewAs: function(e) {
 			e.preventDefault();
 
+			console.log('viewAs');
+
 			var selectedViewAsButtonName = e.currentTarget.title;
+			console.log(selectedViewAsButtonName);
 
 			if (selectedViewAsButtonName !== this.getActiveViewAsButtonName()) {
 				this.setActiveViewAsButton(selectedViewAsButtonName);
@@ -46,8 +52,12 @@ function(
 		 * @return viewAs button
 		 */
 		getViewAsButton: function(viewAsButtonName) {
-			return this.$('.toolbar-viewas > button.btn-viewas-' + 
-			    viewAsButtonName.toLowerCase());
+			return this.$('.nav-viewas.viewas-' + viewAsButtonName.toLowerCase());
+
+			//return this.$('.nav-viewas > a.viewas-' + 
+			    //viewAsButtonName.toLowerCase());
+			//return this.$('.toolbar-viewas > button.btn-viewas-' + 
+			    //viewAsButtonName.toLowerCase());
 		},
 
 		/**
@@ -55,7 +65,8 @@ function(
 		 * @return viewAs buttons
 		 */
 		getAllViewAsButtons: function() {
-			return this.$('.toolbar-viewas > button');
+			//return this.$('.toolbar-viewas > button');
+			return this.$('.nav-viewas');
 		},
 
 		/**
@@ -63,7 +74,8 @@ function(
 		 * @return active viewAs button
 		 */
 		getActiveViewAsButton: function() {
-			return this.$('.toolbar-viewas > button.active');
+			//return this.$('.toolbar-viewas > button.active');
+			return this.$('.nav-viewas.active');
 		},
 
 		/**
@@ -73,7 +85,7 @@ function(
 		getActiveViewAsButtonName: function() {
 			var viewAsButton = this.getActiveViewAsButton();
 			if (viewAsButton.length)
-				return viewAsButton.attr('title');
+				return viewAsButton.children('a').attr('title');
 
 			return '';
 		},
@@ -84,6 +96,7 @@ function(
 		deactivateAllViewAsButtons: function() {
 			var viewAsButtons = this.getAllViewAsButtons();
 			viewAsButtons.removeClass('active');
+			//this.$('.nav-viewas').removeClass('active');
 		},
 
 		/**
@@ -263,5 +276,5 @@ function(
 		}
 	});
 
-	return BooksPanelToolBarView;
+	return BooksToolBarView;
 });

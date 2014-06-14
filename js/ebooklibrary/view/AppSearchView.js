@@ -8,14 +8,14 @@
 define([
     'hbs!ebooklibrary/template/searchpanel/SearchPanelView',
     'ebooklibrary/view/loadingpanel/LoadingPanelView',
-    'ebooklibrary/view/bookspanel/BooksPanelView',
+    'ebooklibrary/view/books/BooksView',
     'ebooklibrary/collection/SearchCollection',
     'backbone'
 ],
 function(
     SearchPanelViewTemplate,
     LoadingPanelView,
-    BooksPanelView,
+    BooksView,
     SearchCollection,
     Backbone
 ) {
@@ -23,7 +23,7 @@ function(
 		el: '.content-container',
 		
 		loadingPanelView: null,		// loading panel view
-		booksPanelView: null,		// books panel view
+		booksView: null,		// books view
 
 		/**
 		 * Initialise the application search page view.
@@ -35,9 +35,9 @@ function(
 			this.loadingPanelView = new LoadingPanelView();
 
 			var searchCollection = new SearchCollection([], {keyword: options.keyword});
-			this.booksPanelView = new BooksPanelView({collection: searchCollection});
-			this.listenTo(this.booksPanelView.collection, 'sync', this.showBooksPanel);
-			this.listenTo(this.booksPanelView.collection, 'error', this.showBooksPanel);
+			this.booksView = new BooksView({collection: searchCollection});
+			this.listenTo(this.booksView.collection, 'sync', this.showBooks);
+			this.listenTo(this.booksView.collection, 'error', this.showBooks);
 		},
 		
 		/**
@@ -47,16 +47,16 @@ function(
 		render: function() {
 			this.$el.append(this.loadingPanelView.render().el);
 
-			this.$el.append(this.booksPanelView.render().el);
+			this.$el.append(this.booksView.render().el);
 
 			return this;
 		},
 
 		/**
-		 * Show books panel.
+		 * Show books.
 		 * @param collection books collection.
 		 */
-		showBooksPanel: function(collection, resp) {
+		showBooks: function(collection, resp) {
 			this.loadingPanelView.$el.fadeOut('slow');
 
 			if (!(resp instanceof Array) && resp.status !== 200)

@@ -1,9 +1,25 @@
 {{!
 {
-	"name": "BooksPanelToolBarView",
-	"description": "Books Panel ToolBar View Template"
+	"name": "BooksToolBarView",
+	"description": "Books ToolBar View Template"
 }
 }}
+<li class="nav-viewas viewas-thumbnails"><a !class="viewas-thumbnails" title="Thumbnails" href="#"><i class="icons-toolbar icons-bookspanel icon-thumbnails"></i></a></li>
+<li class="nav-viewas viewas-details"><a !class="viewas-details" title="Details" href="#"><i class="icons-toolbar icons-bookspanel icon-details"></i></a></li>
+<li class="nav-viewas viewas-list"><a !class="viewas-list" title="List" href="#"><i class="icons-toolbar icons-bookspanel icon-list"></i></a></li>
+<li class="nav-sortby dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icons-toolbar icons-bookspanel icon-sort"></i> <b class="caret"></b></a>
+	<ul class="dropdown-menu pull-right" role="menu">
+		<li class="sortby-title"><a href="#" title="Title">Title<span class="caret hide"></span></a></li>
+		<li class="sortby-author"><a href="#" title="Author">Author<span class="caret hide"></span></a></li>
+		<li class="sortby-publicationdate"><a href="#" title="Publication Date">Publication Date<span class="caret hide"></span></a></li>
+		<li class="divider"></li>
+		<li class="sortby-name"><a href="#" title="Name">Name<span class="caret hide"></span></a></li>
+		<li class="sortby-size"><a href="#" title="Size">Size<span class="caret hide"></span></a></li>
+		<li class="sortby-lastmodified"><a href="#" title="Last Modified">Last Modified<span class="caret hide"></span></a></li>
+	</ul>
+</li>
+<!--
 <div class="toolbar-viewas btn-group !btn-group-sm">
 	<button type="button" class="btn-viewas-thumbnails btn btn-default" title="Thumbnails"><i class="icons-toolbar icons-bookspanel icon-thumbnails"/></button>
 	<button type="button" class="btn-viewas-details btn btn-default" title="Details"><i class="icons-toolbar icons-bookspanel icon-details"/></button>
@@ -21,3 +37,4 @@
 		<li class="dropdown-sortby-lastmodified"><a href="#" title="Last Modified">Last Modified<span class="caret hide"></span></a></li>
 	</ul>
 </div>
+-->

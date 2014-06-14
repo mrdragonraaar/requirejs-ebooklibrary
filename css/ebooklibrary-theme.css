@@ -52,6 +52,7 @@ a.thumbnail:focus,
 a.thumbnail.active {
   border-color: #215625;
 }
+books,
 authors,
 series,
 links,
