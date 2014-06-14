@@ -6,18 +6,37 @@
 // Wrapper and base class
 //
 // Provide a static footer.
-// Bottom bottom margin must be set to @footer-height.
+// Bottom body margin must be set to @footer-height.
 
 .footer {
 	z-index: @zindex-footer;
 	position: absolute;
-	//position: fixed;
-	width: 100%;
+	left: 0;
+	right: 0;
 	bottom: 0;
-	//min-height: @footer-height;
-	//height: @footer-height;
-	//line-height: (@footer-height - 2px);
+	min-height: @footer-height;
+	padding: @footer-padding;
+	line-height: @line-height-computed;
 	border-top: 1px solid transparent;
+
+	// Prevent floats from breaking the footer
+	&:extend(.clearfix all);
+
+	.footer-copyright {
+		font-size: @font-size-base;
+		color: inherit;
+
+		> a {
+			color: inherit;
+		}
+	}
+
+	// If container is present align with left and right of footer
+	& > .container,
+	& > .container-fluid {
+		margin-left: -@footer-padding-horizontal;
+		margin-right: -@footer-padding-horizontal;
+	}
 }
 
 
@@ -26,12 +45,25 @@
 
 .footer-default {
 	color: @footer-default-color;
+	border-color: @footer-default-border;
+	background-color: @footer-default-bg;
+	#gradient.vertical(@footer-default-gradient-start, @footer-default-gradient-start);
+
+	.application-books & {
+		.box-shadow(@footer-default-box-shadow);
+	}
+}
+
+/*
+.footer-default {
+	color: @footer-default-color;
 	//background-color: @footer-default-bg;
 	//#gradient.vertical(@gradient-start-color, @gradient-stop-color, @gradient-start-percent, @gradient-stop-percent);
 	border-color: @footer-default-border;
 	//.box-shadow(@box-top-hshadow @box-top-vshadow @box-blur @box-color);
 	background-color: @panel-authors-heading-bg;
 	border-color: @panel-authors-heading-border;
+	border: none;
 
 	> .footer-copyright {
 		background-color: @footer-default-bg;
@@ -47,7 +79,8 @@
 		//border: none;
 
 		.application-books & {
-			box-shadow: 0 8px 6px 8px rgba(0, 0, 0, 0.3);
+			//box-shadow: 0 8px 6px 8px rgba(0, 0, 0, 0.3);
+			.box-shadow(0 -5px 5px -2px rgba(0, 0, 0, 0.125));
 		}
 
 		a {
@@ -65,3 +98,4 @@
 		}
 	}
 }
+*/

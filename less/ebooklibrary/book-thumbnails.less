@@ -3,7 +3,77 @@
 // --------------------------------------------------
 
 
-.book-thumbnail {
+.thumbnail.book-thumbnail {
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
+	width: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+
+	a&,
+	& > a {
+		display: block;
+		position: relative;
+		height: 200px;
+		border: none;
+		border-radius: 2px 3px 3px 2px;
+		.box-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+		//margin-bottom: @line-height-computed;
+		margin-bottom: 15px;
+
+		&:hover,
+		&:focus,
+		&.active {
+			.box-shadow(5px 5px 8px rgba(0, 0, 0, 0.5));
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 5px;
+			bottom: 0;
+			width: 3px;
+			background-color: rgba(0, 0, 0, 0.06);
+			box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
+		}
+
+		> img {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			border-radius: 2px 3px 3px 2px;
+			border-left: 1px solid #999;
+		}
+	}
+
+	.book-author {
+		margin: 0;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 20px;
+		text-transform: uppercase;
+		color: #660;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.book-title {
+		margin: 0;
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 22px;
+		color: #382110;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.book-thumbnail2 {
 	position: relative;
 	display: inline-block;
 	width: 150px;
@@ -16,13 +86,15 @@
 		width: 150px;
 		height: 200px;
 		border-radius: 2px 3px 3px 2px;
-		box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+		//.box-shadow(5px 5px 20px rgba(0, 0, 0, 0.3));
+		.box-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
 		margin-bottom: 15px;
 
 		&:hover,
 		&:focus,
 		&.active {
-			box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+			//.box-shadow(5px 5px 20px rgba(0, 0, 0, 0.5));
+			.box-shadow(5px 5px 8px rgba(0, 0, 0, 0.5));
 		}
 
 		&:after {
@@ -63,5 +135,32 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
+
+	//@media (max-width: @screen-xs-max) {
+/*
+	@media (max-width: 375px) {
+		width: 112px;
+
+		a&,
+		& > a {
+			width: 112px;
+			height: 150px;
+
+			> img {
+				width: 112px;
+				height: 150px;
+			}
+		}
+
+		.book-author {
+			font-size: 12px;
+		}
+
+		.book-title {
+			font-size: 16px;
+			line-height: 20px;
+		}
+	}
+*/
 }
 

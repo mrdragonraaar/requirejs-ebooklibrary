@@ -527,10 +527,17 @@ booktextpanel
 
 .bookspanel-thumbs .book-thumb
 {
-	text-align: center;
+	//text-align: center;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+/*
+.bookspanel-thumbs .book-thumb > .book-thumbnail
+{
+	margin-bottom: 0;
+}
+*/
 
 .bookspanel-thumbs .book-thumb > .book-thumb-cover
 {
