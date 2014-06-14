@@ -67,9 +67,9 @@ function(
 			this.navBarView.setBreadcrumb();
 			this.navBarView.searchBoxView.showSearchBox(true);
 
-			this.$('.footer-default > .footer-content').empty();
-			var linksView = new LinksView();
-			this.$('.footer-default > .footer-content').append(linksView.render().el);
+			//this.$('.footer-default > .footer-content').empty();
+			//var linksView = new LinksView();
+			//this.$('.footer-default > .footer-content').append(linksView.render().el);
 			
 			var appHomeView = new AppHomeView();
 			appHomeView.render();

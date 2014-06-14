@@ -1,0 +1,67 @@
+//
+// Book Thumbnails
+// --------------------------------------------------
+
+
+.book-thumbnail {
+	position: relative;
+	display: inline-block;
+	width: 150px;
+	text-align: left;
+
+	a&,
+	& > a {
+		position: relative;
+		display: inline-block;
+		width: 150px;
+		height: 200px;
+		border-radius: 2px 3px 3px 2px;
+		box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+		margin-bottom: 15px;
+
+		&:hover,
+		&:focus,
+		&.active {
+			box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 5px;
+			bottom: 0;
+			width: 3px;
+			background-color: rgba(0, 0, 0, 0.06);
+			box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
+		}
+
+		> img {
+			width: 150px;
+			height: 200px;
+			border-radius: 2px 3px 3px 2px;
+			border-left: 1px solid #999;
+		}
+	}
+
+	.book-author {
+		margin: 0;
+		font-size: 14px;
+		text-transform: uppercase;
+		color: #660;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.book-title {
+		margin: 0;
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 24px;
+		color: #382110;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+

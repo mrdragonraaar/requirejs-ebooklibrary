@@ -521,8 +521,15 @@ booktextpanel
 
 .bookspanel-thumbs
 {
-	margin-left: 0px;
-	margin-right: 0px;
+	//margin-left: 0px;
+	//margin-right: 0px;
+}
+
+.bookspanel-thumbs .book-thumb
+{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .bookspanel-thumbs .book-thumb > .book-thumb-cover

@@ -35,14 +35,20 @@
 
 	> .footer-copyright {
 		background-color: @footer-default-bg;
-		#gradient.vertical(@gradient-start-color, @gradient-stop-color, @gradient-start-percent, @gradient-stop-percent);
+		//#gradient.vertical(@gradient-start-color, @gradient-stop-color, @gradient-start-percent, @gradient-stop-percent);
+		#gradient.vertical(@gradient-stop-color, @gradient-start-color, @gradient-start-percent, @gradient-stop-percent);
+		//#gradient.vertical(@gradient-start-color, @gradient-stop-color, @gradient-stop-percent, @gradient-start-percent);
 		border-top: 1px solid @footer-default-border;
 		//padding-top: 200px;
 		height: 50px;
 		//padding-top: 65px;
 		padding-top: 15px;
 		padding-bottom: 15px;
-		border: none;
+		//border: none;
+
+		.application-books & {
+			box-shadow: 0 8px 6px 8px rgba(0, 0, 0, 0.3);
+		}
 
 		a {
 			color: @footer-default-color;
