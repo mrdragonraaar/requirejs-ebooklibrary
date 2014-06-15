@@ -1,20 +1,20 @@
 /**
- * BooksToolBarView.js
+ * BooksNavToolBarView.js
  *
- * Backbone view representing toolbar for ebooklibrary books.
+ * Backbone view representing nav toolbar for ebooklibrary books.
  *
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'hbs!ebooklibrary/template/bookspanel/BooksPanelToolBarView',
+    'hbs!ebooklibrary/template/books/BooksNavToolBarView',
     'backbone',
     'bootstrap'
 ],
 function(
-    BooksPanelToolBarViewTemplate,
+    BooksNavToolBarViewTemplate,
     Backbone
 ) {
-	var BooksToolBarView = Backbone.View.extend({
+	var BooksNavToolBarView = Backbone.View.extend({
 		//className: 'bookspanel-toolbar btn-toolbar pull-right',
 		tagName: 'ul',
 		className: 'books-nav panel-nav nav panel-right',
@@ -269,12 +269,12 @@ function(
 		 * @return books panel toolbar view
 		 */
 		render: function() {
-			var toolBarTmpl = BooksPanelToolBarViewTemplate();
+			var toolBarTmpl = BooksNavToolBarViewTemplate();
 			this.$el.html(toolBarTmpl);
 
 			return this;
 		}
 	});
 
-	return BooksToolBarView;
+	return BooksNavToolBarView;
 });

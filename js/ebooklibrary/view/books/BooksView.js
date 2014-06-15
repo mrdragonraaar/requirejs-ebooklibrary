@@ -6,19 +6,19 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'hbs!ebooklibrary/template/bookspanel/BooksPanelView',
-    'hbs!ebooklibrary/template/bookspanel/ThumbsView',
-    'hbs!ebooklibrary/template/bookspanel/DetailsView',
-    'hbs!ebooklibrary/template/bookspanel/ListView',
-    'ebooklibrary/view/books/BooksToolBarView',
+    'hbs!ebooklibrary/template/books/BooksView',
+    'hbs!ebooklibrary/template/books/BooksThumbnailsView',
+    'hbs!ebooklibrary/template/books/BooksDetailsView',
+    'hbs!ebooklibrary/template/books/BooksListView',
+    'ebooklibrary/view/books/BooksNavToolBarView',
     'backbone'
 ],
 function(
-    BooksPanelViewTemplate,
-    ThumbsViewTemplate,
-    DetailsViewTemplate,
-    ListViewTemplate,
-    BooksToolBarView,
+    BooksViewTemplate,
+    BooksThumbnailsViewTemplate,
+    BooksDetailsViewTemplate,
+    BooksListViewTemplate,
+    BooksNavToolBarView,
     Backbone
 ) {
 	var BooksView = Backbone.View.extend({
@@ -40,7 +40,7 @@ function(
 			this.listenTo(this.collection, 'sync', this.fadeInBooks);
 			this.listenTo(this.collection, 'sort', this.renderBooks);
 
-			this.toolBarView = new BooksToolBarView();
+			this.toolBarView = new BooksNavToolBarView();
 			this.listenTo(this.toolBarView, 'booksPanelToolBarSortBy', this.onToolBarSortBy);
 			this.listenTo(this.toolBarView, 'booksPanelToolBarViewAs', this.onToolBarViewAs);
 		},
@@ -71,8 +71,8 @@ function(
 		 * @return books view
 		 */
 		render: function() {
-			var booksPanelTmpl = BooksPanelViewTemplate();
-			this.$el.append(booksPanelTmpl);
+			var booksTmpl = BooksViewTemplate();
+			this.$el.append(booksTmpl);
 
 			this.$('.panel-heading').append(this.toolBarView.render().el);
 			this.toolBarView.setActiveViewAsThumbnailsButton();
@@ -130,7 +130,7 @@ function(
 		 * @param collection books collection.
 		 */
 		renderBooksThumbnails: function(collection) {
-			var booksThumbsTmpl = ThumbsViewTemplate({books: collection.toJSON()});
+			var booksThumbsTmpl = BooksThumbnailsViewTemplate({books: collection.toJSON()});
 			this.$('.panel-body').html(booksThumbsTmpl);
 		},
 
@@ -139,7 +139,7 @@ function(
 		 * @param collection books collection.
 		 */
 		renderBooksDetails: function(collection) {
-			var booksDetailsTmpl = DetailsViewTemplate({books: collection.toJSON()});
+			var booksDetailsTmpl = BooksDetailsViewTemplate({books: collection.toJSON()});
 			this.$('.panel-body').html(booksDetailsTmpl);
 		},
 
@@ -148,7 +148,7 @@ function(
 		 * @param collection books collection.
 		 */
 		renderBooksList: function(collection) {
-			var booksListTmpl = ListViewTemplate({books: collection.toJSON()});
+			var booksListTmpl = BooksListViewTemplate({books: collection.toJSON()});
 			this.$('.panel-body').html(booksListTmpl);
 		}
 	});
