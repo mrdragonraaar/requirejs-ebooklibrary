@@ -6,152 +6,56 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
+    'ebooklibrary/view/books/NavToolBarView',
     'hbs!ebooklibrary/template/books/BooksNavToolBarView',
     'backbone',
     'bootstrap'
 ],
 function(
+    NavToolBarView,
     BooksNavToolBarViewTemplate,
     Backbone
 ) {
-	var BooksNavToolBarView = Backbone.View.extend({
-		//className: 'bookspanel-toolbar btn-toolbar pull-right',
+	var BooksNavToolBarView = NavToolBarView.extend({
 		tagName: 'ul',
 		className: 'books-nav panel-nav nav panel-right',
+		template: BooksNavToolBarViewTemplate,
 
 		/**
-		 * Define book panel click events.
+		 * Event handler for nav item select event.
+		 * @param navItemName name of nav item.
+		 * @param navItemGroup group name of nav item.
 		 */
-		events: {
-			//'click .toolbar-viewas button': 'onClickViewAs',
-			'click .nav-viewas > a': 'onClickViewAs',
-			'click .toolbar-sortby a': 'onClickSortByMenu'
+		onSelectNavItem: function(navItemName, navItemGroup) {
+			if (navItemGroup === 'viewas')
+				this.trigger('selectBooksContent', navItemName);
 		},
 
 		/**
-		 * Event handler for viewAs button click event.
-		 * @param e click event.
+		 * Activate thumbnails nav item.
 		 */
-		onClickViewAs: function(e) {
-			e.preventDefault();
-
-			console.log('viewAs');
-
-			var selectedViewAsButtonName = e.currentTarget.title;
-			console.log(selectedViewAsButtonName);
-
-			if (selectedViewAsButtonName !== this.getActiveViewAsButtonName()) {
-				this.setActiveViewAsButton(selectedViewAsButtonName);
-				this.trigger('booksPanelToolBarViewAs', selectedViewAsButtonName);
-			}
+		activateThumbnailsNavItem: function() {
+			this.activateNavItem('thumbnails', 'viewas');
 		},
 
 		/**
-		 * Get viewAs button.
-		 * @param viewAsButtonName name of viewAs button.
-		 * @return viewAs button
+		 * Activate details nav item.
 		 */
-		getViewAsButton: function(viewAsButtonName) {
-			return this.$('.nav-viewas.viewas-' + viewAsButtonName.toLowerCase());
-
-			//return this.$('.nav-viewas > a.viewas-' + 
-			    //viewAsButtonName.toLowerCase());
-			//return this.$('.toolbar-viewas > button.btn-viewas-' + 
-			    //viewAsButtonName.toLowerCase());
+		activateDetailsNavItem: function() {
+			this.activateNavItem('details', 'viewas');
 		},
 
 		/**
-		 * Get all viewAs buttons.
-		 * @return viewAs buttons
+		 * Activate list nav item.
 		 */
-		getAllViewAsButtons: function() {
-			//return this.$('.toolbar-viewas > button');
-			return this.$('.nav-viewas');
+		activateListNavItem: function() {
+			this.activateNavItem('list', 'viewas');
 		},
 
-		/**
-		 * Get active viewAs button.
-		 * @return active viewAs button
-		 */
-		getActiveViewAsButton: function() {
-			//return this.$('.toolbar-viewas > button.active');
-			return this.$('.nav-viewas.active');
-		},
 
-		/**
-		 * Get active viewAs button name.
-		 * @return active viewAs button name
-		 */
-		getActiveViewAsButtonName: function() {
-			var viewAsButton = this.getActiveViewAsButton();
-			if (viewAsButton.length)
-				return viewAsButton.children('a').attr('title');
 
-			return '';
-		},
 
-		/**
-		 * Deactivate all viewAs buttons.
-		 */
-		deactivateAllViewAsButtons: function() {
-			var viewAsButtons = this.getAllViewAsButtons();
-			viewAsButtons.removeClass('active');
-			//this.$('.nav-viewas').removeClass('active');
-		},
 
-		/**
-		 * Set active viewAs button.
-		 * @param viewAsButtonName name of viewAs button to activate.
-		 */
-		setActiveViewAsButton: function(viewAsButtonName) {
-			this.deactivateAllViewAsButtons();
-
-			var viewAsButton = this.getViewAsButton(viewAsButtonName);
-			viewAsButton.addClass('active');
-		},
-
-		/**
-		 * Set thumbnails viewAs button to active.
-		 */
-		setActiveViewAsThumbnailsButton: function() {
-			this.setActiveViewAsButton('Thumbnails');
-		},
-
-		/**
-		 * Set details viewAs button to active.
-		 */
-		setActiveViewAsDetailsButton: function() {
-			this.setActiveViewAsButton('Details');
-		},
-
-		/**
-		 * Set list viewAs button to active.
-		 */
-		setActiveViewAsListButton: function() {
-			this.setActiveViewAsButton('List');
-		},
-
-		/**
-		 * Disable button.
-		 * @param button button to disable.
-		 * @param disable if true will disable else will enable.
-		 */
-		disableButton: function(button, disable) {
-			button.prop('disabled', disable);
-			if (disable)
-				button.addClass('disabled');
-			else
-				button.removeClass('disabled');
-		},
-
-		/**
-		 * Disable all viewAs buttons.
-		 * @param disable if true will disable else will enable.
-		 */
-		disableAllViewAsButtons: function(disable) {
-			var viewAsButtons = this.getAllViewAsButtons();
-			this.disableButton(viewAsButtons, disable);
-		},
 
 		/**
 		 * Event handler for sortBy menu click event.
@@ -187,7 +91,7 @@ function(
 		 */
 		disableSortByButton: function(disable) {
 			var sortByButton = this.getSortByButton();
-			this.disableButton(sortByButton, disable);
+			//this.disableButton(sortByButton, disable);
 		},
 
 		/**
@@ -268,12 +172,14 @@ function(
 		 * Render the books panel toolbar.
 		 * @return books panel toolbar view
 		 */
+/*
 		render: function() {
 			var toolBarTmpl = BooksNavToolBarViewTemplate();
 			this.$el.html(toolBarTmpl);
 
 			return this;
 		}
+*/
 	});
 
 	return BooksNavToolBarView;

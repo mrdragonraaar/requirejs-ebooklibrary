@@ -38,20 +38,31 @@ function(
 				this.collection.fetch({timeout: 20000});
 
 			this.listenTo(this.collection, 'sync', this.fadeInBooks);
+			//this.listenTo(this.collection, 'sync', this.renderBooks);
 			this.listenTo(this.collection, 'sort', this.renderBooks);
 
 			this.toolBarView = new BooksNavToolBarView();
 			this.listenTo(this.toolBarView, 'booksPanelToolBarSortBy', this.onToolBarSortBy);
-			this.listenTo(this.toolBarView, 'booksPanelToolBarViewAs', this.onToolBarViewAs);
+			//this.listenTo(this.toolBarView, 'selectViewAsNavItem', this.onToolBarViewAs);
+			this.listenTo(this.toolBarView, 'selectBooksContent', this.onSelectBooksContent);
 		},
 
 		/**
 		 * Event handler for toolbar viewAs event.
 		 * @param viewAsButtonName name of viewAs button.
 		 */
-		onToolBarViewAs: function(viewAsButtonName) {
-			if (this.collection)
-				this.fadeInBooks(this.collection);
+		onSelectBooksContent: function(booksContentType) {
+			if (this.collection) {
+				this.setBooksBadge(this.collection.length);
+				this.$('.panel-body > .bookspanel-books').fadeOut('slow');
+				this.renderBooks(this.collection, booksContentType);
+				this.$('.panel-body > .bookspanel-books').hide();
+				this.$('.panel-body > .bookspanel-books').fadeIn('slow');
+				if (this.collection.length > 0) {
+					this.toolBarView.enableNavToolBar();
+					this.toolBarView.disableSortByButton(false);
+				}
+			}
 		},
 
 		/**
@@ -75,8 +86,9 @@ function(
 			this.$el.append(booksTmpl);
 
 			this.$('.panel-heading').append(this.toolBarView.render().el);
-			this.toolBarView.setActiveViewAsThumbnailsButton();
-			this.toolBarView.disableAllViewAsButtons(true);
+			this.toolBarView.activateThumbnailsNavItem();
+			this.toolBarView.disableNavToolBar();
+
 			this.toolBarView.setActiveSortByMenu('Name', true);
 			this.toolBarView.disableSortByButton(true);
 
@@ -87,14 +99,14 @@ function(
 		 * Render and fade in the books collection.
 		 * @param collection books collection.
 		 */
-		fadeInBooks: function(collection) {
+		fadeInBooks: function(collection, booksView) {
 			this.setBooksBadge(collection.length);
 			this.$('.panel-body > .bookspanel-books').fadeOut('slow');
-			this.renderBooks(collection);
+			this.renderBooks(collection, booksView);
 			this.$('.panel-body > .bookspanel-books').hide();
 			this.$('.panel-body > .bookspanel-books').fadeIn('slow');
 			if (collection.length > 0) {
-				this.toolBarView.disableAllViewAsButtons(false);
+				this.toolBarView.enableNavToolBar();
 				this.toolBarView.disableSortByButton(false);
 			}
 		},
@@ -113,12 +125,13 @@ function(
 		 * Render the books collection.
 		 * @param collection books collection.
 		 */
-		renderBooks: function(collection) {
-			var viewAsButtonName = this.toolBarView.getActiveViewAsButtonName();
+		renderBooks: function(collection, viewAsTitle) {
+			//var viewAsTitle = this.toolBarView.getActiveViewAsNavItemName();
+			//var viewAsTitle = this.toolBarView.getActiveNavItemName('viewas');
 
-			if (viewAsButtonName === 'Details') {
+			if (viewAsTitle === 'details') {
 				this.renderBooksDetails(collection);
-			} else if (viewAsButtonName === 'List') {
+			} else if (viewAsTitle === 'list') {
 				this.renderBooksList(collection);
 			} else {
 				this.renderBooksThumbnails(collection);
