@@ -141,23 +141,30 @@
 					&:focus {
 						//background-color: darken(@panel-books-heading-bg, 3%);
 						background-color: transparent;
+						outline: none;
 					}
 				}
 
 				&:active > a,
 				&.active > a {
 					//background-color: darken(@panel-books-heading-bg, 3%);
-					outline: none;
 					.box-shadow(0 3px 5px rgba(0, 0, 0, 0.125) inset);
 				}
 
-				&.disabled > a {
-					&,
-					&:hover,
-					&:focus {
-						color: lighten(@panel-books-text, 7%);
-						background-color: transparent;
-						opacity: 0.65;
+				&.disabled {
+					> a {
+						&,
+						&:hover,
+						&:focus {
+							color: lighten(@panel-books-text, 7%);
+							background-color: transparent;
+							opacity: 0.65;
+						}
+					}
+
+					&:active > a,
+					&.active > a {
+						.box-shadow(none);
 					}
 				}
 			}

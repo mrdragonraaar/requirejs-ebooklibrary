@@ -4,19 +4,19 @@
 	"description": "Books ToolBar View Template"
 }
 }}
-<li class="nav-viewas viewas-thumbnails" data-nav-group="viewas" data-nav-name="thumbnails"><a !class="viewas-thumbnails" title="Thumbnails" href="#"><i class="icons-toolbar icons-bookspanel icon-thumbnails"></i></a></li>
-<li class="nav-viewas viewas-details" data-nav-group="viewas" data-nav-name="details"><a !class="viewas-details" title="Details" href="#"><i class="icons-toolbar icons-bookspanel icon-details"></i></a></li>
-<li class="nav-viewas viewas-list" data-nav-group="viewas" data-nav-name="list"><a !class="viewas-list" title="List" href="#"><i class="icons-toolbar icons-bookspanel icon-list"></i></a></li>
+<li id="viewas-thumbnails" data-group="viewas"><a title="Thumbnails" href="#"><i class="icons-toolbar icons-bookspanel icon-thumbnails"></i></a></li>
+<li id="viewas-details" data-group="viewas"><a title="Details" href="#"><i class="icons-toolbar icons-bookspanel icon-details"></i></a></li>
+<li id="viewas-list" data-group="viewas"><a title="List" href="#"><i class="icons-toolbar icons-bookspanel icon-list"></i></a></li>
 <li class="nav-sortby dropdown">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icons-toolbar icons-bookspanel icon-sort"></i> <b class="caret"></b></a>
-	<ul class="dropdown-menu pull-right" role="menu">
-		<li class="sortby-title"><a href="#" title="Title">Title<span class="caret hide"></span></a></li>
-		<li class="sortby-author"><a href="#" title="Author">Author<span class="caret hide"></span></a></li>
-		<li class="sortby-publicationdate"><a href="#" title="Publication Date">Publication Date<span class="caret hide"></span></a></li>
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Sort By"><i class="icons-toolbar icons-bookspanel icon-sort"></i> <b class="caret"></b></a>
+	<ul class="dropdown-menu dropdown-menu-right" role="menu">
+		<li id="sortby-title" class="dropup"><a href="#" title="Title">Title<span !style="margin-bottom: 2px;" class="caret !pull-right !hide"></span></a></li>
+		<li id="sortby-author"><a href="#" title="Author">Author<span class="caret hide"></span></a></li>
+		<li id="sortby-publicationdate"><a href="#" title="Publication Date">Publication Date<span class="caret hide"></span></a></li>
 		<li class="divider"></li>
-		<li class="sortby-name"><a href="#" title="Name">Name<span class="caret hide"></span></a></li>
-		<li class="sortby-size"><a href="#" title="Size">Size<span class="caret hide"></span></a></li>
-		<li class="sortby-lastmodified"><a href="#" title="Last Modified">Last Modified<span class="caret hide"></span></a></li>
+		<li id="sortby-name"><a href="#" title="Name">Name<span class="caret hide"></span></a></li>
+		<li id="sortby-size"><a href="#" title="Size">Size<span class="caret hide"></span></a></li>
+		<li id="sortby-lastmodified"><a href="#" title="Last Modified">Last Modified<span class="caret hide"></span></a></li>
 	</ul>
 </li>
 <!--

@@ -23,36 +23,104 @@ function(
 
 		/**
 		 * Event handler for nav item select event.
-		 * @param navItemName name of nav item.
+		 * @param navItemId id of nav item.
 		 * @param navItemGroup group name of nav item.
 		 */
-		onSelectNavItem: function(navItemName, navItemGroup) {
-			if (navItemGroup === 'viewas')
-				this.trigger('selectBooksContent', navItemName);
+		onSelectToolBarNavItem: function(navItemId, navItemGroup) {
+			if (navItemGroup === 'viewas') {
+				var booksContentType = navItemId.substr(navItemGroup.length + 1);
+				this.trigger('selectBooksContent', booksContentType);
+			}
+		},
+
+		onSelectToolBarDropdownItem: function(dropdownItemId, $dropdownItemParent) {
+			console.log(dropdownItemId);
+
+			if (this.isAscendingDropdownItem(dropdownItemId)) {
+				this.setDescendingDropdownMenu($dropdownItemParent);
+				this.setDescendingDropdownItem(dropdownItemId);
+
+				if (this.isDisabledDropdownItemCaret(dropdownItemId)) {
+					this.disableDropdownMenuCaret($dropdownItemParent);
+					this.enableDropdownItemCaret(dropdownItemId);
+				}
+
+				this.trigger('sortBooksContent', dropdownItemId, true);
+			} else {
+				this.setDescendingDropdownMenu($dropdownItemParent);
+				this.setAscendingDropdownItem(dropdownItemId);
+
+				if (this.isDisabledDropdownItemCaret(dropdownItemId)) {
+					this.disableDropdownMenuCaret($dropdownItemParent);
+					this.enableDropdownItemCaret(dropdownItemId);
+				}
+
+				this.trigger('sortBooksContent', dropdownItemId, false);
+			}
 		},
 
 		/**
 		 * Activate thumbnails nav item.
 		 */
 		activateThumbnailsNavItem: function() {
-			this.activateNavItem('thumbnails', 'viewas');
+			this.activateNavItem('viewas-thumbnails', 'viewas');
 		},
 
 		/**
 		 * Activate details nav item.
 		 */
 		activateDetailsNavItem: function() {
-			this.activateNavItem('details', 'viewas');
+			this.activateNavItem('viewas-details', 'viewas');
 		},
 
 		/**
 		 * Activate list nav item.
 		 */
 		activateListNavItem: function() {
-			this.activateNavItem('list', 'viewas');
+			this.activateNavItem('viewas-list', 'viewas');
 		},
 
 
+
+		isAscendingDropdownItem: function(dropdownItemId) {
+			return this.getDropdownItem(dropdownItemId).hasClass('dropup');
+		},
+
+		setAscendingDropdownItem: function(dropdownItemId) {
+			this.getDropdownItem(dropdownItemId).addClass('dropup');
+		},
+
+		setDescendingDropdownItem: function(dropdownItemId) {
+			this.getDropdownItem(dropdownItemId).removeClass('dropup');
+		},
+
+		setAscendingDropdownMenu: function($dropdownMenu) {
+			$dropdownMenu.children().addClass('dropup');
+		},
+
+		setDescendingDropdownMenu: function($dropdownMenu) {
+			$dropdownMenu.children().removeClass('dropup');
+		},
+
+		isDisabledDropdownItemCaret: function(dropdownItemId) {
+			return this.getDropdownItem(dropdownItemId).children().children('.caret').hasClass('hide');
+		},
+
+		enableDropdownItemCaret: function(dropdownItemId) {
+			this.getDropdownItem(dropdownItemId).children().children('.caret').removeClass('hide');
+		},
+
+		disableDropdownItemCaret: function(dropdownItemId) {
+			this.getDropdownItem(dropdownItemId).children().children('.caret').addClass('hide');
+		},
+
+		enableDropdownMenuCaret: function($dropdownMenu) {
+			$dropdownMenu.children().children().children('.caret').removeClass('hide');
+		},
+
+		disableDropdownMenuCaret: function($dropdownMenu) {
+			$dropdownMenu.children().children().children('.caret').addClass('hide');
+		},
 
 
 

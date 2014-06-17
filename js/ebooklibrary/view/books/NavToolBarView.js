@@ -20,6 +20,7 @@ function(
 		 */
 		events: {
 			'click > li': 'onClickNavItem',
+			'click .dropdown-menu > li': 'onClickDropdownItem'
 		},
 
 		/**
@@ -29,18 +30,67 @@ function(
 		onClickNavItem: function(e) {
 			e.preventDefault();
 
-			var navItemName = this.getEventNavItemName(e);
+			var navItemId = this.getEventNavItemId(e);
 			var navItemGroup = this.getEventNavItemGroup(e);
+			var navItemToggle = this.isEventNavItemToggle(e);
 
-			if (navItemName && navItemGroup && 
-			   !this.isActiveNavItem(navItemName, navItemGroup) &&
-			   !this.isDisabledNavItem(navItemName, navItemGroup)) {
-				this.deactivateNavGroup(navItemGroup);
-				this.activateNavItem(navItemName, navItemGroup);
+			if (navItemId && !this.isDisabledNavItem(navItemId)) {
+				if (navItemGroup && !this.isActiveNavItem(navItemId)) {
+					this.deactivateNavGroup(navItemGroup);
+					this.activateNavItem(navItemId);
 
-				this.trigger('selectNavItem', navItemName, navItemGroup);
+					this.trigger('selectToolBarNavItem', navItemId, navItemGroup);
+				}
+
+				if (navItemToggle) {
+					var navItemActiveState = this.toggleNavItem(navItemId);
+					this.trigger('toggleToolBarNavItem', navItemId, navItemActiveState);
+				}
 			}
 		},
+
+		/**
+		 * Event handler for dropdown item click event.
+		 * @param e click event.
+		 */
+		onClickDropdownItem: function(e) {
+			e.preventDefault();
+
+			var dropdownItemId = this.getEventDropdownItemId(e);
+			var $dropdownItemParent = this.getEventDropdownItemParent(e);
+
+			if (dropdownItemId && $dropdownItemParent &&
+			   !this.isDisabledDropdownItem(dropdownItemId)) {
+				this.deactivateDropdownMenu($dropdownItemParent);
+				this.activateDropdownItem(dropdownItemId);
+
+				this.trigger('selectToolBarDropdownItem', dropdownItemId,
+				   $dropdownItemParent);
+			}
+		},
+
+		/**
+		 * Get item from click event.
+		 * @param e click event.
+		 * @return item
+		 */
+		getEventItem: function(e) {
+			return this.$(e.currentTarget);
+		},
+
+		/**
+		 * Get item id from click event.
+		 * @param e click event.
+		 * @return item id
+		 */
+		getEventItemId: function(e) {
+			return this.getEventItem(e).prop('id');
+		},
+
+
+		/**
+		 * Nav methods.
+		 */
 
 		/**
 		 * Get nav item from click event.
@@ -48,16 +98,16 @@ function(
 		 * @return nav item
 		 */
 		getEventNavItem: function(e) {
-			return this.$(e.currentTarget);
+			return this.getEventItem(e);
 		},
 
 		/**
-		 * Get nav item name from click event.
+		 * Get nav item id from click event.
 		 * @param e click event.
-		 * @return nav item name
+		 * @return nav item id
 		 */
-		getEventNavItemName: function(e) {
-			return this.getEventNavItem(e).data('nav-name');
+		getEventNavItemId: function(e) {
+			return this.getEventItemId(e);
 		},
 
 		/**
@@ -66,16 +116,16 @@ function(
 		 * @return nav item group name
 		 */
 		getEventNavItemGroup: function(e) {
-			return this.getEventNavItem(e).data('nav-group');
+			return this.getEventNavItem(e).data('group');
 		},
 
 		/**
-		 * Get nav item selector.
-		 * @param navItemName name of nav item.
-		 * @return nav item selector
+		 * Check whether nav item from click event is toggle nav item.
+		 * @param e click event.
+		 * @return true if nav item is toggle nav item
 		 */
-		getNavItemSelector: function(navItemName) {
-			return '[data-nav-name = ' + navItemName + ']';
+		isEventNavItemToggle: function(e) {
+			return this.getEventNavItem(e).data('toggle') === 'nav';
 		},
 
 		/**
@@ -84,18 +134,34 @@ function(
 		 * @return nav group selector
 		 */
 		getNavGroupSelector: function(navItemGroup) {
-			return '[data-nav-group = ' + navItemGroup + ']';
+			return '[data-group = ' + navItemGroup + ']';
 		},
 
 		/**
 		 * Get nav item.
-		 * @param navItemName name of nav item.
-		 * @param navItemGroup group name of nav item.
+		 * @param navItemId id of nav item.
 		 * @return nav item
 		 */
-		getNavItem: function(navItemName, navItemGroup) {
-			return this.$('> li' + this.getNavItemSelector(navItemName) + 
-			   this.getNavGroupSelector(navItemGroup));
+		getNavItem: function(navItemId) {
+			return this.$('> li#' + navItemId);
+		},
+
+		/**
+		 * Get nav item group name.
+		 * @param navItemId id of nav item.
+		 * @return nav item group name
+		 */
+		getNavItemGroup: function(navItemId) {
+			return this.getNavItem(navItemId).data('group');
+		},
+
+		/**
+		 * Check whether nav item is toggle nav item.
+		 * @param navItemId id of nav item.
+		 * @return true if nav item is toggle nav item
+		 */
+		isNavItemToggle: function(navItemId) {
+			return this.getNavItem(navItemId).data('toggle') === 'nav';
 		},
 
 		/**
@@ -108,49 +174,61 @@ function(
 		},
 
 		/**
-		 * Get active nav item.
+		 * Get groups active nav item.
 		 * @param navItemGroup group name of nav item.
 		 * @return active nav item
 		 */
-		getActiveNavItem: function(navItemGroup) {
+		getActiveGroupNavItem: function(navItemGroup) {
 			return this.$('> li' + this.getNavGroupSelector(navItemGroup) + '.active');
 		},
 
 		/**
-		 * Get active nav item name.
+		 * Get groups active nav item id.
 		 * @param navItemGroup group name of nav item.
-		 * @return active nav item name
+		 * @return active nav item id
 		 */
-		getActiveNavItemName: function(navItemGroup) {
-			return this.getActiveNavItem(navItemGroup).data('nav-name');
+		getActiveGroupNavItemId: function(navItemGroup) {
+			return this.getActiveGroupNavItem(navItemGroup).prop('id');
 		},
 
 		/**
 		 * Check whether nav item is active.
-		 * @param navItemName name of nav item.
-		 * @param navItemGroup group name of nav item.
+		 * @param navItemId id of nav item.
 		 * @return true if nav item is active
 		 */
-		isActiveNavItem: function(navItemName, navItemGroup) {
-			return this.getNavItem(navItemName, navItemGroup).hasClass('active');
+		isActiveNavItem: function(navItemId) {
+			return this.getNavItem(navItemId).hasClass('active');
 		},
 
 		/**
 		 * Activate nav item.
-		 * @param navItemName name of nav item.
-		 * @param navItemGroup group name of nav item.
+		 * @param navItemId id of nav item.
 		 */
-		activateNavItem: function(navItemName, navItemGroup) {
-			this.getNavItem(navItemName, navItemGroup).addClass('active');
+		activateNavItem: function(navItemId) {
+			this.getNavItem(navItemId).addClass('active');
 		},
 
 		/**
 		 * Deactivate nav item.
-		 * @param navItemName name of nav item.
-		 * @param navItemGroup group name of nav item.
+		 * @param navItemId id of nav item.
 		 */
-		deactivateNavItem: function(navItemName, navItemGroup) {
-			this.getNavItem(navItemName, navItemGroup).removeClass('active');
+		deactivateNavItem: function(navItemId) {
+			this.getNavItem(navItemId).removeClass('active');
+		},
+
+		/**
+		 * Toggle active state of nav item.
+		 * @param navItemId id of nav item.
+		 * @return true if nav item is active
+		 */
+		toggleNavItem: function(navItemId) {
+			if (this.isActiveNavItem(navItemId)) {
+				this.deactivateNavItem(navItemId);
+				return false;
+			}
+
+			this.activateNavItem(navItemId);
+			return true;
 		},
 
 		/**
@@ -171,30 +249,27 @@ function(
 
 		/**
 		 * Check whether nav item is disabled.
-		 * @param navItemName name of nav item.
-		 * @param navItemGroup group name of nav item.
+		 * @param navItemId id of nav item.
 		 * @return true if nav item is disabled
 		 */
-		isDisabledNavItem: function(navItemName, navItemGroup) {
-			return this.getNavItem(navItemName, navItemGroup).hasClass('disabled');
+		isDisabledNavItem: function(navItemId) {
+			return this.getNavItem(navItemId).hasClass('disabled');
 		},
 
 		/**
 		 * Enable nav item.
-		 * @param navItemName name of nav item.
-		 * @param navItemGroup group name of nav item.
+		 * @param navItemId id of nav item.
 		 */
-		enableNavItem: function(navItemName, navItemGroup) {
-			this.getNavItem(navItemName, navItemGroup).removeClass('disabled');
+		enableNavItem: function(navItemId) {
+			this.getNavItem(navItemId).removeClass('disabled');
 		},
 
 		/**
 		 * Disable nav item.
-		 * @param navItemName name of nav item.
-		 * @param navItemGroup group name of nav item.
+		 * @param navItemId id of nav item.
 		 */
-		disableNavItem: function(navItemName, navItemGroup) {
-			this.getNavItem(navItemName, navItemGroup).addClass('disabled');
+		disableNavItem: function(navItemId) {
+			this.getNavItem(navItemId).addClass('disabled');
 		},
 
 		/**
@@ -218,6 +293,7 @@ function(
 		 */
 		enableNavToolBar: function() {
 			this.$('> li').removeClass('disabled');
+			this.$('.dropdown-toggle').removeClass('disabled');
 		},
 
 		/**
@@ -225,7 +301,132 @@ function(
 		 */
 		disableNavToolBar: function() {
 			this.$('> li').addClass('disabled');
+			this.$('.dropdown-toggle').addClass('disabled');
 		},
+
+
+		/**
+		 * Dropdown methods.
+		 */
+
+		/**
+		 * Get dropdown item from click event.
+		 * @param e click event.
+		 * @return dropdown item
+		 */
+		getEventDropdownItem: function(e) {
+			return this.getEventItem(e);
+		},
+
+		/**
+		 * Get dropdown item id from click event.
+		 * @param e click event.
+		 * @return dropdown item id
+		 */
+		getEventDropdownItemId: function(e) {
+			return this.getEventItemId(e);
+		},
+
+		/**
+		 * Get dropdown item parent from click event.
+		 * @param e click event.
+		 * @return dropdown item parent
+		 */
+		getEventDropdownItemParent: function(e) {
+			return this.getEventDropdownItem(e).parent();
+		},
+
+		/**
+		 * Get dropdown item.
+		 * @param dropdownItemId id of dropdown item.
+		 * @return dropdown item
+		 */
+		getDropdownItem: function(dropdownItemId) {
+			return this.$('.dropdown-menu > li#' + dropdownItemId);
+		},
+
+		/**
+		 * Check whether dropdown item is active.
+		 * @param dropdownItemId id of dropdown item.
+		 * @return true if dropdown item is active
+		 */
+		isActiveDropdownItem: function(dropdownItemId) {
+			return this.getDropdownItem(dropdownItemId).hasClass('active');
+		},
+
+		/**
+		 * Activate dropdown item.
+		 * @param dropdownItemId id of dropdown item.
+		 */
+		activateDropdownItem: function(dropdownItemId) {
+			this.getDropdownItem(dropdownItemId).addClass('active');
+		},
+
+		/**
+		 * Deactivate dropdown item.
+		 * @param dropdownItemId id of dropdown item.
+		 */
+		deactivateDropdownItem: function(dropdownItemId) {
+			this.getDropdownItem(dropdownItemId).removeClass('active');
+		},
+
+		/**
+		 * Activate all dropdown menu items.
+		 * @param $dropdownMenu dropdown menu object.
+		 */
+		activateDropdownMenu: function($dropdownMenu) {
+			$dropdownMenu.children().addClass('active');
+		},
+
+		/**
+		 * Deactivate all dropdown menu items.
+		 * @param $dropdownMenu dropdown menu object.
+		 */
+		deactivateDropdownMenu: function($dropdownMenu) {
+			$dropdownMenu.children().removeClass('active');
+		},
+
+		/**
+		 * Check whether dropdown item is disabled.
+		 * @param dropdownItemId id of dropdown item.
+		 * @return true if dropdown item is disabled
+		 */
+		isDisabledDropdownItem: function(dropdownItemId) {
+			return this.getDropdownItem(dropdownItemId).hasClass('disabled');
+		},
+
+		/**
+		 * Enable dropdown item.
+		 * @param dropdownItemId id of dropdown item.
+		 */
+		enableDropdownItem: function(dropdownItemId) {
+			this.getDropdownItem(dropdownItemId).removeClass('disabled');
+		},
+
+		/**
+		 * Disable dropdown item.
+		 * @param dropdownItemId id of dropdown item.
+		 */
+		disableDropdownItem: function(dropdownItemId) {
+			this.getDropdownItem(dropdownItemId).addClass('disabled');
+		},
+
+		/**
+		 * Enable all dropdown menu items.
+		 * @param $dropdownMenu dropdown menu object.
+		 */
+		enableDropdownMenu: function($dropdownMenu) {
+			$dropdownMenu.children().removeClass('disabled');
+		},
+
+		/**
+		 * Disable all dropdown menu items.
+		 * @param $dropdownMenu dropdown menu object.
+		 */
+		disableDropdownMenu: function($dropdownMenu) {
+			$dropdownMenu.children().addClass('disabled');
+		},
+
 
 		/**
 		 * Initialize nav toolbar.
@@ -234,7 +435,9 @@ function(
 		initialize: function(options) {
 			Backbone.View.prototype.initialize.apply(this, options);
 
-			this.listenTo(this, 'selectNavItem', this.onSelectNavItem);
+			this.listenTo(this, 'selectToolBarNavItem', this.onSelectToolBarNavItem);
+			this.listenTo(this, 'toggleToolBarNavItem', this.onToggleToolBarNavItem);
+			this.listenTo(this, 'selectToolBarDropdownItem', this.onSelectToolBarDropdownItem);
 		},
 
 		/**

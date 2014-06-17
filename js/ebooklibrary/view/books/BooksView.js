@@ -37,14 +37,39 @@ function(
 			if (this.collection)
 				this.collection.fetch({timeout: 20000});
 
-			this.listenTo(this.collection, 'sync', this.fadeInBooks);
+			this.listenTo(this.collection, 'sync', this.onSyncBooksContent);
+			//this.listenTo(this.collection, 'sync', this.fadeInBooks);
+			//this.listenTo(this.collection, 'sync', this.renderBooks);
 			//this.listenTo(this.collection, 'sync', this.renderBooks);
 			this.listenTo(this.collection, 'sort', this.renderBooks);
 
 			this.toolBarView = new BooksNavToolBarView();
-			this.listenTo(this.toolBarView, 'booksPanelToolBarSortBy', this.onToolBarSortBy);
+			//this.listenTo(this.toolBarView, 'booksPanelToolBarSortBy', this.onToolBarSortBy);
 			//this.listenTo(this.toolBarView, 'selectViewAsNavItem', this.onToolBarViewAs);
 			this.listenTo(this.toolBarView, 'selectBooksContent', this.onSelectBooksContent);
+			this.listenTo(this.toolBarView, 'sortBooksContent', this.onSortBooksContent);
+		},
+
+		onSyncBooksContent: function(collection) {
+			this.setBooksBadge(collection.length);
+
+			this.$('.panel-body > .bookspanel-books').fadeOut('slow');
+			this.renderBooks(collection);
+			this.$('.panel-body > .bookspanel-books').hide();
+			this.$('.panel-body > .bookspanel-books').fadeIn('slow');
+
+			if (collection.length > 0) {
+				this.toolBarView.enableNavToolBar();
+			}
+		},
+
+		onSortBooksContent: function(booksContentSort, isDescending) {
+			booksContentSort = booksContentSort.substr(7);
+			console.log(booksContentSort);
+			if (this.collection) {
+				this.collection.setSortBy(booksContentSort, !isDescending);
+				this.collection.sort();
+			}
 		},
 
 		/**
@@ -53,15 +78,10 @@ function(
 		 */
 		onSelectBooksContent: function(booksContentType) {
 			if (this.collection) {
-				this.setBooksBadge(this.collection.length);
 				this.$('.panel-body > .bookspanel-books').fadeOut('slow');
 				this.renderBooks(this.collection, booksContentType);
 				this.$('.panel-body > .bookspanel-books').hide();
 				this.$('.panel-body > .bookspanel-books').fadeIn('slow');
-				if (this.collection.length > 0) {
-					this.toolBarView.enableNavToolBar();
-					this.toolBarView.disableSortByButton(false);
-				}
 			}
 		},
 
