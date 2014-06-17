@@ -52,11 +52,17 @@
 // Dropdown menu items
 
 // Remove background color from open dropdown
-.panel-nav > .open > a {
+.panel-nav > .open {
+	> a {
 	&,
 	&:hover,
 	&:focus {
 		//background-color: transparent;
+	}
+	}
+
+	> .dropdown-menu > li > a {
+		//cursor: pointer;
 	}
 }
 

@@ -46,8 +46,8 @@ function(
 			this.toolBarView = new BooksNavToolBarView();
 			//this.listenTo(this.toolBarView, 'booksPanelToolBarSortBy', this.onToolBarSortBy);
 			//this.listenTo(this.toolBarView, 'selectViewAsNavItem', this.onToolBarViewAs);
-			this.listenTo(this.toolBarView, 'selectBooksContent', this.onSelectBooksContent);
-			this.listenTo(this.toolBarView, 'sortBooksContent', this.onSortBooksContent);
+			this.listenTo(this.toolBarView, 'toolBarSelectBooksContent', this.onToolBarSelectBooksContent);
+			this.listenTo(this.toolBarView, 'toolBarSortBooksContent', this.onToolBarSortBooksContent);
 		},
 
 		onSyncBooksContent: function(collection) {
@@ -63,11 +63,9 @@ function(
 			}
 		},
 
-		onSortBooksContent: function(booksContentSort, isDescending) {
-			booksContentSort = booksContentSort.substr(7);
-			console.log(booksContentSort);
+		onToolBarSortBooksContent: function(booksContentSort, isAscending) {
 			if (this.collection) {
-				this.collection.setSortBy(booksContentSort, !isDescending);
+				this.collection.setSortBy(booksContentSort, isAscending);
 				this.collection.sort();
 			}
 		},
@@ -76,7 +74,7 @@ function(
 		 * Event handler for toolbar viewAs event.
 		 * @param viewAsButtonName name of viewAs button.
 		 */
-		onSelectBooksContent: function(booksContentType) {
+		onToolBarSelectBooksContent: function(booksContentType) {
 			if (this.collection) {
 				this.$('.panel-body > .bookspanel-books').fadeOut('slow');
 				this.renderBooks(this.collection, booksContentType);
@@ -106,11 +104,7 @@ function(
 			this.$el.append(booksTmpl);
 
 			this.$('.panel-heading').append(this.toolBarView.render().el);
-			this.toolBarView.activateThumbnailsNavItem();
 			this.toolBarView.disableNavToolBar();
-
-			this.toolBarView.setActiveSortByMenu('Name', true);
-			this.toolBarView.disableSortByButton(true);
 
 			return this;
 		},
@@ -127,7 +121,6 @@ function(
 			this.$('.panel-body > .bookspanel-books').fadeIn('slow');
 			if (collection.length > 0) {
 				this.toolBarView.enableNavToolBar();
-				this.toolBarView.disableSortByButton(false);
 			}
 		},
 

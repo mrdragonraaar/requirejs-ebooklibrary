@@ -238,6 +238,7 @@ fieldset[disabled] .btn-default.active {
 }
 .dropdown-menu > li > a {
   color: #382110;
+  cursor: pointer;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
@@ -257,6 +258,9 @@ fieldset[disabled] .btn-default.active {
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
   color: #999999;
+}
+.nav > li > a {
+  cursor: pointer;
 }
 .nav-default {
   border-color: #b6b4a1;

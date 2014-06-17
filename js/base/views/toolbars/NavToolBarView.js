@@ -14,6 +14,8 @@ function(
 	var NavToolBarView = Backbone.View.extend({
 		tagName: 'ul',
 		template: null,
+		initialNavItemId: null,
+		initialDropdownItemId: null,
 
 		/**
 		 * Define nav toolbar click events.
@@ -39,12 +41,12 @@ function(
 					this.deactivateNavGroup(navItemGroup);
 					this.activateNavItem(navItemId);
 
-					this.trigger('selectToolBarNavItem', navItemId, navItemGroup);
+					this.trigger('toolBarSelectNavItem', navItemId, navItemGroup);
 				}
 
 				if (navItemToggle) {
 					var navItemActiveState = this.toggleNavItem(navItemId);
-					this.trigger('toggleToolBarNavItem', navItemId, navItemActiveState);
+					this.trigger('toolBarToggleNavItem', navItemId, navItemActiveState);
 				}
 			}
 		},
@@ -64,8 +66,17 @@ function(
 				this.deactivateDropdownMenu($dropdownItemParent);
 				this.activateDropdownItem(dropdownItemId);
 
-				this.trigger('selectToolBarDropdownItem', dropdownItemId,
-				   $dropdownItemParent);
+				var isAscending = !this.isAscendingDropdownItem(dropdownItemId);
+				this.setDescendingDropdownMenu($dropdownItemParent);
+				if (isAscending) {
+					this.setAscendingDropdownItem(dropdownItemId);
+				}
+
+				this.disableDropdownMenuCaret($dropdownItemParent);
+				this.enableDropdownItemCaret(dropdownItemId);
+
+				this.trigger('toolBarSelectDropdownItem', dropdownItemId,
+				   $dropdownItemParent, isAscending);
 			}
 		},
 
@@ -427,6 +438,88 @@ function(
 			$dropdownMenu.children().addClass('disabled');
 		},
 
+		/**
+		 * Check whether dropdown item is ascending.
+		 * @param dropdownItemId id of dropdown item.
+		 * @return true if dropdown item is ascending
+		 */
+		isAscendingDropdownItem: function(dropdownItemId) {
+			return this.getDropdownItem(dropdownItemId).hasClass('dropup');
+		},
+
+		/**
+		 * Set dropdown item as ascending.
+		 * @param dropdownItemId id of dropdown item.
+		 */
+		setAscendingDropdownItem: function(dropdownItemId) {
+			this.getDropdownItem(dropdownItemId).addClass('dropup');
+		},
+
+		/**
+		 * Set dropdown item as descending.
+		 * @param dropdownItemId id of dropdown item.
+		 */
+		setDescendingDropdownItem: function(dropdownItemId) {
+			this.getDropdownItem(dropdownItemId).removeClass('dropup');
+		},
+
+		/**
+		 * Set all dropdown menu items as ascending.
+		 * @param $dropdownMenu dropdown menu object.
+		 */
+		setAscendingDropdownMenu: function($dropdownMenu) {
+			$dropdownMenu.children().addClass('dropup');
+		},
+
+		/**
+		 * Set all dropdown menu items as descending.
+		 * @param $dropdownMenu dropdown menu object.
+		 */
+		setDescendingDropdownMenu: function($dropdownMenu) {
+			$dropdownMenu.children().removeClass('dropup');
+		},
+
+		/**
+		 * Check whether dropdown item caret is disabled.
+		 * @param dropdownItemId id of dropdown item.
+		 * @return true if dropdown item caret is disabled
+		 */
+		isDisabledDropdownItemCaret: function(dropdownItemId) {
+			return this.getDropdownItem(dropdownItemId).find('> a > .caret').hasClass('hide');
+		},
+
+		/**
+		 * Enable dropdown item caret.
+		 * @param dropdownItemId id of dropdown item.
+		 */
+		enableDropdownItemCaret: function(dropdownItemId) {
+			this.getDropdownItem(dropdownItemId).find('> a > .caret').removeClass('hide');
+		},
+
+		/**
+		 * Disable dropdown item caret.
+		 * @param dropdownItemId id of dropdown item.
+		 */
+		disableDropdownItemCaret: function(dropdownItemId) {
+			this.getDropdownItem(dropdownItemId).find('> a > .caret').addClass('hide');
+		},
+
+		/**
+		 * Enable all dropdown menu item carets.
+		 * @param $dropdownMenu dropdown menu object.
+		 */
+		enableDropdownMenuCaret: function($dropdownMenu) {
+			$dropdownMenu.find('> li > a > .caret').removeClass('hide');
+		},
+
+		/**
+		 * Disable all dropdown menu item carets.
+		 * @param $dropdownMenu dropdown menu object.
+		 */
+		disableDropdownMenuCaret: function($dropdownMenu) {
+			$dropdownMenu.find('> li > a > .caret').addClass('hide');
+		},
+
 
 		/**
 		 * Initialize nav toolbar.
@@ -435,16 +528,27 @@ function(
 		initialize: function(options) {
 			Backbone.View.prototype.initialize.apply(this, options);
 
-			this.listenTo(this, 'selectToolBarNavItem', this.onSelectToolBarNavItem);
-			this.listenTo(this, 'toggleToolBarNavItem', this.onToggleToolBarNavItem);
-			this.listenTo(this, 'selectToolBarDropdownItem', this.onSelectToolBarDropdownItem);
+			this.listenTo(this, 'toolBarSelectNavItem', this.onToolBarSelectNavItem);
+			this.listenTo(this, 'toolBarToggleNavItem', this.onToolBarToggleNavItem);
+			this.listenTo(this, 'toolBarSelectDropdownItem', this.onToolBarSelectDropdownItem);
 		},
 
 		/**
 		 * Render nav toolbar.
+		 * @return nav toolbar view
 		 */
 		render: function() {
 			this.$el.html(this.template);
+
+			if (this.initialNavItemId) {
+				this.activateNavItem(this.initialNavItemId);
+			}
+
+			if (this.initialDropdownItemId) {
+				this.activateDropdownItem(this.initialDropdownItemId);
+				this.setAscendingDropdownItem(this.initialDropdownItemId);
+				this.enableDropdownItemCaret(this.initialDropdownItemId);
+			}
 
 			return this;
 		}
