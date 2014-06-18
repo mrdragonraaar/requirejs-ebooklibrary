@@ -9,6 +9,7 @@ define([
     'ebooklibrary/view/loadingpanel/LoadingPanelView',
     'ebooklibrary/view/series/SeriesView',
     'ebooklibrary/view/books/BooksView',
+    'ebooklibrary/collection/SeriesCollection',
     'ebooklibrary/collection/BookCollection',
     'backbone'
 ],
@@ -16,6 +17,7 @@ function(
     LoadingPanelView,
     SeriesView,
     BooksView,
+    SeriesCollection,
     BookCollection,
     Backbone
 ) {
@@ -36,12 +38,19 @@ function(
 
 			this.loadingPanelView = new LoadingPanelView();
 
-			this.seriesView = new SeriesView({author: options.author, series: options.series});
-			this.listenTo(this.seriesView.collection, 'sync', this.showSeries);
+			var seriesCollection = new SeriesCollection([],
+			   {author: options.author, series: options.series});
+			seriesCollection.fetch({reset: true});
 
-			var bookCollection = new BookCollection([], {author: options.author, series: options.series});
+			this.seriesView = new SeriesView({collection: seriesCollection});
+			this.listenTo(this.seriesView.collection, 'reset', this.showSeries);
+
+			var bookCollection = new BookCollection([],
+			   {author: options.author, series: options.series});
+			bookCollection.fetch({reset: true, timeout: 20000});
+
 			this.booksView = new BooksView({collection: bookCollection});
-			this.listenTo(this.booksView.collection, 'sync', this.showBooksPanel);
+			this.listenTo(this.booksView.collection, 'reset', this.showBooksPanel);
 		},
 		
 		/**

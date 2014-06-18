@@ -7,12 +7,10 @@
  */
 define([
     'hbs!ebooklibrary/template/series/SeriesView',
-    'ebooklibrary/collection/SeriesCollection',
     'backbone'
 ],
 function(
     SeriesViewTemplate,
-    SeriesCollection,
     Backbone
 ) {
 	var SeriesView = Backbone.View.extend({
@@ -21,16 +19,12 @@ function(
 
 		/**
 		 * Initialise the series view.
-		 * @param options series options (author, series).
+		 * @param options series options (collection).
 		 */
 		initialize: function(options) {
 			options = options || {};
 
-			this.collection = new SeriesCollection([], 
-			   {author: options.author, series: options.series});
-			this.collection.fetch();
-
-			this.listenTo(this.collection, 'sync', this.renderSeries);
+			this.listenTo(this.collection, 'reset', this.renderSeries);
 		},
 
 		/**
