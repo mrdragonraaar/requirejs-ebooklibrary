@@ -28,7 +28,7 @@ function(
 		 * @return href
 		 */
 		href: function() {
-			var href = '#!/books/' + this.get('authorName') + '/';
+			var href = '/library/#!/books/' + this.get('authorName') + '/';
 			if (this.get('seriesName')) {
 				href += this.get('seriesName') + '/';
 			}

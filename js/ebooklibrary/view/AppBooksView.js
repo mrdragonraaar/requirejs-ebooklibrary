@@ -20,7 +20,8 @@ function(
     Backbone
 ) {
 	var AppBooksView = Backbone.View.extend({
-		el: '.content-container',
+		className: 'content-books',
+		//el: '.content-container',
 		
 		loadingPanelView: null,		// loading panel view
 		seriesView: null,		// series view
@@ -73,6 +74,14 @@ function(
 		 */
 		showBooksPanel: function(collection) {
 			this.loadingPanelView.$el.fadeOut('slow');
+		},
+
+		remove: function() {
+			this.loadingPanelView.remove();
+			this.seriesView.remove();
+			this.booksView.remove();
+
+			Backbone.View.prototype.remove.apply(this);
 		}
 	});
 	

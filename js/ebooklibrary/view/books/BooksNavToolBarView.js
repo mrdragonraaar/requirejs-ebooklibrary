@@ -30,8 +30,8 @@ function(
 		 */
 		onToolBarSelectNavItem: function(navItemId, navItemGroup) {
 			if (navItemGroup === 'viewas') {
-				var booksContentType = navItemId.substr(navItemGroup.length + 1);
-				this.trigger('toolBarSelectBooksContent', booksContentType);
+				var viewAs = navItemId.substr(navItemGroup.length + 1);
+				this.trigger('toolBarViewAs', viewAs);
 			}
 		},
 
@@ -42,9 +42,9 @@ function(
 		 * @param isAscending true if dropdown item is ascending.
 		 */
 		onToolBarSelectDropdownItem: function(dropdownItemId, $dropdownItemParent, isAscending) {
-			var booksContentSortPrefix = 'sortby-';
-			var booksContentSort = dropdownItemId.substr(booksContentSortPrefix.length);
-			this.trigger('toolBarSortBooksContent', booksContentSort, isAscending);
+			var sortByPrefix = 'sortby-';
+			var sortBy = dropdownItemId.substr(sortByPrefix.length);
+			this.trigger('toolBarSortBy', sortBy, isAscending);
 		},
 
 		/**

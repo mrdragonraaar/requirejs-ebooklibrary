@@ -224,11 +224,11 @@ fieldset[disabled] .btn-default.active {
 }
 .caret {
   margin-left: 5px;
+  margin-bottom: 2px;
 }
 .dropdown-menu {
   background-color: #ffffff;
-  border: 1px solid #b6b4a1;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid #bebba1;
 }
 .dropdown-menu .divider {
   height: 1px;
@@ -252,7 +252,7 @@ fieldset[disabled] .btn-default.active {
   color: #ffffff;
   text-decoration: none;
   outline: 0;
-  background-color: #382110;
+  background-color: #a09d84;
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,

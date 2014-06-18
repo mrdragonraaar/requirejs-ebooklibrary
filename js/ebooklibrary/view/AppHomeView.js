@@ -22,7 +22,8 @@ function(
     Backbone
 ) {
 	var AppHomeView = Backbone.View.extend({
-		el: '.content-container',
+		className: 'content-home',
+		//el: '.content-container',
 		
 		loadingPanelView: null,			// loading panel view
 		latestAdditionsView: null,		// latest additions view
@@ -76,6 +77,14 @@ function(
 			this.loadingPanelView.$el.fadeOut('slow');
 			//this.authorsView.$el.fadeIn('slow');
 			//this.$('.content-sidebar').fadeIn('slow');
+		},
+
+		remove: function() {
+			this.loadingPanelView.remove();
+			//this.latestAdditionsView.remove();
+			this.authorsView.remove();
+
+			Backbone.View.prototype.remove.apply(this);
 		}
 	});
 	

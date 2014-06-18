@@ -175,13 +175,14 @@
 @dropdown-bg:				#fff;
 //** Dropdown menu `border-color`.
 //@dropdown-border:			rgba(0,0,0,.15);
-@dropdown--border:		#b6b4a1;
+@dropdown-border:		darken(#c8c6b0, 5%);
 //** Dropdown menu `border-color` **for IE8**.
 //@dropdown-fallback-border:		#ccc;
-@dropdown-fallback-border:		#b6b4a1;
+@dropdown-fallback-border:		darken(#c8c6b0, 5%);
 //** Divider color for between dropdown items.
 //@dropdown-divider-bg:			#e5e5e5;
 @dropdown-divider-bg:			#e1ddc7;
+//@dropdown-divider-bg:		lighten(#c8c6b0, 5%);
 
 //** Dropdown link text color.
 //@dropdown-link-color:			@gray-dark;
@@ -195,8 +196,11 @@
 
 //** Active dropdown menu item text color.
 @dropdown-link-active-color:		@component-active-color;
+//@dropdown-link-active-color:		darken(@brand-primary, 5%);
 //** Active dropdown menu item background color.
-@dropdown-link-active-bg:		@component-active-bg;
+//@dropdown-link-active-bg:		@component-active-bg;
+//@dropdown-link-active-bg:		darken(#e1ddc7, 50%);
+@dropdown-link-active-bg:		darken(#b6b4a1, 10%);
 
 //** Disabled dropdown menu item background color.
 @dropdown-link-disabled-color:		@gray-light;

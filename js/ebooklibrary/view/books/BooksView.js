@@ -27,6 +27,8 @@ function(
 
 		toolBarView: null,	// toolbar view
 
+		viewAs: 'thumbnails',
+
 		/**
 		 * Initialise the books view.
 		 * @param options books options (collection).
@@ -38,16 +40,17 @@ function(
 				this.collection.fetch({timeout: 20000});
 
 			this.listenTo(this.collection, 'sync', this.onSyncBooksContent);
+			this.listenTo(this.collection, 'sort', this.onSortBooksContent);
 			//this.listenTo(this.collection, 'sync', this.fadeInBooks);
 			//this.listenTo(this.collection, 'sync', this.renderBooks);
 			//this.listenTo(this.collection, 'sync', this.renderBooks);
-			this.listenTo(this.collection, 'sort', this.renderBooks);
+			//this.listenTo(this.collection, 'sort', this.renderBooks);
 
 			this.toolBarView = new BooksNavToolBarView();
-			//this.listenTo(this.toolBarView, 'booksPanelToolBarSortBy', this.onToolBarSortBy);
-			//this.listenTo(this.toolBarView, 'selectViewAsNavItem', this.onToolBarViewAs);
-			this.listenTo(this.toolBarView, 'toolBarSelectBooksContent', this.onToolBarSelectBooksContent);
-			this.listenTo(this.toolBarView, 'toolBarSortBooksContent', this.onToolBarSortBooksContent);
+			//this.listenTo(this.toolBarView, 'toolBarSelectBooksContent', this.onToolBarSelectBooksContent);
+			//this.listenTo(this.toolBarView, 'toolBarSortBooksContent', this.onToolBarSortBooksContent);
+			this.listenTo(this.toolBarView, 'toolBarViewAs', this.onToolBarViewAs);
+			this.listenTo(this.toolBarView, 'toolBarSortBy', this.onToolBarSortBy);
 		},
 
 		onSyncBooksContent: function(collection) {
@@ -63,23 +66,33 @@ function(
 			}
 		},
 
-		onToolBarSortBooksContent: function(booksContentSort, isAscending) {
-			if (this.collection) {
-				this.collection.setSortBy(booksContentSort, isAscending);
-				this.collection.sort();
-			}
+		onSortBooksContent: function(collection) {
+			this.renderBooks(collection);
 		},
 
 		/**
 		 * Event handler for toolbar viewAs event.
-		 * @param viewAsButtonName name of viewAs button.
+		 * @param viewAs viewAs type.
 		 */
-		onToolBarSelectBooksContent: function(booksContentType) {
+		onToolBarViewAs: function(viewAs) {
 			if (this.collection) {
+				this.viewAs = viewAs;
 				this.$('.panel-body > .bookspanel-books').fadeOut('slow');
-				this.renderBooks(this.collection, booksContentType);
+				this.renderBooks(this.collection);
 				this.$('.panel-body > .bookspanel-books').hide();
 				this.$('.panel-body > .bookspanel-books').fadeIn('slow');
+			}
+		},
+
+		/**
+		 * Event handler for toolbar sortBy event.
+		 * @param sortBy sortBy type.
+		 * @param isAscending true if sort type is ascending.
+		 */
+		onToolBarSortBy: function(sortBy, isAscending) {
+			if (this.collection) {
+				this.collection.setSortBy(sortBy, isAscending);
+				this.collection.sort();
 			}
 		},
 
@@ -88,12 +101,14 @@ function(
 		 * @param sortByMenuName name of sortBy menu.
 		 * @param asc true if sortBy menu is ascending.
 		 */
+/*
 		onToolBarSortBy: function(sortByMenuName, asc) {
 			if (this.collection) {
 				this.collection.setSortBy(sortByMenuName, asc);
 				this.collection.sort();
 			}
 		},
+*/
 
 		/**
 		 * Render the books view.
@@ -142,6 +157,14 @@ function(
 			//var viewAsTitle = this.toolBarView.getActiveViewAsNavItemName();
 			//var viewAsTitle = this.toolBarView.getActiveNavItemName('viewas');
 
+			if (this.viewAs === 'details') {
+				this.renderBooksDetails(collection);
+			} else if (this.viewAs === 'list') {
+				this.renderBooksList(collection);
+			} else {
+				this.renderBooksThumbnails(collection);
+			}
+/*
 			if (viewAsTitle === 'details') {
 				this.renderBooksDetails(collection);
 			} else if (viewAsTitle === 'list') {
@@ -149,6 +172,7 @@ function(
 			} else {
 				this.renderBooksThumbnails(collection);
 			}
+*/
 		},
 
 		/**
@@ -176,6 +200,12 @@ function(
 		renderBooksList: function(collection) {
 			var booksListTmpl = BooksListViewTemplate({books: collection.toJSON()});
 			this.$('.panel-body').html(booksListTmpl);
+		},
+
+		remove: function() {
+			this.toolBarView.remove();
+
+			Backbone.View.prototype.remove.apply(this);
 		}
 	});
 

@@ -39,7 +39,7 @@ function(
 		 */
 		renderSeries: function(collection) {
 			var seriesTmpl = SeriesViewTemplate({series: collection.toJSON()});
-			this.$el.append(seriesTmpl);
+			this.$el.html(seriesTmpl);
 		}
 	});
 

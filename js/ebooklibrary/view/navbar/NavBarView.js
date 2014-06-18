@@ -32,7 +32,7 @@ function(
 			options = options || {};
 
 			this.breadcrumbView = new NavBarBreadcrumbView();
-			this.searchBoxView = new NavBarSearchBoxView();
+			//this.searchBoxView = new NavBarSearchBoxView();
 		},
 
 		/**

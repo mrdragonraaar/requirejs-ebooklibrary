@@ -33,6 +33,8 @@ function(
 		
 		navBarView: null,	// navigation bar view
 
+		pageView: null,
+
 		/**
 		 * Initialise the main application view.
 		 */
@@ -56,23 +58,31 @@ function(
 			this.$el.append(footerView.render().el);
 		},
 
+		renderPageView: function(view) {
+			this.pageView && this.pageView.remove();
+			this.pageView = view;
+			this.$('.content-container').html(this.pageView.render().el);
+		},
+
 		/**
 		 * Render the application home page view.
 		 */
 		renderHome: function() {
-			this.$('.content-container').empty();
+			//this.$('.content-container').empty();
 
-			this.setApplicationPageClass('home');
+			//this.setApplicationPageClass('home');
 
 			this.navBarView.setBreadcrumb();
-			this.navBarView.searchBoxView.showSearchBox(true);
+			//this.navBarView.searchBoxView.showSearchBox(true);
 
 			//this.$('.footer-default > .footer-content').empty();
 			//var linksView = new LinksView();
 			//this.$('.footer-default > .footer-content').append(linksView.render().el);
 			
-			var appHomeView = new AppHomeView();
-			appHomeView.render();
+			//var appHomeView = new AppHomeView();
+			//appHomeView.render();
+
+			this.renderPageView(new AppHomeView());
 		},
 
 		/**
@@ -81,17 +91,27 @@ function(
 		 * @param series series name.
 		 */
 		renderBooks: function(author, series) {
-			this.$('.content-container').empty();
+
+			//this.$('.content-container').empty();
 
 			this.setApplicationPageClass('books');
 
 			this.navBarView.setBreadcrumb({author: author, series: series});
-			this.navBarView.searchBoxView.showSearchBox(false);
+			//this.navBarView.searchBoxView.showSearchBox(false);
 
-			this.$('.footer-default > .footer-content').empty();
+			//this.$('.footer-default > .footer-content').empty();
 
-			var appBooksView = new AppBooksView({author: author, series: series});
-			appBooksView.render();
+			//var appBooksView = new AppBooksView({author: author, series: series});
+			//appBooksView.render();
+
+			//this.appBooksView = new AppBooksView({author: author, series: series});
+			//this.appBooksView.render();
+
+			//this.pageView && this.pageView.remove();
+			//this.pageView = new AppBooksView({author: author, series: series});
+			//this.$('.content-container').html(this.pageView.render().el);
+
+			this.renderPageView(new AppBooksView({author: author, series: series}));
 		},
 
 		/**
@@ -104,7 +124,7 @@ function(
 			this.setApplicationPageClass('search');
 
 			this.navBarView.setBreadcrumb({search: keyword});
-			this.navBarView.searchBoxView.showSearchBox(true);
+			//this.navBarView.searchBoxView.showSearchBox(true);
 
 			var appSearchView = new AppSearchView({keyword: keyword});
 			appSearchView.render();
@@ -124,7 +144,7 @@ function(
 			this.navBarView.setBreadcrumb({author: author, series: series});
 			this.navBarView.breadcrumbView.setAuthorActive(false);
 			this.navBarView.breadcrumbView.setSeriesActive(false);
-			this.navBarView.searchBoxView.showSearchBox(false);
+			//this.navBarView.searchBoxView.showSearchBox(false);
 
 			var appBookTextView = new AppBookTextView({author: author, series: series, book: book});
 			appBookTextView.render();

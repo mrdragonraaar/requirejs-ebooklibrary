@@ -17,7 +17,7 @@ function(
 		 * @return href
 		 */
 		href: function() {
-			return '#!/books/' + this.get('fileInfo').name + '/';
+			return '/library/#!/books/' + this.get('fileInfo').name + '/';
 		},
 
 		/**

@@ -22,7 +22,7 @@ function(
 		 */
 		events: {
 			'click > li': 'onClickNavItem',
-			'click .dropdown-menu > li': 'onClickDropdownItem'
+			'click > li.dropdown > .dropdown-menu > li': 'onClickDropdownItem'
 		},
 
 		/**
