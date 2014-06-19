@@ -8,14 +8,14 @@
 define([
     'hbs!ebooklibrary/template/searchpanel/SearchPanelView',
     'ebooklibrary/view/loadingpanel/LoadingPanelView',
-    'ebooklibrary/view/books/BooksView',
+    'ebooklibrary/view/panel/books/BooksPanelView',
     'ebooklibrary/collection/SearchCollection',
     'backbone'
 ],
 function(
     SearchPanelViewTemplate,
     LoadingPanelView,
-    BooksView,
+    BooksPanelView,
     SearchCollection,
     Backbone
 ) {
@@ -35,7 +35,7 @@ function(
 			this.loadingPanelView = new LoadingPanelView();
 
 			var searchCollection = new SearchCollection([], {keyword: options.keyword});
-			this.booksView = new BooksView({collection: searchCollection});
+			this.booksView = new BooksPanelView({collection: searchCollection});
 			this.listenTo(this.booksView.collection, 'sync', this.showBooks);
 			this.listenTo(this.booksView.collection, 'error', this.showBooks);
 		},

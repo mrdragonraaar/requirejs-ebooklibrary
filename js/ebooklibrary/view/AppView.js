@@ -10,10 +10,10 @@ define([
     'ebooklibrary/view/navbar/NavBarView',
     'ebooklibrary/view/footer/FooterView',
     'ebooklibrary/view/links/LinksView',
-    'ebooklibrary/view/AppHomeView',
-    'ebooklibrary/view/AppBooksView',
-    'ebooklibrary/view/AppSearchView',
-    'ebooklibrary/view/AppBookTextView',
+    'ebooklibrary/view/page/HomePageView',
+    'ebooklibrary/view/page/BooksPageView',
+    'ebooklibrary/view/page/SearchPageView',
+    'ebooklibrary/view/page/BookPageView',
     'backbone'
 ],
 function(
@@ -21,10 +21,10 @@ function(
     NavBarView,
     FooterView,
     LinksView,
-    AppHomeView,
-    AppBooksView,
-    AppSearchView,
-    AppBookTextView,
+    HomePageView,
+    BooksPageView,
+    SearchPageView,
+    BookPageView,
     Backbone
 ) {
 	var AppView = Backbone.View.extend({
@@ -70,7 +70,7 @@ function(
 		renderHome: function() {
 			//this.$('.content-container').empty();
 
-			//this.setApplicationPageClass('home');
+			this.setApplicationPageClass('home');
 
 			this.navBarView.setBreadcrumb();
 			//this.navBarView.searchBoxView.showSearchBox(true);
@@ -82,7 +82,7 @@ function(
 			//var appHomeView = new AppHomeView();
 			//appHomeView.render();
 
-			this.renderPageView(new AppHomeView());
+			this.renderPageView(new HomePageView());
 		},
 
 		/**
@@ -111,7 +111,7 @@ function(
 			//this.pageView = new AppBooksView({author: author, series: series});
 			//this.$('.content-container').html(this.pageView.render().el);
 
-			this.renderPageView(new AppBooksView({author: author, series: series}));
+			this.renderPageView(new BooksPageView({author: author, series: series}));
 		},
 
 		/**
@@ -126,8 +126,10 @@ function(
 			this.navBarView.setBreadcrumb({search: keyword});
 			//this.navBarView.searchBoxView.showSearchBox(true);
 
-			var appSearchView = new AppSearchView({keyword: keyword});
-			appSearchView.render();
+			//var appSearchView = new AppSearchView({keyword: keyword});
+			//appSearchView.render();
+
+			this.renderPageView(new SearchPageView({keyword: keyword}));
 		},
 
 		/**
@@ -146,8 +148,10 @@ function(
 			this.navBarView.breadcrumbView.setSeriesActive(false);
 			//this.navBarView.searchBoxView.showSearchBox(false);
 
-			var appBookTextView = new AppBookTextView({author: author, series: series, book: book});
-			appBookTextView.render();
+			//var appBookTextView = new AppBookTextView({author: author, series: series, book: book});
+			//appBookTextView.render();
+
+			this.renderPageView(new BookPageView({author: author, series: series, book: book}));
 		},
 
 		/**

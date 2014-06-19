@@ -113,7 +113,6 @@
 
 // Books panel
 .panel-books {
-	z-index: 990;
 	.panel-variant(@panel-books-border, @panel-books-text, @panel-books-heading-bg, @panel-books-border);
 	background-color: @panel-books-bg;
 	border: none;
@@ -182,6 +181,49 @@
 		}
 
 		.panel-heading-buttons-vertical-align(@panel-books-heading-line-height);
+	}
+
+	> .panel-body {
+		> .panel-content {
+			&.panel-content-thumbnails {
+				> .panel-content-thumbnail {
+					margin-top: 10px;
+					margin-bottom: 10px;
+
+					> .thumbnail.thumbnail-book {
+						@media (max-width: (@screen-xs-min - 1)) {
+							width: 112px;
+
+							a&,
+							& > a {
+								width: 112px;
+								height: 150px;
+
+								> img {
+									width: 112px;
+									height: 150px;
+								}
+							}
+
+							.book-author {
+								font-size: 12px;
+							}
+
+							.book-title {
+								font-size: 16px;
+								line-height: 20px;
+							}
+						}
+					}
+				}
+			}
+
+			&.panel-content-details {
+			}
+
+			&.panel-content-list {
+			}
+		}
 	}
 }
 

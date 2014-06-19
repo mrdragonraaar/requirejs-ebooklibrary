@@ -1,5 +1,5 @@
 /**
- * AppBooksView.js
+ * BooksPageView.js
  *
  * Backbone view representing ebooklibrary application books page.
  *
@@ -7,27 +7,27 @@
  */
 define([
     'ebooklibrary/view/loadingpanel/LoadingPanelView',
-    'ebooklibrary/view/series/SeriesView',
-    'ebooklibrary/view/books/BooksView',
+    'ebooklibrary/view/well/series/SeriesWellView',
+    'ebooklibrary/view/panel/books/BooksPanelView',
     'ebooklibrary/collection/SeriesCollection',
     'ebooklibrary/collection/BookCollection',
     'backbone'
 ],
 function(
     LoadingPanelView,
-    SeriesView,
-    BooksView,
+    SeriesWellView,
+    BooksPanelView,
     SeriesCollection,
     BookCollection,
     Backbone
 ) {
-	var AppBooksView = Backbone.View.extend({
+	var BooksPageView = Backbone.View.extend({
 		className: 'content-books',
 		//el: '.content-container',
 		
-		loadingPanelView: null,		// loading panel view
-		seriesView: null,		// series view
-		booksView: null,		// books panel view
+		loading: null,		// loading well view
+		series: null,		// series well view
+		books: null,		// books panel view
 
 		/**
 		 * Initialise the application books page view.
@@ -36,21 +36,21 @@ function(
 		initialize: function(options) {
 			options = options || {};
 
-			this.loadingPanelView = new LoadingPanelView();
+			this.loading = new LoadingPanelView();
 
 			var seriesCollection = new SeriesCollection([],
 			   {author: options.author, series: options.series});
 			seriesCollection.fetch({reset: true});
 
-			this.seriesView = new SeriesView({collection: seriesCollection});
-			this.listenTo(this.seriesView.collection, 'reset', this.showSeries);
+			this.series = new SeriesWellView({collection: seriesCollection});
+			this.listenTo(this.series.collection, 'reset', this.showSeries);
 
 			var bookCollection = new BookCollection([],
 			   {author: options.author, series: options.series});
 			bookCollection.fetch({reset: true, timeout: 20000});
 
-			this.booksView = new BooksView({collection: bookCollection});
-			this.listenTo(this.booksView.collection, 'reset', this.showBooksPanel);
+			this.books = new BooksPanelView({collection: bookCollection});
+			this.listenTo(this.books.collection, 'reset', this.showBooks);
 		},
 		
 		/**
@@ -58,11 +58,11 @@ function(
 		 * @return application books page view
 		 */
 		render: function() {
-			this.$el.append(this.loadingPanelView.render().el);
+			this.$el.append(this.loading.render().el);
 
-			this.seriesView.$el.hide();
-			this.$el.append(this.seriesView.render().el);
-			this.$el.append(this.booksView.render().el);
+			this.series.$el.hide();
+			this.$el.append(this.series.render().el);
+			this.$el.append(this.books.render().el);
 
 			return this;
 		},
@@ -73,7 +73,7 @@ function(
 		 */
 		showSeries: function(collection) {
 			if (collection.length > 0) {
-				this.seriesView.$el.fadeIn('slow');
+				this.series.$el.fadeIn('slow');
 			}
 		},
 
@@ -81,18 +81,18 @@ function(
 		 * Show books panel.
 		 * @param collection books collection.
 		 */
-		showBooksPanel: function(collection) {
-			this.loadingPanelView.$el.fadeOut('slow');
+		showBooks: function(collection) {
+			this.loading.$el.fadeOut('slow');
 		},
 
 		remove: function() {
-			this.loadingPanelView.remove();
-			this.seriesView.remove();
-			this.booksView.remove();
+			this.loading.remove();
+			this.series.remove();
+			this.books.remove();
 
 			Backbone.View.prototype.remove.apply(this);
 		}
 	});
 	
-	return AppBooksView;
+	return BooksPageView;
 });

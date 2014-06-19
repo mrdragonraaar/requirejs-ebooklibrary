@@ -803,7 +803,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   border: 1px solid transparent;
   border-color: #b6b4a1;
 }
-.thumbnail.book-thumbnail {
+.thumbnail.thumbnail-book {
   padding: 0;
   background-color: transparent;
   border: none;
@@ -812,50 +812,9 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0;
-  /*
-	@media (max-width: @screen-xs-max) {
-		width: 100%;
-
-		a&,
-		& > a {
-			width: 100%;
-			height: auto;
-
-			> img {
-				width: 100%;
-				height: auto;
-			}
-		}
-	}
-
-	//@media (max-width: 375px) {
-	@media (max-width: 320px) {
-		width: 112px;
-
-		a&,
-		& > a {
-			width: 112px;
-			height: 150px;
-
-			> img {
-				width: 112px;
-				height: 150px;
-			}
-		}
-
-		.book-author {
-			font-size: 12px;
-		}
-
-		.book-title {
-			font-size: 16px;
-			line-height: 20px;
-		}
-	}
-*/
 }
-a.thumbnail.book-thumbnail,
-.thumbnail.book-thumbnail > a {
+a.thumbnail.thumbnail-book,
+.thumbnail.thumbnail-book > a {
   display: block;
   position: relative;
   height: 200px;
@@ -865,17 +824,17 @@ a.thumbnail.book-thumbnail,
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   margin-bottom: 15px;
 }
-a.thumbnail.book-thumbnail:hover,
-.thumbnail.book-thumbnail > a:hover,
-a.thumbnail.book-thumbnail:focus,
-.thumbnail.book-thumbnail > a:focus,
-a.thumbnail.book-thumbnail.active,
-.thumbnail.book-thumbnail > a.active {
+a.thumbnail.thumbnail-book:hover,
+.thumbnail.thumbnail-book > a:hover,
+a.thumbnail.thumbnail-book:focus,
+.thumbnail.thumbnail-book > a:focus,
+a.thumbnail.thumbnail-book.active,
+.thumbnail.thumbnail-book > a.active {
   -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
 }
-a.thumbnail.book-thumbnail:after,
-.thumbnail.book-thumbnail > a:after {
+a.thumbnail.thumbnail-book:after,
+.thumbnail.thumbnail-book > a:after {
   content: "";
   position: absolute;
   top: 0;
@@ -885,15 +844,15 @@ a.thumbnail.book-thumbnail:after,
   background-color: rgba(0, 0, 0, 0.06);
   box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
 }
-a.thumbnail.book-thumbnail > img,
-.thumbnail.book-thumbnail > a > img {
+a.thumbnail.thumbnail-book > img,
+.thumbnail.thumbnail-book > a > img {
   width: 100%;
   height: 100%;
   margin: 0;
   border-radius: 2px 3px 3px 2px;
   border-left: 1px solid #999;
 }
-.thumbnail.book-thumbnail .book-author {
+.thumbnail.thumbnail-book .book-author {
   margin: 0;
   font-size: 14px;
   font-weight: 500;
@@ -904,98 +863,11 @@ a.thumbnail.book-thumbnail > img,
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.thumbnail.book-thumbnail .book-title {
+.thumbnail.thumbnail-book .book-title {
   margin: 0;
   font-size: 18px;
   font-weight: 300;
   line-height: 22px;
-  color: #382110;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.book-thumbnail2 {
-  position: relative;
-  display: inline-block;
-  width: 150px;
-  text-align: left;
-  /*
-	@media (max-width: 375px) {
-		width: 112px;
-
-		a&,
-		& > a {
-			width: 112px;
-			height: 150px;
-
-			> img {
-				width: 112px;
-				height: 150px;
-			}
-		}
-
-		.book-author {
-			font-size: 12px;
-		}
-
-		.book-title {
-			font-size: 16px;
-			line-height: 20px;
-		}
-	}
-*/
-}
-a.book-thumbnail2,
-.book-thumbnail2 > a {
-  position: relative;
-  display: inline-block;
-  width: 150px;
-  height: 200px;
-  border-radius: 2px 3px 3px 2px;
-  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-  margin-bottom: 15px;
-}
-a.book-thumbnail2:hover,
-.book-thumbnail2 > a:hover,
-a.book-thumbnail2:focus,
-.book-thumbnail2 > a:focus,
-a.book-thumbnail2.active,
-.book-thumbnail2 > a.active {
-  -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
-}
-a.book-thumbnail2:after,
-.book-thumbnail2 > a:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 5px;
-  bottom: 0;
-  width: 3px;
-  background-color: rgba(0, 0, 0, 0.06);
-  box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
-}
-a.book-thumbnail2 > img,
-.book-thumbnail2 > a > img {
-  width: 150px;
-  height: 200px;
-  border-radius: 2px 3px 3px 2px;
-  border-left: 1px solid #999;
-}
-.book-thumbnail2 .book-author {
-  margin: 0;
-  font-size: 14px;
-  text-transform: uppercase;
-  color: #660;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.book-thumbnail2 .book-title {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 24px;
   color: #382110;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1068,7 +940,6 @@ a.book-thumbnail2 > img,
   float: right !important;
 }
 .panel-books {
-  z-index: 990;
   border-color: #bebba1;
   background-color: #f3f1e9;
   border: none;
@@ -1155,6 +1026,32 @@ a.book-thumbnail2 > img,
 .panel-books > .panel-heading .btn-group.btn-group-xs > .panel-btn {
   margin-top: 4px;
   margin-bottom: 4px;
+}
+.panel-books > .panel-body > .panel-content.panel-content-thumbnails > .panel-content-thumbnail {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+@media (max-width: 479px) {
+  .panel-books > .panel-body > .panel-content.panel-content-thumbnails > .panel-content-thumbnail > .thumbnail.thumbnail-book {
+    width: 112px;
+  }
+  a.panel-books > .panel-body > .panel-content.panel-content-thumbnails > .panel-content-thumbnail > .thumbnail.thumbnail-book,
+  .panel-books > .panel-body > .panel-content.panel-content-thumbnails > .panel-content-thumbnail > .thumbnail.thumbnail-book > a {
+    width: 112px;
+    height: 150px;
+  }
+  a.panel-books > .panel-body > .panel-content.panel-content-thumbnails > .panel-content-thumbnail > .thumbnail.thumbnail-book > img,
+  .panel-books > .panel-body > .panel-content.panel-content-thumbnails > .panel-content-thumbnail > .thumbnail.thumbnail-book > a > img {
+    width: 112px;
+    height: 150px;
+  }
+  .panel-books > .panel-body > .panel-content.panel-content-thumbnails > .panel-content-thumbnail > .thumbnail.thumbnail-book .book-author {
+    font-size: 12px;
+  }
+  .panel-books > .panel-body > .panel-content.panel-content-thumbnails > .panel-content-thumbnail > .thumbnail.thumbnail-book .book-title {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 .panel-default {
   border-color: transparent;

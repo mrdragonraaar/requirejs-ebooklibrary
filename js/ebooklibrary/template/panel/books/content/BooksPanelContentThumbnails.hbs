@@ -1,0 +1,17 @@
+{{!
+{
+	"name": "BooksPanelContentThumbnails",
+	"description": "Books Panel Thumbnails Template"
+}
+}}
+<div class="panel-content panel-content-thumbnails row multi-columns-row">
+{{#each books}}
+	<div class="panel-content-thumbnail col-lg-2 col-md-3 col-sm-4 col-xs-6">
+		<div class="thumbnail thumbnail-book">
+			<a href="{{downloadUrl}}" title="{{fileInfo.name}}"><img src="{{bookInfo.cover}}"/></a>
+			<h3 class="book-author" title="{{bookInfo.authorStr}}">{{bookInfo.authorStr}}</h3>
+			<h4 class="book-title" title="{{bookInfo.title}}">{{bookInfo.title}}</h3>
+		</div>
+	</div>
+{{/each}}
+</div>
