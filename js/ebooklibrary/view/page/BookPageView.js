@@ -6,8 +6,8 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'ebooklibrary/view/loadingpanel/LoadingPanelView',
-    'ebooklibrary/view/booktextpanel/BookTextPanelView',
+    'ebooklibrary/view/well/loading/LoadingPanelView',
+    'ebooklibrary/view/panel/book/BookTextPanelView',
     'backbone'
 ],
 function(

@@ -7,7 +7,7 @@
  */
 define([
     'hbs!ebooklibrary/template/searchpanel/SearchPanelView',
-    'ebooklibrary/view/loadingpanel/LoadingPanelView',
+    'ebooklibrary/view/well/loading/LoadingPanelView',
     'ebooklibrary/view/panel/books/BooksPanelView',
     'ebooklibrary/collection/SearchCollection',
     'backbone'

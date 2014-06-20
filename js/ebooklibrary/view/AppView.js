@@ -6,10 +6,8 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'ebooklibrary/model/AppModel',
     'ebooklibrary/view/navbar/NavBarView',
     'ebooklibrary/view/footer/FooterView',
-    'ebooklibrary/view/links/LinksView',
     'ebooklibrary/view/page/HomePageView',
     'ebooklibrary/view/page/BooksPageView',
     'ebooklibrary/view/page/SearchPageView',
@@ -17,10 +15,8 @@ define([
     'backbone'
 ],
 function(
-    AppModel,
     NavBarView,
     FooterView,
-    LinksView,
     HomePageView,
     BooksPageView,
     SearchPageView,
@@ -29,22 +25,18 @@ function(
 ) {
 	var AppView = Backbone.View.extend({
 		el: 'body',
-		//el: '#ebooklibrary',
 		
-		navBarView: null,	// navigation bar view
+		navBar: null,	// navigation bar view
+		footer: null,	// footer view
 
-		pageView: null,
+		page: null,	// current page view
 
 		/**
-		 * Initialise the main application view.
+		 * Initialize the main application view.
 		 */
 		initialize: function() {
-			this.navBarView = new NavBarView();
-
-			this.listenTo(AppModel, 'viewHome', this.renderHome);
-			this.listenTo(AppModel, 'viewBooks', this.renderBooks);
-			this.listenTo(AppModel, 'viewSearch', this.renderSearch);
-			this.listenTo(AppModel, 'viewBookText', this.renderBookText);
+			this.navBar = new NavBarView();
+			this.footer = new FooterView();
 		},
 		
 		/**
@@ -52,110 +44,74 @@ function(
 		 * @return main application view
 		 */
 		render: function() {
-			this.$el.prepend(this.navBarView.render().el);
-
-			var footerView = new FooterView();
-			this.$el.append(footerView.render().el);
-		},
-
-		renderPageView: function(view) {
-			this.pageView && this.pageView.remove();
-			this.pageView = view;
-			this.$('.content-container').html(this.pageView.render().el);
+			this.$el.prepend(this.navBar.render().el);
+			this.$el.append(this.footer.render().el);
 		},
 
 		/**
-		 * Render the application home page view.
+		 * Show page view.
+		 * @param pageView page view.
 		 */
-		renderHome: function() {
-			//this.$('.content-container').empty();
+		showPageView: function(pageView) {
+			this.page && this.page.remove();
+			this.page = pageView;
+			this.$('.content-container').html(this.page.render().el);
+		},
 
+		/**
+		 * Show home page.
+		 */
+		showHomePage: function() {
 			this.setApplicationPageClass('home');
 
-			this.navBarView.setBreadcrumb();
-			//this.navBarView.searchBoxView.showSearchBox(true);
+			this.navBar.setBreadcrumb();
 
-			//this.$('.footer-default > .footer-content').empty();
-			//var linksView = new LinksView();
-			//this.$('.footer-default > .footer-content').append(linksView.render().el);
-			
-			//var appHomeView = new AppHomeView();
-			//appHomeView.render();
-
-			this.renderPageView(new HomePageView());
+			this.showPageView(new HomePageView());
 		},
 
 		/**
-		 * Render the application books page view.
+		 * Show books page.
 		 * @param author author name.
 		 * @param series series name.
 		 */
-		renderBooks: function(author, series) {
-
-			//this.$('.content-container').empty();
-
+		showBooksPage: function(author, series) {
 			this.setApplicationPageClass('books');
 
-			this.navBarView.setBreadcrumb({author: author, series: series});
-			//this.navBarView.searchBoxView.showSearchBox(false);
+			this.navBar.setBreadcrumb({author: author, series: series});
 
-			//this.$('.footer-default > .footer-content').empty();
-
-			//var appBooksView = new AppBooksView({author: author, series: series});
-			//appBooksView.render();
-
-			//this.appBooksView = new AppBooksView({author: author, series: series});
-			//this.appBooksView.render();
-
-			//this.pageView && this.pageView.remove();
-			//this.pageView = new AppBooksView({author: author, series: series});
-			//this.$('.content-container').html(this.pageView.render().el);
-
-			this.renderPageView(new BooksPageView({author: author, series: series}));
+			this.showPageView(new BooksPageView({author: author, series: series}));
 		},
 
 		/**
-		 * Render the application search page view.
+		 * Show search page.
 		 * @param keyword search keyword.
 		 */
-		renderSearch: function(keyword) {
-			this.$('.content-container').empty();
-
+		showSearchPage: function(keyword) {
 			this.setApplicationPageClass('search');
 
-			this.navBarView.setBreadcrumb({search: keyword});
-			//this.navBarView.searchBoxView.showSearchBox(true);
+			this.navBar.setBreadcrumb({search: keyword});
 
-			//var appSearchView = new AppSearchView({keyword: keyword});
-			//appSearchView.render();
-
-			this.renderPageView(new SearchPageView({keyword: keyword}));
+			this.showPageView(new SearchPageView({keyword: keyword}));
 		},
 
 		/**
-		 * Render the application book text page view.
+		 * Show book page.
 		 * @param author author name.
 		 * @param series series name.
 		 * @param book book file name.
 		 */
-		renderBookText: function(author, series, book) {
-			this.$('.content-container').empty();
-
+		showBookPage: function(author, series, book) {
 			this.setApplicationPageClass('book');
 
-			this.navBarView.setBreadcrumb({author: author, series: series});
-			this.navBarView.breadcrumbView.setAuthorActive(false);
-			this.navBarView.breadcrumbView.setSeriesActive(false);
-			//this.navBarView.searchBoxView.showSearchBox(false);
+			this.navBar.setBreadcrumb({author: author, series: series});
+			this.navBar.breadcrumbView.setAuthorActive(false);
+			this.navBar.breadcrumbView.setSeriesActive(false);
 
-			//var appBookTextView = new AppBookTextView({author: author, series: series, book: book});
-			//appBookTextView.render();
-
-			this.renderPageView(new BookPageView({author: author, series: series, book: book}));
+			this.showPageView(new BookPageView({author: author, series: series, book: book}));
 		},
 
 		/**
-		 * Set the application class for specified page.
+		 * Set the application page class.
 		 * @param page page class.
 		 */
 		setApplicationPageClass: function(page) {
@@ -170,6 +126,17 @@ function(
 			this.$el.removeClass(function(index, css) {
 				return (css.match(/application-\w*/g) || []).join(' ');
 			});
+		},
+		
+		/**
+		 * Remove the main application view.
+		 */
+		remove: function() {
+			this.navBar.remove();
+			this.page.remove();
+			this.footer.remove();
+
+			Backbone.View.prototype.remove().apply(this);
 		}
 	});
 	

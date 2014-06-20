@@ -6,28 +6,23 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'ebooklibrary/view/loadingpanel/LoadingPanelView',
-    'ebooklibrary/view/latestadditions/LatestAdditionsView',
-    'ebooklibrary/view/authors/AuthorsView',
-    'hbs!ebooklibrary/template/welcomepanel/WelcomePanelView',
-    'ebooklibrary/view/links/LinksView',
+    'ebooklibrary/view/well/loading/LoadingPanelView',
+    'ebooklibrary/view/well/latestadditions/LatestAdditionsView',
+    'ebooklibrary/view/panel/authors/AuthorsPanelView',
     'backbone'
 ],
 function(
-    LoadingPanelView,
-    LatestAdditionsView,
-    AuthorsView,
-    WelcomePanelViewTemplate,
-    LinksView,
+    LoadingWellView,
+    LatestAdditionsWellView,
+    AuthorsPanelView,
     Backbone
 ) {
-	var AppHomeView = Backbone.View.extend({
+	var HomePageView = Backbone.View.extend({
 		className: 'content-home',
-		//el: '.content-container',
 		
-		loadingPanelView: null,			// loading panel view
-		latestAdditionsView: null,		// latest additions view
-		authorsView: null,			// authors view
+		loading: null,			// loading well view
+		latestAdditions: null,		// latest additions well view
+		authors: null,			// authors panel view
 
 		/**
 		 * Initialise the application home page view.
@@ -36,12 +31,12 @@ function(
 		initialize: function(options) {
 			options = options || {};
 
-			this.loadingPanelView = new LoadingPanelView();
+			this.loading = new LoadingWellView();
 
-			this.latestAdditionsView = new LatestAdditionsView({max: options.max});
+			//this.latestAdditions = new LatestAdditionsWellView({max: options.max});
 
-			this.authorsView = new AuthorsView();
-			this.listenTo(this.authorsView.collection, 'sync', this.showAuthors);
+			this.authors = new AuthorsPanelView();
+			this.listenTo(this.authors.collection, 'sync', this.showAuthors);
 		},
 		
 		/**
@@ -49,22 +44,12 @@ function(
 		 * @return application home page view
 		 */
 		render: function() {
-			this.$el.append(this.loadingPanelView.render().el);
+			this.$el.append(this.loading.render().el);
 
-			this.$el.append(this.latestAdditionsView.render().el);
+			//this.$el.append(this.latestAdditions.render().el);
 
-			//this.authorsView.$el.hide();
-			this.$el.append(this.authorsView.render().el);
-
-			//this.$el.append('<div class="content-sidebar"/>');
-			//this.$('.content-sidebar').hide();
-
-			//var welcomePanelTmpl = WelcomePanelViewTemplate();
-			//this.$('.content-sidebar').append(welcomePanelTmpl);
-
-			//var linksView = new LinksView();
-			//this.$('.content-sidebar').append(linksPanelView.render().el);
-			//this.$el.append(linksView.render().el);
+			//this.authors.$el.hide();
+			this.$el.append(this.authors.render().el);
 
 			return this;
 		},
@@ -74,19 +59,18 @@ function(
 		 * @param collection author collection.
 		 */
 		showAuthors: function(collection) {
-			this.loadingPanelView.$el.fadeOut('slow');
-			//this.authorsView.$el.fadeIn('slow');
-			//this.$('.content-sidebar').fadeIn('slow');
+			this.loading.$el.fadeOut('slow');
+			//this.authors.$el.fadeIn('slow');
 		},
 
 		remove: function() {
-			this.loadingPanelView.remove();
-			//this.latestAdditionsView.remove();
-			this.authorsView.remove();
+			this.loading.remove();
+			//this.latestAdditions.remove();
+			this.authors.remove();
 
 			Backbone.View.prototype.remove.apply(this);
 		}
 	});
 	
-	return AppHomeView;
+	return HomePageView;
 });

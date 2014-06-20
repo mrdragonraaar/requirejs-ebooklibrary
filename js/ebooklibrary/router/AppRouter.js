@@ -7,12 +7,10 @@
  */
 define([
     'ebooklibrary/view/AppView',
-    'ebooklibrary/model/AppModel',
     'backbone'
 ],
 function(
     AppView,
-    AppModel,
     Backbone
 ) {
 	var AppRouter = Backbone.Router.extend({
@@ -31,7 +29,7 @@ function(
 		},
 		
 		/**
-		 * Initialise the main application routing.
+		 * Initialize the main application routing.
 		 */
 		initialize: function() {
 			AppView.render();
@@ -50,7 +48,7 @@ function(
 		 * Home page route.
 		 */
 		home: function() {
-			AppModel.setViewHome();
+			AppView.showHomePage();
 		},
 
 		/**
@@ -59,7 +57,7 @@ function(
 		 * @param series series name.
 		 */
 		books: function(author, series) {
-			AppModel.setViewBooks(author, series);
+			AppView.showBooksPage(author, series);
 		},
 
 		/**
@@ -67,17 +65,17 @@ function(
 		 * @param keyword search keyword.
 		 */
 		search: function(keyword) {
-			AppModel.setViewSearch(keyword);
+			AppView.showSearchPage(keyword);
 		},
 
 		/**
-		 * Book text page route.
+		 * Book page route.
 		 * @param author author name.
 		 * @param series series name.
 		 * @param book name.
 		 */
 		book: function(author, series, book) {
-			AppModel.setViewBookText(author, series, book);
+			AppView.showBookPage(author, series, book);
 		}
 	});
 	

@@ -6,7 +6,7 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'ebooklibrary/view/loadingpanel/LoadingPanelView',
+    'ebooklibrary/view/well/loading/LoadingPanelView',
     'ebooklibrary/view/well/series/SeriesWellView',
     'ebooklibrary/view/panel/books/BooksPanelView',
     'ebooklibrary/collection/SeriesCollection',
@@ -14,7 +14,7 @@ define([
     'backbone'
 ],
 function(
-    LoadingPanelView,
+    LoadingWellView,
     SeriesWellView,
     BooksPanelView,
     SeriesCollection,
@@ -23,7 +23,6 @@ function(
 ) {
 	var BooksPageView = Backbone.View.extend({
 		className: 'content-books',
-		//el: '.content-container',
 		
 		loading: null,		// loading well view
 		series: null,		// series well view
@@ -36,7 +35,7 @@ function(
 		initialize: function(options) {
 			options = options || {};
 
-			this.loading = new LoadingPanelView();
+			this.loading = new LoadingWellView();
 
 			var seriesCollection = new SeriesCollection([],
 			   {author: options.author, series: options.series});
@@ -85,6 +84,9 @@ function(
 			this.loading.$el.fadeOut('slow');
 		},
 
+		/**
+		 * Remove the application books page.
+		 */
 		remove: function() {
 			this.loading.remove();
 			this.series.remove();

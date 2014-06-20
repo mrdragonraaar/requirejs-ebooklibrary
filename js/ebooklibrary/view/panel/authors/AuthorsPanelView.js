@@ -8,12 +8,14 @@
 define([
     'hbs!ebooklibrary/template/authors/AuthorsView',
     'hbs!ebooklibrary/template/authors/AuthorListView',
+    'ebooklibrary/view/panel/authors/toolbar/AuthorsPanelNavToolBarView',
     'ebooklibrary/collection/AuthorCollection',
     'backbone'
 ],
 function(
     AuthorsViewTemplate,
     AuthorListViewTemplate,
+    AuthorsPanelNavToolBarView,
     AuthorCollection,
     Backbone
 ) {
@@ -21,11 +23,22 @@ function(
 		tagName: 'authors',
 		className: 'panel panel-authors',
 
+		toolBar: null,		// toolbar view
+
 		/**
 		 * Define authors filter event.
 		 */
 		events: {
-			'click .panel-heading > .list-group > .list-group-item > a': 'onFilterAuthorName',
+			'click > .panel-heading > .list-group > .list-group-item > a': 'onFilterAuthorName',
+		},
+
+		filterAuthors: function(letter) {
+			var collection = this.collection;
+			if (letter !== "all") {
+				var authors = this.collection.filterName(letter.toUpperCase());
+				collection = new AuthorCollection(authors);
+			}
+			this.renderAuthors(collection);
 		},
 
 		/**
@@ -52,7 +65,7 @@ function(
 		 * @return filter link
 		 */
 		getFilterLink: function(letter) {
-			return this.$('.panel-heading > .list-group > .list-group-item > a[title="' + letter + '"]');
+			return this.$('> .panel-heading > .list-group > .list-group-item > a[title="' + letter + '"]');
 		},
 
 		/**
@@ -93,6 +106,9 @@ function(
 			this.collection.fetch();
 
 			this.listenTo(this.collection, 'sync', this.renderAuthors);
+
+			this.toolBar = new AuthorsPanelNavToolBarView();
+			this.listenTo(this.toolBar, 'toolBarFilterBy', this.filterAuthors);
 		},
 
 		/**
@@ -101,7 +117,10 @@ function(
 		render: function() {
 			var authorsTmpl = AuthorsViewTemplate();
 			this.$el.html(authorsTmpl);
-			this.setActiveFilterLink('All');
+			//this.setActiveFilterLink('All');
+
+			this.$('.panel-heading').append(this.toolBar.render().el);
+
 			return this;
 		},
 
@@ -110,8 +129,18 @@ function(
 		 * @param collection author collection.
 		 */
 		renderAuthors: function(collection) {
+			this.$('.panel-body').empty();
 			var authorListTmpl = AuthorListViewTemplate({authors: collection.toJSON()});
 			this.$('.panel-body').html(authorListTmpl);
+		},
+
+		/**
+		 * Remove the authors panel view.
+		 */
+		remove: function() {
+			this.toolBar.remove();
+
+			Backbone.View.prototype.remove.apply(this);
 		}
 	});
 
