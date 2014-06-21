@@ -1,5 +1,5 @@
 /**
- * AppHomeView.js
+ * HomePageView.js
  *
  * Backbone view representing ebooklibrary application home page.
  *
@@ -33,7 +33,7 @@ function(
 
 			this.loading = new LoadingWellView();
 
-			//this.latestAdditions = new LatestAdditionsWellView({max: options.max});
+			this.latestAdditions = new LatestAdditionsWellView({max: options.max});
 
 			this.authors = new AuthorsPanelView();
 			this.listenTo(this.authors.collection, 'sync', this.showAuthors);
@@ -46,7 +46,7 @@ function(
 		render: function() {
 			this.$el.append(this.loading.render().el);
 
-			//this.$el.append(this.latestAdditions.render().el);
+			this.$el.append(this.latestAdditions.render().el);
 
 			//this.authors.$el.hide();
 			this.$el.append(this.authors.render().el);
@@ -65,7 +65,7 @@ function(
 
 		remove: function() {
 			this.loading.remove();
-			//this.latestAdditions.remove();
+			this.latestAdditions.remove();
 			this.authors.remove();
 
 			Backbone.View.prototype.remove.apply(this);

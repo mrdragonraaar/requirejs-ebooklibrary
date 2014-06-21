@@ -1,5 +1,5 @@
 /**
- * AppSearchView.js
+ * SearchPageView.js
  *
  * Backbone view representing ebooklibrary application search page.
  *
@@ -14,16 +14,16 @@ define([
 ],
 function(
     SearchPanelViewTemplate,
-    LoadingPanelView,
+    LoadingWellView,
     BooksPanelView,
     SearchCollection,
     Backbone
 ) {
-	var AppSearchView = Backbone.View.extend({
-		el: '.content-container',
+	var SearchPageView = Backbone.View.extend({
+		className: 'content-search',
 		
-		loadingPanelView: null,		// loading panel view
-		booksView: null,		// books view
+		loading: null,		// loading well view
+		books: null,		// books panel view
 
 		/**
 		 * Initialise the application search page view.
@@ -32,12 +32,14 @@ function(
 		initialize: function(options) {
 			options = options || {};
 
-			this.loadingPanelView = new LoadingPanelView();
+			this.loading = new LoadingWellView();
 
 			var searchCollection = new SearchCollection([], {keyword: options.keyword});
-			this.booksView = new BooksPanelView({collection: searchCollection});
-			this.listenTo(this.booksView.collection, 'sync', this.showBooks);
-			this.listenTo(this.booksView.collection, 'error', this.showBooks);
+			searchCollection.fetch({reset: true});
+
+			this.books = new BooksPanelView({collection: searchCollection});
+			this.listenTo(this.books.collection, 'reset', this.showBooks);
+			this.listenTo(this.books.collection, 'error', this.showBooks);
 		},
 		
 		/**
@@ -45,9 +47,8 @@ function(
 		 * @return application search page view
 		 */
 		render: function() {
-			this.$el.append(this.loadingPanelView.render().el);
-
-			this.$el.append(this.booksView.render().el);
+			this.$el.append(this.loading.render().el);
+			this.$el.append(this.books.render().el);
 
 			return this;
 		},
@@ -57,15 +58,25 @@ function(
 		 * @param collection books collection.
 		 */
 		showBooks: function(collection, resp) {
-			this.loadingPanelView.$el.fadeOut('slow');
+			this.loading.$el.fadeOut('slow');
 
-			if (!(resp instanceof Array) && resp.status !== 200)
-				collection.error = true;
+			//if (!(resp instanceof Array) && resp.status !== 200)
+				//collection.error = true;
 
-			var searchPanelTmpl = SearchPanelViewTemplate(collection);
-			this.$el.prepend(searchPanelTmpl);
+			//var searchPanelTmpl = SearchPanelViewTemplate(collection);
+			//this.$el.prepend(searchPanelTmpl);
+		},
+
+		/**
+		 * Remove the application search page.
+		 */
+		remove: function() {
+			this.loading.remove();
+			this.books.remove();
+
+			Backbone.View.prototype.remove.apply(this);
 		}
 	});
 	
-	return AppSearchView;
+	return SearchPageView;
 });

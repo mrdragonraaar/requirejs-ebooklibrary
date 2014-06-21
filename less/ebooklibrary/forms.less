@@ -5,6 +5,27 @@
 
 // Common form controls
 .form-control {
+	color: @input-color;
+	background-color: @input-bg;
+	border: 1px solid @input-border;
+
+	// Customize the `:focus` state to imitate native WebKit styles.
+	.form-control-focus();
+
+	// Placeholder
+	.placeholder();
+
+	// Disabled and read-only inputs
+	&[disabled],
+	&[readonly],
+	fieldset[disabled] & {
+		background-color: @input-bg-disabled;
+	}
+}
+
+
+/*
+.form-control {
 	font-size: @font-size-base;
 	line-height: @line-height-base;
 	color: @input-color;
@@ -25,4 +46,4 @@
 		background-color: @input-bg-disabled;
 	}
 }
-
+*/

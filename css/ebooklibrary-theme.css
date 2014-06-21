@@ -181,6 +181,55 @@ latestadditions {
     clear: left;
   }
 }
+.form-control {
+  color: #555555;
+  background-color: #ffffff;
+  border: 1px solid #b6b4a1;
+}
+.form-control:focus {
+  border-color: #382110;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(56, 33, 16, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(56, 33, 16, 0.6);
+}
+.form-control::-moz-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+.form-control:-ms-input-placeholder {
+  color: #999999;
+}
+.form-control::-webkit-input-placeholder {
+  color: #999999;
+}
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  background-color: #eeeeee;
+}
+/*
+.form-control {
+	font-size: @font-size-base;
+	line-height: @line-height-base;
+	color: @input-color;
+	background-color: @input-bg;
+	border: 1px solid @input-border;
+	border-radius: @input-border-radius;
+
+	// Customize the `:focus` state to imitate native WebKit styles.
+	.form-control-focus();
+
+	// Placeholder
+	.placeholder();
+
+	// Disabled and read-only inputs
+	&[disabled],
+	&[readonly],
+	fieldset[disabled] & {
+		background-color: @input-bg-disabled;
+	}
+}
+*/
 .btn-default {
   color: #382110;
   background-color: #e1ddc7;
@@ -258,6 +307,11 @@ fieldset[disabled] .btn-default.active {
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
   color: #999999;
+}
+.input-group-addon {
+  color: #555555;
+  background-color: #eeeeee;
+  border: 1px solid #b6b4a1;
 }
 .nav > li > a {
   cursor: pointer;
@@ -559,6 +613,56 @@ fieldset[disabled] .btn-default.active {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc8c6b0', endColorstr='#ffe1ddc7', GradientType=0);
   border-color: #bebba1;
   margin-bottom: 0px;
+  /*
+	// Form controls
+	.navbar-form {
+		border-color: @navbar-default-border;
+		border-bottom: none;
+		//margin-top: 0;
+		//margin-bottom: 0;
+
+		//display: block;
+		//padding: 0 5px;
+		//line-height: 50px;
+		//padding-top: 0;
+		//padding-bottom: 0;
+
+		.form-group {
+			//display: block;
+			//line-height: 50px;
+			//margin-right: -16px;
+
+			.icon-magnifier-left {
+				left: 28px;
+			}
+		}
+
+		.form-control {
+			border-color: @navbar-default-input-border;
+			border-radius: @navbar-default-input-border-radius;
+			//margin-bottom: 0;
+			//padding-left: 28px;
+		}
+
+		@media (max-width: @grid-float-breakpoint-max) {
+			//margin-top: 0;
+			//margin-bottom: 0;
+			//margin-right: 0;
+
+			.form-group {
+				//margin-bottom: 0;
+				.icon-magnifier-left {
+					top: -16px;
+					left: 26px;
+				}
+			}
+
+			.form-control {
+				//padding-left: 12px;
+			}
+		}
+	}
+*/
 }
 .navbar-default .navbar-brand {
   color: #777777;
@@ -596,6 +700,8 @@ fieldset[disabled] .btn-default.active {
   font-weight: 400;
   text-transform: uppercase;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   padding: 0 5px;
   line-height: 50px;
 }
@@ -653,19 +759,14 @@ fieldset[disabled] .btn-default.active {
 }
 .navbar-default .navbar-form {
   border-color: #bebba1;
-  border-bottom: none;
-}
-.navbar-default .navbar-form .form-group .icon-magnifier-left {
-  left: 28px;
-}
-.navbar-default .navbar-form .form-control {
-  border-color: #bebba1;
-  border-radius: 15px;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 @media (max-width: 767px) {
-  .navbar-default .navbar-form .form-group .icon-magnifier-left {
-    top: -16px;
-    left: 26px;
+  .navbar-default .navbar-form {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 .navbar-default .navbar-nav > .open > a,
@@ -1051,6 +1152,15 @@ a.thumbnail.thumbnail-book > img,
   .panel-books > .panel-body > .panel-content.panel-content-thumbnails > .panel-content-thumbnail > .thumbnail.thumbnail-book .book-title {
     font-size: 16px;
     line-height: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .panel-books > .panel-body > .panel-content.panel-content-details > .media > .pull-left {
+    float: none !important;
+  }
+  .panel-books > .panel-body > .panel-content.panel-content-details > .media > .pull-left > .thumbnail.thumbnail-book {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 .panel-default {

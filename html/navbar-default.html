@@ -6,7 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="/images/icons/fugue-icons/icons/e-book-reader-black.png"/>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/navbar-default.css" />
+<!-- link rel="stylesheet" type="text/css" href="/css/navbar-default.css" / -->
+<link rel="stylesheet" type="text/css" href="/css/ebooklibrary-theme.css" />
 <script src="/js/lib/jquery/jquery-1.11.0.min.js"></script>
 <script src="/js/lib/bootstrap/bootstrap.min.js"></script>
 </head>
@@ -36,6 +37,7 @@
         <li class="nav-series active">
 		<a href="#"><i class="icons-breadcrumb icon-series"></i>Sharpe</a>
 	</li>
+<!--
 	<li class="navbar-divider"></li>
         <li class="nav-book dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icons-breadcrumb icon-book"></i>Dropdown <b class="caret"></b></a>
@@ -49,18 +51,27 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-<!--
 -->
       </ul>
       <form class="navbar-form !navbar-left navbar-right" role="search">
         <div class="form-group">
 <!--
-	  <i class="icons-fugue icon-magnifier-left"></i>
 -->
-          <input type="text" class="form-control" placeholder="Search Books">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+	<div class="input-group" style="border-radius: 10px;">
+	  <span style="border-color: #b6b4a1; vertical-align: middle; border-top-left-radius: 7px; border-bottom-left-radius: 7px;" class="input-group-addon"><i style="margin-top: 1px; margin-right: -2px;" class="icons-fugue icon-magnifier-left"></i></span>
+	  </span>
+          <input style="border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-color: #b6b4a1; !border-color: #9b997f;" type="text" class="form-control" placeholder="Search Books">
 <!--
+	  <span class="input-group-btn !input-group-addon">
+		<button style="!border-top-right-radius: 10px; !border-bottom-right-radius: 10px;" class="btn btn-default" type="!submit button">
+			<i class="icons-fugue icon-magnifier-left"></i>
+		</button>
+	  </span>
+-->
+        </div>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
 -->
       </form>
 <!--
@@ -83,6 +94,9 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+
+
 <div id="content" class="container">
 <form role="form">
   <div class="form-group">

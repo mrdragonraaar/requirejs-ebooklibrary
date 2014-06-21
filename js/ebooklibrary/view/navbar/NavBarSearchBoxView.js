@@ -14,14 +14,17 @@ function(
     Backbone
 ) {
 	var NavBarSearchBoxView = Backbone.View.extend({
-		tagName: 'searchbox',
-		className: 'navbar-searchbox navbar-nav nav',
+		tagName: 'form',
+		className: 'navbar-form navbar-right navbar-form-searchbox',
+		//tagName: 'searchbox',
+		//className: 'navbar-searchbox navbar-nav nav',
 
 		/**
 		 * Define search box form events.
 		 */
 		events: {
-			'submit form': 'onSubmitSearch',
+			//'submit form': 'onSubmitSearch',
+			'submit': 'onSubmitSearch',
 			'focusin .input-search': 'onFocusInSearch',
 			'focusout .input-search': 'onFocusOutSearch',
 		},
@@ -44,11 +47,15 @@ function(
 		onSubmitSearch: function(e) {
 			e.preventDefault();
 
-			var searchVal = this.$('.input-search').val();
-			this.$('.input-search').val('');
-			this.$('.input-search').blur();
+			var searchVal = this.$('input[name = search]').val();
+			this.$('input[name = search]').val('');
+			this.$('input[name = search]').blur();
 
-			Backbone.history.navigate('#!/search/' + searchVal, true);
+			//var searchVal = this.$('.input-search').val();
+			//this.$('.input-search').val('');
+			//this.$('.input-search').blur();
+
+			Backbone.history.navigate('!/search/' + searchVal, true);
 		},
 
 		/**

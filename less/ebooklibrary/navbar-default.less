@@ -45,6 +45,8 @@
 			font-weight: 400;
 			text-transform: uppercase;
 			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 
 			padding: 0 5px;
 			line-height: 50px;
@@ -117,6 +119,19 @@
 	// Form controls
 	.navbar-form {
 		border-color: @navbar-default-border;
+		border: none;
+		.box-shadow(none);
+
+		@media (max-width: @grid-float-breakpoint-max) {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+/*
+	// Form controls
+	.navbar-form {
+		border-color: @navbar-default-border;
 		border-bottom: none;
 		//margin-top: 0;
 		//margin-bottom: 0;
@@ -162,6 +177,7 @@
 			}
 		}
 	}
+*/
 
 	// Dropdown menu items
 	.navbar-nav {

@@ -4,6 +4,18 @@
 	"description": "NavBar Breadcrumb View Template"
 }
 }}
+{{#exists search}}
+<li class="navbar-divider"></li>
+<li class="nav-search{{#unless search}} active{{/unless}}">
+	<a title="Search" href="/library/#!/search"><i class="icons-breadcrumb icon-search"/>Search</a>
+</li>
+{{/exists}}
+{{#if search}}
+<li class="navbar-divider"></li>
+<li class="nav-search-keyword active">
+	<a title="Search {{search}}" href="/library/#!/search/{{search}}">{{search}}</a>
+</li>
+{{/if}}
 {{#if author}}
 <li class="navbar-divider"></li>
 <li class="nav-author{{#unless series}} active{{/unless}}">
@@ -21,8 +33,8 @@
 	<a href="/library/#!/home"><i class="logo-ebooklibrary"></i></a>
 </li>
 {{#exists search}}
+<span class="navbar-divider"></span>
 <li class="nav-search active">
-	<span class="nav-divider"></span>
 	<a title="Search" href="/library/#!/search"><i class="icons-breadcrumb icon-search"/>Search</a>
 </li>
 {{/exists}}

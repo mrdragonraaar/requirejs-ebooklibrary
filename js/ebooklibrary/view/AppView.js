@@ -65,6 +65,7 @@ function(
 			this.setApplicationPageClass('home');
 
 			this.navBar.setBreadcrumb();
+			this.navBar.searchBoxView.$el.show();
 
 			this.showPageView(new HomePageView());
 		},
@@ -78,6 +79,7 @@ function(
 			this.setApplicationPageClass('books');
 
 			this.navBar.setBreadcrumb({author: author, series: series});
+			this.navBar.searchBoxView.$el.hide();
 
 			this.showPageView(new BooksPageView({author: author, series: series}));
 		},
@@ -89,7 +91,9 @@ function(
 		showSearchPage: function(keyword) {
 			this.setApplicationPageClass('search');
 
+			keyword = keyword || '';
 			this.navBar.setBreadcrumb({search: keyword});
+			this.navBar.searchBoxView.$el.hide();
 
 			this.showPageView(new SearchPageView({keyword: keyword}));
 		},

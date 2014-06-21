@@ -4,7 +4,20 @@
 	"description": "NavBar Search Box View Template"
 }
 }}
-<form class="form-search">
-	<input class="input-search" type="text" value="" placeholder="Search Books"/>
-	<i class="icons-fugue icon-magnifier-left"/>
+<!--
+<form class="navbar-form navbar-right form-search">
+-->
+	<div class="form-group">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="icons-fugue icon-magnifier-left"/></span>
+<!--
+			<span class="input-group-btn">
+				<button class="btn btn-default"><i class="icons-fugue icon-magnifier-left"/></button>
+			</span>
+-->
+			<input class="form-control" name="search" type="text" value="" placeholder="Search Books"/>
+		</div>
+	</div>
+<!--
 </form>
+-->

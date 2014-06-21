@@ -32,7 +32,7 @@ function(
 			options = options || {};
 
 			this.breadcrumbView = new NavBarBreadcrumbView();
-			//this.searchBoxView = new NavBarSearchBoxView();
+			this.searchBoxView = new NavBarSearchBoxView();
 		},
 
 		/**
@@ -47,6 +47,7 @@ function(
 			this.$('.navbar-collapse').prepend(this.breadcrumbView.render().el);
 
 			//this.$('.container-fluid').append(this.searchBoxView.render().el);
+			this.$('.navbar-collapse').append(this.searchBoxView.render().el);
 
 			return this;
 		},

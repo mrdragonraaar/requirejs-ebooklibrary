@@ -219,6 +219,17 @@
 			}
 
 			&.panel-content-details {
+				> .media > .pull-left {
+					//@media (max-width: (@screen-xs-min - 1)) {
+					@media (max-width: @screen-xs-max) {
+						float: none !important;
+						> .thumbnail.thumbnail-book {
+						//> .thumbnail {
+							margin-left: 0;
+							margin-right: 0;
+						}
+					}
+				}
 			}
 
 			&.panel-content-list {
