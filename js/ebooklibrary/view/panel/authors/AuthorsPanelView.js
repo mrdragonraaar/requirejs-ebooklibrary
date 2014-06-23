@@ -6,20 +6,20 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'hbs!ebooklibrary/template/authors/AuthorsView',
-    'hbs!ebooklibrary/template/authors/AuthorListView',
+    'hbs!ebooklibrary/template/panel/authors/AuthorsPanel',
+    'hbs!ebooklibrary/template/panel/authors/AuthorsPanelList',
     'ebooklibrary/view/panel/authors/toolbar/AuthorsPanelNavToolBarView',
     'ebooklibrary/collection/AuthorCollection',
     'backbone'
 ],
 function(
-    AuthorsViewTemplate,
-    AuthorListViewTemplate,
+    AuthorsPanelTemplate,
+    AuthorsPanelListTemplate,
     AuthorsPanelNavToolBarView,
     AuthorCollection,
     Backbone
 ) {
-	var AuthorsView = Backbone.View.extend({
+	var AuthorsPanelView = Backbone.View.extend({
 		tagName: 'authors',
 		className: 'panel panel-authors',
 
@@ -115,8 +115,8 @@ function(
 		 * Render the authors view.
 		 */
 		render: function() {
-			var authorsTmpl = AuthorsViewTemplate();
-			this.$el.html(authorsTmpl);
+			var authorsPanelTmpl = AuthorsPanelTemplate();
+			this.$el.html(authorsPanelTmpl);
 			//this.setActiveFilterLink('All');
 
 			this.$('.panel-heading').append(this.toolBar.render().el);
@@ -130,8 +130,8 @@ function(
 		 */
 		renderAuthors: function(collection) {
 			this.$('.panel-body').empty();
-			var authorListTmpl = AuthorListViewTemplate({authors: collection.toJSON()});
-			this.$('.panel-body').html(authorListTmpl);
+			var authorsPanelListTmpl = AuthorsPanelListTemplate({authors: collection.toJSON()});
+			this.$('.panel-body').html(authorsPanelListTmpl);
 		},
 
 		/**
@@ -144,5 +144,5 @@ function(
 		}
 	});
 
-	return AuthorsView;
+	return AuthorsPanelView;
 });

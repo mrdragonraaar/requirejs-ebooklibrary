@@ -36,7 +36,7 @@
 		margin-bottom: 0;
 
 		> li.navbar-divider {
-			.icon-base(26px, 50px, '../images/navbar/divider.png');
+			.icon-base(@navbar-default-divider-width, @navbar-default-divider-height, @navbar-default-divider-image);
 		}
 
 		> li > a {
@@ -47,6 +47,7 @@
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			//opacity: 0.5;
 
 			padding: 0 5px;
 			line-height: 50px;
@@ -56,6 +57,7 @@
 				color: @navbar-default-link-hover-color;
 				background-color: @navbar-default-link-hover-bg;
 				outline: none;
+				//opacity: 1;
 			}
 			> .icons-breadcrumb {
 				margin-right: 5px;
@@ -67,6 +69,7 @@
 			&:focus {
 				color: @navbar-default-link-active-color;
 				background-color: @navbar-default-link-active-bg;
+				//opacity: 1;
 			}
 		}
 		> .disabled > a {
@@ -121,6 +124,60 @@
 		border-color: @navbar-default-border;
 		border: none;
 		.box-shadow(none);
+
+		.form-group {
+/*
+			position: relative;
+
+			.icons-fugue {
+				z-index: 10;
+				position: relative;
+				right: 5px;
+			}
+*/
+
+			.form-control {
+				border-radius: 15px;
+				//@color-rgba-fish: rgba(red(#e1ddc7), green(#e1ddc7), blue(#e1ddc7), 0.6);
+				@color-rgba-fish: rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), 0.6);
+				//@color-rgba-fish: rgba(red(@input-border), green(@input-border), blue(@input-border), 0.6);
+				.box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 3px @{color-rgba-fish}");
+				//.box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0,.3)");
+				.form-control-focus();
+			//margin-right: -20px;
+			}
+
+			.input-group {
+				.input-group-addon {
+					border-radius: 15px;
+				@color-rgba-fish: rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), 0.6);
+				//@color-rgba-fish: rgba(red(@input-border), green(@input-border), blue(@input-border), 0.6);
+				.box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 3px @{color-rgba-fish}");
+				//.box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0,.3)");
+				}
+
+				.form-control,
+				.input-group-addon {
+					&:first-child {
+						.border-right-radius(0);
+					}
+
+					&:last-child {
+						.border-left-radius(0);
+					}
+				}
+
+				.input-group-addon:first-child {
+					border-right: 0;
+				}
+
+				.input-group-addon:last-child {
+					border-left: 0;
+				}
+			}
+		}
+/*
+*/
 
 		@media (max-width: @grid-float-breakpoint-max) {
 			margin-top: 0;

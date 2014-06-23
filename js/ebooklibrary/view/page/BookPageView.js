@@ -16,7 +16,7 @@ function(
     Backbone
 ) {
 	var AppBookTextView = Backbone.View.extend({
-		el: '.content-container',
+		className: 'content-book',
 		
 		loadingPanelView: null,		// loading panel view
 		bookTextPanelView: null,	// book text panel view

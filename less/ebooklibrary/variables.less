@@ -56,6 +56,22 @@
 @gradient-stop-percent:		100%;
 
 
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+@heading-author-font-size:	@font-size-base;
+@heading-author-font-weight:	500;
+@heading-author-line-height:	@line-height-computed;
+@heading-author-color:		@brand-secondary;
+
+@heading-title-font-size:	@font-size-large;
+@heading-title-font-weight:	300;
+//@heading-title-line-height:	@line-height-large;
+@heading-title-line-height:	1.22;
+@heading-title-color:		@brand-primary;
+
+
 //== Full height
 //
 //## Settings for margin and padding to allow full height display.
@@ -145,8 +161,8 @@
 @input-bg-disabled:			@gray-lighter;
 
 //** Text color for `<input>`s
-@input-color:				@gray;
-//@input-color:				lighten(@brand-primary, 15%);
+//@input-color:				@gray;
+@input-color:				lighten(@brand-primary, 15%);
 //** `<input>` border color
 //@input-border:				#ccc;
 @input-border:				#b6b4a1;
@@ -156,17 +172,19 @@
 //@input-border-focus:			#66afe9;
 //@input-border-focus:			@brand-tertiary;
 //@input-border-focus:			lighten(@brand-tertiary, 20%);
-//@input-border-focus:			@brand-secondary;
-@input-border-focus:			@brand-primary;
+@input-border-focus:			@brand-secondary;
+//@input-border-focus:			@brand-primary;
 
 //** Placeholder text color
-@input-color-placeholder:		@gray-light;
+//@input-color-placeholder:		@gray-light;
+@input-color-placeholder:		@brand-secondary;
 
 @legend-color:				@gray-dark;
 @legend-border-color:			#e5e5e5;
 
 //** Background color for textual input addons
-@input-group-addon-bg:			@gray-lighter;
+//@input-group-addon-bg:			@gray-lighter;
+@input-group-addon-bg:			#e1ddc7;
 //** Border color for textual input addons
 @input-group-addon-border-color:	@input-border;
 
@@ -301,6 +319,7 @@
 // Navbar links
 @navbar-default-link-font-size:		@font-size-large;
 @navbar-default-link-color:		@gray-medium;
+//@navbar-default-link-color:		@brand-secondary;
 //@navbar-default-link-color:		#777;
 //@navbar-default-link-color:		#660;
 @navbar-default-link-hover-color:	@navbar-default-color;
@@ -315,6 +334,14 @@
 @navbar-default-brand-color:		@navbar-default-link-color;
 @navbar-default-brand-hover-color:	darken(@navbar-default-brand-color, 10%);
 @navbar-default-brand-hover-bg:		transparent;
+
+// Navbar dividers
+@navbar-default-divider-width:		26px;
+@navbar-default-divider-height:		50px;
+@navbar-default-divider-image-path:	"@{images-path}/navbar";
+@navbar-default-divider-gray-image:	"@{navbar-default-divider-image-path}/divider-gray.png";
+@navbar-default-divider-green-image:	"@{navbar-default-divider-image-path}/divider-green.png";
+@navbar-default-divider-image:		@navbar-default-divider-gray-image;
 
 // Navbar toggle
 @navbar-default-toggle-bg:			@btn-default-bg;
