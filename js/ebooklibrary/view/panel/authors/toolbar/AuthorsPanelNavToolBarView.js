@@ -6,7 +6,7 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'base/view/toolbar/NavToolBarView',
+    'ebooklibrary/view/toolbar/NavToolBarView',
     'hbs!ebooklibrary/template/panel/authors/toolbar/AuthorsPanelNavToolBar',
     'backbone',
     'bootstrap'

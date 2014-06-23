@@ -238,6 +238,132 @@
 	}
 }
 
+.books-list {
+	height: @well-latestadditions-thumbnail-height;
+	//overflow-x: hidden;
+	//display: table;
+	width: 100%;
+
+	> .books-list-prev {
+		float: left;
+		display: block;
+		width: 5%;
+/*
+		display: inline-block;
+		width: 20px;
+*/
+		//display: table-cell;
+		height: @well-latestadditions-thumbnail-height;
+		line-height: @well-latestadditions-thumbnail-height;
+		vertical-align: middle;
+		text-align: center;
+		background-color: #777;
+	}
+
+	> .books-list-next {
+		float: left;
+		display: block;
+		width: 5%;
+/*
+		display: inline-block;
+		width: 20px;
+*/
+		//display: table-cell;
+		height: @well-latestadditions-thumbnail-height;
+		line-height: @well-latestadditions-thumbnail-height;
+		vertical-align: middle;
+		text-align: center;
+		background-color: #777;
+	}
+
+	> .books-list-container {
+		float: left;
+		width: 86%;
+		margin-left: 2%;
+		margin-right: 2%;
+/*
+		display: inline-block;
+		width: 100%;
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 40px;
+		padding-right: 40px;
+*/
+		//display: table-cell;
+		height: @well-latestadditions-thumbnail-height;
+		overflow-x: hidden;
+	}
+
+	.books-list-items {
+		list-style: none;
+		padding: 0;
+		width: 1518px;
+		height: @well-latestadditions-thumbnail-height;
+		overflow-y: hidden;
+		margin: 0;
+		margin-right: -19px;
+		transition: all 0.2s ease 0s;
+
+		> li {
+			float: left;
+			width: @well-latestadditions-thumbnail-width;
+			margin-right: 19px;
+
+			> a.thumbnail {
+				width: @well-latestadditions-thumbnail-width;
+				height: @well-latestadditions-thumbnail-height;
+				opacity: 0.6;
+				margin-bottom: 0;
+
+				&:hover,
+				&:focus,
+				&.active {
+					opacity: 1;
+				}
+
+				> img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+
+// Latest additions panel
+.panel-latestadditions {
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
+	.box-shadow(none);
+	margin-top: -10px;
+	margin-bottom: -15px;
+
+	> .panel-heading {
+		border-radius: 0;
+		padding-left: 0;
+		padding-right: 0;
+		line-height: @panel-latestadditions-heading-line-height;
+		border-color: @panel-latestadditions-border;
+
+		> .panel-title {
+			font-size: @panel-latestadditions-title-font-size;
+			font-weight: 300;
+			text-transform: uppercase;
+			white-space: nowrap;
+
+			> a {
+				text-decoration: none;
+			}
+		}
+	}
+
+	> .panel-body {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
 
 // Default panel
 .panel-default {
@@ -390,6 +516,7 @@
 
 		> .list-default {
 			padding-left: 0;
+			padding-right: 0;
 			margin: 0;
 
 			> li {
@@ -424,6 +551,8 @@
 
 	@media (max-width: (@screen-xs-min - 1)) {
 		> .panel-body {
+			padding-right: 0;
+
 			> .list-default {
 				> li {
 					float: none;

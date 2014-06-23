@@ -7,13 +7,13 @@
  */
 define([
     'ebooklibrary/view/well/loading/LoadingPanelView',
-    'ebooklibrary/view/well/latestadditions/LatestAdditionsView',
+    'ebooklibrary/view/header/HeaderView',
     'ebooklibrary/view/panel/authors/AuthorsPanelView',
     'backbone'
 ],
 function(
     LoadingWellView,
-    LatestAdditionsWellView,
+    HeaderView,
     AuthorsPanelView,
     Backbone
 ) {
@@ -21,7 +21,7 @@ function(
 		className: 'content-home',
 		
 		loading: null,			// loading well view
-		latestAdditions: null,		// latest additions well view
+		header: null,			// header view
 		authors: null,			// authors panel view
 
 		/**
@@ -33,7 +33,7 @@ function(
 
 			this.loading = new LoadingWellView();
 
-			this.latestAdditions = new LatestAdditionsWellView({max: options.max});
+			this.header = new HeaderView();
 
 			this.authors = new AuthorsPanelView();
 			this.listenTo(this.authors.collection, 'sync', this.showAuthors);
@@ -46,7 +46,7 @@ function(
 		render: function() {
 			this.$el.append(this.loading.render().el);
 
-			this.$el.append(this.latestAdditions.render().el);
+			this.$el.append(this.header.render().el);
 
 			//this.authors.$el.hide();
 			this.$el.append(this.authors.render().el);
@@ -65,7 +65,7 @@ function(
 
 		remove: function() {
 			this.loading.remove();
-			this.latestAdditions.remove();
+			this.header.remove();
 			this.authors.remove();
 
 			Backbone.View.prototype.remove.apply(this);

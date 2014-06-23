@@ -1,0 +1,9 @@
+{{!
+{
+	"name": "BooksListItems",
+	"description": "Books List Items Template"
+}
+}}
+{{#each books}}
+	<li><a class="thumbnail" title="{{fileInfo.name}}" href="{{href}}"><img src="{{bookInfo.cover}}"/></a></li>
+{{/each}}
