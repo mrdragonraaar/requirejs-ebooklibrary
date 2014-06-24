@@ -238,8 +238,28 @@
 	}
 }
 
+/*
+.scrollable-list {
+	width: 100%;
+
+	> .scrollable-list-previous,
+	> .scrollable-list-next {
+		float: left;
+		display: block;
+		width: 5%;
+		height: @scrollable-list-item-height;
+		line-height: @scrollable-list-item-height;
+		vertical-align: middle;
+		text-align: center;
+		color: @scrollable-list-nav-text;
+		background-color: @scrollable-list-nav-bg;
+		border: 1px solid @scrollable-list-nav-border;
+	}
+}
+*/
+
 .books-list {
-	height: @well-latestadditions-thumbnail-height;
+	//height: @well-latestadditions-thumbnail-height;
 	//overflow-x: hidden;
 	//display: table;
 	width: 100%;
@@ -302,7 +322,7 @@
 		}
 	}
 
-	> .books-list-container {
+	> .books-list-viewport {
 		float: left;
 		width: 86%;
 		margin-left: 2%;
@@ -329,7 +349,7 @@
 			width: 7%;
 		}
 
-		> .books-list-container {
+		> .books-list-viewport {
 			width: 80%;
 			margin-left: 3%;
 			margin-right: 3%;
@@ -345,7 +365,7 @@
 			width: 12%;
 		}
 
-		> .books-list-container {
+		> .books-list-viewport {
 			width: 68%;
 			margin-left: 4%;
 			margin-right: 4%;
@@ -355,9 +375,9 @@
 	.books-list-items {
 		list-style: none;
 		padding: 0;
-		width: 1518px;
-		height: @well-latestadditions-thumbnail-height;
-		overflow-y: hidden;
+		width: 9999px;
+		//height: @well-latestadditions-thumbnail-height;
+		//overflow-y: hidden;
 		margin: 0;
 		margin-right: -19px;
 		transition: all 0.2s ease 0s;
@@ -508,15 +528,21 @@
 		padding-right: 0;
 
 		> .panel-nav {
+			display: table;
 			width: 100%;
 			margin-left: 0;
 			margin-right: 0;
 
 			> li {
-				width: percentage(1/27);
+				//width: percentage(1/27);
+				display: table-cell;
+				min-width: 20px;
+				float: none;
 
 				> a {
-					color: initial;
+					display: block;
+					//color: initial;
+					color: @brand-tertiary;
 					text-align: center;
 					padding-left: 0;
 					padding-right: 0;
@@ -599,7 +625,10 @@
 			border-right: 1px solid @panel-authors-heading-border;
 
 			> .panel-nav {
+				display: block;
+
 				> li {
+					display: block;
 					float: none;
 					width: 58px;
 				}

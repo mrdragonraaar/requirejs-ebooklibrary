@@ -1232,8 +1232,26 @@ a.thumbnail.thumbnail-book > img,
     margin-right: 0;
   }
 }
+/*
+.scrollable-list {
+	width: 100%;
+
+	> .scrollable-list-previous,
+	> .scrollable-list-next {
+		float: left;
+		display: block;
+		width: 5%;
+		height: @scrollable-list-item-height;
+		line-height: @scrollable-list-item-height;
+		vertical-align: middle;
+		text-align: center;
+		color: @scrollable-list-nav-text;
+		background-color: @scrollable-list-nav-bg;
+		border: 1px solid @scrollable-list-nav-border;
+	}
+}
+*/
 .books-list {
-  height: 180px;
   width: 100%;
 }
 .books-list > .books-list-prev {
@@ -1286,7 +1304,7 @@ a.thumbnail.thumbnail-book > img,
   background-position: 0 30px;
   vertical-align: middle;
 }
-.books-list > .books-list-container {
+.books-list > .books-list-viewport {
   float: left;
   width: 86%;
   margin-left: 2%;
@@ -1309,7 +1327,7 @@ a.thumbnail.thumbnail-book > img,
   .books-list > .books-list-next {
     width: 7%;
   }
-  .books-list > .books-list-container {
+  .books-list > .books-list-viewport {
     width: 80%;
     margin-left: 3%;
     margin-right: 3%;
@@ -1322,7 +1340,7 @@ a.thumbnail.thumbnail-book > img,
   .books-list > .books-list-next {
     width: 12%;
   }
-  .books-list > .books-list-container {
+  .books-list > .books-list-viewport {
     width: 68%;
     margin-left: 4%;
     margin-right: 4%;
@@ -1331,9 +1349,7 @@ a.thumbnail.thumbnail-book > img,
 .books-list .books-list-items {
   list-style: none;
   padding: 0;
-  width: 1518px;
-  height: 180px;
-  overflow-y: hidden;
+  width: 9999px;
   margin: 0;
   margin-right: -19px;
   transition: all 0.2s ease 0s;
@@ -1550,15 +1566,19 @@ a.thumbnail.thumbnail-book > img,
 */
 }
 .panel-authors > .panel-heading > .panel-nav {
+  display: table;
   width: 100%;
   margin-left: 0;
   margin-right: 0;
 }
 .panel-authors > .panel-heading > .panel-nav > li {
-  width: 3.7037037%;
+  display: table-cell;
+  min-width: 20px;
+  float: none;
 }
 .panel-authors > .panel-heading > .panel-nav > li > a {
-  color: initial;
+  display: block;
+  color: #215625;
   text-align: center;
   padding-left: 0;
   padding-right: 0;
@@ -1599,7 +1619,11 @@ a.thumbnail.thumbnail-book > img,
     border-bottom: none;
     border-right: 1px solid #e1dcc8;
   }
+  .panel-authors > .panel-heading > .panel-nav {
+    display: block;
+  }
   .panel-authors > .panel-heading > .panel-nav > li {
+    display: block;
     float: none;
     width: 58px;
   }
