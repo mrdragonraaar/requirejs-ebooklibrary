@@ -7,13 +7,13 @@
  */
 define([
     'hbs!ebooklibrary/template/panel/latestadditions/LatestAdditionsPanel',
-    'ebooklibrary/view/list/BooksListView',
+    'ebooklibrary/view/list/ScrollableBooksListView',
     'ebooklibrary/collection/LatestAdditionsCollection',
     'backbone'
 ],
 function(
     LatestAdditionsPanelTemplate,
-    BooksListView,
+    ScrollableBooksListView,
     LatestAdditionsCollection,
     Backbone
 ) {
@@ -34,7 +34,7 @@ function(
 			   {max: options.max});
 			latestAdditionsCollection.fetch({reset: true});
 
-			this.booksList = new BooksListView({collection: latestAdditionsCollection});
+			this.booksList = new ScrollableBooksListView({collection: latestAdditionsCollection});
 		},
 
 		/**

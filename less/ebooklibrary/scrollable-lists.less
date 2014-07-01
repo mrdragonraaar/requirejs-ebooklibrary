@@ -1,0 +1,119 @@
+//
+// Scrollable Lists
+// --------------------------------------------------
+
+
+// Base class
+//
+
+.scrollable-list {
+	display: block;
+	width: 100%;
+
+	// Prevent floats from breaking the scrollable-list
+	&:extend(.clearfix all);
+
+}
+
+
+// Previous / next button links
+//
+
+.scrollable-list-previous,
+.scrollable-list-next {
+	float: left;
+	display: block;
+	width: 5%;
+	height: @scrollable-list-item-height + 2;	// height + border
+	line-height: @scrollable-list-item-height;
+	vertical-align: middle;
+	text-align: center;
+	color: @scrollable-list-nav-color;
+	border: 1px solid transparent;
+	border-color: @scrollable-list-nav-border;
+	border-radius: @scrollable-list-nav-border-radius;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		color: @scrollable-list-nav-hover-color;
+		background-color: @scrollable-list-nav-hover-bg;
+	}
+
+	&.disabled {
+		color: @scrollable-list-nav-disabled-color;
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+			background-color: transparent;
+			cursor: not-allowed;
+		}
+	}
+
+	@media (max-width: @grid-float-breakpoint-max) {
+		width: 7%;
+	}
+
+	@media (max-width: (@screen-xs-min - 1)) {
+		width: 12%;
+	}
+}
+
+
+// Viewport
+//
+
+.scrollable-list-viewport {
+	float: left;
+	display: block;
+	width: 86%;
+	margin-left: 2%;
+	margin-right: 2%;
+	line-height: @scrollable-list-item-height;
+	border: 1px solid transparent;
+	border-color: @scrollable-list-viewport-border;
+	overflow-x: hidden;
+
+	> ul {
+		list-style: none;
+		padding-left: 0;
+		margin-bottom: 0;
+		margin-right: -@scrollable-list-item-margin;
+		width: 9999px;
+		transition: all 0.2s ease 0s;
+
+		> li {
+			float: left;
+			height: @scrollable-list-item-height;
+			width: @scrollable-list-item-width;
+			margin-right: @scrollable-list-item-margin;
+		}
+	}
+
+	@media (max-width: @grid-float-breakpoint-max) {
+		width: 80%;
+		margin-left: 3%;
+		margin-right: 3%;
+	}
+
+	@media (max-width: (@screen-xs-min - 1)) {
+		width: 68%;
+		margin-left: 4%;
+		margin-right: 4%;
+	}
+}
+
+
+// Remove thumbnail margin and set to list item width / height.
+.scrollable-list-viewport > ul > li > .thumbnail {
+	margin-bottom: 0;
+	height: @scrollable-list-item-height;
+	width: @scrollable-list-item-width;
+
+	> img {
+		width: 100%;
+		height: 100%;
+	}
+}

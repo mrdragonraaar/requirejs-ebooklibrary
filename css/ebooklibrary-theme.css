@@ -1040,6 +1040,105 @@ a.thumbnail.thumbnail-book > img,
   border-radius: 2px 3px 3px 2px;
   border-left: 1px solid #999;
 }
+.scrollable-list {
+  display: block;
+  width: 100%;
+}
+.scrollable-list-previous,
+.scrollable-list-next {
+  float: left;
+  display: block;
+  width: 5%;
+  height: 182px;
+  line-height: 180px;
+  vertical-align: middle;
+  text-align: center;
+  color: #555555;
+  border: 1px solid transparent;
+  border-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.scrollable-list-previous:hover,
+.scrollable-list-next:hover,
+.scrollable-list-previous:focus,
+.scrollable-list-next:focus {
+  text-decoration: none;
+  color: #494949;
+  background-color: #eeeeee;
+}
+.scrollable-list-previous.disabled,
+.scrollable-list-next.disabled {
+  color: #777777;
+}
+.scrollable-list-previous.disabled:hover,
+.scrollable-list-next.disabled:hover,
+.scrollable-list-previous.disabled:focus,
+.scrollable-list-next.disabled:focus {
+  text-decoration: none;
+  background-color: transparent;
+  cursor: not-allowed;
+}
+@media (max-width: 767px) {
+  .scrollable-list-previous,
+  .scrollable-list-next {
+    width: 7%;
+  }
+}
+@media (max-width: 479px) {
+  .scrollable-list-previous,
+  .scrollable-list-next {
+    width: 12%;
+  }
+}
+.scrollable-list-viewport {
+  float: left;
+  display: block;
+  width: 86%;
+  margin-left: 2%;
+  margin-right: 2%;
+  line-height: 180px;
+  border: 1px solid transparent;
+  border-color: transparent;
+  overflow-x: hidden;
+}
+.scrollable-list-viewport > ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  margin-right: -19px;
+  width: 9999px;
+  transition: all 0.2s ease 0s;
+}
+.scrollable-list-viewport > ul > li {
+  float: left;
+  height: 180px;
+  width: 135px;
+  margin-right: 19px;
+}
+@media (max-width: 767px) {
+  .scrollable-list-viewport {
+    width: 80%;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+}
+@media (max-width: 479px) {
+  .scrollable-list-viewport {
+    width: 68%;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+}
+.scrollable-list-viewport > ul > li > .thumbnail {
+  margin-bottom: 0;
+  height: 180px;
+  width: 135px;
+}
+.scrollable-list-viewport > ul > li > .thumbnail > img {
+  width: 100%;
+  height: 100%;
+}
 .panel-heading {
   line-height: 20px;
 }
@@ -1240,28 +1339,26 @@ a.thumbnail.thumbnail-book > img,
   }
 }
 /*
-.scrollable-list {
-	width: 100%;
 
-	> .scrollable-list-previous,
-	> .scrollable-list-next {
-		float: left;
-		display: block;
-		width: 5%;
-		height: @scrollable-list-item-height;
-		line-height: @scrollable-list-item-height;
-		vertical-align: middle;
-		text-align: center;
-		color: @scrollable-list-nav-text;
-		background-color: @scrollable-list-nav-bg;
-		border: 1px solid @scrollable-list-nav-border;
+.books-list {
+	.books-list-items {
+		a.thumbnail {
+			margin-bottom: 0;
+			height: @scrollable-list-item-height;
+			width: @scrollable-list-item-width;
+
+			> img {
+				width: 100%;
+				height: 100%;
+			}
+		}
 	}
 }
 */
-.books-list {
+.books-list2 {
   width: 100%;
 }
-.books-list > .books-list-prev {
+.books-list2 > .books-list-prev {
   float: left;
   display: block;
   width: 5%;
@@ -1279,7 +1376,7 @@ a.thumbnail.thumbnail-book > img,
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.books-list > .books-list-prev > .icons-nav-left {
+.books-list2 > .books-list-prev > .icons-nav-left {
   display: inline-block;
   background-image: url('/images/icons/nav/nav.png');
   width: 30px;
@@ -1287,7 +1384,7 @@ a.thumbnail.thumbnail-book > img,
   background-position: 0 0;
   vertical-align: middle;
 }
-.books-list > .books-list-next {
+.books-list2 > .books-list-next {
   float: left;
   display: block;
   width: 5%;
@@ -1305,7 +1402,7 @@ a.thumbnail.thumbnail-book > img,
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.books-list > .books-list-next > .icons-nav-right {
+.books-list2 > .books-list-next > .icons-nav-right {
   display: inline-block;
   background-image: url(/images/icons/nav/nav.png);
   width: 30px;
@@ -1313,7 +1410,7 @@ a.thumbnail.thumbnail-book > img,
   background-position: 0 30px;
   vertical-align: middle;
 }
-.books-list > .books-list-viewport {
+.books-list2 > .books-list-viewport {
   float: left;
   width: 86%;
   margin-left: 2%;
@@ -1331,32 +1428,32 @@ a.thumbnail.thumbnail-book > img,
   overflow-x: hidden;
 }
 @media (max-width: 767px) {
-  .books-list > .books-list-prev {
+  .books-list2 > .books-list-prev {
     width: 7%;
   }
-  .books-list > .books-list-next {
+  .books-list2 > .books-list-next {
     width: 7%;
   }
-  .books-list > .books-list-viewport {
+  .books-list2 > .books-list-viewport {
     width: 80%;
     margin-left: 3%;
     margin-right: 3%;
   }
 }
 @media (max-width: 479px) {
-  .books-list > .books-list-prev {
+  .books-list2 > .books-list-prev {
     width: 12%;
   }
-  .books-list > .books-list-next {
+  .books-list2 > .books-list-next {
     width: 12%;
   }
-  .books-list > .books-list-viewport {
+  .books-list2 > .books-list-viewport {
     width: 68%;
     margin-left: 4%;
     margin-right: 4%;
   }
 }
-.books-list .books-list-items {
+.books-list2 .books-list-items {
   list-style: none;
   padding: 0;
   width: 9999px;
@@ -1364,23 +1461,23 @@ a.thumbnail.thumbnail-book > img,
   margin-right: -19px;
   transition: all 0.2s ease 0s;
 }
-.books-list .books-list-items > li {
+.books-list2 .books-list-items > li {
   float: left;
   width: 135px;
   margin-right: 19px;
 }
-.books-list .books-list-items > li > a.thumbnail {
+.books-list2 .books-list-items > li > a.thumbnail {
   width: 135px;
   height: 180px;
   opacity: 0.6;
   margin-bottom: 0;
 }
-.books-list .books-list-items > li > a.thumbnail:hover,
-.books-list .books-list-items > li > a.thumbnail:focus,
-.books-list .books-list-items > li > a.thumbnail.active {
+.books-list2 .books-list-items > li > a.thumbnail:hover,
+.books-list2 .books-list-items > li > a.thumbnail:focus,
+.books-list2 .books-list-items > li > a.thumbnail.active {
   opacity: 1;
 }
-.books-list .books-list-items > li > a.thumbnail > img {
+.books-list2 .books-list-items > li > a.thumbnail > img {
   width: 100%;
   height: 100%;
 }
@@ -2012,6 +2109,8 @@ a:focus > .icons-breadcrumb.icon-search,
 .header:after,
 .footer:before,
 .footer:after,
+.scrollable-list:before,
+.scrollable-list:after,
 .panel-heading:before,
 .panel-heading:after {
   content: " ";
@@ -2020,6 +2119,7 @@ a:focus > .icons-breadcrumb.icon-search,
 .clearfix:after,
 .header:after,
 .footer:after,
+.scrollable-list:after,
 .panel-heading:after {
   clear: both;
 }
