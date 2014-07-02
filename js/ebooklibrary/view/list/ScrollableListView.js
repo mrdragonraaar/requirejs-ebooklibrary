@@ -48,41 +48,165 @@ function(
 		 */
 		scroll: function() {
 			var pageOffset = (this.page - 1) * this.pageWidth;
-			this.$('.scrollable-list-viewport > ul').css("transform", "translate(" + (-1 * pageOffset) + "px, 0)");
+			this.getViewportList().css("transform", "translate(" + (-1 * pageOffset) + "px, 0)");
 
-			this.$('.scrollable-list-previous').removeClass('disabled');
-			this.$('.scrollable-list-next').removeClass('disabled');
-			if (this.page === 1) {
-				this.$('.scrollable-list-previous').addClass('disabled');
-			}
-
-			if (this.page === this.pages) {
-				this.$('.scrollable-list-next').addClass('disabled');
-			}
+			this.disableScrollLinks();
 		},
 
 		/**
 		 * Event handler for scrollable list resize event.
 		 */
 		onResize: function() {
-			var viewPortWidth = this.$('.scrollable-list-viewport').width();
+			var viewportWidth = this.getViewport().width();
 			this.page = 1;
 
-			var itemsList = this.$('.scrollable-list-viewport > ul').children();
+			var itemsList = this.getViewportListItems();
 			if (itemsList.length) {
 				var itemWidth = itemsList.outerWidth(true);
 				var itemMarginRight = parseInt(itemsList.css("margin-right"), 10);
 				var itemsListWidth = itemWidth * itemsList.length;
-				var itemsPerPage = Math.floor((viewPortWidth + itemMarginRight) / itemWidth);
+				var itemsPerPage = Math.floor((viewportWidth + itemMarginRight) / itemWidth);
 
 				this.pageWidth = itemWidth * itemsPerPage;
 				this.pages = Math.ceil(itemsListWidth / this.pageWidth);
 
-				this.$('.scrollable-list-viewport > ul').width(itemsListWidth);
+				this.getViewportList().width(itemsListWidth);
 
 				this.scroll();
 			}
 		},
+
+
+		/**
+		 * Page methods.
+		 */
+
+		/**
+		 * Check whether page is first page.
+		 * @return true if first page
+		 */
+		isFirstPage: function() {
+			return this.page === 1;
+		},
+
+		/**
+		 * Check whether page is last page.
+		 * @return true if last page
+		 */
+		isLastPage: function() {
+			return this.page === this.pages;
+		},
+
+
+		/**
+		 * Navigation link methods.
+		 */
+
+		/**
+		 * Get previous link.
+		 * @return previous link
+		 */
+		getPreviousLink: function() {
+			return this.$('.scrollable-list-previous');
+		},
+
+		/**
+		 * Enable previous link.
+		 */
+		enablePreviousLink: function() {
+			this.getPreviousLink().removeClass('disabled');
+		},
+
+		/**
+		 * Disable previous link.
+		 */
+		disablePreviousLink: function() {
+			this.getPreviousLink().addClass('disabled');
+		},
+
+		/**
+		 * Get next link.
+		 * @return next link
+		 */
+		getNextLink: function() {
+			return this.$('.scrollable-list-next');
+		},
+
+		/**
+		 * Enable next link.
+		 */
+		enableNextLink: function() {
+			this.getNextLink().removeClass('disabled');
+		},
+
+		/**
+		 * Disable next link.
+		 */
+		disableNextLink: function() {
+			this.getNextLink().addClass('disabled');
+		},
+
+		/**
+		 * Enable both links.
+		 */
+		enableLinks: function() {
+			this.enablePreviousLink();
+			this.enableNextLink();
+		},
+
+		/**
+		 * Disable both links.
+		 */
+		disableLinks: function() {
+			this.disablePreviousLink();
+			this.disableNextLink();
+		},
+
+		/**
+		 * Disable previous link if first page.
+		 * Disable next link if last page.
+		 */
+		disableScrollLinks: function() {
+			this.enableLinks();
+
+			if (this.isFirstPage()) {
+				this.disablePreviousLink();
+			}
+
+			if (this.isLastPage()) {
+				this.disableNextLink();
+			}
+		},
+
+
+		/**
+		 * Viewport methods.
+		 */
+
+		/**
+		 * Get viewport.
+		 * @return viewport
+		 */
+		getViewport: function() {
+			return this.$('.scrollable-list-viewport');
+		},
+
+		/**
+		 * Get viewport list.
+		 * @return viewport list
+		 */
+		getViewportList: function() {
+			return this.$('.scrollable-list-viewport > ul');
+		},
+
+		/**
+		 * Get viewport list items.
+		 * @return viewport list items
+		 */
+		getViewportListItems: function() {
+			return this.getViewportList().children();
+		},
+
 
 		/**
 		 * Initialise the scrollable list view.
@@ -110,9 +234,9 @@ function(
 		 * @param collection collection.
 		 */
 		renderScrollableListItems: function(collection) {
-			this.$('.scrollable-list-viewport > ul').empty();
+			this.getViewportList().empty();
 			collection.each(function(item) {
-				this.$('.scrollable-list-viewport > ul').append(this.itemTemplate(item.toJSON()));
+				this.getViewportList().append(this.itemTemplate(item.toJSON()));
 			}, this);
 			this.onResize();
 		},

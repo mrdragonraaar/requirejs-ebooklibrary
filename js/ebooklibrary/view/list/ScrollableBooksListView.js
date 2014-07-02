@@ -1,7 +1,7 @@
 /**
- * BooksListView.js
+ * ScrollableBooksListView.js
  *
- * Backbone view representing a books list.
+ * Backbone view representing a scrollable books list.
  *
  * (c)2014 mrdragonraaar.com
  */
@@ -16,11 +16,11 @@ function(
     ScrollableBooksListTemplate,
     ScrollableBooksListItemTemplate
 ) {
-	var BooksListView = ScrollableListView.extend({
+	var ScrollableBooksListView = ScrollableListView.extend({
 		className: 'books-list scrollable-list',
 		template: ScrollableBooksListTemplate,
 		itemTemplate: ScrollableBooksListItemTemplate
 	});
 
-	return BooksListView;
+	return ScrollableBooksListView;
 });
