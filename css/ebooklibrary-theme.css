@@ -53,6 +53,7 @@ a.thumbnail:focus,
 a.thumbnail.active {
   border-color: #215625;
 }
+book,
 books,
 authors,
 series,
@@ -941,6 +942,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe1ddc7', endColorstr='#ffe1ddc7', GradientType=0);
 }
+.application-book .footer-default,
 .application-books .footer-default,
 .application-search .footer-default {
   -webkit-box-shadow: 0 -5px 5px -2px rgba(0, 0, 0, 0.125);
@@ -1082,14 +1084,82 @@ a.thumbnail.thumbnail-book > img,
 @media (max-width: 767px) {
   .scrollable-list-previous,
   .scrollable-list-next {
-    width: 7%;
+    width: 11%;
   }
 }
 @media (max-width: 479px) {
   .scrollable-list-previous,
   .scrollable-list-next {
-    width: 12%;
+    width: 17%;
   }
+}
+.previous-arrow,
+.next-arrow {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.8em 0.5em;
+  vertical-align: middle;
+  text-align: center;
+}
+.previous-arrow:before,
+.next-arrow:before,
+.previous-arrow:after,
+.next-arrow:after {
+  background: #555555;
+  content: "";
+  display: block;
+  height: 0.5em;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1em;
+}
+.previous-arrow:before,
+.next-arrow:before {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.previous-arrow:after,
+.next-arrow:after {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.previous-arrow:hover:before,
+.next-arrow:hover:before,
+.previous-arrow:focus:before,
+.next-arrow:focus:before,
+a:hover .previous-arrow:before,
+a:hover .next-arrow:before,
+a:focus .previous-arrow:before,
+a:focus .next-arrow:before,
+.previous-arrow:hover:after,
+.next-arrow:hover:after,
+.previous-arrow:focus:after,
+.next-arrow:focus:after,
+a:hover .previous-arrow:after,
+a:hover .next-arrow:after,
+a:focus .previous-arrow:after,
+a:focus .next-arrow:after {
+  background: #494949;
+}
+.previous-arrow.disabled:before,
+.next-arrow.disabled:before,
+a.disabled .previous-arrow:before,
+a.disabled .next-arrow:before,
+.previous-arrow.disabled:after,
+.next-arrow.disabled:after,
+a.disabled .previous-arrow:after,
+a.disabled .next-arrow:after {
+  background: #777777;
+}
+.previous-arrow:after,
+.next-arrow:before {
+  margin-top: -0.36em;
 }
 .scrollable-list-viewport {
   float: left;
@@ -1118,14 +1188,14 @@ a.thumbnail.thumbnail-book > img,
 }
 @media (max-width: 767px) {
   .scrollable-list-viewport {
-    width: 80%;
+    width: 72%;
     margin-left: 3%;
     margin-right: 3%;
   }
 }
 @media (max-width: 479px) {
   .scrollable-list-viewport {
-    width: 68%;
+    width: 58%;
     margin-left: 4%;
     margin-right: 4%;
   }
@@ -1338,23 +1408,6 @@ a.thumbnail.thumbnail-book > img,
     margin-right: 0;
   }
 }
-/*
-
-.books-list {
-	.books-list-items {
-		a.thumbnail {
-			margin-bottom: 0;
-			height: @scrollable-list-item-height;
-			width: @scrollable-list-item-width;
-
-			> img {
-				width: 100%;
-				height: 100%;
-			}
-		}
-	}
-}
-*/
 .books-list2 {
   width: 100%;
 }
@@ -1509,6 +1562,95 @@ a.thumbnail.thumbnail-book > img,
 .panel-latestadditions > .panel-body {
   padding-left: 0;
   padding-right: 0;
+}
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next {
+  color: #382110;
+  font-size: 16px;
+}
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .previous-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .previous-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .next-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .next-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .previous-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .previous-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .next-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .next-arrow:after {
+  background: #777777;
+}
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .previous-arrow:hover:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .previous-arrow:hover:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .next-arrow:hover:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .next-arrow:hover:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .previous-arrow:focus:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .previous-arrow:focus:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .next-arrow:focus:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .next-arrow:focus:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .previous-arrow:hover:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .previous-arrow:hover:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .next-arrow:hover:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .next-arrow:hover:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .previous-arrow:focus:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .previous-arrow:focus:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .next-arrow:focus:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .next-arrow:focus:after {
+  background: #382110;
+}
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .previous-arrow.disabled:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .previous-arrow.disabled:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .next-arrow.disabled:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .next-arrow.disabled:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .previous-arrow.disabled:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .previous-arrow.disabled:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous .next-arrow.disabled:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next .next-arrow.disabled:after {
+  background: #999999;
+}
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous:hover .previous-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next:hover .previous-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous:hover .next-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next:hover .next-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous:focus .previous-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next:focus .previous-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous:focus .next-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next:focus .next-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous:hover .previous-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next:hover .previous-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous:hover .next-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next:hover .next-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous:focus .previous-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next:focus .previous-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous:focus .next-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next:focus .next-arrow:after {
+  background: #382110;
+}
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous.disabled .previous-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next.disabled .previous-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous.disabled .next-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next.disabled .next-arrow:before,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous.disabled .previous-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next.disabled .previous-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous.disabled .next-arrow:after,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next.disabled .next-arrow:after {
+  background: #999999;
+}
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous:hover,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next:hover,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous:focus,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next:focus {
+  background-color: transparent;
+}
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-previous.disabled,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-next.disabled {
+  color: #777;
+}
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-viewport > ul > li > .thumbnail {
+  opacity: 0.6;
+}
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-viewport > ul > li > .thumbnail:hover,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-viewport > ul > li > .thumbnail:focus,
+.panel-latestadditions > .panel-body > .scrollable-list > .scrollable-list-viewport > ul > li > .thumbnail.active {
+  opacity: 1;
 }
 .panel-default {
   border-color: transparent;
@@ -1720,9 +1862,9 @@ a.thumbnail.thumbnail-book > img,
 .panel-authors > .panel-body > .list-default > li {
   padding-left: 5px;
   padding-right: 5px;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 @media (max-width: 767px) {
   .panel-authors {

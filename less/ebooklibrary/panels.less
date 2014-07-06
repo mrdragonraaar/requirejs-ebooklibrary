@@ -244,23 +244,6 @@
 	}
 }
 
-/*
-
-.books-list {
-	.books-list-items {
-		a.thumbnail {
-			margin-bottom: 0;
-			height: @scrollable-list-item-height;
-			width: @scrollable-list-item-width;
-
-			> img {
-				width: 100%;
-				height: 100%;
-			}
-		}
-	}
-}
-*/
 
 .books-list2 {
 	//height: @well-latestadditions-thumbnail-height;
@@ -443,6 +426,58 @@
 	> .panel-body {
 		padding-left: 0;
 		padding-right: 0;
+
+		> .scrollable-list {
+			> .scrollable-list-previous,
+			> .scrollable-list-next {
+				//background-color: #eae7d9;
+
+				//background-color: #e1dcc8;
+				//background-color: #c8c6b0;
+				//border-color: #e1dcc8;
+				//border-color: darken(#e1dcc8, 5%);
+				//border-color: #bebba1;
+				//#gradient.vertical(@gradient-start-color, @gradient-stop-color, @gradient-start-percent, @gradient-stop-percent);
+
+				//opacity: 0.6;
+				color: #382110;
+				font-size: 16px;
+
+				.nav-arrows(#777, #382110, #999);
+
+				&:hover,
+				&:focus {
+					background-color: transparent;
+					//opacity: 1;
+				}
+
+				&.disabled {
+					color: #777;
+
+					&:hover,
+					&:focus {
+						//background-color: #eae7d9;
+						//opacity: 0.6;
+					}
+				}
+			}
+
+			> .scrollable-list-viewport {
+				> ul {
+					> li {
+						> .thumbnail {
+							opacity: 0.6;
+
+							&:hover,
+							&:focus,
+							&.active {
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -610,9 +645,7 @@
 			> li {
 				padding-left: 5px;
 				padding-right: 5px;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
+				.text-overflow();
 			}
 		}
 	}

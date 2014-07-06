@@ -53,11 +53,115 @@
 	}
 
 	@media (max-width: @grid-float-breakpoint-max) {
-		width: 7%;
+		width: 11%;
 	}
 
 	@media (max-width: (@screen-xs-min - 1)) {
-		width: 12%;
+		width: 17%;
+	}
+}
+
+
+// Previous / next arrow css icons
+//
+
+.previous-arrow,
+.next-arrow {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	padding: 0.8em 0.5em;
+	vertical-align: middle;
+	text-align: center;
+
+	&:before,
+	&:after {
+		background: @scrollable-list-nav-color;
+		content: "";
+		display: block;
+		height: 0.5em;
+		//height: 0.3em;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		width: 1em;
+		//width: 0.7em;
+		//border-radius: 0.25em;
+	}
+
+	&:before {
+		.rotate(45deg);
+	}
+
+	&:after {
+		.rotate(-45deg);
+	}
+
+	&:hover,
+	&:focus,
+	a:hover &,
+	a:focus & {
+		&:before,
+		&:after {
+			background: @scrollable-list-nav-hover-color;
+		}
+	}
+
+	&.disabled,
+	a.disabled & {
+		&:before,
+		&:after {
+			background: @scrollable-list-nav-disabled-color;
+		}
+	}
+}
+
+.previous-arrow:after,
+.next-arrow:before {
+	margin-top: -.36em;
+}
+
+// Mixin to create different colored previous/next arrows
+.nav-arrows(@arrow-color; @arrow-hover-color; @arrow-disabled-color) {
+	.previous-arrow,
+	.next-arrow {
+		&:before,
+		&:after {
+			background: @arrow-color;
+		}
+
+		&:hover,
+		&:focus {
+			&:before,
+			&:after {
+				background: @arrow-hover-color;
+			}
+		}
+
+		&.disabled {
+			&:before,
+			&:after {
+				background: @arrow-disabled-color;
+			}
+		}
+	}
+
+	&:hover .previous-arrow,
+	&:hover .next-arrow,
+	&:focus .previous-arrow,
+	&:focus .next-arrow {
+		&:before,
+		&:after {
+			background: @arrow-hover-color;
+		}
+	}
+
+	&.disabled .previous-arrow,
+	&.disabled .next-arrow {
+		&:before,
+		&:after {
+			background: @arrow-disabled-color;
+		}
 	}
 }
 
@@ -93,13 +197,13 @@
 	}
 
 	@media (max-width: @grid-float-breakpoint-max) {
-		width: 80%;
+		width: 72%;
 		margin-left: 3%;
 		margin-right: 3%;
 	}
 
 	@media (max-width: (@screen-xs-min - 1)) {
-		width: 68%;
+		width: 58%;
 		margin-left: 4%;
 		margin-right: 4%;
 	}
