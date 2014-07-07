@@ -732,6 +732,7 @@ fieldset[disabled] .btn-default.active {
   text-overflow: ellipsis;
   padding: 0 5px;
   line-height: 50px;
+  vertical-align: middle;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
@@ -740,6 +741,11 @@ fieldset[disabled] .btn-default.active {
   outline: none;
 }
 .navbar-default .navbar-nav > li > a > .icons-breadcrumb {
+  margin-right: 5px;
+}
+.navbar-default .navbar-nav > li > a > .glyphicon {
+  top: 0;
+  vertical-align: middle;
   margin-right: 5px;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -1324,8 +1330,18 @@ a.disabled .next-arrow:after {
 .panel-books > .panel-heading > .panel-title > a {
   text-decoration: none;
 }
+.panel-books > .panel-heading > .panel-title .glyphicon {
+  top: 0;
+  vertical-align: middle;
+  margin-right: 5px;
+}
 .panel-books > .panel-heading > .panel-nav > li > a {
   color: #382110;
+}
+.panel-books > .panel-heading > .panel-nav > li > a > .glyphicon {
+  top: 0;
+  vertical-align: middle;
+  font-size: 12px;
 }
 .panel-books > .panel-heading > .panel-nav > li > a,
 .panel-books > .panel-heading > .panel-nav > li > a:hover,
