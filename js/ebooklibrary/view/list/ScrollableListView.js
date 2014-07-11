@@ -214,9 +214,7 @@ function(
 		 */
 		initialize: function(options) {
 			this.listenTo(this.collection, 'reset', this.renderScrollableListItems);
-
-			this.onResize = _.debounce(_.bind(this.onResize, this), 200);
-			$(window).on("resize", this.onResize);
+			$(window).on("resize", _.debounce(_.bind(this.onResize, this), 200));
 		},
 
 		/**
@@ -245,7 +243,7 @@ function(
 		 * Remove the books list view.
 		 */
 		remove: function() {
-			$(window).off("resize", this.onResize);
+			$(window).off("resize");
 			Backbone.View.prototype.remove.apply(this);
 		}
 	});
