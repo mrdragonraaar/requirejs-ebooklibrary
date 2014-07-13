@@ -72,6 +72,7 @@
 }
 */
 
+/*
 .well-sidebar > .heading-sidebar
 {
 	font-size: 18px;
@@ -85,6 +86,7 @@
 	padding-bottom: 10px;
 	border-bottom: 1px solid #e3e3e3;
 }
+*/
 
 div.description
 {
@@ -174,6 +176,7 @@ ul > li ul
 }
 */
 
+/*
 ul.list-panel,
 ul.list-panel > li ul
 {
@@ -182,6 +185,7 @@ ul.list-panel > li ul
 	padding-left: 15px;
 	margin-left: 5px;
 }
+*/
 
 /*
 .navbar-default
@@ -412,6 +416,7 @@ searchbox
 }
 */
 
+/*
 .well-sidebar
 {
 	background-color: #f3f1e9;
@@ -419,6 +424,7 @@ searchbox
 	margin: 0px;
 	padding: 15px;
 }
+*/
 
 loginpanel
 {
@@ -430,6 +436,7 @@ loginpanel
 	z-index: 2000;
 }
 
+/*
 .content-sidebar
 {
 	position: relative;
@@ -475,7 +482,9 @@ welcomepanel
 		display: block;
 	}
 }
+*/
 
+/*
 linkspanel.well-links
 {
 	display: block;
@@ -512,7 +521,9 @@ linkspanel.well-links > ul > li > ul
 {
 	margin-left: 39px;
 }
+*/
 
+/*
 bookspanel,
 booktextpanel
 {
@@ -533,6 +544,7 @@ booktextpanel
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+*/
 
 /*
 .bookspanel-thumbs .book-thumb > .book-thumbnail
@@ -541,6 +553,7 @@ booktextpanel
 }
 */
 
+/*
 .bookspanel-thumbs .book-thumb > .book-thumb-cover
 {
 	position: relative;
@@ -607,6 +620,7 @@ booktextpanel
 	height: 200px;
 	border-radius: 0px 3px 3px 0px;
 }
+*/
 
 .bookspanel-details
 {
@@ -679,6 +693,7 @@ booktextpanel
 	width: 200px;
 }
 
+/*
 .bookspanel-list
 {
 	margin: 15px 0px 15px;
@@ -714,6 +729,7 @@ booktextpanel
 	text-align: right;
 	white-space: nowrap;
 }
+*/
 
 searchpanel
 {

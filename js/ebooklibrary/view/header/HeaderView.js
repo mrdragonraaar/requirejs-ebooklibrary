@@ -6,13 +6,10 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    //'hbs!ebooklibrary/template/header/Header',
-    //'ebooklibrary/view/well/latestadditions/LatestAdditionsView',
     'ebooklibrary/view/panel/latestadditions/LatestAdditionsPanelView',
     'backbone'
 ],
 function(
-    //HeaderTemplate,
     LatestAdditionsPanelView,
     Backbone
 ) {
@@ -37,9 +34,6 @@ function(
 		 * @return header view
 		 */
 		render: function() {
-			//var headerTmpl = HeaderTemplate();
-			//this.$el.html(headerTmpl);
-
 			this.$el.html(this.latestAdditions.render().el);
 
 			return this;

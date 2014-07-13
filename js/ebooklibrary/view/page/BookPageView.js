@@ -1,61 +1,77 @@
 /**
- * AppBookTextView.js
+ * BookPageView.js
  *
- * Backbone view representing ebooklibrary application book text page.
+ * Backbone view representing ebooklibrary application book page.
  *
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'ebooklibrary/view/well/loading/LoadingPanelView',
-    'ebooklibrary/view/panel/book/BookTextPanelView',
+    'ebooklibrary/view/well/loading/LoadingWellView',
+    'ebooklibrary/view/panel/book/BookPanelView',
+    'ebooklibrary/model/BookModel',
     'backbone'
 ],
 function(
-    LoadingPanelView,
-    BookTextPanelView,
+    LoadingWellView,
+    BookPanelView,
+    BookModel,
     Backbone
 ) {
-	var AppBookTextView = Backbone.View.extend({
+	var BookPageView = Backbone.View.extend({
 		className: 'content-book',
 		
-		loadingPanelView: null,		// loading panel view
-		bookTextPanelView: null,	// book text panel view
+		loading: null,		// loading well view
+		book: null,		// book panel view
 
 		/**
-		 * Initialise the application book text page view.
-		 * @param options book text page options (author, series, book).
+		 * Initialise the application book page view.
+		 * @param options book page options (author, series, book).
 		 */
 		initialize: function(options) {
 			options = options || {};
 
-			this.loadingPanelView = new LoadingPanelView();
+			this.loading = new LoadingWellView();
 
-			this.bookTextPanelView = new BookTextPanelView({author: options.author, series: options.series, book: options.book});
-			this.listenTo(this.bookTextPanelView.model, 'sync', this.showBookTextPanel);
+			var bookModel = new BookModel(
+			   {authorName: options.author, seriesName: options.series, baseName: options.book});
+			bookModel.fetch();
+
+			this.book = new BookPanelView({model: bookModel});
+			this.listenTo(this.book.model, 'sync', this.showBook);
 		},
 		
 		/**
-		 * Render the application book text page.
-		 * @return application book text page view
+		 * Render the application book page.
+		 * @return application book page view
 		 */
 		render: function() {
-			this.$el.append(this.loadingPanelView.render().el);
+			this.$el.append(this.loading.render().el);
 
-			this.bookTextPanelView.$el.hide();
-			this.$el.append(this.bookTextPanelView.render().el);
+			//this.book.$el.hide();
+			this.$el.append(this.book.render().el);
 
 			return this;
 		},
 
 		/**
-		 * Show book text panel.
-		 * @param model book text model.
+		 * Show book panel.
+		 * @param model book model.
 		 */
-		showBookTextPanel: function(model) {
-			this.loadingPanelView.$el.fadeOut('slow');
-			this.bookTextPanelView.$el.fadeIn('slow');
+		showBook: function(model) {
+			this.loading.$el.fadeOut('slow');
+			//this.book.$el.fadeIn('slow');
+		},
+
+		/**
+		 * Remove the application book page.
+		 */
+		remove: function() {
+			this.loading.remove();
+			this.book.remove();
+
+			Backbone.View.prototype.remove.apply(this);
 		}
 	});
 	
-	return AppBookTextView;
+	return BookPageView;
 });

@@ -6,7 +6,7 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'ebooklibrary/view/well/loading/LoadingPanelView',
+    'ebooklibrary/view/well/loading/LoadingWellView',
     'ebooklibrary/view/well/series/SeriesWellView',
     'ebooklibrary/view/panel/books/BooksPanelView',
     'ebooklibrary/collection/SeriesCollection',
@@ -95,6 +95,6 @@ function(
 			Backbone.View.prototype.remove.apply(this);
 		}
 	});
-	
+
 	return BooksPageView;
 });

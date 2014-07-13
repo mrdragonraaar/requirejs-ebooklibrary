@@ -37,17 +37,24 @@ function(
 			var navItemToggle = this.isEventNavItemToggle(e);
 
 			if (navItemId && !this.isDisabledNavItem(navItemId)) {
+				// activate group nav item
 				if (navItemGroup && !this.isActiveNavItem(navItemId)) {
 					this.deactivateNavGroup(navItemGroup);
 					this.activateNavItem(navItemId);
 
 					this.trigger('toolBarSelectNavItem', navItemId, navItemGroup);
+					return;
 				}
 
+				// toggle nav item
 				if (navItemToggle) {
 					var navItemActiveState = this.toggleNavItem(navItemId);
 					this.trigger('toolBarToggleNavItem', navItemId, navItemActiveState);
+					return;
 				}
+
+				// click nav item
+				this.trigger('toolBarSelectNavItem', navItemId);
 			}
 		},
 

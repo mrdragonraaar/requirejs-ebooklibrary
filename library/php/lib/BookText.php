@@ -25,7 +25,8 @@ class BookText extends Book
 	public function jsonSerialize()
 	{
 		$json = parent::jsonSerialize();
-		$json['text'] = $this->bookInfo->html();
+		$text = $this->bookInfo->html();
+		$json['text'] = explode('<pagebreak></pagebreak>', $text);
 		return $json;
 	}
 }

@@ -6,14 +6,14 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'hbs!ebooklibrary/template/searchpanel/SearchPanelView',
-    'ebooklibrary/view/well/loading/LoadingPanelView',
+    'hbs!ebooklibrary/template/well/search/SearchWell',
+    'ebooklibrary/view/well/loading/LoadingWellView',
     'ebooklibrary/view/panel/books/BooksPanelView',
     'ebooklibrary/collection/SearchCollection',
     'backbone'
 ],
 function(
-    SearchPanelViewTemplate,
+    SearchWellTemplate,
     LoadingWellView,
     BooksPanelView,
     SearchCollection,
@@ -60,11 +60,11 @@ function(
 		showBooks: function(collection, resp) {
 			this.loading.$el.fadeOut('slow');
 
-			//if (!(resp instanceof Array) && resp.status !== 200)
-				//collection.error = true;
+			if (!(resp instanceof Array) && resp.status !== 200)
+				collection.error = true;
 
-			//var searchPanelTmpl = SearchPanelViewTemplate(collection);
-			//this.$el.prepend(searchPanelTmpl);
+			var searchWellTmpl = SearchWellTemplate(collection);
+			this.$el.prepend(searchWellTmpl);
 		},
 
 		/**

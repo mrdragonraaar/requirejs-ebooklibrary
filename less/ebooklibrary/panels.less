@@ -179,7 +179,8 @@
 						&,
 						&:hover,
 						&:focus {
-							color: lighten(@panel-books-text, 7%);
+							//color: lighten(@panel-books-text, 7%);
+							color: #777;
 							background-color: transparent;
 							opacity: 0.65;
 						}
@@ -256,6 +257,41 @@
 			}
 
 			&.panel-content-list {
+				margin-top: 10px;
+				margin-bottom: 10px;
+
+				.panel-content-list-name {
+				}
+
+				.panel-content-list-lastmodified {
+					width: 120px;
+					white-space: nowrap;
+					text-align: right;
+				}
+
+				.panel-content-list-size {
+					width: 45px;
+					white-space: nowrap;
+					text-align: right;
+				}
+
+/*
+				@media (max-width: (@screen-xs-min - 1)) {
+					display: block;
+
+					tbody {
+						display: block;
+					}
+
+					tr {
+						display: block;
+
+						td {
+							display: block;
+						}
+					}
+				}
+*/
 			}
 		}
 	}
@@ -727,7 +763,6 @@
 
 			> .list-default {
 				> li {
-					float: none;
 					width: 100%;
 				}
 			}
