@@ -9,12 +9,14 @@ define([
     'ebooklibrary/view/well/loading/LoadingWellView',
     'ebooklibrary/view/header/HeaderView',
     'ebooklibrary/view/panel/authors/AuthorsPanelView',
+    'ebooklibrary/collection/AuthorCollection',
     'backbone'
 ],
 function(
     LoadingWellView,
     HeaderView,
     AuthorsPanelView,
+    AuthorCollection,
     Backbone
 ) {
 	var HomePageView = Backbone.View.extend({
@@ -35,8 +37,11 @@ function(
 
 			this.header = new HeaderView();
 
-			this.authors = new AuthorsPanelView();
-			this.listenTo(this.authors.collection, 'sync', this.showAuthors);
+			var authorCollection = new AuthorCollection();
+			authorCollection.fetch({reset: true});
+
+			this.authors = new AuthorsPanelView({collection: authorCollection});
+			this.listenTo(this.authors.collection, 'reset', this.showAuthors);
 		},
 		
 		/**
@@ -45,10 +50,7 @@ function(
 		 */
 		render: function() {
 			this.$el.append(this.loading.render().el);
-
 			this.$el.append(this.header.render().el);
-
-			//this.authors.$el.hide();
 			this.$el.append(this.authors.render().el);
 
 			return this;
@@ -60,7 +62,6 @@ function(
 		 */
 		showAuthors: function(collection) {
 			this.loading.$el.fadeOut('slow');
-			//this.authors.$el.fadeIn('slow');
 		},
 
 		remove: function() {

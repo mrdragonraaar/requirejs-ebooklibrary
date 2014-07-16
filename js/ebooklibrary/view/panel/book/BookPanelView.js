@@ -19,9 +19,34 @@ function(
 ) {
 	var BookPanelView = Backbone.View.extend({
 		tagName: 'book',
-		className: 'panel panel-books',
+		className: 'panel panel-book',
 
 		toolBar: null,		// toolbar view
+
+		/**
+		 * Define book content link click event.
+		 */
+		events: {
+			'click > .panel-body > .text-book a': 'onClickContentLink'
+		},
+
+		onClickContentLink: function(e) {
+			if (e.currentTarget.baseURI.indexOf(e.currentTarget.hostname) < 0) {
+				e.currentTarget.target = '_blank';
+				return;
+			}
+
+			e.preventDefault();
+			var anchor = e.currentTarget.hash.substring(1);
+
+			_.each(this.chapters, function(value, index) {
+				if (value.indexOf('id="'+anchor+'"') > -1) {
+					console.log(index);
+					this.chapter = index;
+					this.$('> .panel-body > .text-book').html(this.chapters[this.chapter]);
+				}
+			}, this);
+		},
 
 		/**
 		 * Initialise the book panel view.

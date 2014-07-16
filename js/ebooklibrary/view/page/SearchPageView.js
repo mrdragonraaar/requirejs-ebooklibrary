@@ -6,15 +6,15 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'hbs!ebooklibrary/template/well/search/SearchWell',
     'ebooklibrary/view/well/loading/LoadingWellView',
+    'ebooklibrary/view/well/search/SearchWellView',
     'ebooklibrary/view/panel/books/BooksPanelView',
     'ebooklibrary/collection/SearchCollection',
     'backbone'
 ],
 function(
-    SearchWellTemplate,
     LoadingWellView,
+    SearchWellView,
     BooksPanelView,
     SearchCollection,
     Backbone
@@ -23,6 +23,7 @@ function(
 		className: 'content-search',
 		
 		loading: null,		// loading well view
+		search: null,		// search well view
 		books: null,		// books panel view
 
 		/**
@@ -37,6 +38,8 @@ function(
 			var searchCollection = new SearchCollection([], {keyword: options.keyword});
 			searchCollection.fetch({reset: true});
 
+			this.search = new SearchWellView({collection: searchCollection});
+
 			this.books = new BooksPanelView({collection: searchCollection});
 			this.listenTo(this.books.collection, 'reset', this.showBooks);
 			this.listenTo(this.books.collection, 'error', this.showBooks);
@@ -48,6 +51,7 @@ function(
 		 */
 		render: function() {
 			this.$el.append(this.loading.render().el);
+			this.$el.append(this.search.render().el);
 			this.$el.append(this.books.render().el);
 
 			return this;
@@ -60,11 +64,13 @@ function(
 		showBooks: function(collection, resp) {
 			this.loading.$el.fadeOut('slow');
 
+/*
 			if (!(resp instanceof Array) && resp.status !== 200)
 				collection.error = true;
+*/
 
-			var searchWellTmpl = SearchWellTemplate(collection);
-			this.$el.prepend(searchWellTmpl);
+			//var searchWellTmpl = SearchWellTemplate(collection);
+			//this.$el.prepend(searchWellTmpl);
 		},
 
 		/**
@@ -72,6 +78,7 @@ function(
 		 */
 		remove: function() {
 			this.loading.remove();
+			this.search.remove();
 			this.books.remove();
 
 			Backbone.View.prototype.remove.apply(this);

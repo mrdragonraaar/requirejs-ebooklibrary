@@ -4,9 +4,9 @@
 	"description": "Search Well Template"
 }
 }}
-<search class="well well-wide well-search">
-<h3 class="heading-title">Results for &#8220;{{keyword}}&#8221;</h3>
-{{#if error}}
-<h3 class="heading-error">Error: Please refine search.</h3>
-{{/if}}
-</search>
+<form role="search">
+	<div class="form-group form-group-search">
+		<label class="form-label-search" for="navbar-search"><i class="glyphicon glyphicon-search"></i></label>
+		<input id="search" class="form-control form-control-search" type="search" value="" name="search"/>
+	</div>
+</form>

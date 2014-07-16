@@ -6,12 +6,14 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
+    'hbs!ebooklibrary/template/well/bookinfo/BookInfoWell',
     'ebooklibrary/view/well/loading/LoadingWellView',
     'ebooklibrary/view/panel/book/BookPanelView',
     'ebooklibrary/model/BookModel',
     'backbone'
 ],
 function(
+    BookInfoWellTemplate,
     LoadingWellView,
     BookPanelView,
     BookModel,
@@ -60,6 +62,9 @@ function(
 		showBook: function(model) {
 			this.loading.$el.fadeOut('slow');
 			//this.book.$el.fadeIn('slow');
+
+			var bookInfoWellTmpl = BookInfoWellTemplate(model.toJSON());
+			this.$el.prepend(bookInfoWellTmpl);
 		},
 
 		/**

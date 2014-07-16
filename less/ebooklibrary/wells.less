@@ -38,10 +38,7 @@
 	}
 }
 
-
-// Alternate wells
-// --------------------------------------------------
-
+// Remove margins and borders
 .well-wide {
 	margin-bottom: 0;
 	border-radius: 0;
@@ -50,6 +47,26 @@
 	.box-shadow(none);
 }
 
+// Contextual variations
+.well-success {
+	.well-variant(@well-success-text, @well-success-bg, @well-success-border);
+}
+
+.well-info {
+	.well-variant(@well-info-text, @well-info-bg, @well-info-border);
+}
+
+.well-warning {
+	.well-variant(@well-warning-text, @well-warning-bg, @well-warning-border);
+}
+
+.well-danger {
+	.well-variant(@well-danger-text, @well-danger-bg, @well-danger-border);
+}
+
+
+// Alternate wells
+// --------------------------------------------------
 
 // Series
 .well-series {
@@ -62,10 +79,52 @@
 
 // Search
 .well-search {
-	//z-index: 995;
 	border-top: none;
 	border-bottom-color: @navbar-default-border;
 	background-color: @panel-authors-heading-bg;
+
+	.form-group-search {
+		position: relative;
+		margin-bottom: 0;
+
+		.form-label-search {
+			position: absolute;
+			width: 100%;
+			color: #777;
+
+			> .glyphicon-search {
+				position: absolute;
+				top: 11px;
+				left: 10px;
+			}
+		}
+
+		.form-control-search {
+			padding-left: (@padding-base-horizontal + 19px);
+		}
+	}
+
+	.well-search-message {
+		margin-top: 20px;
+		margin-bottom: 0;
+	}
+}
+
+
+// Book Info
+.well-bookinfo {
+	border-top: none;
+	border-bottom-color: @navbar-default-border;
+	background-color: @panel-authors-heading-bg;
+
+	.thumbnail {
+		margin-bottom: 0;
+
+		> img {
+			width: 135px;
+			height: 180px;
+		}
+	}
 }
 
 
