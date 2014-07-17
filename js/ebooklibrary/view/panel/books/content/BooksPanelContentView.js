@@ -61,7 +61,7 @@ function(
 		fadeBooksContent: function(collection) {
 			this.$('.panel-content').fadeOut('slow');
 			this.renderBooksContent(collection);
-			//this.$('.panel-content').hide();
+			this.$('.panel-content').hide();
 			this.$('.panel-content').fadeIn('slow');
 		},
 

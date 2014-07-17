@@ -72,6 +72,8 @@ function(
 			if (collection.keyword) {
 				var searchWellInfoTmpl = SearchWellInfoMessageTemplate(collection);
 				this.$el.append(searchWellInfoTmpl);
+				this.$('.well-search-message').hide();
+				this.$('.well-search-message').fadeIn('slow');
 			}
 		},
 
@@ -82,6 +84,8 @@ function(
 		showError: function(collection) {
 			var searchWellErrorTmpl = SearchWellErrorMessageTemplate();
 			this.$el.append(searchWellErrorTmpl);
+			this.$('.well-search-message').hide();
+			this.$('.well-search-message').fadeIn('slow');
 		}
 	});
 

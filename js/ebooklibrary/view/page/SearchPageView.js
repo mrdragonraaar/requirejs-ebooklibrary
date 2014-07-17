@@ -63,14 +63,6 @@ function(
 		 */
 		showBooks: function(collection, resp) {
 			this.loading.$el.fadeOut('slow');
-
-/*
-			if (!(resp instanceof Array) && resp.status !== 200)
-				collection.error = true;
-*/
-
-			//var searchWellTmpl = SearchWellTemplate(collection);
-			//this.$el.prepend(searchWellTmpl);
 		},
 
 		/**

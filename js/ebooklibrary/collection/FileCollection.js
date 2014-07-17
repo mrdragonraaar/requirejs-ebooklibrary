@@ -56,7 +56,6 @@ function(
 			if (key.toLowerCase() === 'atime') return this._sortByATime(asc);
 			if (key.toLowerCase() === 'ctime') return this._sortByCTime(asc);
 			if (key.toLowerCase() === 'mtime') return this._sortByMTime(asc);
-			if (key.toLowerCase() === 'last modified') return this._sortByMTime(asc);
 			if (key.toLowerCase() === 'size') return this._sortBySize(asc);
 		},
 

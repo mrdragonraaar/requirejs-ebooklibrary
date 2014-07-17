@@ -36,8 +36,7 @@ define([
 		_sortBy: function(key, asc) {
 			if (key.toLowerCase() === 'title') return this._sortByTitle(asc);
 			if (key.toLowerCase() === 'author') return this._sortByAuthor(asc);
-			if (key.toLowerCase() === 'publishing date') return this._sortByPublishingDate(asc);
-			if (key.toLowerCase() === 'publication date') return this._sortByPublishingDate(asc);
+			if (key.toLowerCase() === 'publicationdate') return this._sortByPublishingDate(asc);
 
 			return SeriesCollection.prototype._sortBy.call(this, key, asc);
 		},

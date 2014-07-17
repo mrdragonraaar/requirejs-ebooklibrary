@@ -7,21 +7,9 @@
 <table class="panel-content panel-content-list table table-responsive-collapse !table-striped">
 {{#each books}}
 	<tr class="panel-content-list-row">
-		<td class="panel-content-list-name"><i class="icons-fugue icon-document-mobi"/> <a href="{{downloadUrl}}">{{fileInfo.name}}</a></td>
+		<td class="panel-content-list-name"><a href="{{downloadUrl}}">{{fileInfo.name}}</a></td>
 		<td class="panel-content-list-lastmodified">{{fileInfo.mtimeStr}}</td>
 		<td class="panel-content-list-size">{{fileInfo.sizeStr}}</td>
 	</tr>
 {{/each}}
 </table>
-<!--
-<table class="table bookspanel-books bookspanel-list">
-{{#each books}}
-	<tr class="book-list">
-		<td class="book-list-icon"><i class="icons-fugue icon-document-mobi"/></td>
-		<td class="book-list-name"><a href="{{downloadUrl}}">{{fileInfo.name}}</a></td>
-		<td class="book-list-lastmodified">{{fileInfo.mtimeStr}}</td>
-		<td class="book-list-size">{{fileInfo.sizeStr}}</td>
-	</tr>
-{{/each}}
-</table>
--->
