@@ -234,6 +234,32 @@
 				margin-top: 10px;
 				margin-bottom: 10px;
 
+				> tbody:last-child {
+					> tr:last-child {
+						> th,
+						> td {
+							border-bottom: 1px solid @table-border-color;
+						}
+					}
+				}
+
+				@media screen and (max-width: (@screen-xs-min - 1)) {
+					> tbody:last-child {
+						> tr:last-child {
+							border-bottom: 1px solid @table-border-color;
+
+							> th,
+							> td {
+								border-bottom: none;
+							}
+						}
+					}
+
+					> tbody > tr:nth-child(odd) {
+						background-color: @table-bg-accent;
+					}
+				}
+
 				.panel-content-list-name {
 					background-image: data-uri(@panel-books-content-list-bg-image);
 					background-repeat: no-repeat;
