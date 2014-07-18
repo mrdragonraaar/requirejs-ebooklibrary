@@ -1496,21 +1496,76 @@ a.disabled .next-arrow:after {
     width: 100%;
   }
 }
+.panel-book > .panel-body > .panel-content.panel-content-details,
+.panel-books > .panel-body > .panel-content.panel-content-details {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /*
+				> .media > .pull-left {
+					//@media (max-width: (@screen-xs-min - 1)) {
+					@media (max-width: @screen-xs-max) {
+						float: none !important;
+						> .thumbnail.thumbnail-book {
+						//> .thumbnail {
+							margin-left: 0;
+							margin-right: 0;
+						}
+					}
+				}
+*/
+
+}
+.panel-book > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-info > .thumbnail,
+.panel-books > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-info > .thumbnail {
+  float: left;
+  margin-right: 15px;
+}
 @media (max-width: 767px) {
-  .panel-book > .panel-body > .panel-content.panel-content-details > .media > .pull-left,
-  .panel-books > .panel-body > .panel-content.panel-content-details > .media > .pull-left {
-    float: none !important;
-  }
-  .panel-book > .panel-body > .panel-content.panel-content-details > .media > .pull-left > .thumbnail.thumbnail-book,
-  .panel-books > .panel-body > .panel-content.panel-content-details > .media > .pull-left > .thumbnail.thumbnail-book {
+  .panel-book > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-info > .thumbnail,
+  .panel-books > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-info > .thumbnail {
+    float: none;
     margin-left: 0;
-    margin-right: 0;
   }
+}
+.panel-book > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-info > .text-book,
+.panel-books > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-info > .text-book {
+  margin-top: 15px;
+}
+.panel-book > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-details,
+.panel-books > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-details {
+  clear: both;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.panel-book > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-details > .book-detail-publishing,
+.panel-books > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-details > .book-detail-publishing {
+  margin-bottom: 5px;
+}
+.panel-book > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-details > .table,
+.panel-books > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-details > .table {
+  margin-bottom: 0;
+}
+.panel-book > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-details > .table td,
+.panel-books > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-details > .table td {
+  border: none;
+  padding-left: 0;
+}
+.panel-book > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-details > .table .details-label,
+.panel-books > .panel-body > .panel-content.panel-content-details > .panel-content-detail > .book-details > .table .details-label {
+  width: 120px;
 }
 .panel-book > .panel-body > .panel-content.panel-content-list,
 .panel-books > .panel-body > .panel-content.panel-content-list {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.panel-book > .panel-body > .panel-content.panel-content-list > tbody > tr:nth-child(odd),
+.panel-books > .panel-body > .panel-content.panel-content-list > tbody > tr:nth-child(odd) {
+  background-color: #eae7d9;
 }
 .panel-book > .panel-body > .panel-content.panel-content-list > tbody:last-child > tr:last-child > th,
 .panel-books > .panel-body > .panel-content.panel-content-list > tbody:last-child > tr:last-child > th,
@@ -1528,10 +1583,6 @@ a.disabled .next-arrow:after {
   .panel-book > .panel-body > .panel-content.panel-content-list > tbody:last-child > tr:last-child > td,
   .panel-books > .panel-body > .panel-content.panel-content-list > tbody:last-child > tr:last-child > td {
     border-bottom: none;
-  }
-  .panel-book > .panel-body > .panel-content.panel-content-list > tbody > tr:nth-child(odd),
-  .panel-books > .panel-body > .panel-content.panel-content-list > tbody > tr:nth-child(odd) {
-    background-color: #f9f9f9;
   }
 }
 .panel-book > .panel-body > .panel-content.panel-content-list .panel-content-list-name,
