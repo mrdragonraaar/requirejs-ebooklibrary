@@ -210,6 +210,11 @@
 					margin-top: 10px;
 					margin-bottom: 10px;
 
+					> .thumbnail-book {
+						margin-left: auto;
+						margin-right: auto;
+					}
+
 					@media (max-width: (@screen-xs-min - 1)) {
 						width: 100%;
 					}
@@ -221,64 +226,71 @@
 				margin-bottom: 10px;
 
 				> .panel-content-detail {
-					> .book-info {
-						> .thumbnail {
-							float: left;
-							margin-right: 15px;
+					margin-top: 25px;
 
-							@media (max-width: @screen-xs-max) {
-								float: none;
-								//margin-right: 0;
-								margin-left: 0;
-							}
-						}
+					&:first-child {
+						margin-top: 0;
+					}
 
-						> .text-book {
-							margin-top: 15px;
+					> .thumbnail {
+						//width: 150px;
+						//height: 200px;
+						margin-right: 15px;
+						margin-bottom: 15px;
+						float: left;
+
+						//> img {
+							//width: 100%;
+							//height: 100%;
+						//}
+
+						@media (max-width: @screen-xs-max) {
+							float: none;
 						}
 					}
 
-					> .book-details {
-						clear: both;
-						border-top: 1px solid #ddd;
-						border-bottom: 1px solid #ddd;
-						padding-top: 5px;
-						padding-bottom: 5px;
-						margin-top: 10px;
-						margin-bottom: 25px;
+					> .media-body {
+						&:extend(.clearfix all);
+						overflow: visible;
 
-						> .book-detail-publishing {
-							margin-bottom: 5px;
+						> .text-book {
+							margin-top: 10px;
+						}
+					}
+
+					> .media-footer {
+						margin-bottom: 0;
+						color: @gray;
+
+						th {
+							//color: @brand-primary;
+							font-weight: 400;
 						}
 
-						> .table {
-							margin-bottom: 0;
+						td {
+							font-weight: 300;
+						}
 
-							td {
-								border: none;
-								padding-left: 0;
+						> thead > tr {
+							background-color: @table-bg-accent;
+							border-top: none;
+
+							th {
+								border-bottom: none;
 							}
+						}
 
-							.details-label {
+						> tbody > tr:nth-child(even) {
+							background-color: @table-bg-accent;
+						}
+
+						> tbody {
+							th {
 								width: 120px;
 							}
 						}
 					}
 				}
-
-/*
-				> .media > .pull-left {
-					//@media (max-width: (@screen-xs-min - 1)) {
-					@media (max-width: @screen-xs-max) {
-						float: none !important;
-						> .thumbnail.thumbnail-book {
-						//> .thumbnail {
-							margin-left: 0;
-							margin-right: 0;
-						}
-					}
-				}
-*/
 			}
 
 			&.panel-content-list {
@@ -286,7 +298,7 @@
 				margin-bottom: 10px;
 
 				> tbody > tr:nth-child(odd) {
-					background-color: #eae7d9;
+					background-color: @table-bg-accent;
 				}
 
 				> tbody:last-child {
@@ -322,12 +334,20 @@
 					width: 120px;
 					white-space: nowrap;
 					text-align: right;
+
+					@media screen and (max-width: (@screen-xs-min - 1)) {
+						text-align: left;
+					}
 				}
 
 				.panel-content-list-size {
 					width: 45px;
 					white-space: nowrap;
 					text-align: right;
+
+					@media screen and (max-width: (@screen-xs-min - 1)) {
+						text-align: left;
+					}
 				}
 			}
 		}
