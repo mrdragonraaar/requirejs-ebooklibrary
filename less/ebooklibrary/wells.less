@@ -68,6 +68,24 @@
 // Alternate wells
 // --------------------------------------------------
 
+// Loading
+.well-loading {
+	position: fixed;
+	z-index: @zindex-loading;
+	bottom: 65px;
+	left: 15px;
+	right: 15px;
+	.well-variant(@well-loading-text, @well-loading-bg, @well-loading-border);
+	margin-bottom: 0;
+	padding: 10px;
+
+	> .spinner {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
 // Series
 .well-series {
 	//z-index: 995;

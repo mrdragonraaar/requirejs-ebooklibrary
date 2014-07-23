@@ -15,6 +15,7 @@ function(
 ) {
 	var LoadingWellView = Backbone.View.extend({
 		tagName: 'loading',
+		className: 'well well-loading',
 
 		/**
 		 * Render the loading well.
