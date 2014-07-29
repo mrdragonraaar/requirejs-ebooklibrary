@@ -2,6 +2,46 @@
 // Navbars
 // --------------------------------------------------
 
+.navbar-linkbar {
+	> li {
+		float: left;
+
+		> a {
+			> img {
+				width: 28px;
+				height: 28px;
+				border-radius: 4px;
+			}
+		}
+	}
+
+/*
+	margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
+
+	> li {
+		float: left;
+
+		> a {
+			padding-top: 10px;
+			padding-bottom: 10px;
+			line-height: @line-height-computed;
+		}
+	}
+
+	@media (min-width: @grid-float-breakpoint) {
+		float: left;
+		margin: 0;
+
+		> li {
+			> a {
+				padding-top: @navbar-padding-vertical;
+				padding-bottom: @navbar-padding-vertical;
+			}
+		}
+	}
+*/
+}
+
 
 // Alternate navbars
 // --------------------------------------------------
@@ -53,6 +93,11 @@
 			line-height: 50px;
 				vertical-align: middle;
 
+			@media (min-width: @grid-float-breakpoint) {
+				//padding-top: 14px;
+				//padding-bottom: 14px;
+			}
+
 			&:hover,
 			&:focus {
 				color: @navbar-default-link-hover-color;
@@ -97,6 +142,14 @@
 			> li > a {
 				padding-left: 15px;
 				padding-right: 15px;
+			}
+
+			&.navbar-linkbar {
+				padding-left: 10px;
+				> li > a {
+					padding-left: 5px;
+					padding-right: 5px;
+				}
 			}
 		}
 	}
@@ -276,7 +329,8 @@
 	// Add a class to ensure links outside the navbar nav are colored correctly.
 
 	.navbar-link {
-		color: @navbar-default-link-color;
+		//color: @navbar-default-link-color;
+		color: @navbar-default-color;
 		&:hover {
 			color: @navbar-default-link-hover-color;
 		}

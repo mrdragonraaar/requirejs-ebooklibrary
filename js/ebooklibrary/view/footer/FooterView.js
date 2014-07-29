@@ -16,8 +16,16 @@ function(
 	var FooterView = Backbone.View.extend({
 		tagName: 'footer',
 		className: 'footer footer-default',
-		//tagName: 'nav',
-		//className: 'navbar navbar-default navbar-static-bottom',
+
+		events: {
+			'click > .container-fluid > .footer-links > li > .footer-link-top': 'onGotoTop'
+		},
+
+		onGotoTop: function(e) {
+			e.preventDefault();
+
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+		},
 
 		/**
 		 * Render the footer view.
