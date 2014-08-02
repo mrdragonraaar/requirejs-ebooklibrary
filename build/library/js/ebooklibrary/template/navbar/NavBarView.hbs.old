@@ -1,0 +1,7 @@
+{{!
+{
+	"name": "NavBarView",
+	"description": "NavBar View Template"
+}
+}}
+<div class="container-fluid"></div>

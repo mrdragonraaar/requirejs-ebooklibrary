@@ -1,0 +1,48 @@
+{{!
+{
+	"name": "BooksPanelContentDetails",
+	"description": "Books Panel Content Details Template"
+}
+}}
+<ul class="panel-content panel-content-details !bookspanel-books !bookspanel-details media-list">
+{{#each books}}
+<li class="panel-content-detail !book-detail media">
+<div class="book-info">
+<a class="thumbnail thumbnail-book" href="{{downloadUrl}}" title="{{fileInfo.name}}"><img class="media-object" src="{{bookInfo.cover}}"/></a>
+<!--
+<div class="media-body">
+-->
+	<h5 class="heading-author" title="{{bookInfo.authorStr}}"><a href="{{seriesHref}}">{{bookInfo.authorStr}}</a></h5>
+	<h4 class="heading-title" title="{{bookInfo.title}}"><a href="{{href}}">{{bookInfo.title}}</a></h4>
+	<div class="text-book">{{{bookInfo.description}}}</div>
+<!--
+</div>
+-->
+</div>
+<div class="book-details small">
+	<div class="book-detail-publishing">
+		<span class="book-detail-publishingdate">Published {{bookInfo.publishingDateStr}}</span>
+		<span class="book-detail-publisher">{{#if bookInfo.publisher}}by {{bookInfo.publisher}}{{/if}}</span>
+	</div>
+	<table class="table table-condensed table-responsive-collapse">
+		{{#if bookInfo.isbn}}
+		<tr class="book-detail-isbn"><td class="details-label">isbn</td><td>{{bookInfo.isbn}}</td></tr>
+		{{/if}}
+		{{#if bookInfo.subject}}
+		<tr class="book-detail-subject"><td class="details-label">subjects</td><td>{{bookInfo.subjectStr}}</td></tr>
+		{{/if}}
+		{{#if bookInfo.language}}
+		<tr class="book-detail-language"><td class="details-label">language</td><td>{{bookInfo.language}}</td></tr>
+		{{/if}}
+		{{#if bookInfo.contributor}}
+		<tr class="book-detail-contributor"><td class="details-label">contributor</td><td>{{bookInfo.contributor}}</td></tr>
+		{{/if}}
+		{{#if bookInfo.creatorSoftware}}
+		<tr class="book-detail-creator"><td class="details-label">creator software</td><td>{{bookInfo.creatorSoftware}}</td></tr>
+		{{/if}}
+	</table>
+</div>
+</li>
+{{/each}}
+</ul>
+</div>

@@ -1,0 +1,19 @@
+{{!
+{
+	"name": "LinksPanelView",
+	"description": "Links Panel View Template"
+}
+}}
+<!-- h4 class="heading-links heading-sidebar">Links</h4 -->
+<h3 class="well-title">Links</h3>
+<ul class="!list-inline list-links">
+{{#each links}}
+	<li !class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><h4 class="heading-title"><img src="{{icon}}" title="{{title}}"/>{{title}}</h4>
+		<ul class="list-panel">
+		{{#each urls}}
+			<li><a href="{{href}}" target="_blank" title="{{href}}">{{label}}</a></li>
+		{{/each}}
+		</ul>
+	</li>
+{{/each}}
+</ul>

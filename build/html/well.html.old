@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>well</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="/images/icons/fugue-icons/icons/e-book-reader-black.png"/>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/ebooklibrary-theme.css" />
+<script src="/js/lib/jquery/jquery-1.11.0.min.js"></script>
+<script src="/js/lib/bootstrap/bootstrap.min.js"></script>
+</head>
+
+<style>
+.well-fish {
+	position: relative;
+	background-color: #f3f1e9;
+}
+
+.row {
+	display: table;
+	width: 100%;
+	//padding: 19px;
+}
+
+.row > [class*="col-"] {
+	float: none;
+	display: table-cell;
+	vertical-align: top;
+}
+
+.col-md-1 {
+	background-color: #eae7d9;
+	text-align: center;
+	width: 58px;
+	padding: 19px;
+	margin-top: -19px;
+	margin-right: 190px;
+}
+
+.col-md-11 {
+	width: auto;
+}
+
+h3 {
+	margin-top: 0;
+}
+
+</style>
+
+<body>
+
+<div class="well-fish">
+<!--
+	<div class="well-header">
+-->
+	<div class="row">
+	<div class="col-md-1">
+	<ul class="list-group">
+		<li><a href="#">All</a></li>
+		<li><a href="#">A</a></li>
+		<li><a href="#">B</a></li>
+		<li><a href="#">C</a></li>
+		<li><a href="#">D</a></li>
+		<li><a href="#">E</a></li>
+		<li><a href="#">F</a></li>
+		<li><a href="#">G</a></li>
+		<li><a href="#">H</a></li>
+		<li><a href="#">I</a></li>
+		<li><a href="#">J</a></li>
+		<li><a href="#">K</a></li>
+		<li><a href="#">L</a></li>
+		<li><a href="#">M</a></li>
+		<li><a href="#">N</a></li>
+		<li><a href="#">O</a></li>
+		<li><a href="#">P</a></li>
+		<li><a href="#">Q</a></li>
+		<li><a href="#">R</a></li>
+		<li><a href="#">S</a></li>
+		<li><a href="#">T</a></li>
+		<li><a href="#">U</a></li>
+		<li><a href="#">V</a></li>
+		<li><a href="#">W</a></li>
+		<li><a href="#">X</a></li>
+		<li><a href="#">Y</a></li>
+		<li><a href="#">Z</a></li>
+	</ul>
+	</div>
+
+<!--
+	<div class="well-body">
+	<div class="col-md-11">
+-->
+	<h3>Authors</h3>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<!--
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+<p>dfgdghfdgfd gfdgfhgfd hgh hgfdgh fdgf d</p>
+</div>
+-->
+</div> <!-- row -->
+<!--
+	<h3>Authors</h3>
+	<div class="row">
+-->
+<!--
+	<ul class="!list-inline !list-default !list-authors row">
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name A</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name B</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name C</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name D</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name E</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name F</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name G</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name H</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name I</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name J</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name K</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name L</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name M</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name N</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name O</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name P</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name Q</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name S</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name T</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name U</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name V</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name W</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name X</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name Y</a></li>
+		<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a href="#">Author Name Z</a></li>
+	</ul>
+	</div>
+-->
+<!--
+	</div>
+-->
+</div>
+
+</body>
+</html>
+

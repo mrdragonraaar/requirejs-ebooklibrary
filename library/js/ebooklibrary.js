@@ -6,7 +6,7 @@
  * (c)2014 mrdragonraaar.com
  */
 requirejs.config({
-	baseUrl: '/js',
+	baseUrl: '/library/js',
 	paths:
 	{
 		backbone: 'lib/backbone/backbone-min',

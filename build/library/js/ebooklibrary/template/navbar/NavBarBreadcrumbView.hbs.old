@@ -1,0 +1,27 @@
+{{!
+{
+	"name": "NavBarBreadcrumbView",
+	"description": "NavBar Breadcrumb View Template"
+}
+}}
+<li class="nav-logo">
+	<a href="/library/#!/home"><i class="logo-ebooklibrary"></i></a>
+</li>
+{{#exists search}}
+<li class="nav-search active">
+	<span class="nav-divider"></span>
+	<a title="Search" href="/library/#!/search"><i class="icons-breadcrumb icon-search"/>Search</a>
+</li>
+{{/exists}}
+{{#if author}}
+<li class="nav-author{{#unless series}} active{{/unless}}">
+	<span class="nav-divider"></span>
+	<a title="{{author}}" href="/library/#!/books/{{author}}/"><i class="icons-breadcrumb icon-author"/>{{author}}</a>
+</li>
+{{/if}}
+{{#if series}}
+<li class="nav-series active">
+	<span class="nav-divider"></span>
+	<a title="{{series}}" href="/library/#!/books/{{author}}/{{series}}/"><i class="icons-breadcrumb icon-series"/>{{{basename series}}}</a>
+</li>
+{{/if}}
