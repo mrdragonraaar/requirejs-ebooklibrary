@@ -302,6 +302,34 @@ latestadditions {
 .table-striped > tbody > tr:nth-child(odd) > td {
   background-color: #eae7d9;
 }
+.form-group-search {
+  position: relative;
+  margin-bottom: 0;
+}
+.form-group-search .form-label-search {
+  position: absolute;
+  width: 100%;
+  color: #777;
+}
+.form-group-search .form-label-search > .glyphicon-search {
+  position: absolute;
+  top: 11px;
+  left: 10px;
+}
+.form-group-search .form-control-search {
+  padding-left: 31px;
+  border-radius: 15px;
+  background-color: #eae7d9;
+  border-color: #b6b4a1;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.125);
+  color: #777;
+}
+.form-group-search .form-control-search:focus {
+  background-color: #f3f1e9;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.125);
+}
 /*
 .form-control {
 	color: @input-color;
@@ -930,45 +958,26 @@ fieldset[disabled] .btn-default.active {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.navbar-default .navbar-form-searchbox {
+.navbar-default .form-search {
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
   margin-top: 0;
   margin-bottom: 0;
 }
-.navbar-default .navbar-form-searchbox .form-group-search {
-  position: relative;
-  margin-bottom: 0;
-}
-.navbar-default .navbar-form-searchbox .form-group-search .form-label-search {
-  position: absolute;
+.navbar-default .form-search .form-group-search .form-label-search {
   font-size: 12px;
-  width: 100%;
-  color: #777;
 }
-.navbar-default .navbar-form-searchbox .form-group-search .form-label-search > .glyphicon-search {
-  position: absolute;
-  top: 9px;
+.navbar-default .form-search .form-group-search .form-label-search > .glyphicon-search {
+  top: 10px;
   left: 10px;
 }
-.navbar-default .navbar-form-searchbox .form-group-search .form-control-search {
+.navbar-default .form-search .form-group-search .form-control-search {
   height: 30px;
   padding: 2px 16px 2px 32px;
-  border-radius: 15px;
-  background-color: #eae7d9;
-  border-color: #b6b4a1;
-  color: #777;
-  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.125);
-}
-.navbar-default .navbar-form-searchbox .form-group-search .form-control-search:focus {
-  background-color: #f3f1e9;
-  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.125);
 }
 @media (min-width: 768px) {
-  .navbar-default .navbar-form-searchbox {
+  .navbar-default .form-search {
     margin-top: 8px;
     margin-bottom: 8px;
     padding-top: 2px;
@@ -1128,9 +1137,13 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   display: inline-block;
 }
 .footer-links > li > a {
+  color: inherit;
   cursor: pointer;
   text-decoration: none;
   outline: 0;
+}
+.footer-links > li > a:hover {
+  text-decoration: underline;
 }
 .footer-links > li > a > .glyphicon {
   vertical-align: baseline;
@@ -1174,11 +1187,11 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .footer-default .footer-copyright > a:focus {
   color: #24150a;
 }
-.footer-default .footer-links > li > a {
+.footer-default .footer-links > li {
   color: #382110;
 }
-.footer-default .footer-links > li > a:hover,
-.footer-default .footer-links > li > a:focus {
+.footer-default .footer-links > li:hover,
+.footer-default .footer-links > li:focus {
   color: #24150a;
 }
 .application-book .footer-default,
@@ -2191,25 +2204,41 @@ a.disabled .next-arrow:after {
   border-top: none;
   border-bottom-color: #bebba1;
   background-color: #eae7d9;
+  /*
+	.form-group-search {
+		position: relative;
+		margin-bottom: 0;
+
+		.form-label-search {
+			position: absolute;
+			width: 100%;
+			color: #777;
+
+			> .glyphicon-search {
+				position: absolute;
+				top: 11px;
+				left: 10px;
+			}
+		}
+
+		.form-control-search {
+			padding-left: (@padding-base-horizontal + 19px);
+				border-radius: 15px;
+				background-color: #eae7d9;
+				border-color: #b6b4a1;
+				.box-shadow(inset 0 0 5px rgba(0, 0, 0, 0.125));
+				color: #777;
+
+				&:focus {
+					background-color: #f3f1e9;
+					.box-shadow(inset 0 0 5px rgba(0, 0, 0, 0.125));
+				}
+		}
+	}
+*/
+
 }
-.well-search .form-group-search {
-  position: relative;
-  margin-bottom: 0;
-}
-.well-search .form-group-search .form-label-search {
-  position: absolute;
-  width: 100%;
-  color: #777;
-}
-.well-search .form-group-search .form-label-search > .glyphicon-search {
-  position: absolute;
-  top: 11px;
-  left: 10px;
-}
-.well-search .form-group-search .form-control-search {
-  padding-left: 31px;
-}
-.well-search .well-search-message {
+.well-search .alert {
   margin-top: 20px;
   margin-bottom: 0;
 }
@@ -2307,22 +2336,42 @@ a.disabled .next-arrow:after {
 .well-links {
   background-color: transparent;
   border: none;
+}
+.well-links > .links .link {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.well-links > .links .link > .heading-title > img {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  margin-right: 7px;
+  margin-bottom: 5px;
+}
+.well-links > .links .link > .list-default {
+  margin-left: 14px;
+}
+.well-links-old {
+  background-color: transparent;
+  border: none;
   min-height: 158px;
 }
-.well-links > .list-links {
+.well-links-old > .list-links {
   width: 100%;
   list-style: none outside none;
   margin: 0;
   padding: 0;
   padding-left: 0;
 }
-.well-links > .list-links > li {
+.well-links-old > .list-links > li {
   margin: 0;
   padding: 0;
   text-align: center;
   height: 40px;
 }
-.well-links > .list-links > li > .heading-title {
+.well-links-old > .list-links > li > .heading-title {
   display: inline-block;
   margin: 0;
   padding: 0;
@@ -2330,13 +2379,13 @@ a.disabled .next-arrow:after {
   width: 180px;
   text-align: left;
 }
-.well-links > .list-links > li > .heading-title > a {
+.well-links-old > .list-links > li > .heading-title > a {
   display: block;
   color: #382110;
   text-decoration: none;
   outline: 0;
 }
-.well-links > .list-links > li > .heading-title > a > img {
+.well-links-old > .list-links > li > .heading-title > a > img {
   width: 32px;
   height: 32px;
   border-radius: 4px;
@@ -2345,7 +2394,7 @@ a.disabled .next-arrow:after {
   margin-right: 7px;
 }
 @media (max-width: 767px) {
-  .well-links > .list-links > li {
+  .well-links-old > .list-links > li {
     text-align: left;
   }
 }

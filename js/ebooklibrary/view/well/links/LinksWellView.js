@@ -1,21 +1,19 @@
 /**
- * LinksView.js
+ * LinksWellView.js
  *
  * Backbone view representing ebooklibrary links.
  *
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'hbs!ebooklibrary/template/links/LinksView',
-    'ebooklibrary/collection/LinkCollection',
+    'hbs!ebooklibrary/template/well/links/LinksWell',
     'backbone'
 ],
 function(
-    LinksViewTemplate,
-    LinkCollection,
+    LinksWellTemplate,
     Backbone
 ) {
-	var LinksView = Backbone.View.extend({
+	var LinksWellView = Backbone.View.extend({
 		tagName: 'links',
 		className: 'well well-wide well-links',
 
@@ -26,10 +24,7 @@ function(
 		initialize: function(options) {
 			options = options || {};
 
-			this.collection = new LinkCollection();
-			this.collection.fetch();
-
-			this.listenTo(this.collection, 'sync', this.renderLinks);
+			this.listenTo(this.collection, 'reset', this.renderLinks);
 		},
 
 		/**
@@ -37,10 +32,10 @@ function(
 		 * @param collection links collection.
 		 */
 		renderLinks: function(collection) {
-			var linksTmpl = LinksViewTemplate({links: collection.toJSON()});
-			this.$el.append(linksTmpl);
+			var linksWellTmpl = LinksWellTemplate({links: collection.toJSON()});
+			this.$el.append(linksWellTmpl);
 		}
 	});
 
-	return LinksView;
+	return LinksWellView;
 });

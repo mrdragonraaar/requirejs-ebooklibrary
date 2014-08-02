@@ -24,6 +24,7 @@ function(
 			'!/search(/)': 'search',
 			'!/search/*search': 'search',
 			'!/book/:author/(*series/):book': 'book',
+			'!/links(/)': 'links',
 			'': 'empty',
 			'*404': 'empty'
 		},
@@ -76,6 +77,13 @@ function(
 		 */
 		book: function(author, series, book) {
 			AppView.showBookPage(author, series, book);
+		},
+
+		/**
+		 * Links page route.
+		 */
+		links: function() {
+			AppView.showLinksPage();
 		}
 	});
 	

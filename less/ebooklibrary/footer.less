@@ -105,9 +105,14 @@
 		display: inline-block;
 
 		> a {
+			color: inherit;
 			cursor: pointer;
 			text-decoration: none;
 			outline: 0;
+
+			&:hover {
+				text-decoration: underline;
+			}
 
 			> .glyphicon {
 				vertical-align: baseline;
@@ -166,13 +171,11 @@
 
 	.footer-links {
 		> li {
-			> a {
-				color: @footer-default-link-color;
+			color: @footer-default-link-color;
 
-				&:hover,
-				&:focus {
-					color: @footer-default-link-hover-color;
-				}
+			&:hover,
+			&:focus {
+				color: @footer-default-link-hover-color;
 			}
 		}
 	}

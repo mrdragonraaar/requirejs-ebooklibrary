@@ -12,6 +12,7 @@ define([
     'ebooklibrary/view/page/BooksPageView',
     'ebooklibrary/view/page/SearchPageView',
     'ebooklibrary/view/page/BookPageView',
+    'ebooklibrary/view/page/LinksPageView',
     'backbone'
 ],
 function(
@@ -21,6 +22,7 @@ function(
     BooksPageView,
     SearchPageView,
     BookPageView,
+    LinksPageView,
     Backbone
 ) {
 	var AppView = Backbone.View.extend({
@@ -112,6 +114,18 @@ function(
 			this.navBar.breadcrumbView.setSeriesActive(false);
 
 			this.showPageView(new BookPageView({author: author, series: series, book: book}));
+		},
+
+		/**
+		 * Show links page.
+		 */
+		showLinksPage: function() {
+			this.setApplicationPageClass('links');
+
+			this.navBar.setBreadcrumb({links: ''});
+			this.navBar.searchBoxView.$el.hide();
+
+			this.showPageView(new LinksPageView());
 		},
 
 		/**

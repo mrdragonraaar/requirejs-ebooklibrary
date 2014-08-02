@@ -6,50 +6,28 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'hbs!ebooklibrary/template/well/search/SearchWell',
-    'hbs!ebooklibrary/template/well/search/SearchWellInfoMessage',
-    'hbs!ebooklibrary/template/well/search/SearchWellErrorMessage',
+    'ebooklibrary/view/form/SearchFormView',
+    'hbs!ebooklibrary/template/well/search/SearchErrorAlert',
     'backbone'
 ],
 function(
-    SearchWellTemplate,
-    SearchWellInfoMessageTemplate,
-    SearchWellErrorMessageTemplate,
+    SearchFormView,
+    SearchErrorAlertTemplate,
     Backbone
 ) {
 	var SearchWellView = Backbone.View.extend({
 		tagName: 'search',
 		className: 'well well-wide well-search',
 
-		/**
-		 * Define search well form events.
-		 */
-		events: {
-			'submit form': 'onSubmitSearch'
-		},
-
-		/**
-		 * Event handler for search well submit event.
-		 * @param e form event.
-		 */
-		onSubmitSearch: function(e) {
-			e.preventDefault();
-
-			var searchVal = this.$('input[name = search]').val();
-			this.$('input[name = search]').val('');
-			this.$('input[name = search]').blur();
-
-			if (searchVal) {
-				Backbone.history.navigate('!/search/' + searchVal, true);
-			}
-		},
+		searchForm: null,	// search form view
 
 		/**
 		 * Initialise the search well view.
 		 * @param options search well options (collection).
 		 */
 		initialize: function(options) {
-			this.listenTo(this.collection, 'reset', this.showInfo);
+			this.searchForm = new SearchFormView();
+
 			this.listenTo(this.collection, 'error', this.showError);
 		},
 
@@ -58,34 +36,30 @@ function(
 		 * @return search well view
 		 */
 		render: function(options) {
-			var searchWellTmpl = SearchWellTemplate();
-			this.$el.html(searchWellTmpl);
+			this.$el.append(this.searchForm.render().el);
+			this.searchForm.setSearchInputVal(this.collection.keyword);
 
 			return this;
 		},
 
 		/**
-		 * Show info well.
-		 * @param collection search collection.
-		 */
-		showInfo: function(collection) {
-			if (collection.keyword) {
-				var searchWellInfoTmpl = SearchWellInfoMessageTemplate(collection);
-				this.$el.append(searchWellInfoTmpl);
-				this.$('.well-search-message').hide();
-				this.$('.well-search-message').fadeIn('slow');
-			}
-		},
-
-		/**
-		 * Show error well.
+		 * Show error alert.
 		 * @param collection search collection.
 		 */
 		showError: function(collection) {
-			var searchWellErrorTmpl = SearchWellErrorMessageTemplate();
-			this.$el.append(searchWellErrorTmpl);
-			this.$('.well-search-message').hide();
-			this.$('.well-search-message').fadeIn('slow');
+			var searchErrorAlertTmpl = SearchErrorAlertTemplate();
+			this.$el.append(searchErrorAlertTmpl);
+			this.$('.alert').hide();
+			this.$('.alert').fadeIn('slow');
+		},
+
+		/**
+		 * Remove the search well view.
+		 */
+		remove: function() {
+			this.searchForm.remove();
+
+			Backbone.View.prototype.remove.apply(this);
 		}
 	});
 

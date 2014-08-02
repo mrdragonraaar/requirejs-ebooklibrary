@@ -1,0 +1,20 @@
+{{!
+{
+	"name": "LinksWell",
+	"description": "Links Well Template"
+}
+}}
+<div class="row multi-columns-row links">
+{{#each links}}
+	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+		<div class="link">
+			<h4 class="heading-title"><img src="{{icon}}" title="{{title}}"/>{{title}}</h4>
+			<ul class="list-default">
+			{{#each urls}}
+				<li><a href="{{href}}" target="_blank" title="{{href}}">{{label}}</a></li>
+			{{/each}}
+			</ul>
+		</div>
+	</div>
+{{/each}}
+</div>
