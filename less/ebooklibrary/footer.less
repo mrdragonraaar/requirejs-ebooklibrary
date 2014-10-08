@@ -69,7 +69,9 @@
 	display: block;
 	&:extend(.clearfix all);
 	padding: @footer-padding-vertical @footer-padding-horizontal;
-	font-size: @font-size-base;
+	//font-size: @font-size-base;
+	//font-size: @font-size-small;
+	font-size: 13px;
 	color: inherit;
 	line-height: @line-height-computed;
 	height: @footer-height;
@@ -93,7 +95,8 @@
 	display: block;
 	&:extend(.clearfix all);
 	padding: @footer-padding-vertical @footer-padding-horizontal;
-	font-size: @font-size-base;
+	//font-size: @font-size-base;
+	font-size: 13px;
 	color: inherit;
 	line-height: @line-height-computed;
 	height: @footer-height;
@@ -110,10 +113,6 @@
 			text-decoration: none;
 			outline: 0;
 
-			&:hover {
-				text-decoration: underline;
-			}
-
 			> .glyphicon {
 				vertical-align: baseline;
 				top: 2px;
@@ -126,7 +125,7 @@
 		}
 
 		&:after {
-			content: "|";
+			content: @footer-link-seperator;
 			padding: 0 5px;
 		}
 	}
@@ -149,6 +148,16 @@
 }
 
 
+// Hide label on small screens if icon exists
+.footer-label {
+	@media (max-width: (@screen-xs-min - 1)) {
+		.glyphicon + & {
+			display: none;
+		}
+	}
+}
+
+
 // Alternate footers
 // --------------------------------------------------
 
@@ -159,23 +168,26 @@
 	#gradient.vertical(@footer-default-gradient-start, @footer-default-gradient-end);
 
 	.footer-copyright {
-		> a {
-			color: @footer-default-link-color;
+		color: @footer-default-color;
 
-			&:hover,
-			&:focus {
-				color: @footer-default-link-hover-color;
-			}
+		> a {
+			color: @footer-default-color;
 		}
 	}
 
 	.footer-links {
 		> li {
-			color: @footer-default-link-color;
+			> a {
+				color: @footer-default-link-color;
 
-			&:hover,
-			&:focus {
-				color: @footer-default-link-hover-color;
+				&:hover,
+				&:focus {
+					color: @footer-default-link-hover-color;
+				}
+			}
+
+			&:after {
+				color: @footer-default-link-color;
 			}
 		}
 	}

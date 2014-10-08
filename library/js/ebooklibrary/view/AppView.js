@@ -50,6 +50,16 @@ function(
 			this.$el.append(this.footer.render().el);
 		},
 
+		setPageTitle: function(title) {
+			var pageTitle = 'ebooklibrary';
+
+			if (title) {
+				pageTitle += ' | ' + title;
+			}
+
+			$(document).prop('title', pageTitle);
+		},
+
 		/**
 		 * Show page view.
 		 * @param pageView page view.
@@ -69,6 +79,8 @@ function(
 			this.navBar.setBreadcrumb();
 			this.navBar.searchBoxView.$el.show();
 
+			this.setPageTitle();
+
 			this.showPageView(new HomePageView());
 		},
 
@@ -83,6 +95,10 @@ function(
 			this.navBar.setBreadcrumb({author: author, series: series});
 			this.navBar.searchBoxView.$el.hide();
 
+			var pageTitle = author;
+			if (series) { pageTitle += ' | ' + series };
+			this.setPageTitle(pageTitle);
+
 			this.showPageView(new BooksPageView({author: author, series: series}));
 		},
 
@@ -96,6 +112,8 @@ function(
 			keyword = keyword || '';
 			this.navBar.setBreadcrumb({search: keyword});
 			this.navBar.searchBoxView.$el.hide();
+
+			this.setPageTitle('Search');
 
 			this.showPageView(new SearchPageView({keyword: keyword}));
 		},
@@ -124,6 +142,8 @@ function(
 
 			this.navBar.setBreadcrumb({links: ''});
 			this.navBar.searchBoxView.$el.hide();
+
+			this.setPageTitle('Links');
 
 			this.showPageView(new LinksPageView());
 		},

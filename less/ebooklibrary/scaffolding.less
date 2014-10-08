@@ -3,6 +3,77 @@
 // --------------------------------------------------
 
 
+// Import fonts
+
+// Open Sans
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Open Sans Light'), local('OpenSans-Light'), url('@{font-path}OpenSans-Light.woff') format('woff');
+}
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Open Sans'), local('OpenSans'), url('@{font-path}OpenSans.woff') format('woff');
+}
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 600;
+	src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url('@{font-path}OpenSans-Semibold.woff') format('woff');
+}
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Open Sans Bold'), local('OpenSans-Bold'), url('@{font-path}OpenSans-Bold.woff') format('woff');
+}
+
+// Poirot One
+@font-face {
+	font-family: 'Poirot One';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Poirot One'), local('PoirotOne-Regular'), url('@{font-path}PoirotOne-Regular.woff') format('woff');
+}
+
+// Droid Sans
+@font-face {
+	font-family: 'Droid Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Droid Sans'), local('DroidSans'), url('@{font-path}DroidSans.woff') format('woff');
+}
+@font-face {
+	font-family: 'Droid Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Droid Sans Bold'), local('DroidSans-Bold'), url('@{font-path}DroidSans-Bold.woff') format('woff');
+}
+
+// DejaVu Sans
+@font-face {
+	font-family: 'DejaVu Sans';
+	font-style: normal;
+	font-weight: 100;
+	src: local('DejaVu Sans ExtraLight'), local('DejaVuSans-ExtraLight'), url('@{font-path}DejaVuSans-ExtraLight.woff') format('woff');
+}
+@font-face {
+	font-family: 'DejaVu Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('DejaVu Sans'), local('DejaVuSans'), url('@{font-path}DejaVuSans.woff') format('woff');
+}
+@font-face {
+	font-family: 'DejaVu Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: local('DejaVu Sans Bold'), local('DejaVuSans-Bold'), url('@{font-path}DejaVuSans-Bold.woff') format('woff');
+}
+
+
 // Body reset
 
 html {
@@ -110,15 +181,16 @@ a {
 // HTML5 display definitions
 // ==========================================================================
 
-book,
-books,
 authors,
-series,
-search,
+book,
 bookinfo,
+books,
+latestadditions,
 links,
 loading,
-latestadditions {
+login,
+search,
+series {
 	display: block;
 	position: relative;
 }

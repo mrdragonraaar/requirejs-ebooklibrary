@@ -368,3 +368,40 @@
 	}
 }
 
+// Login
+.well-login {
+	background: transparent;
+	border: none;
+	.box-shadow(none);
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+	width: 355px;
+
+	.well-login-image {
+		margin-right: 9px;
+		height: 250px;
+		//width: 164px;
+	}
+
+	.well-login-logo {
+	}
+
+	@media (max-width: (@screen-xs-min - 1)) {
+		width: 300px;
+		padding: 5px;
+
+		.well-login-image {
+			height: 180px;
+			margin-right: 5px;
+			//margin-bottom: 9px;
+		}
+
+		.well-login-logo {
+			> .logo-ebooklibrary {
+				//width: 112px;
+			}
+		}
+	}
+}
+

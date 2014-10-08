@@ -6,6 +6,14 @@
 // Headings
 // --------------------------------------------------
 
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: @headings-font-family;
+	font-weight: @headings-font-weight;
+	line-height: @headings-line-height;
+	color: @headings-color;
+}
+
 .heading-author,
 .heading-title {
 	margin: 0;
@@ -17,6 +25,7 @@
 }
 
 .heading-author {
+	font-family: @font-family-base;
 	font-size: @heading-author-font-size;
 	font-weight: @heading-author-font-weight;
 	line-height: @heading-author-line-height;
@@ -39,6 +48,9 @@
 // List options
 
 .list-default {
+	font-size: 12px;
+	//line-height: (20/12);
+	line-height: @line-height-small;
 	list-style: square inside;
 	padding-left: 0;
 	color: @list-default-color;
@@ -53,6 +65,7 @@
 // Overide inline styling of books text
 
 .text-book {
+	font-size: 13px;
 	color: #444;
 	line-height: 24px;
 
@@ -61,7 +74,7 @@
 	}
 
 	blockquote {
-		font-size: 14px;
+		font-size: 13px;
 		padding: 5px 10px 5px;
 		margin: 0px 0px 5px;
 	}
@@ -81,7 +94,8 @@
 	h4,
 	h5,
 	h6 {
-		font-size: 16px;
+		font-size: 14px;
+		//font-size: 14px;
 		font-weight: 300;
 		margin: 10px 0px 10px;
 	}
@@ -93,7 +107,7 @@
 
 	div[style],
 	p[style] {
-		font-size: 14px !important;
+		font-size: 13px !important;
 		line-height: 24px !important;
 		margin: 0px 0px 5px !important;
 	}
@@ -104,7 +118,7 @@
 	h4[style],
 	h5[style],
 	h6[style] {
-		font-size: 16px !important;
+		font-size: 14px !important;
 		font-weight: 300 !important;
 		margin: 10px 0px 10px !important;
 	}

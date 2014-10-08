@@ -56,24 +56,6 @@
 @gradient-stop-percent:		100%;
 
 
-//== Typography
-//
-//## Font, line-height, and color for body text, headings, and more.
-
-@heading-author-font-size:	@font-size-base;
-//@heading-author-font-size:	@font-size-small;
-@heading-author-font-weight:	500;
-@heading-author-line-height:	@line-height-computed;
-@heading-author-color:		@brand-secondary;
-
-@heading-title-font-size:	@font-size-large;
-//@heading-title-font-size:	@font-size-medium;
-@heading-title-font-weight:	300;
-//@heading-title-line-height:	@line-height-large;
-@heading-title-line-height:	1.22;
-@heading-title-color:		@brand-primary;
-
-
 //== Full height
 //
 //## Settings for margin and padding to allow full height display.
@@ -91,16 +73,49 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:	"Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
-//@font-family-sans-serif:	"Open Sans", "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-path:          "../fonts/";
+
+//@font-family-sans-serif:	"Helvetica Neue", Helvetica, Arial, sans-serif;
+//@font-family-sans-serif:	"Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+//@font-family-sans-serif:	"DejaVu Sans", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:	"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif-2:	"Poirot One", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-base:		@font-family-sans-serif;
 
 @font-size-base:		14px;
+//@font-size-base:		13px;
 //@font-size-base:		12px;
 @font-size-larger:		ceil((@font-size-base * 1.4)); // ~20px
 @font-size-large:		ceil((@font-size-base * 1.25)); // ~18px
 @font-size-medium:		ceil((@font-size-base * 1.125)); // ~16px
 @font-size-small:		ceil((@font-size-base * 0.85)); // ~12px
+@font-size-smaller:		ceil((@font-size-base * 0.7)); // ~10px
+
+//@line-height-base:		(20/@font-size-base);
+//@line-height-base:		(20/12);
+
+//@headings-font-family:		@font-family-sans-serif-2;
+@headings-font-family:		@font-family-sans-serif;
+@headings-font-weight:		400;
+@headings-line-height:		1.1;
+@headings-color:		inherit;
+
+//@heading-author-font-size:	@font-size-base;
+//@heading-author-font-size:	@font-size-small;
+@heading-author-font-size:	13px;
+@heading-author-font-weight:	500;
+//@heading-author-line-height:	@line-height-computed;
+@heading-author-line-height:	@line-height-base;
+@heading-author-color:		@brand-secondary;
+
+//@heading-title-font-size:	@font-size-large;
+@heading-title-font-size:	15px;
+//@heading-title-font-size:	@font-size-medium;
+//@heading-title-font-weight:	400;
+@heading-title-font-weight:	300;
+@heading-title-line-height:	@line-height-large;
+//@heading-title-line-height:	1.22;
+@heading-title-color:		@brand-primary;
 
 @list-default-color:		#b6b4a1;
 
@@ -359,7 +374,9 @@
 @navbar-default-border:			darken(@navbar-default-bg, 5%);
 
 // Navbar links
-@navbar-default-link-font-size:		@font-size-large;
+//@navbar-default-link-font-size:		@font-size-large;
+//@navbar-default-link-font-size:		@font-size-medium;
+@navbar-default-link-font-size:		15px;
 @navbar-default-link-color:		@gray-medium;
 //@navbar-default-link-color:		@brand-secondary;
 //@navbar-default-link-color:		#777;
@@ -423,14 +440,17 @@
 @footer-padding-horizontal:		15px;
 @footer-padding:			@footer-padding-vertical @footer-padding-horizontal;
 
+@footer-link-seperator:			"|";
+
 @footer-default-color:			#382110;
 @footer-default-bg:			#c8c6b0;
 @footer-default-border:			darken(@footer-default-bg, 5%);
 @footer-default-box-shadow:		0 -5px 5px -2px rgba(0, 0, 0, 0.125);
 @footer-default-gradient-start:		#e1ddc7;
 @footer-default-gradient-end:		#c8c6b0;
-@footer-default-link-color:		#382110;
-@footer-default-link-hover-color:	darken(@footer-default-link-color, 5%);
+
+@footer-default-link-color:		@gray-medium;
+@footer-default-link-hover-color:	@footer-default-color;
 
 
 //== Navs
@@ -548,7 +568,8 @@
 // Panel latest additions
 @panel-latestadditions-text:			@brand-primary;
 @panel-latestadditions-border:			#b6b4a1;
-@panel-latestadditions-title-font-size:		@font-size-larger;
+//@panel-latestadditions-title-font-size:		@font-size-larger;
+@panel-latestadditions-title-font-size:		@font-size-large;
 @panel-latestadditions-heading-line-height:	1.1;
 
 

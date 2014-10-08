@@ -127,6 +127,7 @@
 		.box-shadow(@panel-books-box-shadow);
 
 		.badge {
+			font-size: 11px;
 			color: @badge-color;
 			background-color: @badge-bg;
 			border-color: @badge-border;
@@ -252,16 +253,36 @@
 					> .media-body {
 						&:extend(.clearfix all);
 						overflow: visible;
+							//min-height: 200px;
+							//height: 200px;
 
 						> .text-book {
+							display: block;
 							margin-top: 10px;
+							overflow: hidden;
+							//height: 120px;
 						}
+/*
+*/
+
+/*
+							&:after {
+								font-size: 13px;
+								display: block;
+								border-top: 1px solid #777;
+								color: #777;
+								content: "more";
+								text-align: right;
+								width: 100%;
+							}
+*/
 					}
 
 					> .media-footer {
+						//margin-top: 40px;
 						margin-bottom: 0;
 						color: @gray;
-						font-size: 12px;
+						font-size: 11px;
 
 						th {
 							//color: @brand-primary;
@@ -295,6 +316,7 @@
 			}
 
 			&.panel-content-list {
+				font-size: 12px;
 				margin-top: 10px;
 				margin-bottom: 10px;
 
@@ -327,7 +349,7 @@
 				.panel-content-list-name {
 					background-image: data-uri(@panel-books-content-list-bg-image);
 					background-repeat: no-repeat;
-					background-position: @table-cell-padding (@table-cell-padding + 2px);
+					background-position: @table-cell-padding (@table-cell-padding + 1px);
 					padding-left: (@table-cell-padding * 2 + 16px);
 				}
 
@@ -468,6 +490,7 @@
 							&:focus,
 							&.active {
 								opacity: 1;
+								border-color: darken(@thumbnail-border, 10%);
 							}
 						}
 					}
@@ -494,6 +517,7 @@
 		padding-right: 0;
 
 		> .panel-nav {
+			font-size: 13px;
 			display: table;
 			width: 100%;
 			margin-left: 0;
