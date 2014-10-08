@@ -6,7 +6,7 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'ebooklibrary/view/page/BasePageView',
+    'ebooklibrary/view/well/loading/LoadingWellView',
     'ebooklibrary/view/well/series/SeriesWellView',
     'ebooklibrary/view/panel/books/BooksPanelView',
     'ebooklibrary/collection/SeriesCollection',
@@ -14,19 +14,17 @@ define([
     'backbone'
 ],
 function(
-    BasePageView,
+    LoadingWellView,
     SeriesWellView,
     BooksPanelView,
     SeriesCollection,
     BookCollection,
     Backbone
 ) {
-	var BooksPageView = BasePageView.extend({
-		pageClass: 'books',		// application page class
-		pageTitle: function() {
-			return this.pageBreadCrumb.series ? (this.pageBreadCrumb.author + ' | ' + this.pageBreadCrumb.series) : this.pageBreadCrumb.author;
-		},
+	var BooksPageView = Backbone.View.extend({
+		className: 'content-books',
 		
+		loading: null,		// loading well view
 		series: null,		// series well view
 		books: null,		// books panel view
 
@@ -36,6 +34,8 @@ function(
 		 */
 		initialize: function(options) {
 			options = options || {};
+
+			this.loading = new LoadingWellView();
 
 			var seriesCollection = new SeriesCollection([],
 			   {author: options.author, series: options.series});
@@ -49,14 +49,16 @@ function(
 			bookCollection.fetch({reset: true, timeout: 20000});
 
 			this.books = new BooksPanelView({collection: bookCollection});
-			this.listenTo(this.books.collection, 'reset', this.hideLoading);
+			this.listenTo(this.books.collection, 'reset', this.showBooks);
 		},
 		
 		/**
 		 * Render the application books page.
 		 * @return application books page view
 		 */
-		onPageRender: function() {
+		render: function() {
+			this.$el.append(this.loading.render().el);
+
 			this.series.$el.hide();
 			this.$el.append(this.series.render().el);
 			this.$el.append(this.books.render().el);
@@ -75,13 +77,22 @@ function(
 		},
 
 		/**
+		 * Show books panel.
+		 * @param collection books collection.
+		 */
+		showBooks: function(collection) {
+			this.loading.$el.fadeOut('slow');
+		},
+
+		/**
 		 * Remove the application books page.
 		 */
-		onPageRemove: function() {
+		remove: function() {
+			this.loading.remove();
 			this.series.remove();
 			this.books.remove();
 
-			//Backbone.View.prototype.remove.apply(this);
+			Backbone.View.prototype.remove.apply(this);
 		}
 	});
 

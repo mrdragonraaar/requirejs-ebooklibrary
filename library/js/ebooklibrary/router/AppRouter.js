@@ -65,7 +65,7 @@ function(
 		 * Search page route.
 		 * @param keyword search keyword.
 		 */
-		search: function(keyword) {
+		search: function(keyword = '') {
 			AppView.showSearchPage(keyword);
 		},
 

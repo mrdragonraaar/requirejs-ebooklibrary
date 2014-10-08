@@ -1046,6 +1046,7 @@ fieldset[disabled] .btn-default.active {
   box-shadow: none;
 }
 .navbar-default .form-search {
+  display: none;
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -1118,6 +1119,9 @@ fieldset[disabled] .navbar-default .btn-link:hover,
 .navbar-default .btn-link[disabled]:focus,
 fieldset[disabled] .navbar-default .btn-link:focus {
   color: #cccccc;
+}
+.application-home > .navbar-default .form-search {
+  display: block;
 }
 .header {
   height: 272px;

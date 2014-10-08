@@ -7,14 +7,9 @@ css/bootstrap.min.css
 ----------------
 css/bootstrap.min.css
 
-css/ebooklibrary-theme.css
-----------------
-css/ebooklibrary-theme.css
-
 css/ebooklibrary.css
 ----------------
 css/bootstrap.min.css
-css/ebooklibrary-theme.css
 css/ebooklibrary.css
 
 library/js/ebooklibrary.js

@@ -67,6 +67,11 @@ function(
 		showPageView: function(pageView) {
 			this.page && this.page.remove();
 			this.page = pageView;
+
+			this.setApplicationPageClass(this.page.pageClass);
+			this.navBar.setBreadcrumb(this.page.pageBreadCrumb);
+			console.log(this.page.pageBreadCrumb);
+
 			this.$('.content-container').html(this.page.render().el);
 		},
 
@@ -74,13 +79,6 @@ function(
 		 * Show home page.
 		 */
 		showHomePage: function() {
-			this.setApplicationPageClass('home');
-
-			this.navBar.setBreadcrumb();
-			this.navBar.searchBoxView.$el.show();
-
-			this.setPageTitle();
-
 			this.showPageView(new HomePageView());
 		},
 
@@ -90,15 +88,6 @@ function(
 		 * @param series series name.
 		 */
 		showBooksPage: function(author, series) {
-			this.setApplicationPageClass('books');
-
-			this.navBar.setBreadcrumb({author: author, series: series});
-			this.navBar.searchBoxView.$el.hide();
-
-			var pageTitle = author;
-			if (series) { pageTitle += ' | ' + series };
-			this.setPageTitle(pageTitle);
-
 			this.showPageView(new BooksPageView({author: author, series: series}));
 		},
 
@@ -107,15 +96,7 @@ function(
 		 * @param keyword search keyword.
 		 */
 		showSearchPage: function(keyword) {
-			this.setApplicationPageClass('search');
-
-			keyword = keyword || '';
-			this.navBar.setBreadcrumb({search: keyword});
-			this.navBar.searchBoxView.$el.hide();
-
-			this.setPageTitle('Search');
-
-			this.showPageView(new SearchPageView({keyword: keyword}));
+			this.showPageView(new SearchPageView({search: keyword}));
 		},
 
 		/**

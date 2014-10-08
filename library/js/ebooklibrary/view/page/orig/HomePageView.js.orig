@@ -6,23 +6,23 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'ebooklibrary/view/page/BasePageView',
+    'ebooklibrary/view/well/loading/LoadingWellView',
     'ebooklibrary/view/header/HeaderView',
     'ebooklibrary/view/panel/authors/AuthorsPanelView',
     'ebooklibrary/collection/AuthorCollection',
     'backbone'
 ],
 function(
-    BasePageView,
+    LoadingWellView,
     HeaderView,
     AuthorsPanelView,
     AuthorCollection,
     Backbone
 ) {
-	var HomePageView = BasePageView.extend({
-		pageClass: 'home',		// application page class
-		pageTitle: 'Home',		// page title
+	var HomePageView = Backbone.View.extend({
+		className: 'content-home',
 		
+		loading: null,			// loading well view
 		header: null,			// header view
 		authors: null,			// authors panel view
 
@@ -33,31 +33,43 @@ function(
 		initialize: function(options) {
 			options = options || {};
 
+			this.loading = new LoadingWellView();
+
 			this.header = new HeaderView();
 
 			var authorCollection = new AuthorCollection();
 			authorCollection.fetch({reset: true});
 
 			this.authors = new AuthorsPanelView({collection: authorCollection});
-			this.listenTo(this.authors.collection, 'reset', this.hideLoading);
+			this.listenTo(this.authors.collection, 'reset', this.showAuthors);
 		},
 		
 		/**
 		 * Render the application home page.
 		 * @return application home page view
 		 */
-		onPageRender: function() {
+		render: function() {
+			this.$el.append(this.loading.render().el);
 			this.$el.append(this.header.render().el);
 			this.$el.append(this.authors.render().el);
 
 			return this;
 		},
 
-		onPageRemove: function() {
+		/**
+		 * Show authors.
+		 * @param collection author collection.
+		 */
+		showAuthors: function(collection) {
+			this.loading.$el.fadeOut('slow');
+		},
+
+		remove: function() {
+			this.loading.remove();
 			this.header.remove();
 			this.authors.remove();
 
-			//BasePageView.prototype.remove.apply(this);
+			Backbone.View.prototype.remove.apply(this);
 		}
 	});
 	

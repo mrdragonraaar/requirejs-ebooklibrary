@@ -14,6 +14,15 @@ function(
     Backbone
 ) {
 	var BasePageView = Backbone.View.extend({
+		pageClass: 'base',		// default page class,
+		basePageTitle: 'ebooklibrary',	// base page title
+		pageTitle: '',			// default page title,
+		pageBreadCrumb: {},		// default breadcrumb,
+
+		className: function() {
+			return 'page-' + this.pageClass;
+		},
+
 		loading: null,			// loading well view
 
 		/**
@@ -22,6 +31,8 @@ function(
 		 */
 		//initialize: function(options) {
 		constructor: function(options) {
+			this.pageBreadCrumb = options || {};
+
 			this.loading = new LoadingWellView();
 
 			this.listenTo(this, 'pageRender', this.onPageRender);
@@ -30,11 +41,23 @@ function(
 			Backbone.View.apply(this, arguments);
 		},
 
+		setPageTitle: function(title) {
+			var pageTitle = this.basePageTitle;
+
+			if (title) {
+				pageTitle += ' | ' + title;
+			}
+
+			$(document).prop('title', pageTitle);
+		},
+
 		/**
 		 * Render the application base page.
 		 * @return application base page view
 		 */
 		render: function() {
+			this.setPageTitle(_.result(this, 'pageTitle'));
+
 			this.$el.append(this.loading.render().el);
 
 			this.trigger('pageRender');
