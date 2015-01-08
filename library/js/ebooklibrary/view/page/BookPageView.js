@@ -7,14 +7,14 @@
  */
 define([
     'hbs!ebooklibrary/template/well/bookinfo/BookInfoWell',
-    'ebooklibrary/view/well/loading/LoadingWellView',
+    'ebooklibrary/view/alert/loading/LoadingAlertView',
     'ebooklibrary/view/panel/book/BookPanelView',
     'ebooklibrary/model/BookModel',
     'backbone'
 ],
 function(
     BookInfoWellTemplate,
-    LoadingWellView,
+    LoadingAlertView,
     BookPanelView,
     BookModel,
     Backbone
@@ -22,7 +22,7 @@ function(
 	var BookPageView = Backbone.View.extend({
 		className: 'content-book',
 		
-		loading: null,		// loading well view
+		loading: null,		// loading alert view
 		book: null,		// book panel view
 
 		/**
@@ -32,7 +32,7 @@ function(
 		initialize: function(options) {
 			options = options || {};
 
-			this.loading = new LoadingWellView();
+			this.loading = new LoadingAlertView();
 
 			var bookModel = new BookModel(
 			   {authorName: options.author, seriesName: options.series, baseName: options.book});

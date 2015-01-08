@@ -16,7 +16,9 @@ requirejs.config({
 		Handlebars: 'lib/hbs/Handlebars',
 		i18nprecompile: 'lib/hbs/i18nprecompile',
 		json2: 'lib/hbs/json2',
-		bootstrap: 'lib/bootstrap/bootstrap.min'
+		bootstrap: 'lib/bootstrap/bootstrap.min',
+		//touch: 'lib/touch/jquery-simple-touch.min'
+		touch: 'lib/touch/jquery-simple-touch'
 	},
 	hbs:
 	{

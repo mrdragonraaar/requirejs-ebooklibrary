@@ -21,6 +21,44 @@ function(
 		className: 'panel-body',
 		contentType: null,
 
+		events: {
+			'click .text-more': 'onClickTextMore',
+		},
+
+		onClickTextMore: function(e) {
+			e.preventDefault();
+
+			var textMoreItem = this.$(e.currentTarget);
+			var p = textMoreItem.parent();
+			var text = p.children(".text-book");
+
+			console.log(text);
+
+			if (text.hasClass("open")) {
+				text.removeClass("open");
+				textMoreItem.removeClass("less");
+				text.animate({"height": "100px"});
+			} else {
+				textMoreItem.addClass("less");
+/*
+				var height = 0;
+				var fish = text.children();
+				console.log(fish);
+				fish.each(function() {
+					height += $(this).outerHeight();
+					console.log(height);
+				});
+*/
+
+				var autoHeight = text.css('height', 'auto').height();
+				text.height("100px").animate({"height": autoHeight}, 500, function() { text.height('auto'); });
+				//text.animate({"height": height}).css("height", "auto");
+				//text.animate({"height": "auto"});
+				//text.css("height", "auto");
+				text.addClass("open");
+			}
+		},
+
 		/**
 		 * Initialise the books panels content view.
 		 * @param options books panels content options (collection).

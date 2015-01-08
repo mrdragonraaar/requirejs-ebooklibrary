@@ -35,6 +35,14 @@ function(
 			latestAdditionsCollection.fetch({reset: true});
 
 			this.booksList = new ScrollableBooksListView({collection: latestAdditionsCollection});
+			this.listenTo(this.booksList, 'scrollPage', this.updateScrollPageNum);
+		},
+
+		updateScrollPageNum: function(page, pages) {
+			console.log(page);
+			console.log(pages);
+
+			this.$('.scroll-page').html('(' + page + ' / ' + pages + ')');
 		},
 
 		/**

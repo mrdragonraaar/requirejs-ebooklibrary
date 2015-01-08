@@ -6,13 +6,13 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'ebooklibrary/view/well/loading/LoadingWellView',
+    'ebooklibrary/view/alert/loading/LoadingAlertView',
     'ebooklibrary/view/well/links/LinksWellView',
     'ebooklibrary/collection/LinkCollection',
     'backbone'
 ],
 function(
-    LoadingWellView,
+    LoadingAlertView,
     LinksWellView,
     LinkCollection,
     Backbone
@@ -20,7 +20,7 @@ function(
 	var LinksPageView = Backbone.View.extend({
 		className: 'content-links',
 		
-		loading: null,		// loading well view
+		loading: null,		// loading alert view
 		links: null,		// links well view
 
 		/**
@@ -30,7 +30,7 @@ function(
 		initialize: function(options) {
 			options = options || {};
 
-			this.loading = new LoadingWellView();
+			this.loading = new LoadingAlertView();
 
 			var linkCollection = new LinkCollection();
 			linkCollection.fetch({reset: true});

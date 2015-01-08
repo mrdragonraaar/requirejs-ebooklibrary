@@ -1,0 +1,24 @@
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Alternate alerts
+// --------------------------------------------------
+
+// Loading
+.alert-loading {
+	position: fixed;
+	z-index: @zindex-loading;
+	bottom: 65px;
+	left: 15px;
+	right: 15px;
+	.alert-variant(@well-loading-bg, @well-loading-border, @well-loading-text);
+	margin-bottom: 0;
+	padding: 10px;
+
+	> .spinner {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

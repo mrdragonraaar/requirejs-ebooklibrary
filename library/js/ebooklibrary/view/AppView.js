@@ -13,6 +13,7 @@ define([
     'ebooklibrary/view/page/SearchPageView',
     'ebooklibrary/view/page/BookPageView',
     'ebooklibrary/view/page/LinksPageView',
+    'ebooklibrary/view/page/TestPageView',
     'backbone'
 ],
 function(
@@ -23,6 +24,7 @@ function(
     SearchPageView,
     BookPageView,
     LinksPageView,
+    TestPageView,
     Backbone
 ) {
 	var AppView = Backbone.View.extend({
@@ -89,6 +91,7 @@ function(
 		 */
 		showBooksPage: function(author, series) {
 			this.showPageView(new BooksPageView({author: author, series: series}));
+			//this.showPageView(new TestPageView({author: author, series: series}));
 		},
 
 		/**

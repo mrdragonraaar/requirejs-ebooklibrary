@@ -7,7 +7,7 @@
 //
 
 .header {
-	height: @header-height;
+	//height: @header-height;
 	padding: @header-padding;
 	line-height: @line-height-computed;
 	border-bottom: 1px solid transparent;
@@ -41,5 +41,15 @@
 	background-image: data-uri(@header-default-bg-image);
 	background-position: left bottom;
 	background-repeat: repeat-x;
+	//padding-bottom: 85px;
+}
+
+.header-series {
+	border-color: @header-default-border;
+	background-color: @header-default-bg;
+	background-image: data-uri(@header-gradient-bg-image);
+	background-position: left bottom;
+	background-repeat: repeat;
+	//padding-bottom: 85px;
 }
 

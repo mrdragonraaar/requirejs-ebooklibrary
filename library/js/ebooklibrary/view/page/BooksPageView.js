@@ -7,6 +7,7 @@
  */
 define([
     'ebooklibrary/view/page/BasePageView',
+    'ebooklibrary/view/header/SeriesHeaderView',
     'ebooklibrary/view/well/series/SeriesWellView',
     'ebooklibrary/view/panel/books/BooksPanelView',
     'ebooklibrary/collection/SeriesCollection',
@@ -15,6 +16,7 @@ define([
 ],
 function(
     BasePageView,
+    SeriesHeaderView,
     SeriesWellView,
     BooksPanelView,
     SeriesCollection,
@@ -41,7 +43,11 @@ function(
 			   {author: options.author, series: options.series});
 			seriesCollection.fetch({reset: true});
 
-			this.series = new SeriesWellView({collection: seriesCollection});
+			//this.series = new SeriesWellView({collection: seriesCollection});
+			//this.listenTo(this.series.collection, 'reset', this.showSeries);
+
+			//this.series = new SeriesHeaderView({author: options.author, series: options.series});
+			this.series = new SeriesHeaderView({collection: seriesCollection});
 			this.listenTo(this.series.collection, 'reset', this.showSeries);
 
 			var bookCollection = new BookCollection([],

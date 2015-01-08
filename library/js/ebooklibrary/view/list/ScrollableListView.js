@@ -7,8 +7,10 @@
  */
 define([
     'backbone'
+    //'touch'
 ],
 function(
+    Backbone
 ) {
 	var ScrollableListView = Backbone.View.extend({
 		className: 'scrollable-list',
@@ -20,7 +22,23 @@ function(
 		 */
 		events: {
 			'click > .scrollable-list-previous':	'onClickPrevious',
-			'click > .scrollable-list-next':	'onClickNext'
+			'click > .scrollable-list-next':	'onClickNext',
+			'swipe > .scrollable-list-viewport':	'onSwipe',
+			'tap':	'onTap'
+		},
+
+		onSwipe: function(e, dir) {
+			if (dir.type === 'right') {
+				this.onClickPrevious(e);
+			} else {
+				this.onClickNext(e);
+			}
+			//alert('swiped ' + dir.type);
+		},
+
+		onTap: function(e, dir) {
+			alert('tap');
+			return true;
 		},
 
 		/**
@@ -49,6 +67,8 @@ function(
 		scroll: function() {
 			var pageOffset = (this.page - 1) * this.pageWidth;
 			this.getViewportList().css("transform", "translate(" + (-1 * pageOffset) + "px, 0)");
+
+			this.trigger('scrollPage', this.page, this.pages);
 
 			this.disableScrollLinks();
 		},
@@ -224,6 +244,34 @@ function(
 		render: function() {
 			this.$el.html(this.template);
 
+			this.$('.scrollable-list-viewport').on('touchstart', _.bind(function(e) {
+				this.initX = e.originalEvent.touches[0].pageX;
+			}, this));
+
+			this.$('.scrollable-list-viewport').on('touchmove', _.bind(function(e) {
+				this.endX = e.originalEvent.touches[0].pageX;
+			}, this));
+
+			this.$('.scrollable-list-viewport').on('touchend', _.bind(function(e) {
+				if (this.endX > 0) {
+				//alert('touchend ' + this.initX + ' ' + this.endX);
+					if (this.endX - this.initX > 50) {
+						// Right
+						this.onClickPrevious(e);
+					} else if (this.initX - this.endX > 50) {
+						// Left
+						this.onClickNext(e);
+					}
+
+						this.initX = this.endX = 0;
+/*
+					setTimeout(function() {
+						this.initX = this.endX = 0;
+					}, 25);
+*/
+				}
+			}, this));
+
 			return this;
 		},
 
@@ -244,6 +292,11 @@ function(
 		 */
 		remove: function() {
 			$(window).off("resize");
+
+			this.$('.scrollable-list-viewport').off('touchstart');
+			this.$('.scrollable-list-viewport').off('touchmove');
+			this.$('.scrollable-list-viewport').off('touchend');
+
 			Backbone.View.prototype.remove.apply(this);
 		}
 	});

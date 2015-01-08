@@ -6,11 +6,11 @@
  * (c)2014 mrdragonraaar.com
  */
 define([
-    'ebooklibrary/view/well/loading/LoadingWellView',
+    'ebooklibrary/view/alert/loading/LoadingAlertView',
     'backbone'
 ],
 function(
-    LoadingWellView,
+    LoadingAlertView,
     Backbone
 ) {
 	var BasePageView = Backbone.View.extend({
@@ -23,7 +23,7 @@ function(
 			return 'page-' + this.pageClass;
 		},
 
-		loading: null,			// loading well view
+		loading: null,			// loading alert view
 
 		/**
 		 * Initialise the application base page view.
@@ -33,7 +33,7 @@ function(
 		constructor: function(options) {
 			this.pageBreadCrumb = options || {};
 
-			this.loading = new LoadingWellView();
+			this.loading = new LoadingAlertView();
 
 			this.listenTo(this, 'pageRender', this.onPageRender);
 			this.listenTo(this, 'pageRemove', this.onPageRemove);
