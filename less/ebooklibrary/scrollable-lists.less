@@ -1,0 +1,223 @@
+//
+// Scrollable Lists
+// --------------------------------------------------
+
+
+// Base class
+//
+
+.scrollable-list {
+	display: block;
+	width: 100%;
+
+	// Prevent floats from breaking the scrollable-list
+	&:extend(.clearfix all);
+
+}
+
+
+// Previous / next button links
+//
+
+.scrollable-list-previous,
+.scrollable-list-next {
+	float: left;
+	display: block;
+	width: 5%;
+	height: @scrollable-list-item-height + 2;	// height + border
+	line-height: @scrollable-list-item-height;
+	vertical-align: middle;
+	text-align: center;
+	color: @scrollable-list-nav-color;
+	border: 1px solid transparent;
+	border-color: @scrollable-list-nav-border;
+	border-radius: @scrollable-list-nav-border-radius;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		color: @scrollable-list-nav-hover-color;
+		background-color: @scrollable-list-nav-hover-bg;
+	}
+
+	&.disabled {
+		color: @scrollable-list-nav-disabled-color;
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+			background-color: transparent;
+			cursor: not-allowed;
+		}
+	}
+
+	@media (max-width: @grid-float-breakpoint-max) {
+		width: 11%;
+	}
+
+	@media (max-width: (@screen-xs-min - 1)) {
+		width: 17%;
+	}
+}
+
+
+// Previous / next arrow css icons
+//
+
+.previous-arrow,
+.next-arrow {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	padding: 0.8em 0.5em;
+	vertical-align: middle;
+	text-align: center;
+
+	&:before,
+	&:after {
+		background: @scrollable-list-nav-color;
+		content: "";
+		display: block;
+		height: 0.5em;
+		//height: 0.3em;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		width: 1em;
+		//width: 0.7em;
+		//border-radius: 0.25em;
+	}
+
+	&:before {
+		.rotate(45deg);
+	}
+
+	&:after {
+		.rotate(-45deg);
+	}
+
+	&:hover,
+	&:focus,
+	a:hover &,
+	a:focus & {
+		&:before,
+		&:after {
+			background: @scrollable-list-nav-hover-color;
+		}
+	}
+
+	&.disabled,
+	a.disabled & {
+		&:before,
+		&:after {
+			background: @scrollable-list-nav-disabled-color;
+		}
+	}
+}
+
+.previous-arrow:after,
+.next-arrow:before {
+	margin-top: -.36em;
+}
+
+// Mixin to create different colored previous/next arrows
+.nav-arrows(@arrow-color; @arrow-hover-color; @arrow-disabled-color) {
+	.previous-arrow,
+	.next-arrow {
+		&:before,
+		&:after {
+			background: @arrow-color;
+		}
+
+		&:hover,
+		&:focus {
+			&:before,
+			&:after {
+				background: @arrow-hover-color;
+			}
+		}
+
+		&.disabled {
+			&:before,
+			&:after {
+				background: @arrow-disabled-color;
+			}
+		}
+	}
+
+	&:hover .previous-arrow,
+	&:hover .next-arrow,
+	&:focus .previous-arrow,
+	&:focus .next-arrow {
+		&:before,
+		&:after {
+			background: @arrow-hover-color;
+		}
+	}
+
+	&.disabled .previous-arrow,
+	&.disabled .next-arrow {
+		&:before,
+		&:after {
+			background: @arrow-disabled-color;
+		}
+	}
+}
+
+
+// Viewport
+//
+
+.scrollable-list-viewport {
+	float: left;
+	display: block;
+	width: 86%;
+	margin-left: 2%;
+	margin-right: 2%;
+	line-height: @scrollable-list-item-height;
+	border: 1px solid transparent;
+	border-color: @scrollable-list-viewport-border;
+	overflow-x: hidden;
+
+	> ul {
+		list-style: none;
+		padding-left: 0;
+		margin-bottom: 0;
+		margin-right: -@scrollable-list-item-margin;
+		width: 9999px;
+		transition: all 0.2s ease 0s;
+
+		> li {
+			float: left;
+			height: @scrollable-list-item-height;
+			width: @scrollable-list-item-width;
+			margin-right: @scrollable-list-item-margin;
+		}
+	}
+
+	@media (max-width: @grid-float-breakpoint-max) {
+		width: 72%;
+		margin-left: 3%;
+		margin-right: 3%;
+	}
+
+	@media (max-width: (@screen-xs-min - 1)) {
+		width: 58%;
+		margin-left: 4%;
+		margin-right: 4%;
+	}
+}
+
+
+// Remove thumbnail margin and set to list item width / height.
+.scrollable-list-viewport > ul > li > .thumbnail {
+	margin-bottom: 0;
+	height: @scrollable-list-item-height;
+	width: @scrollable-list-item-width;
+
+	> img {
+		width: 100%;
+		height: 100%;
+	}
+}

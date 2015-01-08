@@ -1,0 +1,248 @@
+//
+// Footers
+// --------------------------------------------------
+
+
+.navbar-static-bottom {
+	z-index: @zindex-navbar;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-width: 1px 0 0;
+
+	@media (min-width: @grid-float-breakpoint) {
+		border-radius: 0;
+	}
+}
+
+.navbar-default.navbar-static-bottom {
+	#gradient.vertical(@footer-default-gradient-start, @footer-default-gradient-end);
+
+	.application-book &,
+	.application-books &,
+	.application-search & {
+		.box-shadow(@footer-default-box-shadow);
+	}
+
+	.navbar-brand {
+		font-size: @font-size-base;
+	}
+}
+
+
+// Wrapper and base class
+//
+// Provide a static footer.
+// Bottom body margin must be set to @footer-height.
+
+.footer {
+	z-index: @zindex-footer;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	min-height: @footer-height;
+	border-top: 1px solid transparent;
+
+	// Prevent floats from breaking the footer
+	&:extend(.clearfix all);
+
+	// If container is present align with left and right of footer
+	& > .container,
+	& > .container-fluid {
+		> .footer-copyright,
+		> .footer-links {
+			margin-left: -@footer-padding-horizontal;
+			margin-right: -@footer-padding-horizontal;
+
+			@media (min-width: @grid-float-breakpoint) {
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+
+.footer-copyright {
+	display: block;
+	&:extend(.clearfix all);
+	padding: @footer-padding-vertical @footer-padding-horizontal;
+	//font-size: @font-size-base;
+	//font-size: @font-size-small;
+	font-size: 13px;
+	color: inherit;
+	line-height: @line-height-computed;
+	height: @footer-height;
+
+	> a {
+		outline: 0;
+	}
+
+	@media (min-width: @grid-float-breakpoint) {
+		float: left;
+
+		.footer > .container &,
+		.footer > .container-fluid & {
+			margin-left: -@footer-padding-horizontal;
+		}
+	}
+}
+
+
+.footer-links {
+	display: block;
+	&:extend(.clearfix all);
+	padding: @footer-padding-vertical @footer-padding-horizontal;
+	//font-size: @font-size-base;
+	font-size: 13px;
+	color: inherit;
+	line-height: @line-height-computed;
+	height: @footer-height;
+
+	list-style: none;
+	margin-bottom: 0;
+
+	> li {
+		display: inline-block;
+
+		> a {
+			color: inherit;
+			cursor: pointer;
+			text-decoration: none;
+			outline: 0;
+
+			> .glyphicon {
+				vertical-align: baseline;
+				top: 2px;
+				margin-right: 5px;
+
+				&.glyphicon-search {
+					top: 3px;
+				}
+			}
+		}
+
+		&:after {
+			content: @footer-link-seperator;
+			padding: 0 5px;
+		}
+	}
+
+	> li:last-child {
+		&:after {
+			content: "";
+			padding: 0;
+		}
+	}
+
+	@media (min-width: @grid-float-breakpoint) {
+		float: right;
+
+		.footer > .container &,
+		.footer > .container-fluid & {
+			margin-right: -@footer-padding-horizontal;
+		}
+	}
+}
+
+
+// Hide label on small screens if icon exists
+.footer-label {
+	@media (max-width: (@screen-xs-min - 1)) {
+		.glyphicon + & {
+			display: none;
+		}
+	}
+}
+
+
+// Alternate footers
+// --------------------------------------------------
+
+.footer-default {
+	color: @footer-default-color;
+	border-color: @footer-default-border;
+	background-color: @footer-default-bg;
+	#gradient.vertical(@footer-default-gradient-start, @footer-default-gradient-end);
+
+	.footer-copyright {
+		color: @footer-default-color;
+
+		> a {
+			color: @footer-default-color;
+		}
+	}
+
+	.footer-links {
+		> li {
+			> a {
+				color: @footer-default-link-color;
+
+				&:hover,
+				&:focus {
+					color: @footer-default-link-hover-color;
+				}
+			}
+
+			&:after {
+				color: @footer-default-link-color;
+			}
+		}
+	}
+
+/*
+	.application-book &,
+	.application-books &,
+	.application-search & {
+		.box-shadow(@footer-default-box-shadow);
+	}
+*/
+}
+
+/*
+.footer-default {
+	color: @footer-default-color;
+	//background-color: @footer-default-bg;
+	//#gradient.vertical(@gradient-start-color, @gradient-stop-color, @gradient-start-percent, @gradient-stop-percent);
+	border-color: @footer-default-border;
+	//.box-shadow(@box-top-hshadow @box-top-vshadow @box-blur @box-color);
+	background-color: @panel-authors-heading-bg;
+	border-color: @panel-authors-heading-border;
+	border: none;
+
+	> .footer-copyright {
+		background-color: @footer-default-bg;
+		//#gradient.vertical(@gradient-start-color, @gradient-stop-color, @gradient-start-percent, @gradient-stop-percent);
+		#gradient.vertical(@gradient-stop-color, @gradient-start-color, @gradient-start-percent, @gradient-stop-percent);
+		//#gradient.vertical(@gradient-start-color, @gradient-stop-color, @gradient-stop-percent, @gradient-start-percent);
+		border-top: 1px solid @footer-default-border;
+		//padding-top: 200px;
+		height: 50px;
+		//padding-top: 65px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		//border: none;
+
+		.application-books & {
+			//box-shadow: 0 8px 6px 8px rgba(0, 0, 0, 0.3);
+			.box-shadow(0 -5px 5px -2px rgba(0, 0, 0, 0.125));
+		}
+
+		a {
+			color: @footer-default-color;
+		}
+
+		> .footer-copyright-copyright {
+			width: 50%;
+		}
+
+		> .footer-copyright-links {
+			width: 50%;
+			float: right;
+			text-align: center;
+		}
+	}
+}
+*/

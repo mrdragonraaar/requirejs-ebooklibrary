@@ -1,0 +1,54 @@
+//
+// Spinners
+// --------------------------------------------------
+
+
+// Spinner animations
+// ----------------------
+
+// WebKit
+@-webkit-keyframes spinner {
+	from { .rotate(0deg); }
+	to { .rotate(360deg); }
+}
+
+// Spec and IE10+
+@keyframes spinner {
+	from { .rotate(0deg); }
+	to { .rotate(360deg); }
+}
+
+
+// Spinner itself
+// ----------------------
+
+.spinner {
+	//font-size: @font-size-small;
+	font-size: 10px;
+	margin: 1.5em;
+	width: 1em;
+	height: 1em;
+	border-radius: 0.5em;
+	.animation(spinner 2s linear infinite);
+	.spinner-variant(@spinner-color);
+}
+
+
+// Variations
+// ----------------------
+
+.spinner-success {
+	.spinner-variant(@spinner-success-color);
+}
+
+.spinner-warning {
+	.spinner-variant(@spinner-warning-color);
+}
+
+.spinner-danger {
+	.spinner-variant(@spinner-danger-color);
+}
+
+.spinner-info {
+	.spinner-variant(@spinner-info-color);
+}

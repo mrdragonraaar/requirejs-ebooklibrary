@@ -1,0 +1,138 @@
+// Icons
+
+#icon {
+	// Base style
+	.base() {
+		position: relative;
+		display: inline-block;
+		padding: 0px;
+		margin: 0px;
+		vertical-align: middle;
+		background-repeat: no-repeat;
+	}
+
+	// Size
+	.size(@width; @height) {
+		width: unit(@width, px);
+		height: unit(@height, px);
+	}
+
+	// Background image
+	.background-image(@image) {
+		background-image: data-uri(@image);
+	}
+
+	// Background position
+	.background-position(@x; @y) {
+		background-position: unit(@x, px) unit(@y, px);
+	}
+
+	.background-position(@x; @y; @x-offset; @y-offset) {
+		.background-position((@x + @x-offset), (@y + @y-offset));
+	}
+
+	.background-position-active(@x; @y; @active-x-offset; @active-y-offset) {
+		.active > a > &,
+		a:hover > &,
+		a:focus > &,
+		.active > &,
+		&.active {
+			.background-position(@x, @y, @active-x-offset, @active-y-offset);
+		}
+	}
+
+	.background-position-disabled(@x; @y; @disabled-x-offset; @disabled-y-offset) {
+		[disabled] > a > &,
+		.disabled > a > &,
+		[disabled] > &,
+		.disabled > &,
+		&.disabled {
+			.background-position(@x, @y, @disabled-x-offset, @disabled-y-offset);
+		}
+	}
+}
+
+
+// Icon base style
+
+.icon-base() {
+	#icon.base();
+}
+
+.icon-base(@width; @height) {
+	.icon-base();
+	#icon.size(@width, @height);
+}
+
+.icon-base(@width; @height; @image) {
+	.icon-base(@width, @height);
+	.icon-background-image(@image);
+}
+
+
+// Icon background image
+
+.icon-background-image(@image) {
+	#icon.background-image(@image);
+}
+
+
+// Icon background position
+
+.icon-background-position(@x; @y) {
+	#icon.background-position(@x, @y);
+}
+
+.icon-background-position(@x; @y;
+    @active-x-offset; @active-y-offset;
+    @disabled-x-offset; disabled-y-offset)
+{
+	#icon.background-position(@x, @y);
+	#icon.background-position-active(@x, @y; @active-x-offset; @active-y-offset);
+	#icon.background-position-disabled(@x, @y; @disabled-x-offset; @disabled-y-offset);
+}
+
+.icon-background-position(@index;
+    @base-x; @base-y;
+    @icon-x-offset; @icon-y-offset;
+    @active-x-offset; @active-y-offset;
+    @disabled-x-offset; disabled-y-offset)
+{
+	.icon-background-position(
+	    ((@icon-x-offset * @index) + @base-x),
+	    ((@icon-y-offset * @index) + @base-y),
+	    @active-x-offset, @active-y-offset,
+	    @disabled-x-offset, @disabled-y-offset);
+}
+
+.icon-background-position-active(@x; @y; @active-x-offset; @active-y-offset) {
+	#icon.background-position(@x, @y);
+	#icon.background-position-active(@x, @y, @active-x-offset, @active-y-offset);
+}
+
+.icon-background-position-active(@index;
+    @base-x; @base-y;
+    @icon-x-offset; @icon-y-offset;
+    @active-x-offset; @active-y-offset)
+{
+	.icon-background-position-active(
+	    ((@icon-x-offset * @index) + @base-x),
+	    ((@icon-y-offset * @index) + @base-y),
+	    @active-x-offset, @active-y-offset);
+}
+
+.icon-background-position-disabled(@x; @y; @disabled-x-offset; @disabled-y-offset) {
+	#icon.background-position(@x, @y);
+	#icon.background-position-disabled(@x, @y, @disabled-x-offset, @disabled-y-offset);
+}
+
+.icon-background-position-disabled(@index;
+    @base-x; @base-y;
+    @icon-x-offset; @icon-y-offset;
+    @disabled-x-offset; @disabled-y-offset)
+{
+	.icon-background-position-disabled(
+	    ((@icon-x-offset * @index) + @base-x),
+	    ((@icon-y-offset * @index) + @base-y),
+	    @disabled-x-offset, @disabled-y-offset);
+}

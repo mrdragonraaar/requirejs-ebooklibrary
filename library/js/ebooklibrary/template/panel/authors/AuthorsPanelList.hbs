@@ -1,0 +1,11 @@
+{{!
+{
+	"name": "AuthorListView",
+	"description": "Author List View Template"
+}
+}}
+<ul class="row list-default">
+{{#each authors}}
+	<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a title="{{fileInfo.name}}" href="{{href}}">{{fileInfo.name}}</a></li>
+{{/each}}
+</ul>

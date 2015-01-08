@@ -1,0 +1,30 @@
+// Grid system
+//
+// Generate semantic grid columns with these mixins.
+
+// generate grid columns for given class.
+.make-grid-columns(@class) {
+	// Common styles for all sizes of grid columns, widths 1-12
+	.col(@class, @index) when (@index = 1) { // initial
+		@item: ~".col-@{class}-@{index}";
+		.col(@class, (@index + 1), @item);
+	}
+
+	.col(@class, @index, @list) when (@index =< @grid-columns) { // general; "=<" isn't a typo
+		@item: ~".col-@{class}-@{index}";
+		.col(@class, (@index + 1), ~"@{list}, @{item}");
+	}
+
+	.col(@class, @index, @list) when (@index > @grid-columns) { // terminal
+		@{list} {
+			position: relative;
+			// Prevent columns from collapsing when empty
+			min-height: 1px;
+			// Inner gutter via padding
+			padding-left: (@grid-gutter-width / 2);
+			padding-right: (@grid-gutter-width / 2);
+		}
+	}
+
+	.col(@class, 1); // kickstart it
+}

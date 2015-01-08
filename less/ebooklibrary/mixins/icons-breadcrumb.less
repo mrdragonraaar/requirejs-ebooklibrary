@@ -1,0 +1,15 @@
+// Breadcrumb Icon variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all icons
+
+.icons-breadcrumb-base() {
+	.icon-base(@icons-breadcrumb-width, @icons-breadcrumb-width, @icons-breadcrumb-image);
+}
+
+.icons-breadcrumb-icon(@index) {
+	.icon-background-position-active(@index, 
+	   @icons-breadcrumb-base-x, @icons-breadcrumb-base-y, 
+	   @icons-breadcrumb-icon-x-offset, @icons-breadcrumb-icon-y-offset,
+	   @icons-breadcrumb-active-x-offset, @icons-breadcrumb-active-y-offset);
+}

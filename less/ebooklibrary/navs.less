@@ -1,0 +1,38 @@
+//
+// Navs
+// --------------------------------------------------
+
+
+// Base class
+// --------------------------------------------------
+
+// Ensure pointer cursor always shows
+.nav > li > a {
+	cursor: pointer;
+}
+
+
+// Contextual variations
+.nav-default {
+	.nav-variant(@nav-default-text, @nav-default-bg, @nav-default-border, @nav-default-hover-text, @nav-default-hover-bg, @nav-default-hover-border);
+}
+
+.nav-primary {
+	.nav-variant(@nav-primary-text, @nav-primary-bg, @nav-primary-border, @nav-primary-hover-text, @nav-primary-hover-bg, @nav-primary-hover-border);
+}
+
+.nav-success {
+	.nav-variant(@nav-success-text, @nav-success-bg, @nav-success-border, @nav-success-hover-text, @nav-success-hover-bg, @nav-success-hover-border);
+}
+
+.nav-info {
+	.nav-variant(@nav-info-text, @nav-info-bg, @nav-info-border, @nav-info-hover-text, @nav-info-hover-bg, @nav-info-hover-border);
+}
+
+.nav-warning {
+	.nav-variant(@nav-warning-text, @nav-warning-bg, @nav-warning-border, @nav-warning-hover-text, @nav-warning-hover-bg, @nav-warning-hover-border);
+}
+
+.nav-danger {
+	.nav-variant(@nav-danger-text, @nav-danger-bg, @nav-danger-border, @nav-danger-hover-text, @nav-danger-hover-bg, @nav-danger-hover-border);
+}

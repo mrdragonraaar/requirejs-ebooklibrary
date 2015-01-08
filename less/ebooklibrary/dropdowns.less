@@ -1,0 +1,84 @@
+//
+// Dropdown menus
+// --------------------------------------------------
+
+
+// Dropdown arrow/caret
+.caret {
+	margin-left: 5px;
+	// add bottom margin to center vertically
+	margin-bottom: 2px;
+}
+
+// The dropdown menu (ul)
+.dropdown-menu {
+	font-size: 12px;
+	background-color: @dropdown-bg;
+	border: 1px solid @dropdown-fallback-border; // IE8 fallback
+	border: 1px solid @dropdown-border;
+
+	// Dividers (basically an hr) within the dropdown
+	.divider {
+		.nav-divider(@dropdown-divider-bg);
+	}
+
+	// Links within the dropdown menu
+	> li > a {
+		color: @dropdown-link-color;
+		cursor: pointer;
+	}
+}
+
+// Hover/Focus state
+.dropdown-menu > li > a {
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		color: @dropdown-link-hover-color;
+		background-color: @dropdown-link-hover-bg;
+	}
+}
+
+// Active state
+.dropdown-menu > .active > a {
+	&,
+	&:hover,
+	&:focus {
+		color: @dropdown-link-active-color;
+		text-decoration: none;
+		outline: 0;
+		background-color: @dropdown-link-active-bg;
+	}
+}
+
+// Disabled state
+//
+// Gray out text and ensure the hover/focus state remains gray
+
+.dropdown-menu > .disabled > a {
+	&,
+	&:hover,
+	&:focus {
+		color: @dropdown-link-disabled-color;
+	}
+}
+
+
+// Alternate dropdowns
+
+// Links Dropdown
+.dropdown-links {
+	.dropdown-menu-links {
+		> li > a {
+			line-height: 30px;
+
+			> .dropdown-menu-icon {
+				width: 24px;
+				height: 24px;
+				margin-right: 7px;
+				border-radius: 4px;
+			}
+		}
+	}
+}
+

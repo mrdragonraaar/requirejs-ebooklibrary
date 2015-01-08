@@ -1,0 +1,131 @@
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings
+// --------------------------------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: @headings-font-family;
+	font-weight: @headings-font-weight;
+	line-height: @headings-line-height;
+	color: @headings-color;
+}
+
+.heading-author,
+.heading-title {
+	margin: 0;
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
+.heading-author {
+	font-family: @font-family-base;
+	font-size: @heading-author-font-size;
+	font-weight: @heading-author-font-weight;
+	line-height: @heading-author-line-height;
+	color: @heading-author-color;
+	text-transform: uppercase;
+	.text-overflow();
+}
+
+.heading-title {
+	font-size: @heading-title-font-size;
+	font-weight: @heading-title-font-weight;
+	line-height: @heading-title-line-height;
+	color: @heading-title-color;
+}
+
+
+// Lists
+// --------------------------------------------------
+
+// List options
+
+.list-default {
+	font-size: 12px;
+	//line-height: (20/12);
+	line-height: @line-height-small;
+	list-style: square inside;
+	padding-left: 0;
+	color: @list-default-color;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+
+
+// Book Text
+// --------------------------------------------------
+//
+// Overide inline styling of books text
+
+.text-book {
+	font-size: 13px;
+	color: #444;
+	line-height: 24px;
+
+	p {
+		margin: 0px 0px 5px;
+	}
+
+	blockquote {
+		font-size: 13px;
+		padding: 5px 10px 5px;
+		margin: 0px 0px 5px;
+	}
+
+	hr {
+		margin: 10px 0px;
+	}
+
+	b,
+	strong {
+		font-weight: 300;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-size: 14px;
+		//font-size: 14px;
+		font-weight: 300;
+		margin: 10px 0px 10px;
+	}
+
+	[style] {
+		font-family: "Calibri", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+		color: #444 !important;
+	}
+
+	div[style],
+	p[style] {
+		font-size: 13px !important;
+		line-height: 24px !important;
+		margin: 0px 0px 5px !important;
+	}
+
+	h1[style],
+	h2[style],
+	h3[style],
+	h4[style],
+	h5[style],
+	h6[style] {
+		font-size: 14px !important;
+		font-weight: 300 !important;
+		margin: 10px 0px 10px !important;
+	}
+	
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+

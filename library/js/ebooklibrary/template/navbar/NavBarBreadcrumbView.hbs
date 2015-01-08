@@ -1,0 +1,44 @@
+{{!
+{
+	"name": "NavBarBreadcrumbView",
+	"description": "NavBar Breadcrumb View Template"
+}
+}}
+{{#exists search}}
+<li class="navbar-divider"></li>
+<li class="nav-search active">
+	<a title="Search" href="/library/#!/search"><i class="glyphicon glyphicon-search"/>Search</a>
+</li>
+{{/exists}}
+{{#exists links}}
+<li class="navbar-divider"></li>
+<li class="nav-links active">
+	<a title="Links" href="/library/#!/links"><i class="glyphicon glyphicon-link"/>Links</a>
+</li>
+{{/exists}}
+<!--
+{{#exists search}}
+<li class="navbar-divider"></li>
+<li class="nav-search{{#unless search}} active{{/unless}}">
+	<a title="Search" href="/library/#!/search"><i class="glyphicon glyphicon-search"/>Search</a>
+</li>
+{{/exists}}
+{{#if search}}
+<li class="navbar-divider"></li>
+<li class="nav-search-keyword active">
+	<a title="Search {{search}}" href="/library/#!/search/{{search}}">{{search}}</a>
+</li>
+{{/if}}
+-->
+{{#if author}}
+<li class="navbar-divider"></li>
+<li class="nav-author{{#unless series}} active{{/unless}}">
+	<a title="{{author}}" href="/library/#!/books/{{author}}/"><i class="glyphicon glyphicon-user"/>{{author}}</a>
+</li>
+{{/if}}
+{{#if series}}
+<li class="navbar-divider"></li>
+<li class="nav-series active">
+	<a title="{{series}}" href="/library/#!/books/{{author}}/{{series}}/"><i class="glyphicon glyphicon-bookmark"/>{{{basename series}}}</a>
+</li>
+{{/if}}

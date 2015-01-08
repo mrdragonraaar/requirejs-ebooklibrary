@@ -1,0 +1,101 @@
+// Panels
+
+
+// Add negative vertical margins to element in panel heading.
+// Aligns element with top and bottom of panel heading.
+
+.panel-heading-margin-top() {
+	margin-top: -(extract(@panel-heading-padding, 1));
+}
+
+.panel-heading-margin-bottom() {
+	margin-bottom: -(extract(@panel-heading-padding, 1));
+}
+
+.panel-heading-margin-vertical() {
+	.panel-heading-margin-top();
+	.panel-heading-margin-bottom();
+}
+
+
+// Add negative horizontal margins to element in panel heading.
+// Aligns element with left and right of panel heading.
+
+.panel-heading-margin-left() {
+	margin-left: -(extract(@panel-heading-padding, 2));
+}
+
+.panel-heading-margin-right() {
+	margin-right: -(extract(@panel-heading-padding, 2));
+}
+
+.panel-heading-margin-horizontal() {
+	.panel-heading-margin-left();
+	.panel-heading-margin-right();
+}
+
+
+// Add vertical padding to element in panel heading.
+// Offsets an elements negative vertical margin.
+
+.panel-heading-padding-top() {
+	padding-top: extract(@panel-heading-padding, 1);
+}
+
+.panel-heading-padding-bottom() {
+	padding-bottom: extract(@panel-heading-padding, 1);
+}
+
+.panel-heading-padding-vertical() {
+	.panel-heading-padding-top();
+	.panel-heading-padding-bottom();
+}
+
+
+// Add horizontal padding to element in panel heading.
+// Offsets an elements negative horizontal margin.
+
+.panel-heading-padding-left() {
+	padding-left: extract(@panel-heading-padding, 2);
+}
+
+.panel-heading-padding-right() {
+	padding-right: extract(@panel-heading-padding, 2);
+}
+
+.panel-heading-padding-horizontal() {
+	.panel-heading-padding-left();
+	.panel-heading-padding-right();
+}
+
+
+// Vertically center element in panel heading.
+
+.panel-heading-vertical-align(@panel-heading-line-height; @element-line-height; @element-padding-vertical; @element-border-vertical) {
+	margin-top: (((@panel-heading-line-height - @element-line-height) / 2) - @element-padding-vertical - @element-border-vertical);
+	margin-bottom: (((@panel-heading-line-height - @element-line-height) / 2) - @element-padding-vertical - @element-border-vertical);
+}
+
+
+// Generate vertically centered buttons in panel heading.
+
+.panel-heading-buttons-vertical-align(@panel-heading-line-height) {
+	.panel-btn {
+		.panel-heading-vertical-align(@panel-heading-line-height, @line-height-computed, @padding-base-vertical, 1px);
+	}
+
+	.panel-btn.btn-lg,
+	.btn-group.btn-group-lg > .panel-btn {
+		.panel-heading-vertical-align(@panel-heading-line-height, (@line-height-large * @font-size-large), @padding-large-vertical, 1px);
+	}
+
+	.panel-btn.btn-sm,
+	.btn-group.btn-group-sm > .panel-btn {
+		.panel-heading-vertical-align(@panel-heading-line-height, (@line-height-small * @font-size-small), @padding-small-vertical, 1px);
+	}
+
+	.panel-btn.btn-xs,
+	.btn-group.btn-group-xs > .panel-btn {
+		.panel-heading-vertical-align(@panel-heading-line-height, (@line-height-small * @font-size-small), @padding-xs-vertical, 1px);
+	}
+}

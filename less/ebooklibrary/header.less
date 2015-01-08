@@ -1,0 +1,55 @@
+//
+// Headers
+// --------------------------------------------------
+
+
+// Wrapper and base class
+//
+
+.header {
+	//height: @header-height;
+	padding: @header-padding;
+	line-height: @line-height-computed;
+	border-bottom: 1px solid transparent;
+
+	// Prevent floats from breaking the header
+	&:extend(.clearfix all);
+
+	// If container is present align with left and right of header
+	& > .container,
+	& > .container-fluid {
+		margin-left: -@header-padding-horizontal;
+		margin-right: -@header-padding-horizontal;
+	}
+}
+
+
+// Alternate headers
+// --------------------------------------------------
+
+.header-login {
+	//height: 295px;
+	height: auto;
+	margin-top: 10%;
+	padding: 0;
+	border-top: 1px solid transparent;
+}
+
+.header-default {
+	border-color: @header-default-border;
+	background-color: @header-default-bg;
+	background-image: data-uri(@header-default-bg-image);
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	//padding-bottom: 85px;
+}
+
+.header-series {
+	border-color: @header-default-border;
+	background-color: @header-default-bg;
+	background-image: data-uri(@header-gradient-bg-image);
+	background-position: left bottom;
+	background-repeat: repeat;
+	//padding-bottom: 85px;
+}
+

@@ -1,0 +1,614 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+//** Gray reference
+//@gray-darker:		lighten(#000, 13.5%); // #222
+//@gray-dark:		lighten(#000, 20%);   // #333
+//@gray:		lighten(#000, 33.5%); // #555
+@gray-medium:		lighten(#000, 46.5%); // #777
+//@gray-light:		lighten(#000, 60%);   // #999
+//@gray-lighter:	lighten(#000, 93.5%); // #eee
+
+//** Dark brown
+@brand-primary:		#382110;
+//** Olive green
+@brand-secondary:	#660;
+//** Dark green
+@brand-tertiary:	#215625;
+
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+@body-bg:		#fff;
+//** Global text color on `<body>`.
+@text-color:		@brand-primary;
+
+//** Global textual link color.
+@link-color:		@brand-tertiary;
+//** Link hover color set via `darken()` function.
+@link-hover-color:	darken(@link-color, 15%);
+
+//** Global box shadow.
+@box-color:		rgba(56, 33, 16, 0.3);
+@box-blur:		18px;
+@box-left-hshadow:	-5px;
+@box-left-vshadow:	0px;
+@box-right-hshadow:	5px;
+@box-right-vshadow:	0px;
+@box-top-hshadow:	0px;
+@box-top-vshadow:	-5px;
+@box-bottom-hshadow:	0px;
+@box-bottom-vshadow:	5px;
+
+//** Global gradient.
+@gradient-start-color:		#c8c6b0;
+@gradient-stop-color:		#e1ddc7;
+@gradient-start-percent:	0%;
+@gradient-stop-percent:		100%;
+
+
+//== Full height
+//
+//## Settings for margin and padding to allow full height display.
+
+@fullheight-margin:	-10000px;
+@fullheight-padding:	10000px;
+
+
+//== Site components
+//
+//## Settings for components specific to this site.
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+@font-path:          "../fonts/";
+
+//@font-family-sans-serif:	"Helvetica Neue", Helvetica, Arial, sans-serif;
+//@font-family-sans-serif:	"Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+//@font-family-sans-serif:	"DejaVu Sans", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:	"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif-2:	"Poirot One", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-base:		@font-family-sans-serif;
+
+@font-size-base:		14px;
+//@font-size-base:		13px;
+//@font-size-base:		12px;
+@font-size-larger:		ceil((@font-size-base * 1.4)); // ~20px
+@font-size-large:		ceil((@font-size-base * 1.25)); // ~18px
+@font-size-medium:		ceil((@font-size-base * 1.125)); // ~16px
+@font-size-small:		ceil((@font-size-base * 0.85)); // ~12px
+@font-size-smaller:		ceil((@font-size-base * 0.7)); // ~10px
+
+//@line-height-base:		(20/@font-size-base);
+//@line-height-base:		(20/12);
+
+//@headings-font-family:		@font-family-sans-serif-2;
+@headings-font-family:		@font-family-sans-serif;
+@headings-font-weight:		400;
+@headings-line-height:		1.1;
+@headings-color:		inherit;
+
+//@heading-author-font-size:	@font-size-base;
+//@heading-author-font-size:	@font-size-small;
+@heading-author-font-size:	13px;
+@heading-author-font-weight:	500;
+//@heading-author-line-height:	@line-height-computed;
+@heading-author-line-height:	@line-height-base;
+@heading-author-color:		@brand-secondary;
+
+//@heading-title-font-size:	@font-size-large;
+@heading-title-font-size:	15px;
+//@heading-title-font-size:	@font-size-medium;
+//@heading-title-font-weight:	400;
+@heading-title-font-weight:	300;
+@heading-title-line-height:	@line-height-large;
+//@heading-title-line-height:	1.22;
+@heading-title-color:		@brand-primary;
+
+@list-default-color:		#b6b4a1;
+
+
+//-- Z-index master list
+//
+
+//@zindex-navbar:		1000;
+//@zindex-dropdown:		1000;
+//@zindex-popover:		1060;
+//@zindex-tooltip:		1070;
+//@zindex-navbar-fixed:		1030;
+//@zindex-modal-background:	1040;
+//@zindex-modal:		1050;
+@zindex-loading:		2000;
+
+@zindex-authors:		1000;
+@zindex-latestadditions:	2000;
+@zindex-footer:			1000;
+@zindex-books:			1500;
+
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Kindle
+//** Deprecated `@screen-ms` as of v3.0.1
+@screen-ms:                  582px;
+@screen-ms-min:              @screen-ms;
+//** Deprecated `@screen-kindle` as of v3.0.1
+@screen-kindle:              @screen-ms-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-ms-max:              (@screen-ms-min - 1);
+
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Kindle
+@container-kindle:             ((536px + @grid-gutter-width));
+//** For `@screen-ms-min` and up.
+@container-ms:                 @container-kindle;
+
+
+//== Tables
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//** Background color used for `.table-striped`.
+@table-bg-accent:	#eae7d9;
+
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+@btn-default-color:		#382110;
+@btn-default-bg:		#e1ddc7;
+@btn-default-border:		#b6b4a1;
+
+
+//== Forms
+//
+//##
+
+//** `<input>` background color
+@input-bg:				#fff;
+//** `<input disabled>` background color
+@input-bg-disabled:			@gray-lighter;
+
+//** Text color for `<input>`s
+//@input-color:				@gray;
+@input-color:				lighten(@brand-primary, 15%);
+//** `<input>` border color
+//@input-border:				#ccc;
+@input-border:				#b6b4a1;
+//** `<input>` border radius
+@input-border-radius:			@border-radius-base;
+//** Border color for inputs on focus
+//@input-border-focus:			#66afe9;
+//@input-border-focus:			@brand-tertiary;
+//@input-border-focus:			lighten(@brand-tertiary, 20%);
+@input-border-focus:			@brand-secondary;
+//@input-border-focus:			@brand-primary;
+
+//** Placeholder text color
+//@input-color-placeholder:		@gray-light;
+@input-color-placeholder:		@brand-secondary;
+
+@legend-color:				@gray-dark;
+@legend-border-color:			#e5e5e5;
+
+//** Background color for textual input addons
+//@input-group-addon-bg:			@gray-lighter;
+@input-group-addon-bg:			#e1ddc7;
+//** Border color for textual input addons
+@input-group-addon-border-color:	@input-border;
+
+
+//== Dropdowns
+//
+//## Dropdown menu container and contents.
+
+//** Background for the dropdown menu.
+//@dropdown-bg:				#fff;
+@dropdown-bg:				#f3f1e9;
+//** Dropdown menu `border-color`.
+//@dropdown-border:			rgba(0,0,0,.15);
+@dropdown-border:		darken(#c8c6b0, 5%);
+//** Dropdown menu `border-color` **for IE8**.
+//@dropdown-fallback-border:		#ccc;
+@dropdown-fallback-border:		darken(#c8c6b0, 5%);
+//** Divider color for between dropdown items.
+//@dropdown-divider-bg:			#e5e5e5;
+@dropdown-divider-bg:			#e1ddc7;
+//@dropdown-divider-bg:		lighten(#c8c6b0, 5%);
+
+//** Dropdown link text color.
+//@dropdown-link-color:			@gray-dark;
+@dropdown-link-color:			@brand-primary;
+//** Hover color for dropdown links.
+//@dropdown-link-hover-color:		darken(@gray-dark, 5%);
+@dropdown-link-hover-color:		darken(@brand-primary, 5%);
+//** Hover background for dropdown links.
+//@dropdown-link-hover-bg:		#f5f5f5;
+//@dropdown-link-hover-bg:		#e1ddc7;
+@dropdown-link-hover-bg:		#eae7d9;
+
+//** Active dropdown menu item text color.
+//@dropdown-link-active-color:		@component-active-color;
+@dropdown-link-active-color:		darken(@brand-primary, 5%);
+//** Active dropdown menu item background color.
+//@dropdown-link-active-bg:		@component-active-bg;
+//@dropdown-link-active-bg:		darken(#e1ddc7, 50%);
+//@dropdown-link-active-bg:		darken(#b6b4a1, 10%);
+@dropdown-link-active-bg:		#e1dcc8;
+
+//** Disabled dropdown menu item background color.
+@dropdown-link-disabled-color:		@gray-light;
+
+//** Text color for headers within dropdown menus.
+@dropdown-header-color:			@gray-light;
+
+
+//== Badges
+//
+//##
+
+@badge-color:			#382110;
+@badge-bg:			#e1ddc7;
+@badge-border:			#b6b4a1;
+
+
+//== Scrollable Lists
+//
+//##
+
+@scrollable-list-nav-color:		@gray;
+@scrollable-list-nav-border:		transparent;
+@scrollable-list-nav-border-radius:	@border-radius-base;
+@scrollable-list-nav-hover-color:	darken(@gray, 5%);
+@scrollable-list-nav-hover-bg:		@gray-lighter;
+@scrollable-list-nav-disabled-color:	@gray-light;
+
+@scrollable-list-viewport-border:	transparent;
+
+@scrollable-list-item-height:		180px;
+@scrollable-list-item-width:		135px;
+@scrollable-list-item-margin:		19px;
+
+
+//== Media objects
+//
+//##
+
+@media-footer-border:	#ddd;
+
+
+//== Images
+//
+//##
+
+@images-path:			'../images';
+
+@images-latestadditions-image:	"@{images-path}/latestadditionspanel/books-background.jpg";
+@images-latestadditions-x:	0;
+@images-latestadditions-y:	-75px;
+
+
+//== Logo
+//
+//##
+
+@logo-path:			"@{images-path}/logo";
+
+@logo-ebooklibrary-width:	156px;
+@logo-ebooklibrary-height:	34px;
+
+
+//== Icons
+//
+//##
+
+@icons-path:			"@{images-path}/icons";
+
+
+// Breadcrumb icons
+
+@icons-breadcrumb-width:			20px;
+@icons-breadcrumb-height:			20px;
+@icons-breadcrumb-image:			"@{icons-path}/breadcrumb/icons-breadcrumb.png";
+@icons-breadcrumb-base-x:			-26px;
+@icons-breadcrumb-base-y:			-6px;
+@icons-breadcrumb-icon-x-offset:		0;
+@icons-breadcrumb-icon-y-offset:		-22px;
+@icons-breadcrumb-active-x-offset:		24px;
+@icons-breadcrumb-active-y-offset:		0;
+@icons-breadcrumb-disabled-x-offset:		0;
+@icons-breadcrumb-disabled-y-offset:		0;
+
+
+// Toolbar icons
+
+@icons-toolbar-width:				14px;
+@icons-toolbar-height:				14px;
+@icons-toolbar-path:				"@{icons-path}/toolbar";
+@icons-toolbar-base-x:				-1px;
+@icons-toolbar-base-y:				-1px;
+@icons-toolbar-icon-x-offset:			-18px;
+@icons-toolbar-icon-y-offset:			0;
+@icons-toolbar-active-x-offset:			0;
+@icons-toolbar-active-y-offset:			0;
+@icons-toolbar-disabled-x-offset:		0; 
+@icons-toolbar-disabled-y-offset:		-14px;
+
+
+// Fugue icons
+
+@icons-fugue-path:				"@{icons-path}/fugue-icons/icons";
+@icons-fugue-width:				16px;
+@icons-fugue-height:				16px;
+
+
+//== Navbar
+//
+//##
+
+@navbar-default-margin-bottom:		0px;
+
+@navbar-default-color:			#382110;
+@navbar-default-bg:			#c8c6b0;
+//@navbar-default-border:			#b6b4a1;
+@navbar-default-border:			darken(@navbar-default-bg, 5%);
+
+// Navbar links
+//@navbar-default-link-font-size:		@font-size-large;
+//@navbar-default-link-font-size:		@font-size-medium;
+@navbar-default-link-font-size:		15px;
+@navbar-default-link-color:		@gray-medium;
+//@navbar-default-link-color:		@brand-secondary;
+//@navbar-default-link-color:		#777;
+//@navbar-default-link-color:		#660;
+@navbar-default-link-hover-color:	@navbar-default-color;
+@navbar-default-link-hover-bg:		transparent;
+@navbar-default-link-active-color:	@navbar-default-color;
+//@navbar-default-link-active-bg:	darken(@navbar-default-bg, 6.5%);
+@navbar-default-link-active-bg:		transparent;
+@navbar-default-link-disabled-color:	#ccc;
+@navbar-default-link-disabled-bg:	transparent;
+
+// Navbar brand label
+//@navbar-default-brand-color:		@navbar-default-link-color;
+@navbar-default-brand-color:		@brand-primary;
+@navbar-default-brand-hover-color:	darken(@navbar-default-brand-color, 10%);
+@navbar-default-brand-hover-bg:		transparent;
+
+// Navbar dividers
+@navbar-default-divider-width:		26px;
+@navbar-default-divider-height:		50px;
+@navbar-default-divider-image-path:	"@{images-path}/navbar";
+@navbar-default-divider-gray-image:	"@{navbar-default-divider-image-path}/divider-gray.png";
+@navbar-default-divider-green-image:	"@{navbar-default-divider-image-path}/divider-green.png";
+@navbar-default-divider-image:		@navbar-default-divider-gray-image;
+
+// Navbar toggle
+@navbar-default-toggle-bg:			@btn-default-bg;
+@navbar-default-toggle-border-color:		@btn-default-border;
+@navbar-default-toggle-hover-bg:		darken(@navbar-default-toggle-bg, 10%);
+@navbar-default-toggle-hover-border-color:	darken(@navbar-default-toggle-border-color, 12%);
+@navbar-default-toggle-icon-bar-bg:		@navbar-default-link-color;
+@navbar-default-toggle-icon-bar-hover-bg:	@navbar-default-link-hover-color;
+
+// Navbar forms
+@navbar-default-input-border:		@navbar-default-border;
+@navbar-default-input-border-radius:	15px;
+
+
+//== Header
+//
+//##
+
+@header-height:			272px;
+@header-padding-vertical:	19px;
+@header-padding-horizontal:	19px;
+@header-padding:		@header-padding-vertical @header-padding-horizontal;
+
+@header-default-border:		#b6b4a1;
+@header-default-bg:		#e1ddc7;
+@header-default-bg-image-path:	"@{images-path}/header";
+@header-default-bg-image:	"@{header-default-bg-image-path}/books-background.jpg";
+@header-gradient-bg-image:	"@{header-default-bg-image-path}/gradient-background.jpg";
+
+
+//== Footer
+//
+//##
+
+@footer-height:				50px;
+@footer-padding-vertical:		15px;
+@footer-padding-horizontal:		15px;
+@footer-padding:			@footer-padding-vertical @footer-padding-horizontal;
+
+@footer-link-seperator:			"|";
+
+@footer-default-color:			#382110;
+@footer-default-bg:			#c8c6b0;
+@footer-default-border:			darken(@footer-default-bg, 5%);
+//@footer-default-box-shadow:		0 -5px 5px -2px rgba(0, 0, 0, 0.125);
+@footer-default-box-shadow:		0 -3px 5px -2px rgba(0, 0, 0, 0.125);
+@footer-default-gradient-start:		#e1ddc7;
+@footer-default-gradient-end:		#c8c6b0;
+
+@footer-default-link-color:		@gray-medium;
+@footer-default-link-hover-color:	@footer-default-color;
+
+
+//== Navs
+//
+//##
+
+//@nav-default-text:		@gray-dark;
+//@nav-default-bg:		#f5f5f5;
+//@nav-default-border:		#ddd;
+//@nav-default-hover-text:	#333;
+//@nav-default-hover-bg:		#fff;
+//@nav-default-hover-border:	#ccc;
+
+@nav-default-text:		#382110;
+@nav-default-bg:		#c8c6b0;
+@nav-default-border:		darken(@nav-default-bg, 5%);
+@nav-default-hover-text:	#382110;
+@nav-default-hover-bg:		#e1ddc7;
+@nav-default-hover-border:	#b6b4a1;
+
+@nav-primary-text:		#fff;
+@nav-primary-bg:		@brand-primary;
+@nav-primary-border:		@brand-primary;
+@nav-primary-hover-text:	#fff;
+@nav-primary-hover-bg:		@brand-primary;
+@nav-primary-hover-border:	darken(@nav-primary-hover-bg, 5%);
+
+@nav-success-text:		@state-success-text;
+@nav-success-bg:		@state-success-bg;
+@nav-success-border:		@state-success-border;
+@nav-success-hover-text:	#fff;
+@nav-success-hover-bg:		@brand-success;
+@nav-success-hover-border:	darken(@nav-success-hover-bg, 5%);
+
+@nav-info-text:			@state-info-text;
+@nav-info-bg:			@state-info-bg;
+@nav-info-border:		@state-info-border;
+@nav-info-hover-text:		#fff;
+@nav-info-hover-bg:		@brand-info;
+@nav-info-hover-border:		darken(@nav-info-hover-bg, 5%);
+
+@nav-warning-text:		@state-warning-text;
+@nav-warning-bg:		@state-warning-bg;
+@nav-warning-border:		@state-warning-border;
+@nav-warning-hover-text:	#fff;
+@nav-warning-hover-bg:		@brand-warning;
+@nav-warning-hover-border:	darken(@nav-warning-hover-bg, 5%);
+
+@nav-danger-text:		@state-danger-text;
+@nav-danger-bg:			@state-danger-bg;
+@nav-danger-border:		@state-danger-border;
+@nav-danger-hover-text:		#fff;
+@nav-danger-hover-bg:		@brand-danger;
+@nav-danger-hover-border:	darken(@nav-danger-hover-bg, 5%);
+
+
+//== Spinners
+//
+//##
+
+@spinner-color:		rgba(0, 0, 0, 0.75);
+
+@spinner-success-color:		@brand-success;
+@spinner-warning-color:		@brand-warning;
+@spinner-danger-color:		@brand-danger;
+@spinner-info-color:		@brand-info;
+
+
+//== Panels
+//
+//##
+
+@panel-body-padding:			15px;
+@panel-heading-padding-vertical:	10px;
+@panel-heading-padding-horizontal:	15px;
+@panel-heading-padding:			@panel-heading-padding-vertical @panel-heading-padding-horizontal;
+@panel-footer-padding:			@panel-heading-padding;
+
+
+@panel-default-border:		transparent;
+@panel-default-bg:		#f3f1e9;
+@panel-default-text:		#382110;
+
+// Panel heading
+@panel-default-heading-border:			#b6b4a1;
+@panel-default-heading-bg:			#c8c6b0;
+
+// Panel title
+@panel-default-title-font-size:		@font-size-large;
+@panel-default-title-link-color:	@gray-medium;
+@panel-default-title-link-hover-color:	@panel-default-text;
+
+// Panel authors
+@panel-authors-text:			#382110;
+@panel-authors-bg:			#f3f1e9;
+@panel-authors-border:			darken(@panel-authors-bg, 7%);
+@panel-authors-heading-bg:		darken(@panel-authors-bg, 5%);
+@panel-authors-heading-border:		darken(@panel-authors-bg, 10%);
+@panel-authors-heading-link-hover-bg:	darken(@panel-authors-bg, 10%);
+
+// Panel books
+@panel-books-text:			#382110;
+@panel-books-bg:			#f3f1e9;
+@panel-books-heading-bg:		#c8c6b0;
+@panel-books-border:			darken(@panel-books-heading-bg, 5%);
+@panel-books-title-font-size:		@font-size-large;
+@panel-books-heading-line-height:	30px;
+@panel-books-box-shadow:		0 3px 5px -2px rgba(0, 0, 0, 0.125);
+@panel-books-gradient-start:		#c8c6b0;
+@panel-books-gradient-end:		#e1ddc7;
+
+@panel-books-content-list-bg-image-path:	"@{images-path}/panel/books";
+@panel-books-content-list-bg-image:		"@{panel-books-content-list-bg-image-path}/document-mobi.png";
+
+// Panel latest additions
+@panel-latestadditions-text:			@brand-primary;
+@panel-latestadditions-border:			#b6b4a1;
+//@panel-latestadditions-title-font-size:		@font-size-larger;
+@panel-latestadditions-title-font-size:		@font-size-large;
+@panel-latestadditions-heading-line-height:	1.1;
+
+
+//== Wells
+//
+//##
+
+@well-bg:	#f3f1e9;
+@well-border:	darken(@well-bg, 7%);
+
+@well-success-text:		@state-success-text;
+@well-success-bg:		@state-success-bg;
+@well-success-border:		@state-success-border;
+
+@well-info-text:		@state-info-text;
+@well-info-bg:			@state-info-bg;
+@well-info-border:		@state-info-border;
+
+@well-warning-text:		@state-warning-text;
+@well-warning-bg:		@state-warning-bg;
+@well-warning-border:		@state-warning-border;
+
+@well-danger-text:		@state-danger-text;
+@well-danger-bg:		@state-danger-bg;
+@well-danger-border:		@state-danger-border;
+
+// Well header
+@well-header-border:		#b6b4a1;
+
+// Well loading
+@well-loading-text:		rgba(0, 0, 0, 0.75);
+@well-loading-bg:		rgba(0, 0, 0, 0.3);
+@well-loading-border:		darken(@well-loading-bg, 7%);
+
+// Well latest additions
+@well-latestadditions-border:		#b6b4a1;
+@well-latestadditions-thumbnail-width:	135px;
+@well-latestadditions-thumbnail-height:	180px;
+@well-latestadditions-height:		(@well-latestadditions-thumbnail-height + 92px);
+

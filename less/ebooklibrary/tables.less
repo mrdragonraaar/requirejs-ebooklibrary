@@ -1,0 +1,51 @@
+//
+// Tables
+// --------------------------------------------------
+
+
+//
+// Responsive tables (collapsable)
+//
+// Table cells collapse vertically. Only applies <480px.
+
+.table-responsive-collapse {
+	@media screen and (max-width: (@screen-xs-min - 1)) {
+		thead,
+		tbody,
+		tfoot,
+		tr,
+		th,
+		td {
+			display: block;
+			width: 100%;
+		}
+
+		> thead,
+		> tbody,
+		> tfoot {
+			> tr {
+				border-top: 1px solid @table-border-color;
+
+				> th,
+				> td {
+					border-top: none;
+					text-align: left;
+				}
+			}
+		}
+	}
+}
+
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+	> tbody > tr:nth-child(odd) {
+		> th,
+		> td {
+			background-color: @table-bg-accent;
+		}
+	}
+}

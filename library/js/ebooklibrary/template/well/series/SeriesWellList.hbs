@@ -1,0 +1,13 @@
+{{!
+{
+	"name": "SeriesWellList",
+	"description": "Series Well List Template"
+}
+}}
+<ul class="list-default list-series">
+{{#each series}}
+	<li><a href="{{href}}">{{fileInfo.name}}</a></li>
+{{else}}
+	<li>There are no series.</li>
+{{/each}}
+</ul>

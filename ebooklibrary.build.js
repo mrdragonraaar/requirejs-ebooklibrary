@@ -1,7 +1,7 @@
 ({
 	appDir: "./",
-	baseUrl: "js",
-	mainConfigFile: "js/ebooklibrary.js",
+	baseUrl: "library/js",
+	mainConfigFile: "library/js/ebooklibrary.js",
 	modules: [
 		{
 			name: "ebooklibrary"
@@ -11,5 +11,5 @@
 	keepBuildDir: false,
 	optimizeCss: "standard",
 	removeCombined: true,
-	fileExclusionRegExp: /^README.md$|^.git$|^.+\.build\.js$|xcf|originals/
+	fileExclusionRegExp: /^README.md$|^.git$|^.+\.less$|^.+\.build\.js$|xcf|originals/
 })
