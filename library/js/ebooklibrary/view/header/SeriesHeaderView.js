@@ -7,14 +7,10 @@
  */
 define([
     'hbs!ebooklibrary/template/well/series/SeriesWellList',
-    'ebooklibrary/view/panel/series/SeriesPanelView',
-    'ebooklibrary/collection/SeriesCollection',
     'backbone'
 ],
 function(
     SeriesWellListTemplate,
-    SeriesPanelView,
-    SeriesCollection,
     Backbone
 ) {
 	var SeriesHeaderView = Backbone.View.extend({
@@ -30,24 +26,7 @@ function(
 		initialize: function(options) {
 			options = options || {};
 
-			//var seriesCollection = new SeriesCollection([],
-			   //{author: options.author, series: options.series});
-			//seriesCollection.fetch({reset: true});
-
-			//this.series = new SeriesPanelView({collection: seriesCollection});
-			//this.series = new SeriesPanelView({collection: this.collection});
-
 			this.listenTo(this.collection, 'reset', this.renderSeries);
-		},
-
-		/**
-		 * Render the header view.
-		 * @return header view
-		 */
-		render: function() {
-			//this.$el.html(this.series.render().el);
-
-			return this;
 		},
 
 		/**
@@ -57,15 +36,6 @@ function(
 		renderSeries: function(collection) {
 			var seriesWellListTmpl = SeriesWellListTemplate({series: collection.toJSON()});
 			this.$el.html(seriesWellListTmpl);
-		},
-
-		/**
-		 * Remove the header view.
-		 */
-		remove: function() {
-			//this.series.remove();
-
-			Backbone.View.prototype.remove.apply(this);
 		}
 	});
 
