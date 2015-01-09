@@ -7,10 +7,13 @@
 <ul class="panel-content panel-content-details media-list">
 {{#each books}}
 <li class="panel-content-detail media !media-book">
-<a class="thumbnail thumbnail-book" href="{{downloadUrl}}" title="{{fileInfo.name}}"><img class="media-object" src="{{bookInfo.cover}}"/></a>
+<a class="thumbnail thumbnail-book" href="{{downloadUrl}}" title="Download {{fileInfo.name}}"><img class="media-object" src="{{bookInfo.cover}}"/></a>
 <div class="media-body">
 	<h5 class="heading-author" title="{{bookInfo.authorStr}}"><a href="{{seriesHref}}">{{bookInfo.authorStr}}</a></h5>
+<!--
 	<h4 class="heading-title" title="{{bookInfo.title}}"><a href="{{href}}">{{bookInfo.title}}</a></h4>
+-->
+	<h4 class="heading-title" title="{{bookInfo.title}}">{{bookInfo.title}}</h4>
 	<div class="text-book">{{{bookInfo.description}}}</div>
 	<a href="#" class="text-more"></a>
 </div>
