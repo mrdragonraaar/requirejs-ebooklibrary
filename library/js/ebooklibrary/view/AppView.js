@@ -11,9 +11,6 @@ define([
     'ebooklibrary/view/page/HomePageView',
     'ebooklibrary/view/page/BooksPageView',
     'ebooklibrary/view/page/SearchPageView',
-    'ebooklibrary/view/page/BookPageView',
-    'ebooklibrary/view/page/LinksPageView',
-    'ebooklibrary/view/page/TestPageView',
     'backbone'
 ],
 function(
@@ -22,9 +19,6 @@ function(
     HomePageView,
     BooksPageView,
     SearchPageView,
-    BookPageView,
-    LinksPageView,
-    TestPageView,
     Backbone
 ) {
 	var AppView = Backbone.View.extend({
@@ -91,7 +85,6 @@ function(
 		 */
 		showBooksPage: function(author, series) {
 			this.showPageView(new BooksPageView({author: author, series: series}));
-			//this.showPageView(new TestPageView({author: author, series: series}));
 		},
 
 		/**
@@ -100,36 +93,6 @@ function(
 		 */
 		showSearchPage: function(keyword) {
 			this.showPageView(new SearchPageView({search: keyword}));
-		},
-
-		/**
-		 * Show book page.
-		 * @param author author name.
-		 * @param series series name.
-		 * @param book book file name.
-		 */
-		showBookPage: function(author, series, book) {
-			this.setApplicationPageClass('book');
-
-			this.navBar.setBreadcrumb({author: author, series: series});
-			this.navBar.breadcrumbView.setAuthorActive(false);
-			this.navBar.breadcrumbView.setSeriesActive(false);
-
-			this.showPageView(new BookPageView({author: author, series: series, book: book}));
-		},
-
-		/**
-		 * Show links page.
-		 */
-		showLinksPage: function() {
-			this.setApplicationPageClass('links');
-
-			this.navBar.setBreadcrumb({links: ''});
-			this.navBar.searchBoxView.$el.hide();
-
-			this.setPageTitle('Links');
-
-			this.showPageView(new LinksPageView());
 		},
 
 		/**

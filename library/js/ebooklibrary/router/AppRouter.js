@@ -23,8 +23,6 @@ function(
 			'!/books/:author/*series(/)': 'books',
 			'!/search(/)': 'search',
 			'!/search/*search': 'search',
-			'!/book/:author/(*series/):book': 'book',
-			'!/links(/)': 'links',
 			'': 'empty',
 			'*404': 'empty'
 		},
@@ -68,23 +66,6 @@ function(
 		search: function(keyword) {
 			if (!keyword) keyword = '';
 			AppView.showSearchPage(keyword);
-		},
-
-		/**
-		 * Book page route.
-		 * @param author author name.
-		 * @param series series name.
-		 * @param book name.
-		 */
-		book: function(author, series, book) {
-			AppView.showBookPage(author, series, book);
-		},
-
-		/**
-		 * Links page route.
-		 */
-		links: function() {
-			AppView.showLinksPage();
 		}
 	});
 	
