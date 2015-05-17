@@ -5,29 +5,6 @@
 }
 }}
 <li id="letter-all" data-group="letter"><a title="All">All</a></li>
-<li id="letter-a" data-group="letter"><a title="A">A</a></li>
-<li id="letter-b" data-group="letter"><a title="B">B</a></li>
-<li id="letter-c" data-group="letter"><a title="C">C</a></li>
-<li id="letter-d" data-group="letter"><a title="D">D</a></li>
-<li id="letter-e" data-group="letter"><a title="E">E</a></li>
-<li id="letter-f" data-group="letter"><a title="F">F</a></li>
-<li id="letter-g" data-group="letter"><a title="G">G</a></li>
-<li id="letter-h" data-group="letter"><a title="H">H</a></li>
-<li id="letter-i" data-group="letter"><a title="I">I</a></li>
-<li id="letter-j" data-group="letter"><a title="J">J</a></li>
-<li id="letter-k" data-group="letter"><a title="K">K</a></li>
-<li id="letter-l" data-group="letter"><a title="L">L</a></li>
-<li id="letter-m" data-group="letter"><a title="M">M</a></li>
-<li id="letter-n" data-group="letter"><a title="N">N</a></li>
-<li id="letter-o" data-group="letter"><a title="O">O</a></li>
-<li id="letter-p" data-group="letter"><a title="P">P</a></li>
-<li id="letter-q" data-group="letter"><a title="Q">Q</a></li>
-<li id="letter-r" data-group="letter"><a title="R">R</a></li>
-<li id="letter-s" data-group="letter"><a title="S">S</a></li>
-<li id="letter-t" data-group="letter"><a title="T">T</a></li>
-<li id="letter-u" data-group="letter"><a title="U">U</a></li>
-<li id="letter-v" data-group="letter"><a title="V">V</a></li>
-<li id="letter-w" data-group="letter"><a title="W">W</a></li>
-<li id="letter-x" data-group="letter"><a title="X">X</a></li>
-<li id="letter-y" data-group="letter"><a title="Y">Y</a></li>
-<li id="letter-z" data-group="letter"><a title="Z">Z</a></li>
+{{#letters .}}
+<li id="letter-{{lc}}" data-group="letter"><a title="{{uc}}">{{uc}}</a></li>
+{{/letters}}

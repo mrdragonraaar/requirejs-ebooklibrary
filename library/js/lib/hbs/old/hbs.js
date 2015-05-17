@@ -1,5 +1,5 @@
 /**
- * @license Handlebars hbs 2.0.0 - Alex Sexton, but Handlebars has its own licensing junk
+ * @license Handlebars hbs 0.4.0 - Alex Sexton, but Handlebars has it's own licensing junk
  *
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/require-cs for details on the plugin this was based off of
@@ -31,10 +31,9 @@ define([
   var customNameExtension = '@hbs';
   var devStyleDirectory = '/styles/';
   var buildStyleDirectory = '/demo-build/styles/';
-  var helperDirectory = 'templates/helpers/';
-  var i18nDirectory = 'templates/i18n/';
+  var helperDirectory = 'template/helpers/';
+  var i18nDirectory = 'template/i18n/';
   var buildCSSFileName = 'screen.build.css';
-  var onHbsReadMethod = "onHbsRead";
 
   Handlebars.registerHelper('$', function() {
     //placeholder for translation helper
@@ -90,24 +89,18 @@ define([
     };
 
     fetchText = function (url, callback) {
-      var xdm = false;
-      // If url is a fully qualified URL, it might be a cross domain request. Check for that.
-      // IF url is a relative url, it cannot be cross domain.
-      if (url.indexOf('http') != 0 ){
-          xdm = false;
-      }else{
-          var uidx = (url.substr(0,5) === 'https') ? 8 : 7;
-          var hidx = (window.location.href.substr(0,5) === 'https') ? 8 : 7;
-          var dom = url.substr(uidx).split('/').shift();
-          var msie = getIEVersion();
-              xdm = ( dom != window.location.href.substr(hidx).split('/').shift() ) && (msie >= 7);
-      }
+      var uidx = (url.substr(0,5) === 'https') ? 8 : 7;
+      var hidx = (window.location.href.substr(0,5) === 'https') ? 8 : 7;
+      var dom = url.substr(uidx).split('/').shift();
+      var msie = getIEVersion();
+      var xdm = ( dom != window.location.href.substr(hidx).split('/').shift() ) && (msie > -1);
 
+      xdm = (msie >= 7);
       if ( xdm ) {
          var xdr = getXhr(true);
         xdr.open('GET', url);
         xdr.onload = function() {
-          callback(xdr.responseText, url);
+          callback(xdr.responseText);
         };
         xdr.onprogress = function(){};
         xdr.ontimeout = function(){};
@@ -123,7 +116,7 @@ define([
           //Do not explicitly handle errors, those should be
           //visible via console output in the browser.
           if (xhr.readyState === 4) {
-            callback(xhr.responseText, url);
+            callback(xhr.responseText);
           }
         };
         xhr.send(null);
@@ -142,21 +135,21 @@ define([
       var body = fs.readFileSync(path, 'utf8') || '';
       // we need to remove BOM stuff from the file content
       body = body.replace(/^\uFEFF/, '');
-      callback(body, path);
+      callback(body);
     };
   }
   else if (typeof java !== 'undefined' && typeof java.io !== 'undefined') {
     fetchText = function(path, callback) {
-      var fis = new java.io.FileInputStream(path);
-      var streamReader = new java.io.InputStreamReader(fis, "UTF-8");
-      var reader = new java.io.BufferedReader(streamReader);
+      var f = new java.io.File(path);
+      var is = new java.io.FileReader(f);
+      var reader = new java.io.BufferedReader(is);
       var line;
       var text = '';
       while ((line = reader.readLine()) !== null) {
         text += new String(line) + '\n';
       }
       reader.close();
-      callback(text, path);
+      callback(text);
     };
   }
 
@@ -166,7 +159,7 @@ define([
       callback(cache[path]);
     }
     else {
-      fetchText(path, function(data, path){
+      fetchText(path, function(data){
         cache[path] = data;
         callback.call(this, data);
       });
@@ -175,9 +168,6 @@ define([
   var styleList = [];
   var styleMap = {};
   //>>excludeEnd('excludeHbs')
-
-  var config;
-  var filesToRemove = [];
 
   return {
 
@@ -192,27 +182,13 @@ define([
       }
     },
 
-    version: '2.0.0',
+    version: '0.5.0',
 
-    load: function (name, parentRequire, load, _config) {
+    load: function (name, parentRequire, load, config) {
       //>>excludeStart('excludeHbs', pragmas.excludeHbs)
-      config = config || _config;
 
       var compiledName = name + customNameExtension;
-      config.hbs = config.hbs || {};
-      var disableI18n = !(config.hbs.i18n == true); // by default we disable i18n unless config.hbs.i18n is true
-      var disableHelpers = (config.hbs.helpers == false); // be default we enable helpers unless config.hbs.helpers is false
-      var partialsUrl = '';
-      if(config.hbs.partialsUrl) {
-        partialsUrl = config.hbs.partialsUrl;
-        if(!partialsUrl.match(/\/$/)) partialsUrl += '/';
-      }
-
-      // Let redefine default fetchText
-      if(config.hbs.fetchText) {
-          fetchText = config.hbs.fetchText;
-      }
-
+      var disableI18n = (config.hbs && config.hbs.disableI18n);
       var partialDeps = [];
 
       function recursiveNodeSearch( statements, res ) {
@@ -223,8 +199,8 @@ define([
           if ( statement && statement.program && statement.program.statements ) {
             recursiveNodeSearch( statement.program.statements, res );
           }
-          if ( statement && statement.inverse && statement.inverse.statements ) {
-            recursiveNodeSearch( statement.inverse.statements, res );
+          if ( statement && statement.program && statement.program.inverse && statement.program.inverse.statements ) {
+            recursiveNodeSearch( statement.program.inverse.statements, res );
           }
         });
         return res;
@@ -236,7 +212,7 @@ define([
         if ( nodes && nodes.statements ) {
           res = recursiveNodeSearch( nodes.statements, [] );
         }
-        return _.unique(res);
+        return _(res).unique();
       }
 
       // See if the first item is a comment that's json
@@ -251,9 +227,7 @@ define([
               return res;
             }
             catch (e) {
-              return JSON.stringify({
-                description: res
-              });
+              return '{ \'description\' : \'' + statement.comment + '\' }';
             }
           }
         }
@@ -311,34 +285,10 @@ define([
               _(statement.params).forEach(function(param) {
                 if ( _(paramsWithoutParts).contains(param.original)
                   || param instanceof Handlebars.AST.StringNode
-                  || param instanceof Handlebars.AST.NumberNode
+                  || param instanceof Handlebars.AST.IntegerNode
                   || param instanceof Handlebars.AST.BooleanNode
-                  || param instanceof Handlebars.AST.DataNode
-                  || param instanceof Handlebars.AST.SexprNode
                 ) {
                   helpersres.push(statement.id.string);
-
-                  // Look into the params to find subexpressions
-                  if (typeof statement.params !== 'undefined') {
-                      _(statement.params).forEach(function(param) {
-                        if (param.type === 'sexpr' && param.isHelper === true) {
-                          // Found subexpression in params
-                          helpersres.push(param.id.string);
-                        }
-                      });
-                  }
-
-                  // Look in the hash to find sub expressions
-                  if ((statement.hash != null) && (typeof statement.hash !== 'undefined') && (typeof statement.hash.pairs !== 'undefined')) {
-                    _(statement.hash.pairs).forEach(function(pair) {
-                      var pairName = pair[0],
-                          pairValue = pair[1];
-                      if (pairValue.type === 'sexpr' && pairValue.isHelper === true) {
-                        // Found subexpression in hash params
-                        helpersres.push(pairValue.id.string);
-                      }
-                    });
-                  }
                 }
 
                 parts = composeParts( param.parts );
@@ -351,20 +301,6 @@ define([
                   }
                 }
               });
-              if ((statement.hash != null) && (typeof statement.hash !== 'undefined') && (typeof statement.hash.pairs !== 'undefined')) {
-                //Even if it has no regular params, it may be a helper with hash params
-                _(statement.hash.pairs).forEach(function(pair) {
-                  var pairValue = pair[1];
-                  if (pairValue instanceof Handlebars.AST.StringNode
-                    || pairValue instanceof Handlebars.AST.NumberNode
-                    || pairValue instanceof Handlebars.AST.BooleanNode
-                    || pairValue instanceof Handlebars.AST.IdNode
-                    //TODO: Add support for subexpressions here?
-                  ) {
-                    helpersres.push(statement.id.string);
-                  }
-                });
-              }
             }
           }
 
@@ -376,8 +312,8 @@ define([
           // if it's a whole new program
           if ( statement && statement.program && statement.program.statements ) {
             sideways = recursiveVarSearch([statement.mustache],[], '', helpersres)[0] || '';
-            if ( statement.inverse && statement.inverse.statements ) {
-              recursiveVarSearch( statement.inverse.statements, res, prefix + newprefix + (sideways ? (prefix+newprefix) ? '.'+sideways : sideways : ''), helpersres);
+            if ( statement.program.inverse && statement.program.inverse.statements ) {
+              recursiveVarSearch( statement.program.inverse.statements, res, prefix + newprefix + (sideways ? (prefix+newprefix) ? '.'+sideways : sideways : ''), helpersres);
             }
             recursiveVarSearch( statement.program.statements, res, prefix + newprefix + (sideways ? (prefix+newprefix) ? '.'+sideways : sideways : ''), helpersres);
           }
@@ -400,9 +336,7 @@ define([
           'each',
           'if',
           'unless',
-          'with',
-          'log',
-          'lookup'
+          'with'
         ];
 
         return {
@@ -425,39 +359,20 @@ define([
         };
       }
 
-      function cleanPath(path) {
-        var tokens = path.split('/');
-        for(var i=0;i<tokens.length; i++) {
-          if(tokens[i] === '..') {
-            delete tokens[i-1];
-            delete tokens[i];
-          } else if (tokens[i] === '.') {
-            delete tokens[i];
-          }
-        }
-        return tokens.join('/').replace(/\/\/+/g,'/');
-      }
-
       function fetchAndRegister(langMap) {
-          fetchText(path, function(text, path) {
-
-          var readCallback = (config.isBuild && config[onHbsReadMethod]) ? config[onHbsReadMethod]:  function(name,path,text){return text} ;
+        fetchText(path, function(text) {
           // for some reason it doesn't include hbs _first_ when i don't add it here...
-          var nodes = Handlebars.parse( readCallback(name, path, text));
-          var partials = findPartialDeps( nodes );
+          var nodes = Handlebars.parse(text);
+          var deps = findPartialDeps( nodes );
           var meta = getMetaData( nodes );
           var extDeps = getExternalDeps( nodes );
           var vars = extDeps.vars;
           var helps = (extDeps.helpers || []);
+          var depStr = deps.join("', 'hbs!").replace(/_/g, '/');
           var debugOutputStart = '';
           var debugOutputEnd   = '';
           var debugProperties = '';
-          var deps = [];
-          var depStr, helpDepStr, metaObj, head, linkElem;
-          var baseDir = name.substr(0,name.lastIndexOf('/')+1);
-
-          require.config.hbs = require.config.hbs || {};
-          require.config.hbs._partials = require.config.hbs._partials || {};
+          var helpDepStr, metaObj, head, linkElem;
 
           if(meta !== '{}') {
             try {
@@ -467,36 +382,8 @@ define([
             }
           }
 
-          for ( var i in partials ) {
-            if ( partials.hasOwnProperty(i) && typeof partials[i] === 'string') {  // make sure string, because we're iterating over all props
-              var partialReference = partials[i];
-
-              var path;
-              if(partialReference.match(/^(\.|\/)+/)) {
-                // relative path
-                path = cleanPath(baseDir + partialReference)
-              }
-              else {
-                // absolute path relative to config.hbs.partialsUrl if defined
-                path = cleanPath(partialsUrl + partialReference);
-              }
-
-              require.config.hbs._partials[path] = require.config.hbs._partials[path] || [];
-
-              // we can reference a same template with different paths (with absolute or relative)
-              require.config.hbs._partials[path].references = require.config.hbs._partials[path].references || [];
-              require.config.hbs._partials[path].references.push(partialReference);
-
-              require.config.hbs._loadedDeps = require.config.hbs._loadedDeps || {};
-
-              deps[i] = "hbs!"+path;
-            }
-          }
-
-          depStr = deps.join("', '");
-
-          helps = helps.concat((metaObj && metaObj.helpers) ? metaObj.helpers : []);
-          helpDepStr = disableHelpers ?
+          helps = helps.concat(metaObj.helpers || []);
+          helpDepStr = config.hbs && config.hbs.disableHelpers ?
             '' : (function (){
               var i;
               var paths = [];
@@ -512,6 +399,9 @@ define([
               return paths;
             })().join(',');
 
+          if ( depStr ) {
+            depStr = ",'hbs!" + depStr + "'";
+          }
           if ( helpDepStr ) {
             helpDepStr = ',' + helpDepStr;
           }
@@ -576,23 +466,13 @@ define([
           var configHbs = config.hbs || {};
           var options = _.extend(configHbs.compileOptions || {}, { originalKeyFallback: configHbs.originalKeyFallback });
           var prec = precompile( text, mapping, options);
-          var tmplName = "'hbs!" + name + "',";
-
-          if(depStr) depStr = ", '"+depStr+"'";
-
-          var partialReferences = [];
-          if(require.config.hbs._partials[name])
-            partialReferences = require.config.hbs._partials[name].references;
+          var tmplName = config.isBuild ? '' : "'" + name + "',";
 
           text = '/* START_TEMPLATE */\n' +
                  'define('+tmplName+"['hbs','Handlebars'"+depStr+helpDepStr+'], function( hbs, Handlebars ){ \n' +
                    'var t = Handlebars.template(' + prec + ');\n' +
-                   "Handlebars.registerPartial('" + name + "', t);\n";
-
-          for(var i=0; i<partialReferences.length;i++)
-            text += "Handlebars.registerPartial('" + partialReferences[i] + "', t);\n";
-
-          text += debugProperties +
+                   "Handlebars.registerPartial('" + name.replace( /\//g , '_') + "', t);\n" +
+                   debugProperties +
                    'return t;\n' +
                  '});\n' +
                  '/* END_TEMPLATE */\n';
@@ -606,9 +486,15 @@ define([
           //sourceURL trick, so skip it if enabled.
           /*@if (@_jscript) @else @*/
           if (!config.isBuild) {
-            text += '\r\n//# sourceURL=' + path;
+            text += '\r\n//@ sourceURL=' + path;
           }
           /*@end@*/
+
+          for ( var i in deps ) {
+            if ( deps.hasOwnProperty(i) && typeof deps[i] === 'string') {  // make sure string, because we're iterating over all props
+              deps[ i ] = 'hbs!' + deps[ i ].replace(/_/g, '/');
+            }
+          }
 
           if ( !config.isBuild ) {
             require( deps, function (){
@@ -633,10 +519,9 @@ define([
             });
           }
 
-          if ( config.removeCombined && path ) {
-            filesToRemove.push(path);
+          if ( config.removeCombined ) {
+            fs.unlinkSync(path);
           }
-
         });
       }
 
@@ -666,7 +551,7 @@ define([
           // if there's no configuration at all, log a warning and disable i18n for this and subsequent templates
           if(!config.hbs) {
             console.warn('hbs: Error reading ' + langMapPath + ', disabling i18n. Ignore this if you\'re using jam, otherwise check your i18n configuration.\n');
-            config.hbs = {i18n: false, helpers: true};
+            config.hbs = {disableI18n: true};
             fetchAndRegister(false);
           }
           else {
@@ -675,16 +560,6 @@ define([
         }
       }
       //>>excludeEnd('excludeHbs')
-    },
-
-    onLayerEnd: function () {
-      if (config.removeCombined && fs) {
-        filesToRemove.forEach(function (path) {
-          if (fs.existsSync(path)) {
-            fs.unlinkSync(path);
-          }
-        });
-      }
     }
   };
 });
